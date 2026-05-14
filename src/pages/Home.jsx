@@ -26,7 +26,7 @@ function StatItem({ Icon, value, suffix, label, center, index }) {
         'reveal-scale flex flex-col items-center text-center px-5 py-8 rounded-2xl transition-all duration-300 cursor-default group',
         center
           ? 'bg-white shadow-2xl -translate-y-5 border border-slate-100 z-10 relative'
-          : 'hover:bg-white hover:shadow-xl hover:-translate-y-3',
+          : 'bg-white shadow-card border border-slate-100 hover:shadow-xl hover:-translate-y-3',
       ].join(' ')}
       style={{ transitionDelay: `${index * 80}ms` }}
     >
