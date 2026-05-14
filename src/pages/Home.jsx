@@ -273,23 +273,23 @@ function ResearchSection() {
 /* ── Director quote ──────────────────────────────────────── */
 function DirectorQuote() {
   return (
-    <section className="py-20 bg-hero-gradient bg-grid-pattern overflow-hidden">
+    <section className="py-20 bg-slate-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-14 items-center">
           <AnimateOnScroll animation="reveal-left">
             <span className="eyebrow">Leadership</span>
-            <h2 className="section-title-white mb-4">Director's Message</h2>
+            <h2 className="section-title mb-4">Director's Message</h2>
             <div className="divider" />
-            <blockquote className="border-l-4 border-gold pl-6 leading-relaxed text-lg mb-6">
-              <span className="text-yellow-300 font-bold text-xl block mb-3">
+            <blockquote className="border-l-4 border-primary-600 pl-6 leading-relaxed text-lg mb-6 bg-white p-6 rounded-r-lg shadow-sm">
+              <span className="text-slate-900 font-bold text-xl block mb-3">
                 "KICS is on a fast track to become a premier research and advanced technology organization in Pakistan.
               </span>
-              <span className="text-white/80 text-base italic">
+              <span className="text-slate-600 text-base italic">
                 Today, KICS is recognized as one of the leading computer science research centers in the country."
               </span>
             </blockquote>
-            <p className="text-white font-bold">Prof. Dr. Hafiz Shahzad Asif</p>
-            <p className="text-gold text-sm">Director, KICS — UET Lahore</p>
+            <p className="text-slate-900 font-bold">Prof. Dr. Hafiz Shahzad Asif</p>
+            <p className="text-primary-600 text-sm">Director, KICS — UET Lahore</p>
             <Link to="/director-message" className="btn-primary mt-6">Read Full Message</Link>
           </AnimateOnScroll>
 
@@ -300,9 +300,9 @@ function DirectorQuote() {
                 { title: 'Mission', text: 'To conduct high-impact applied research, develop cutting-edge technologies, and forge industry-academia partnerships that drive innovation.' },
                 { title: 'Values', text: 'Integrity, innovation, collaboration, and impact — creating an open culture of curiosity and a relentless pursuit of excellence.' },
               ].map(item => (
-                <div key={item.title} className="card-dark rounded-xl p-5 border border-white/12">
-                  <h4 className="text-gold font-bold font-heading mb-2">{item.title}</h4>
-                  <p className="text-white/70 text-sm leading-relaxed">{item.text}</p>
+                <div key={item.title} className="bg-white rounded-xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="text-primary-600 font-bold font-heading mb-2">{item.title}</h4>
+                  <p className="text-slate-600 text-sm leading-relaxed">{item.text}</p>
                 </div>
               ))}
             </div>
