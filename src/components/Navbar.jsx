@@ -248,96 +248,136 @@ export default function Navbar() {
         </header>
       </div>
 
-      {/* ── Mobile Drawer ── */}
+      {/* ══════════════════════════════════════════
+          GLASS SIDEBAR — Premium mobile drawer
+      ══════════════════════════════════════════ */}
       <div
-        className={`fixed inset-0 z-40 lg:hidden transition-all duration-300 ${mobileOpen ? 'visible' : 'invisible'}`}
+        className={`fixed inset-0 z-[60] lg:hidden transition-all duration-400 ${mobileOpen ? 'visible' : 'invisible'}`}
         aria-hidden={!mobileOpen}
       >
+        {/* Dark blurred overlay */}
         <div
-          className={`absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-300 ${mobileOpen ? 'opacity-100' : 'opacity-0'}`}
+          className={`absolute inset-0 transition-opacity duration-400 ${mobileOpen ? 'opacity-100' : 'opacity-0'}`}
+          style={{ background: 'rgba(0,0,0,0.35)', backdropFilter: 'blur(4px)', WebkitBackdropFilter: 'blur(4px)' }}
           onClick={() => setMobileOpen(false)}
         />
+
+        {/* Sidebar panel */}
         <div
-          className={`absolute right-0 top-0 h-full w-72 shadow-2xl transition-transform duration-300 flex flex-col ${
+          className={`absolute right-0 top-0 h-full flex flex-col transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${
             mobileOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
           style={{
-            background: 'rgba(255,255,255,0.95)',
-            backdropFilter: 'blur(24px)',
-            WebkitBackdropFilter: 'blur(24px)',
-            borderLeft: '1px solid rgba(201,79,58,0.15)',
+            width: '85%',
+            maxWidth: '340px',
+            background: 'rgba(255,255,255,0.72)',
+            backdropFilter: 'blur(28px)',
+            WebkitBackdropFilter: 'blur(28px)',
+            borderLeft: '1px solid rgba(255,255,255,0.35)',
+            boxShadow: '-8px 0 40px rgba(0,0,0,0.12), -2px 0 12px rgba(201,79,58,0.06)',
           }}
         >
+          {/* Decorative glow blobs inside sidebar */}
+          <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full pointer-events-none" style={{ background: 'rgba(201,79,58,0.08)', filter: 'blur(32px)' }} />
+          <div className="absolute bottom-20 -left-10 w-32 h-32 rounded-full pointer-events-none" style={{ background: 'rgba(217,119,6,0.07)', filter: 'blur(28px)' }} />
+
+          {/* ── Header ── */}
           <div
-            className="flex items-center justify-between p-4 border-b"
-            style={{ borderColor: 'rgba(201,79,58,0.12)', background: 'rgba(253,242,240,0.8)' }}
+            className="relative flex items-center justify-between px-5 py-4 flex-shrink-0"
+            style={{ borderBottom: '1px solid rgba(201,79,58,0.10)' }}
           >
-            <Link to="/" className="flex items-center gap-2" onClick={() => setMobileOpen(false)}>
-              <img
-                src="https://kics.edu.pk/web/wp-content/uploads/2018/02/unnamed.png"
-                alt="KICS"
-                width="32"
-                height="32"
-                className="w-8 h-8 object-contain"
-              />
-              <span className="text-primary-900 font-bold text-sm uppercase">KICS</span>
+            <Link to="/" className="flex items-center gap-2.5" onClick={() => setMobileOpen(false)}>
+              <div
+                className="w-9 h-9 rounded-xl flex items-center justify-center overflow-hidden"
+                style={{ background: 'rgba(255,255,255,0.9)', border: '1px solid rgba(201,79,58,0.18)', boxShadow: '0 2px 8px rgba(201,79,58,0.12)' }}
+              >
+                <img
+                  src="https://kics.edu.pk/web/wp-content/uploads/2018/02/unnamed.png"
+                  alt="KICS"
+                  width="28"
+                  height="28"
+                  className="w-7 h-7 object-contain"
+                />
+              </div>
+              <div>
+                <p className="font-bold text-sm leading-none uppercase tracking-wide text-primary-900">KICS</p>
+                <p className="text-[10px] text-slate-500 mt-0.5 uppercase tracking-wider">UET Lahore</p>
+              </div>
             </Link>
             <button
               onClick={() => setMobileOpen(false)}
-              className="w-8 h-8 rounded-lg border border-primary-200 text-primary-700 flex items-center justify-center hover:bg-primary-100 transition-colors"
+              className="w-8 h-8 rounded-xl flex items-center justify-center text-slate-600 hover:text-primary-600 transition-all duration-200"
+              style={{ background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(201,79,58,0.15)' }}
               aria-label="Close navigation"
             >
               <FiX size={16} />
             </button>
           </div>
 
-          <nav className="flex-1 overflow-y-auto py-2">
+          {/* ── Nav links ── */}
+          <nav className="flex-1 overflow-y-auto px-3 py-3">
             {navLinks.map((item) => (
-              <div key={item.label}>
+              <div key={item.label} className="mb-1">
                 {item.children ? (
                   <>
                     <button
-                      onClick={() =>
-                        setExpandedMobile(expandedMobile === item.label ? null : item.label)
+                      onClick={() => setExpandedMobile(expandedMobile === item.label ? null : item.label)}
+                      className={`w-full flex items-center justify-between px-4 py-3.5 rounded-xl text-sm font-semibold transition-all duration-200 ${
+                        expandedMobile === item.label
+                          ? 'text-primary-700'
+                          : 'text-slate-800 hover:text-primary-600'
+                      }`}
+                      style={
+                        expandedMobile === item.label
+                          ? { background: 'rgba(201,79,58,0.08)', borderLeft: '3px solid #c94f3a' }
+                          : { background: 'transparent', borderLeft: '3px solid transparent' }
                       }
-                      className="w-full flex items-center justify-between px-5 py-3 text-slate-700 hover:text-primary-600 hover:bg-primary-50/70 text-sm font-medium transition-colors border-b border-slate-100"
                     >
                       {item.label}
                       <FiChevronDown
                         size={14}
-                        className={`transition-transform duration-200 ${
-                          expandedMobile === item.label ? 'rotate-180 text-primary-600' : ''
-                        }`}
+                        className={`transition-transform duration-200 ${expandedMobile === item.label ? 'rotate-180 text-primary-600' : 'text-slate-400'}`}
                       />
                     </button>
-                    {expandedMobile === item.label &&
-                      item.children.map((child) => (
-                        <NavLink
-                          key={child.label}
-                          to={child.to}
-                          onClick={() => setMobileOpen(false)}
-                          className={({ isActive }) =>
-                            `block pl-9 pr-5 py-2.5 text-sm border-b border-slate-100 transition-colors ${
+                    {expandedMobile === item.label && (
+                      <div className="ml-3 mt-1 mb-1 space-y-0.5">
+                        {item.children.map((child) => (
+                          <NavLink
+                            key={child.label}
+                            to={child.to}
+                            onClick={() => setMobileOpen(false)}
+                            className={({ isActive }) =>
+                              `block px-4 py-2.5 rounded-lg text-sm transition-all duration-200 ${
+                                isActive
+                                  ? 'text-primary-700 font-semibold'
+                                  : 'text-slate-600 hover:text-primary-600'
+                              }`
+                            }
+                            style={({ isActive }) =>
                               isActive
-                                ? 'text-primary-600 bg-primary-50/80 font-semibold'
-                                : 'text-slate-600 hover:text-primary-600 hover:bg-primary-50/60'
-                            }`
-                          }
-                        >
-                          {child.label}
-                        </NavLink>
-                      ))}
+                                ? { background: 'rgba(201,79,58,0.08)', borderLeft: '2px solid #c94f3a' }
+                                : { background: 'rgba(255,255,255,0.4)', borderLeft: '2px solid transparent' }
+                            }
+                          >
+                            {child.label}
+                          </NavLink>
+                        ))}
+                      </div>
+                    )}
                   </>
                 ) : (
                   <NavLink
                     to={item.to}
                     onClick={() => setMobileOpen(false)}
                     className={({ isActive }) =>
-                      `block px-5 py-3 text-sm font-medium border-b border-slate-100 transition-colors ${
-                        isActive
-                          ? 'text-primary-600 bg-primary-50/80 font-semibold'
-                          : 'text-slate-700 hover:text-primary-600 hover:bg-primary-50/60'
+                      `flex items-center px-4 py-3.5 rounded-xl text-sm font-semibold transition-all duration-200 ${
+                        isActive ? 'text-primary-700' : 'text-slate-800 hover:text-primary-600'
                       }`
+                    }
+                    style={({ isActive }) =>
+                      isActive
+                        ? { background: 'rgba(201,79,58,0.08)', borderLeft: '3px solid #c94f3a' }
+                        : { background: 'transparent', borderLeft: '3px solid transparent' }
                     }
                   >
                     {item.label}
@@ -347,14 +387,30 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Mobile Apply Now + contact */}
-          <div className="p-4 border-t space-y-3" style={{ borderColor: 'rgba(201,79,58,0.12)', background: 'rgba(253,242,240,0.8)' }}>
+          {/* ── Bottom CTA + contact ── */}
+          <div
+            className="px-4 pb-6 pt-4 flex-shrink-0 space-y-3"
+            style={{ borderTop: '1px solid rgba(201,79,58,0.10)' }}
+          >
+            {/* Search bar */}
+            <div
+              className="flex items-center gap-2 px-3 py-2.5 rounded-xl"
+              style={{ background: 'rgba(255,255,255,0.6)', border: '1px solid rgba(201,79,58,0.12)' }}
+            >
+              <FiSearch size={14} className="text-slate-400 flex-shrink-0" />
+              <span className="text-slate-400 text-sm">Search KICS...</span>
+            </div>
+
+            {/* Apply Now */}
             <a
               href="https://kics.edu.pk/web/admissions/"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center justify-center text-white text-sm font-bold px-4 py-2.5 rounded-xl w-full"
-              style={{ background: 'linear-gradient(135deg, #8a2818, #c94f3a)', boxShadow: '0 4px 14px rgba(201,79,58,0.3)' }}
+              className="flex items-center justify-center text-white text-sm font-bold py-3 rounded-xl w-full hover:scale-[1.02] transition-all duration-300"
+              style={{
+                background: 'linear-gradient(135deg, #8a2818, #c94f3a, #d97706)',
+                boxShadow: '0 6px 20px rgba(201,79,58,0.38)',
+              }}
             >
               Apply Now
             </a>
