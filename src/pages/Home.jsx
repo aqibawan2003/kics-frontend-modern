@@ -118,8 +118,18 @@ const StatsBar = memo(function StatsBar() {
 /* ── Video Section ────────────────────────────────────────── */
 const VideoSection = memo(function VideoSection() {
   return (
-    <section className="py-16 sm:py-20 bg-gradient-to-br from-slate-50 via-white to-primary-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <section className="relative py-16 sm:py-20 bg-white overflow-hidden">
+      {/* Decorative grid background */}
+      <div className="absolute inset-0 opacity-5" style={{
+        backgroundImage: 'linear-gradient(rgba(37,99,235,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235,0.1) 1px, transparent 1px)',
+        backgroundSize: '50px 50px'
+      }} />
+
+      {/* Floating accent circles */}
+      <div className="absolute top-20 right-10 w-32 h-32 bg-primary-200/20 rounded-full blur-2xl" />
+      <div className="absolute bottom-20 left-10 w-40 h-40 bg-cyan-200/20 rounded-full blur-2xl" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         <AnimateOnScroll>
           <div className="text-center mb-10">
             <span className="eyebrow">Discover KICS</span>
@@ -168,10 +178,18 @@ const AchievementBadges = memo(function AchievementBadges() {
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-r from-primary-900 via-primary-800 to-cyan-900 relative overflow-hidden">
-      <div className="absolute inset-0 bg-dot-pattern opacity-10" />
-      <div className="absolute -top-20 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
-      <div className="absolute -bottom-20 right-1/4 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl" />
+    <section className="relative py-20 bg-gradient-to-br from-primary-900 via-[#0B1633] to-[#071224] overflow-hidden">
+      {/* Wave divider top */}
+      <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
+        <svg className="relative block w-full h-12" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#ffffff"></path>
+        </svg>
+      </div>
+
+      {/* Animated background elements */}
+      <div className="absolute inset-0 bg-dot-pattern opacity-5" />
+      <div className="absolute top-1/4 left-10 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl animate-pulse-slow" />
+      <div className="absolute bottom-1/4 right-10 w-80 h-80 bg-primary-500/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }} />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
         <AnimateOnScroll>
@@ -209,7 +227,9 @@ const aboutItems = [
 
 const AboutStrip = memo(function AboutStrip() {
   return (
-    <section className="py-20 bg-white" id="about">
+    <section className="relative py-24 bg-gradient-to-b from-white via-slate-50 to-white" id="about">
+      {/* Diagonal accent */}
+      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-r from-primary-500/5 to-cyan-500/5 transform -skew-y-2 origin-top-left" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-14 items-center">
           <AnimateOnScroll animation="reveal-left">
@@ -257,7 +277,15 @@ const AboutStrip = memo(function AboutStrip() {
 /* ── Research Section ────────────────────────────────────── */
 const ResearchSection = memo(function ResearchSection() {
   return (
-    <section className="py-20 bg-primary-50" id="research">
+    <section className="relative py-20 bg-gradient-to-br from-primary-50 via-cyan-50/30 to-primary-50" id="research">
+      {/* Curved divider top */}
+      <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
+        <svg className="relative block w-full h-16" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="#ffffff"></path>
+          <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="#ffffff"></path>
+          <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="#ffffff"></path>
+        </svg>
+      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <AnimateOnScroll>
           <div className="text-center mb-12">
@@ -308,14 +336,19 @@ const ResearchSection = memo(function ResearchSection() {
 /* ── Director Quote ──────────────────────────────────────── */
 const DirectorQuote = memo(function DirectorQuote() {
   return (
-    <section className="py-20 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <section className="relative py-20 bg-gradient-to-br from-slate-100 via-white to-slate-100 overflow-hidden">
+      {/* Decorative circles */}
+      <div className="absolute top-10 right-10 w-48 h-48 bg-primary-200/30 rounded-full blur-3xl" />
+      <div className="absolute bottom-10 left-10 w-64 h-64 bg-cyan-200/20 rounded-full blur-3xl" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-14 items-center">
           <AnimateOnScroll animation="reveal-left">
             <span className="eyebrow">Leadership</span>
             <h2 className="section-title mb-4">Director's Message</h2>
             <div className="divider" />
-            <blockquote className="border-l-4 border-primary-500 pl-6 leading-relaxed text-lg mb-6 bg-primary-50 p-6 rounded-r-xl">
+            <blockquote className="relative border-l-8 border-primary-600 pl-6 leading-relaxed text-lg mb-6 bg-gradient-to-r from-primary-50 to-transparent p-6 rounded-r-xl shadow-lg">
+              <div className="absolute -left-3 top-6 w-6 h-6 bg-primary-600 rounded-full" />
               <span className="text-slate-900 font-bold text-xl block mb-3">
                 "KICS is on a fast track to become a premier research and advanced technology organization in Pakistan.
               </span>
@@ -331,13 +364,20 @@ const DirectorQuote = memo(function DirectorQuote() {
           <AnimateOnScroll animation="reveal-right">
             <div className="space-y-4">
               {[
-                { title: 'Vision', text: 'To be a globally recognized center of excellence in computer science research and technology innovation, contributing to national development.' },
-                { title: 'Mission', text: 'To conduct high-impact applied research, develop cutting-edge technologies, and forge industry-academia partnerships that drive innovation.' },
-                { title: 'Values', text: 'Integrity, innovation, collaboration, and impact — creating an open culture of curiosity and a relentless pursuit of excellence.' },
+                { title: 'Vision', text: 'To be a globally recognized center of excellence in computer science research and technology innovation, contributing to national development.', icon: FiTarget, color: 'from-blue-500 to-cyan-500' },
+                { title: 'Mission', text: 'To conduct high-impact applied research, develop cutting-edge technologies, and forge industry-academia partnerships that drive innovation.', icon: FiTrendingUp, color: 'from-purple-500 to-pink-500' },
+                { title: 'Values', text: 'Integrity, innovation, collaboration, and impact — creating an open culture of curiosity and a relentless pursuit of excellence.', icon: FiAward, color: 'from-green-500 to-teal-500' },
               ].map((item) => (
-                <div key={item.title} className="bg-white rounded-xl p-5 border border-primary-100 shadow-card hover:shadow-card-hover transition-shadow">
-                  <h4 className="text-primary-600 font-bold mb-2">{item.title}</h4>
-                  <p className="text-slate-600 text-sm leading-relaxed">{item.text}</p>
+                <div key={item.title} className="group relative bg-white rounded-2xl p-6 border-2 border-primary-100 hover:border-primary-300 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+                  <div className="flex items-start gap-4">
+                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-md`}>
+                      <item.icon size={20} className="text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-primary-600 font-bold mb-2">{item.title}</h4>
+                      <p className="text-slate-600 text-sm leading-relaxed">{item.text}</p>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -353,8 +393,11 @@ const NewsSection = memo(function NewsSection() {
   const featured = newsItems[0];
   const rest = newsItems.slice(1, 4);
   return (
-    <section className="py-20 bg-primary-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <section className="relative py-20 bg-gradient-to-b from-cyan-50 via-primary-50 to-white overflow-hidden">
+      {/* Diagonal accent top */}
+      <div className="absolute top-0 right-0 w-full h-40 bg-gradient-to-l from-cyan-100/50 to-transparent transform skew-y-3 origin-top-right" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         <AnimateOnScroll>
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
             <div>
@@ -362,40 +405,46 @@ const NewsSection = memo(function NewsSection() {
               <h2 className="section-title">News &amp; Events</h2>
               <div className="divider mt-3" />
             </div>
-            <Link to="/news" className="inline-flex items-center gap-2 text-primary-600 font-semibold text-sm hover:text-primary-700 transition-colors">
-              All News <FiArrowRight />
+            <Link to="/news" className="inline-flex items-center gap-2 text-primary-600 font-semibold text-sm hover:text-primary-700 transition-colors group">
+              All News <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
         </AnimateOnScroll>
 
         <div className="grid lg:grid-cols-5 gap-6">
           <AnimateOnScroll animation="reveal-left" className="lg:col-span-3">
-            <Link to="/news" className="card group block h-full">
-              <div className="relative overflow-hidden" style={{ aspectRatio: '16/9' }}>
-                <img
-                  src={featured.image}
-                  alt={featured.title}
-                  width="800"
-                  height="450"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
-                  onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=800&h=450&fit=crop'; }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary-950/60 to-transparent" />
-                <span className="absolute top-4 left-4 badge">{featured.category}</span>
-              </div>
-              <div className="p-6">
-                <span className="text-xs text-primary-600 font-semibold">{featured.date}</span>
-                <h3 className="font-bold text-slate-800 text-xl mt-1 mb-2 group-hover:text-primary-600 transition-colors">{featured.title}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">{featured.excerpt}</p>
+            <Link to="/news" className="group block h-full relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all hover:-translate-y-2">
+              {/* Glowing effect on hover */}
+              <div className="absolute inset-0 bg-gradient-to-r from-primary-500/20 to-cyan-500/20 opacity-0 group-hover:opacity-100 blur-xl transition-opacity" />
+              <div className="relative bg-white rounded-2xl overflow-hidden">
+                <div className="relative overflow-hidden" style={{ aspectRatio: '16/9' }}>
+                  <img
+                    src={featured.image}
+                    alt={featured.title}
+                    width="800"
+                    height="450"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                    onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=800&h=450&fit=crop'; }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary-950/70 to-transparent" />
+                  <span className="absolute top-4 left-4 bg-gradient-to-r from-primary-600 to-cyan-600 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg">{featured.category}</span>
+                </div>
+                <div className="p-6">
+                  <span className="text-xs text-primary-600 font-semibold flex items-center gap-1">
+                    <FiCalendar size={11} /> {featured.date}
+                  </span>
+                  <h3 className="font-bold text-slate-800 text-xl mt-1 mb-2 group-hover:text-primary-600 transition-colors">{featured.title}</h3>
+                  <p className="text-slate-500 text-sm leading-relaxed">{featured.excerpt}</p>
+                </div>
               </div>
             </Link>
           </AnimateOnScroll>
 
           <AnimateOnScroll animation="reveal-right" className="lg:col-span-2 flex flex-col gap-4">
             {rest.map((item, i) => (
-              <Link to="/news" key={i} className="card group flex gap-4 p-4 items-start">
-                <div className="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+              <Link to="/news" key={i} className="group bg-white/80 backdrop-blur-sm rounded-xl flex gap-4 p-4 items-start border-2 border-transparent hover:border-primary-200 hover:bg-white shadow-md hover:shadow-xl transition-all hover:-translate-y-1">
+                <div className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 ring-2 ring-primary-100 group-hover:ring-primary-300 transition-all">
                   <img
                     src={item.image}
                     alt={item.title}
@@ -407,7 +456,9 @@ const NewsSection = memo(function NewsSection() {
                   />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <span className="text-xs text-primary-600 font-semibold">{item.date}</span>
+                  <span className="text-xs text-primary-600 font-semibold flex items-center gap-1">
+                    <FiCalendar size={10} /> {item.date}
+                  </span>
                   <h4 className="font-bold text-slate-800 text-sm mt-0.5 leading-snug group-hover:text-primary-600 transition-colors line-clamp-2">{item.title}</h4>
                   <p className="text-slate-400 text-xs mt-1 line-clamp-2">{item.excerpt}</p>
                 </div>
@@ -423,17 +474,30 @@ const NewsSection = memo(function NewsSection() {
 /* ── Collaborators ───────────────────────────────────────── */
 const CollabSection = memo(function CollabSection() {
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <section className="relative py-16 bg-gradient-to-br from-primary-900 via-[#0B1633] to-primary-900 overflow-hidden">
+      {/* Radial dot pattern */}
+      <div className="absolute inset-0 opacity-5" style={{
+        backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.15) 1.5px, transparent 1.5px)',
+        backgroundSize: '40px 40px'
+      }} />
+
+      {/* Animated blobs */}
+      <div className="absolute top-20 left-20 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl animate-blob" />
+      <div className="absolute bottom-20 right-20 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl animate-blob animation-delay-2000" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         <AnimateOnScroll>
           <div className="text-center mb-10">
-            <span className="eyebrow">Partners &amp; Allies</span>
-            <h2 className="section-title">Our Collaborations</h2>
-            <div className="divider-center mt-3" />
+            <span className="text-cyan-400 font-bold uppercase tracking-[0.3em] text-xs mb-3 block">Partners &amp; Allies</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-3">Trusted By Industry Leaders</h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 to-primary-400 rounded-full mx-auto" />
+            <p className="text-primary-200 text-sm max-w-2xl mx-auto mt-6">
+              Collaborating with global tech giants and government institutions to drive Pakistan's digital future.
+            </p>
           </div>
         </AnimateOnScroll>
         <AnimateOnScroll animation="reveal-scale">
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-6">
             {collaborators.map((c) => (
               <a
                 key={c.name}
@@ -441,19 +505,40 @@ const CollabSection = memo(function CollabSection() {
                 target="_blank"
                 rel="noreferrer"
                 title={c.name}
-                className="bg-white rounded-xl px-6 py-4 flex flex-col items-center justify-center shadow-card border border-primary-100 hover:shadow-card-hover hover:-translate-y-1 hover:border-primary-300 transition-all duration-300 min-w-[120px] group cursor-pointer"
+                className="group relative bg-white/10 backdrop-blur-md rounded-2xl px-8 py-6 flex flex-col items-center justify-center border-2 border-white/20 hover:border-cyan-400/50 hover:bg-white/20 transition-all duration-300 min-w-[140px] cursor-pointer"
               >
-                <img
-                  src={c.logo}
-                  alt={c.name}
-                  width="90"
-                  height="36"
-                  className="max-h-9 max-w-[90px] object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
-                  loading="lazy"
-                  onError={(e) => { e.target.style.display = 'none'; }}
-                />
-                <span className="text-slate-500 text-xs mt-2 font-medium group-hover:text-primary-600 transition-colors">{c.name}</span>
+                {/* Glow effect on hover */}
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-primary-500/20 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity" />
+
+                <div className="relative">
+                  <img
+                    src={c.logo}
+                    alt={c.name}
+                    width="90"
+                    height="36"
+                    className="max-h-10 max-w-[100px] object-contain brightness-0 invert opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+                    loading="lazy"
+                    onError={(e) => { e.target.style.display = 'none'; }}
+                  />
+                  <span className="text-white/60 text-xs mt-3 font-medium group-hover:text-cyan-400 transition-colors block text-center">{c.name}</span>
+                </div>
               </a>
+            ))}
+          </div>
+        </AnimateOnScroll>
+
+        {/* Partnership stats */}
+        <AnimateOnScroll delay={200}>
+          <div className="grid grid-cols-3 gap-6 max-w-3xl mx-auto mt-12 pt-10 border-t border-white/10">
+            {[
+              { value: '50+', label: 'Industry Partners' },
+              { value: '20+', label: 'Countries' },
+              { value: '100+', label: 'Joint Projects' },
+            ].map((stat, i) => (
+              <div key={i} className="text-center">
+                <div className="text-3xl font-bold text-cyan-400 mb-1">{stat.value}</div>
+                <div className="text-white/60 text-xs uppercase tracking-wider">{stat.label}</div>
+              </div>
             ))}
           </div>
         </AnimateOnScroll>
@@ -492,16 +577,20 @@ const UpcomingEvents = memo(function UpcomingEvents() {
   ];
 
   return (
-    <section className="py-16 sm:py-20 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <section className="relative py-20 bg-gradient-to-br from-primary-900 via-primary-800 to-[#0B1633]">
+      {/* Diagonal stripes pattern */}
+      <div className="absolute inset-0 opacity-5" style={{
+        backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.05) 10px, rgba(255,255,255,0.05) 20px)'
+      }} />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         <AnimateOnScroll>
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
             <div>
-              <span className="eyebrow">Don't Miss Out</span>
-              <h2 className="section-title">Upcoming Events</h2>
-              <div className="divider mt-3" />
+              <span className="text-cyan-400 font-bold uppercase tracking-[0.3em] text-xs mb-3 block">Don't Miss Out</span>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-white leading-tight">Upcoming Events</h2>
+              <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 to-primary-400 rounded-full mt-3" />
             </div>
-            <Link to="/conferences" className="inline-flex items-center gap-2 text-primary-600 font-semibold text-sm hover:text-primary-700 transition-colors">
+            <Link to="/conferences" className="inline-flex items-center gap-2 text-cyan-400 font-semibold text-sm hover:text-cyan-300 transition-colors">
               All Events <FiArrowRight />
             </Link>
           </div>
@@ -509,8 +598,8 @@ const UpcomingEvents = memo(function UpcomingEvents() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {events.map((event, i) => (
             <AnimateOnScroll key={i} delay={i * 80}>
-              <div className="card group overflow-hidden hover:shadow-2xl transition-all">
-                <div className={`h-1.5 bg-gradient-to-r ${event.color}`} />
+              <div className="relative group bg-white/95 backdrop-blur-sm rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-cyan-500/20 transition-all duration-300 hover:-translate-y-2">
+                <div className={`h-2 bg-gradient-to-r ${event.color}`} />
                 <div className="p-6">
                   <div className="flex items-start gap-4 mb-4">
                     <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br ${event.color} text-white flex flex-col items-center justify-center shadow-lg flex-shrink-0 group-hover:scale-110 transition-transform`}>
@@ -570,7 +659,10 @@ const TestimonialsSection = memo(function TestimonialsSection() {
   ];
 
   return (
-    <section className="py-16 sm:py-20 bg-white">
+    <section className="relative py-20 bg-gradient-to-b from-slate-50 via-white to-slate-50 overflow-hidden">
+      {/* Large decorative quote mark */}
+      <div className="absolute top-20 left-10 text-[200px] font-serif text-primary-100 leading-none select-none">"</div>
+      <div className="absolute bottom-20 right-10 text-[200px] font-serif text-primary-100 leading-none select-none rotate-180">"</div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <AnimateOnScroll>
           <div className="text-center mb-12">
@@ -585,29 +677,34 @@ const TestimonialsSection = memo(function TestimonialsSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((t, i) => (
             <AnimateOnScroll key={i} delay={i * 100}>
-              <div className="card p-6 text-center hover:shadow-2xl transition-all group">
+              <div className="relative bg-white rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 group border-l-4 border-primary-500">
+                {/* Corner accent */}
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary-100 to-transparent rounded-bl-full" />
+
                 {/* Rating stars */}
-                <div className="flex justify-center gap-1 mb-4">
+                <div className="flex gap-1 mb-5">
                   {[...Array(t.rating)].map((_, idx) => (
-                    <span key={idx} className="text-yellow-400 text-lg">★</span>
+                    <span key={idx} className="text-yellow-400 text-xl">★</span>
                   ))}
                 </div>
 
                 {/* Quote */}
-                <p className="text-slate-600 italic mb-6 text-sm leading-relaxed">
-                  "{t.text}"
+                <p className="text-slate-700 text-base leading-relaxed mb-6 relative z-10">
+                  {t.text}
                 </p>
 
                 {/* Profile */}
-                <div className="flex flex-col items-center">
+                <div className="flex items-center gap-4 border-t border-slate-100 pt-5">
                   <img
                     src={t.image}
                     alt={t.name}
-                    className="w-16 h-16 rounded-full mb-3 border-4 border-primary-100 group-hover:border-primary-300 transition-colors object-cover"
+                    className="w-14 h-14 rounded-full border-3 border-primary-200 group-hover:border-primary-400 transition-colors object-cover flex-shrink-0"
                     onError={(e) => { e.target.src = 'https://ui-avatars.com/api/?name=' + t.name; }}
                   />
-                  <h4 className="font-bold text-slate-900 text-sm">{t.name}</h4>
-                  <p className="text-primary-600 text-xs font-semibold mt-1">{t.role}</p>
+                  <div className="text-left">
+                    <h4 className="font-bold text-slate-900 text-sm">{t.name}</h4>
+                    <p className="text-primary-600 text-xs font-semibold mt-0.5">{t.role}</p>
+                  </div>
                 </div>
               </div>
             </AnimateOnScroll>
@@ -645,14 +742,25 @@ const FeaturedProjects = memo(function FeaturedProjects() {
   ];
 
   return (
-    <section className="py-16 sm:py-20 bg-gradient-to-br from-primary-50 to-cyan-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <section className="relative py-20 sm:py-24 bg-gradient-to-br from-[#0B1633] via-primary-900 to-[#071224] overflow-hidden">
+      {/* Glowing orbs */}
+      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse-slow" />
+      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1.5s' }} />
+
+      {/* Dot pattern overlay */}
+      <div className="absolute inset-0 opacity-10" style={{
+        backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px)',
+        backgroundSize: '30px 30px'
+      }} />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         <AnimateOnScroll>
           <div className="text-center mb-12">
-            <span className="eyebrow">Innovation Hub</span>
-            <h2 className="section-title">Featured Student Projects</h2>
-            <div className="divider-center mt-3" />
-            <p className="text-slate-600 text-sm max-w-2xl mx-auto mt-4">
+            <span className="text-cyan-400 font-bold uppercase tracking-[0.3em] text-xs mb-3 block">Innovation Hub</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-3 leading-tight">
+              Featured Student Projects
+            </h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 via-primary-400 to-cyan-400 rounded-full mx-auto" />
+            <p className="text-primary-200 text-sm max-w-2xl mx-auto mt-6">
               Showcasing groundbreaking innovations from KICS labs and incubation center.
             </p>
           </div>
@@ -660,30 +768,34 @@ const FeaturedProjects = memo(function FeaturedProjects() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {projects.map((project, i) => (
             <AnimateOnScroll key={i} delay={i * 80}>
-              <div className="card group overflow-hidden hover:shadow-2xl transition-all">
-                <div className="relative h-56 overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    loading="lazy"
-                    onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&h=400&fit=crop'; }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary-900/80 to-transparent" />
-                  <div className="absolute top-4 left-4">
-                    <span className="badge bg-green-500 text-white text-[10px] border-none">
-                      <FiAward size={10} className="inline mr-1" /> {project.award}
-                    </span>
+              <div className="group relative overflow-hidden rounded-2xl hover:shadow-2xl hover:shadow-cyan-500/20 transition-all duration-500 hover:-translate-y-2">
+                {/* Glowing border effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/50 to-primary-500/50 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
+                <div className="relative">
+                  <div className="relative h-56 overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-2 transition-all duration-700"
+                      loading="lazy"
+                      onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&h=400&fit=crop'; }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#071224] via-primary-900/50 to-transparent" />
+                    <div className="absolute top-4 left-4">
+                      <span className="bg-gradient-to-r from-green-500 to-emerald-600 text-white text-[10px] font-bold px-3 py-1.5 rounded-full border border-white/20 shadow-lg backdrop-blur-sm">
+                        <FiAward size={10} className="inline mr-1" /> {project.award}
+                      </span>
+                    </div>
                   </div>
-                </div>
-                <div className="p-6">
-                  <span className="text-xs text-primary-600 font-bold uppercase tracking-wide">{project.category}</span>
-                  <h3 className="font-bold text-slate-900 text-base mt-2 mb-2 group-hover:text-primary-600 transition-colors leading-snug">{project.title}</h3>
-                  <p className="text-slate-600 text-sm mb-4 leading-relaxed">{project.description}</p>
-                  <div className="flex items-center gap-2 text-primary-600 text-xs font-semibold group-hover:text-primary-700 transition-colors cursor-pointer">
-                    <FiTarget size={12} />
-                    <span>View Details</span>
-                    <FiArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
+                  <div className="relative bg-white/95 backdrop-blur-sm p-6">
+                    <span className="text-xs text-cyan-600 font-bold uppercase tracking-wider">{project.category}</span>
+                    <h3 className="font-bold text-slate-900 text-base mt-2 mb-2 group-hover:text-cyan-600 transition-colors leading-snug">{project.title}</h3>
+                    <p className="text-slate-600 text-sm mb-4 leading-relaxed">{project.description}</p>
+                    <div className="flex items-center gap-2 text-cyan-600 text-xs font-semibold group-hover:text-cyan-700 transition-colors cursor-pointer">
+                      <FiTarget size={12} />
+                      <span>View Details</span>
+                      <FiArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -731,8 +843,14 @@ const CampusGallery = memo(function CampusGallery() {
   ];
 
   return (
-    <section className="py-16 sm:py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <section className="relative py-16 sm:py-20 bg-gradient-to-b from-white via-slate-50 to-white overflow-hidden">
+      {/* Grid pattern background */}
+      <div className="absolute inset-0 opacity-[0.02]" style={{
+        backgroundImage: 'linear-gradient(rgba(37,99,235,1) 1.5px, transparent 1.5px), linear-gradient(90deg, rgba(37,99,235,1) 1.5px, transparent 1.5px)',
+        backgroundSize: '60px 60px'
+      }} />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         <AnimateOnScroll>
           <div className="text-center mb-12">
             <span className="eyebrow">Campus Life</span>
@@ -746,18 +864,28 @@ const CampusGallery = memo(function CampusGallery() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6">
           {photos.map((photo, i) => (
             <AnimateOnScroll key={i} delay={i * 60}>
-              <div className="relative group overflow-hidden rounded-xl aspect-[4/3] cursor-pointer shadow-md hover:shadow-2xl transition-all">
+              <div className="group relative overflow-hidden rounded-2xl cursor-pointer border-4 border-white shadow-xl hover:shadow-2xl hover:border-primary-200 transition-all duration-300 hover:-translate-y-2" style={{ aspectRatio: '4/3' }}>
                 <img
                   src={photo.url}
                   alt={photo.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-2 transition-all duration-700"
                   loading="lazy"
                   onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=600&fit=crop'; }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary-900/90 via-primary-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                    <h4 className="font-bold text-sm mb-1">{photo.title}</h4>
-                    <p className="text-xs text-white/90">{photo.description}</p>
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-primary-900 via-primary-900/60 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300" />
+
+                {/* Corner accent */}
+                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-cyan-500/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                {/* Content */}
+                <div className="absolute inset-0 p-5 flex flex-col justify-end">
+                  <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-8 h-0.5 bg-cyan-400 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+                      <h4 className="font-bold text-white text-sm">{photo.title}</h4>
+                    </div>
+                    <p className="text-xs text-white/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">{photo.description}</p>
                   </div>
                 </div>
               </div>
@@ -779,13 +907,27 @@ const CampusGallery = memo(function CampusGallery() {
 /* ── Interactive Map & Contact ────────────────────────────── */
 const MapSection = memo(function MapSection() {
   return (
-    <section className="py-16 sm:py-20 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <section className="relative py-16 sm:py-20 bg-gradient-to-b from-slate-50 via-white to-slate-100 overflow-hidden">
+      {/* Decorative wave divider top */}
+      <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
+        <svg className="relative block w-full h-16" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" fill="#0f172a" fillOpacity="0.05"></path>
+        </svg>
+      </div>
+
+      {/* Floating circles */}
+      <div className="absolute top-40 right-20 w-40 h-40 bg-primary-200/20 rounded-full blur-3xl" />
+      <div className="absolute bottom-40 left-20 w-56 h-56 bg-cyan-200/20 rounded-full blur-3xl" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         <AnimateOnScroll>
           <div className="text-center mb-12">
             <span className="eyebrow">Visit Us</span>
             <h2 className="section-title">Find KICS</h2>
             <div className="divider-center mt-3" />
+            <p className="text-slate-600 text-sm max-w-2xl mx-auto mt-4">
+              Located at the heart of UET Lahore, one of Pakistan's leading engineering universities.
+            </p>
           </div>
         </AnimateOnScroll>
 
@@ -794,16 +936,20 @@ const MapSection = memo(function MapSection() {
           <AnimateOnScroll animation="reveal-left">
             <div className="space-y-6">
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-6">Get in Touch</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                  <div className="w-1 h-8 bg-gradient-to-b from-primary-600 to-cyan-600 rounded-full" />
+                  Get in Touch
+                </h3>
 
                 {/* Address */}
-                <div className="card p-6 mb-4 hover:shadow-lg transition-all group">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-600 to-primary-700 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                      <FiMapPin size={20} className="text-white" />
+                <div className="group relative bg-white rounded-2xl p-6 mb-4 border-2 border-primary-100 hover:border-primary-300 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-1">
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-primary-50 to-transparent rounded-bl-full" />
+                  <div className="relative flex items-start gap-4">
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-600 to-primary-700 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg">
+                      <FiMapPin size={22} className="text-white" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-slate-900 mb-1">Address</h4>
+                      <h4 className="font-bold text-slate-900 mb-2">Address</h4>
                       <p className="text-slate-600 text-sm leading-relaxed">
                         Al-Khwarizmi Institute of Computer Science (KICS)<br />
                         University of Engineering & Technology<br />
@@ -815,14 +961,15 @@ const MapSection = memo(function MapSection() {
                 </div>
 
                 {/* Phone */}
-                <div className="card p-6 mb-4 hover:shadow-lg transition-all group">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-600 to-cyan-700 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                      <FiPhone size={20} className="text-white" />
+                <div className="group relative bg-white rounded-2xl p-6 mb-4 border-2 border-cyan-100 hover:border-cyan-300 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-1">
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-cyan-50 to-transparent rounded-bl-full" />
+                  <div className="relative flex items-start gap-4">
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-600 to-cyan-700 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg">
+                      <FiPhone size={22} className="text-white" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-slate-900 mb-1">Phone</h4>
-                      <a href="tel:+924299029450" className="text-primary-600 hover:text-primary-700 font-semibold transition-colors">
+                      <h4 className="font-bold text-slate-900 mb-2">Phone</h4>
+                      <a href="tel:+924299029450" className="text-primary-600 hover:text-primary-700 font-bold text-lg transition-colors">
                         +92 42 99029450
                       </a>
                       <p className="text-slate-500 text-xs mt-1">Mon - Fri, 9:00 AM - 5:00 PM</p>
@@ -831,14 +978,15 @@ const MapSection = memo(function MapSection() {
                 </div>
 
                 {/* Email */}
-                <div className="card p-6 hover:shadow-lg transition-all group">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600 to-purple-700 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                      <FiMail size={20} className="text-white" />
+                <div className="group relative bg-white rounded-2xl p-6 border-2 border-purple-100 hover:border-purple-300 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-1">
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-purple-50 to-transparent rounded-bl-full" />
+                  <div className="relative flex items-start gap-4">
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-600 to-purple-700 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg">
+                      <FiMail size={22} className="text-white" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-slate-900 mb-1">Email</h4>
-                      <a href="mailto:info@kics.edu.pk" className="text-primary-600 hover:text-primary-700 font-semibold transition-colors">
+                      <h4 className="font-bold text-slate-900 mb-2">Email</h4>
+                      <a href="mailto:info@kics.edu.pk" className="text-primary-600 hover:text-primary-700 font-bold text-lg transition-colors">
                         info@kics.edu.pk
                       </a>
                       <p className="text-slate-500 text-xs mt-1">We'll respond within 24 hours</p>
@@ -848,22 +996,22 @@ const MapSection = memo(function MapSection() {
               </div>
 
               {/* Quick Links */}
-              <div className="bg-primary-50 rounded-2xl p-6 border border-primary-100">
+              <div className="bg-gradient-to-br from-primary-50 to-cyan-50 rounded-2xl p-6 border-2 border-primary-100 shadow-lg">
                 <h4 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
                   <FiNavigation size={16} className="text-primary-600" />
                   Quick Actions
                 </h4>
                 <div className="grid grid-cols-2 gap-3">
-                  <Link to="/contact" className="btn-outline text-xs justify-center">
+                  <Link to="/contact" className="btn-outline text-xs justify-center hover:bg-primary-600 hover:text-white hover:border-primary-600">
                     Contact Form
                   </Link>
-                  <Link to="/jobs" className="btn-outline text-xs justify-center">
+                  <Link to="/jobs" className="btn-outline text-xs justify-center hover:bg-primary-600 hover:text-white hover:border-primary-600">
                     Career Portal
                   </Link>
-                  <Link to="/e-rozgaar" className="btn-outline text-xs justify-center">
+                  <Link to="/e-rozgaar" className="btn-outline text-xs justify-center hover:bg-primary-600 hover:text-white hover:border-primary-600">
                     Apply Now
                   </Link>
-                  <Link to="/conferences" className="btn-outline text-xs justify-center">
+                  <Link to="/conferences" className="btn-outline text-xs justify-center hover:bg-primary-600 hover:text-white hover:border-primary-600">
                     Events
                   </Link>
                 </div>
@@ -874,7 +1022,7 @@ const MapSection = memo(function MapSection() {
           {/* Google Map */}
           <AnimateOnScroll animation="reveal-right">
             <div className="relative">
-              <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-white" style={{ height: '500px' }}>
+              <div className="rounded-2xl overflow-hidden shadow-2xl border-8 border-white ring-4 ring-primary-100" style={{ height: '500px' }}>
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3398.8528753749445!2d74.35353831511826!3d31.578933981326868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39191b5e9e8f48ed%3A0x5e8f8e8f8e8f8e8f!2sUniversity%20of%20Engineering%20and%20Technology%2C%20Lahore!5e0!3m2!1sen!2s!4v1234567890"
                   width="100%"
@@ -888,12 +1036,12 @@ const MapSection = memo(function MapSection() {
               </div>
 
               {/* Floating badge on map */}
-              <div className="absolute top-4 left-4 bg-white rounded-xl shadow-lg px-4 py-3 flex items-center gap-3 border border-primary-100">
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary-600 to-cyan-600 flex items-center justify-center">
-                  <FiMapPin size={18} className="text-white" />
+              <div className="absolute top-6 left-6 bg-white rounded-2xl shadow-2xl px-5 py-4 flex items-center gap-3 border-2 border-primary-200 backdrop-blur-sm">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-600 to-cyan-600 flex items-center justify-center shadow-lg animate-pulse-slow">
+                  <FiMapPin size={20} className="text-white" />
                 </div>
                 <div>
-                  <p className="font-bold text-slate-900 text-sm">KICS, UET Lahore</p>
+                  <p className="font-bold text-slate-900 text-base">KICS, UET Lahore</p>
                   <p className="text-slate-500 text-xs">Punjab, Pakistan</p>
                 </div>
               </div>
@@ -905,37 +1053,90 @@ const MapSection = memo(function MapSection() {
   );
 });
 
-/* ── CTA Banner — Waseda-style: dark green with pattern ──── */
+/* ── CTA Banner — WOW Section with premium effects ──── */
 const CTABanner = memo(function CTABanner() {
   return (
-    <section className="py-16 bg-primary-900 relative overflow-hidden">
-      <div className="absolute inset-0 bg-dot-pattern opacity-20 pointer-events-none" />
-      <div className="absolute -top-20 -right-20 w-80 h-80 bg-primary-600/20 rounded-full blur-3xl pointer-events-none" />
-      <div className="relative max-w-3xl mx-auto px-4 sm:px-6 text-center">
+    <section className="relative py-24 bg-gradient-to-br from-[#0a1628] via-primary-900 to-[#071224] overflow-hidden">
+      {/* Animated gradient orbs */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-r from-cyan-500/30 to-primary-500/30 rounded-full blur-3xl animate-blob" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-r from-primary-500/30 to-purple-500/30 rounded-full blur-3xl animate-blob animation-delay-2000" />
+      <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-gradient-to-r from-pink-500/20 to-cyan-500/20 rounded-full blur-3xl animate-blob animation-delay-4000" />
+
+      {/* Radial dot grid overlay */}
+      <div className="absolute inset-0 opacity-10" style={{
+        backgroundImage: 'radial-gradient(circle at center, rgba(6,182,212,0.3) 1px, transparent 1px)',
+        backgroundSize: '50px 50px'
+      }} />
+
+      {/* Diagonal light beams */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white via-transparent to-transparent transform rotate-12" />
+      </div>
+
+      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
         <AnimateOnScroll animation="reveal-scale">
-          <span className="text-primary-300 font-semibold uppercase tracking-[0.2em] text-xs mb-3 block">Join KICS</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Ready to Innovate Together?
+          {/* Floating badge */}
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 mb-6 shadow-xl">
+            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+            <span className="text-white/90 font-semibold text-xs uppercase tracking-wider">Join KICS Today</span>
+          </div>
+
+          {/* Main heading with gradient */}
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-200 to-primary-200 animate-gradient">
+              Ready to Innovate Together?
+            </span>
           </h2>
-          <p className="text-white/75 mb-8 text-base sm:text-lg">
+
+          {/* Description */}
+          <p className="text-white/80 mb-10 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
             Whether you are a researcher, student, or industry partner — KICS offers the environment
-            and resources to turn bold ideas into impactful technology.
+            and resources to turn <span className="text-cyan-400 font-semibold">bold ideas</span> into <span className="text-cyan-400 font-semibold">impactful technology</span>.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+
+          {/* CTA Buttons with glow effects */}
+          <div className="flex flex-wrap justify-center gap-5 mb-12">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-400 text-white font-semibold px-7 py-3 rounded-full transition-all duration-200 shadow-lg text-sm"
+              className="group relative inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-primary-600 text-white font-bold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-cyan-500/50 text-base"
             >
-              Get in Touch
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-primary-500 rounded-full opacity-0 group-hover:opacity-100 blur-xl transition-opacity" />
+              <span className="relative">Get in Touch</span>
+              <FiArrowRight className="relative group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               to="/jobs"
-              className="inline-flex items-center gap-2 border-2 border-white/60 text-white font-semibold px-7 py-3 rounded-full text-sm transition-all duration-200 hover:bg-white/10 hover:border-white"
+              className="group relative inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border-2 border-white/30 text-white font-bold px-8 py-4 rounded-full text-base transition-all duration-300 hover:bg-white/20 hover:border-white hover:scale-105 shadow-xl"
             >
-              View Open Positions
+              <span>View Open Positions</span>
+              <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
+
+          {/* Stats row */}
+          <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto pt-10 border-t border-white/10">
+            {[
+              { icon: FiUsers, value: '1000+', label: 'Professionals Trained' },
+              { icon: FiAward, value: '500+', label: 'Research Papers' },
+              { icon: FiGlobe, value: '50+', label: 'Global Partners' },
+            ].map((stat, i) => (
+              <div key={i} className="group">
+                <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-br from-cyan-500/20 to-primary-500/20 border border-white/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <stat.icon size={20} className="text-cyan-400" />
+                </div>
+                <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
+                <div className="text-white/60 text-xs uppercase tracking-wider">{stat.label}</div>
+              </div>
+            ))}
+          </div>
         </AnimateOnScroll>
+      </div>
+
+      {/* Bottom wave divider */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none rotate-180">
+        <svg className="relative block w-full h-20" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" fill="#ffffff"></path>
+        </svg>
       </div>
     </section>
   );
