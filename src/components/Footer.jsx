@@ -7,8 +7,6 @@ import {
   FaInstagram,
   FaYoutube,
 } from 'react-icons/fa';
-import WaveDivider from './WaveDivider';
-
 const footerCols = [
   {
     heading: 'Quick Links',
@@ -46,10 +44,7 @@ export default function Footer() {
 
   return (
     <>
-      {/* Wave divider */}
-      <WaveDivider color="light-brown" />
-
-      <footer className="bg-accent-400 text-white relative">
+      <footer className="bg-primary-800 text-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-12 pb-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
             {/* Brand */}
