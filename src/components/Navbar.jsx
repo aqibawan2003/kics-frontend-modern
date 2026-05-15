@@ -220,10 +220,8 @@ export default function Navbar() {
                 </button>
 
                 {/* Apply Now CTA */}
-                <a
-                  href="https://kics.edu.pk/web/admissions/"
-                  target="_blank"
-                  rel="noreferrer"
+                <Link
+                  to="/e-rozgaar"
                   className="hidden md:flex items-center text-white text-xs font-bold px-4 py-2 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg whitespace-nowrap"
                   style={{
                     background: 'linear-gradient(135deg, #1d4ed8, #2563eb, #06b6d4)',
@@ -231,7 +229,7 @@ export default function Navbar() {
                   }}
                 >
                   Apply Now
-                </a>
+                </Link>
 
                 {/* Mobile hamburger */}
                 <button
@@ -409,10 +407,9 @@ export default function Navbar() {
             </button>
 
             {/* Apply Now */}
-            <a
-              href="https://kics.edu.pk/web/admissions/"
-              target="_blank"
-              rel="noreferrer"
+            <Link
+              to="/e-rozgaar"
+              onClick={() => setMobileOpen(false)}
               className="flex items-center justify-center text-white text-sm font-bold py-3 rounded-xl w-full hover:scale-[1.02] transition-all duration-300"
               style={{
                 background: 'linear-gradient(135deg, #1d4ed8, #2563eb, #06b6d4)',
@@ -420,7 +417,7 @@ export default function Navbar() {
               }}
             >
               Apply Now
-            </a>
+            </Link>
             <div className="text-xs text-slate-500 space-y-1">
               <p className="flex items-center gap-1.5"><FiPhone size={10} /> +92 42 99029450</p>
               <p className="flex items-center gap-1.5"><FiMail size={10} /> info@kics.edu.pk</p>
