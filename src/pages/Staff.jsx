@@ -63,7 +63,7 @@ export default function Staff() {
             {visible.map((person, i) => (
               <AnimateOnScroll key={person.name} delay={i * 50}>
                 <div className="card p-5 group text-center h-full flex flex-col">
-                  <div className="w-20 h-20 rounded-full bg-hero-gradient mx-auto mb-4 flex items-center justify-center text-3xl shadow-md group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-20 h-20 rounded-full bg-primary-700 mx-auto mb-4 flex items-center justify-center text-3xl shadow-md group-hover:scale-110 transition-transform duration-300">
                     👤
                   </div>
                   <h3 className="font-heading font-bold text-navy text-sm mb-0.5 group-hover:text-gold transition-colors">{person.name}</h3>

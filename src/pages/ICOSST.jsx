@@ -115,7 +115,7 @@ export default function ICOSST() {
             {editions.map((ed, i) => (
               <AnimateOnScroll key={i} delay={i * 80}>
                 <div className="card p-6 group text-center">
-                  <div className="w-16 h-16 rounded-full bg-hero-gradient mx-auto mb-4 flex items-center justify-center">
+                  <div className="w-16 h-16 rounded-full bg-primary-700 mx-auto mb-4 flex items-center justify-center">
                     <FiAward size={24} className="text-gold" />
                   </div>
                   <h3 className="font-heading font-bold text-navy text-xl mb-1">{ed.num} ICOSST</h3>

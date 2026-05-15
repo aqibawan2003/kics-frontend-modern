@@ -53,14 +53,14 @@ export default function Services() {
       </section>
 
       {/* ERP highlight */}
-      <section className="py-16 bg-hero-gradient bg-dot-pattern">
+      <section className="py-16 bg-primary-900 bg-dot-pattern">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <AnimateOnScroll animation="reveal-left">
-              <span className="eyebrow">Flagship Product</span>
+              <span className="text-primary-300 font-semibold uppercase tracking-[0.2em] text-xs mb-3 block">Flagship Product</span>
               <h2 className="section-title-white mb-4">Campus Solution 360</h2>
               <div className="divider" />
-              <p className="text-white/70 leading-relaxed mb-6">
+              <p className="text-primary-100 leading-relaxed mb-6">
                 Campus Solution 360 is KICS's comprehensive university management ERP system,
                 designed and developed for higher-education institutions across Pakistan.
                 It covers student information management, HR, finance, library, hostel, and more.
@@ -68,7 +68,7 @@ export default function Services() {
               <ul className="space-y-3 mb-8">
                 {['Student Information System', 'Human Resources & Payroll', 'Financial Management',
                   'Library Management System', 'Examination & Results', 'Online Admission Portal'].map(f => (
-                  <li key={f} className="flex items-center gap-3 text-white/80 text-sm">
+                  <li key={f} className="flex items-center gap-3 text-primary-100 text-sm">
                     <span className="w-5 h-5 rounded-full bg-gold flex items-center justify-center flex-shrink-0">
                       <FiCheck size={11} className="text-white" />
                     </span>

@@ -11,7 +11,7 @@ function JobCard({ job, index }) {
     <AnimateOnScroll delay={index * 60}>
       <div className="card overflow-hidden">
         <button className="w-full flex items-start sm:items-center gap-4 p-6 text-left group" onClick={() => setOpen(!open)}>
-          <div className="w-12 h-12 rounded-xl bg-hero-gradient flex items-center justify-center flex-shrink-0">
+          <div className="w-12 h-12 rounded-xl bg-primary-700 flex items-center justify-center flex-shrink-0">
             <FiBriefcase size={20} className="text-white" />
           </div>
           <div className="flex-1 min-w-0">

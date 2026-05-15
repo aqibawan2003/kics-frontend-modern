@@ -23,14 +23,14 @@ export default function Conferences() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <AnimateOnScroll>
-            <div className="bg-hero-gradient rounded-2xl overflow-hidden shadow-xl">
+            <div className="bg-primary-900 rounded-2xl overflow-hidden shadow-xl">
               <div className="grid lg:grid-cols-2">
                 <div className="p-8 lg:p-12">
                   <span className="badge mb-4 inline-block">Flagship Conference</span>
-                  <h2 className="text-3xl font-heading font-bold text-white mb-4 leading-tight">
+                  <h2 className="text-3xl font-heading font-bold text-primary-50 mb-4 leading-tight">
                     International Conference on Open Source Systems &amp; Technologies
                   </h2>
-                  <p className="text-white/70 text-base leading-relaxed mb-6">
+                  <p className="text-primary-100 text-base leading-relaxed mb-6">
                     ICOSST is KICS's premier annual international conference, bringing together researchers,
                     practitioners, and policymakers to share advances in open-source systems,
                     software, AI, cybersecurity, cloud computing, and more. Co-organized with the

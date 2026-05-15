@@ -109,13 +109,13 @@ export default function News() {
       </section>
 
       {/* Media placeholder */}
-      <section className="py-16 bg-hero-gradient bg-dot-pattern" id="media">
+      <section className="py-16 bg-primary-900 bg-dot-pattern" id="media">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <AnimateOnScroll animation="reveal-scale">
-            <span className="eyebrow">Media</span>
+            <span className="text-primary-300 font-semibold uppercase tracking-[0.2em] text-xs mb-3 block">Media</span>
             <h2 className="section-title-white mb-4">Photo &amp; Video Gallery</h2>
             <div className="divider-center" />
-            <p className="text-white/65 mb-8">
+            <p className="text-primary-100 mb-8">
               Browse photos and videos from KICS events, conferences, workshops, and research activities.
             </p>
             <a href="https://facebook.com/kics.official" target="_blank" rel="noreferrer" className="btn-primary">
