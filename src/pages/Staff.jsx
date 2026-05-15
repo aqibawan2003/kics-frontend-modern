@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import PageHero from '../components/PageHero';
 import AnimateOnScroll from '../components/AnimateOnScroll';
+import SEO from '../components/SEO';
 import { staffMembers } from '../data/siteData';
 import { FiMail, FiSearch } from 'react-icons/fi';
 
@@ -18,6 +19,11 @@ export default function Staff() {
 
   return (
     <div>
+      <SEO
+        title="Our Staff"
+        description="Meet the researchers, engineers, and professionals at KICS UET Lahore — the team driving innovation in AI, cybersecurity and enterprise software."
+        breadcrumbs={[{ label: 'About', url: '/about' }, { label: 'Staff', url: '/staff' }]}
+      />
       <PageHero
         title="Our Staff"
         subtitle="Meet the dedicated researchers, engineers, and professionals who make KICS a center of excellence."
@@ -75,7 +81,7 @@ export default function Staff() {
 
           {visible.length === 0 && (
             <div className="text-center py-16 text-slate-400">
-              <p className="text-5xl mb-3">🔍</p>
+              <FiSearch size={44} className="mx-auto mb-3 text-slate-300" />
               <p className="text-lg font-medium">No staff members found</p>
               <p className="text-sm mt-1">Try a different search or filter</p>
             </div>

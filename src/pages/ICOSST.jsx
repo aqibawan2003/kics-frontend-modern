@@ -1,6 +1,7 @@
 import PageHero from '../components/PageHero';
 import AnimateOnScroll from '../components/AnimateOnScroll';
-import { FiExternalLink, FiCalendar, FiMapPin, FiAward } from 'react-icons/fi';
+import SEO from '../components/SEO';
+import { FiExternalLink, FiCalendar, FiMapPin, FiAward, FiFileText, FiGlobe, FiMic } from 'react-icons/fi';
 
 const editions = [
   { num: '17th', year: '2023', date: 'December 2023', location: 'KICS, UET Lahore', url: 'http://icosst.kics.edu.pk/2023/' },
@@ -19,6 +20,11 @@ const topics = [
 export default function ICOSST() {
   return (
     <div>
+      <SEO
+        title="ICOSST — IEEE Conference"
+        description="ICOSST is KICS's flagship IEEE international conference on open-source systems, AI, cybersecurity, cloud computing and embedded systems at UET Lahore."
+        breadcrumbs={[{ label: 'Events' }, { label: 'Conferences', url: '/conferences' }, { label: 'ICOSST', url: '/icosst' }]}
+      />
       <PageHero
         title="ICOSST"
         subtitle="IEEE International Conference on Open Source Systems and Technologies — KICS's flagship annual conference."
@@ -54,14 +60,16 @@ export default function ICOSST() {
             <AnimateOnScroll animation="reveal-right">
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { icon: '📄', value: '200+', label: 'Papers Received (2023)' },
-                  { icon: '🌍', value: '20+', label: 'Countries Represented' },
-                  { icon: '🎤', value: '10+', label: 'Keynote Speakers' },
-                  { icon: '📅', value: '17+', label: 'Annual Editions' },
+                  { Icon: FiFileText, value: '200+', label: 'Papers Received (2023)' },
+                  { Icon: FiGlobe,    value: '20+',  label: 'Countries Represented' },
+                  { Icon: FiMic,      value: '10+',  label: 'Keynote Speakers' },
+                  { Icon: FiAward,    value: '17+',  label: 'Annual Editions' },
                 ].map(s => (
                   <div key={s.label} className="card p-5 text-center group hover:shadow-card-hover">
-                    <span className="text-3xl block mb-2 group-hover:animate-float">{s.icon}</span>
-                    <p className="text-2xl font-heading font-bold text-navy">{s.value}</p>
+                    <div className="w-12 h-12 rounded-full bg-primary-50 group-hover:bg-primary-600 flex items-center justify-center mx-auto mb-3 transition-colors duration-300">
+                      <s.Icon size={20} className="text-primary-600 group-hover:text-white transition-colors duration-300" />
+                    </div>
+                    <p className="text-2xl font-bold text-slate-900">{s.value}</p>
                     <p className="text-slate-500 text-xs mt-1">{s.label}</p>
                   </div>
                 ))}

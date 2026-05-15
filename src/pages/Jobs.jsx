@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import PageHero from '../components/PageHero';
 import AnimateOnScroll from '../components/AnimateOnScroll';
+import SEO from '../components/SEO';
 import { sampleJobs, departments } from '../data/siteData';
-import { FiBriefcase, FiClock, FiChevronDown, FiChevronUp } from 'react-icons/fi';
+import { FiBriefcase, FiClock, FiChevronDown, FiChevronUp, FiSearch, FiCpu, FiCode, FiBookOpen } from 'react-icons/fi';
 
 function JobCard({ job, index }) {
   const [open, setOpen] = useState(false);
@@ -51,6 +52,11 @@ export default function Jobs() {
 
   return (
     <div>
+      <SEO
+        title="Jobs at KICS"
+        description="Explore career opportunities at KICS — research, engineering, and academic roles at UET Lahore's leading computer science research institute."
+        breadcrumbs={[{ label: 'Jobs', url: '/jobs' }]}
+      />
       <PageHero
         title="Jobs at KICS"
         subtitle="Join our team of researchers, engineers, and educators building Pakistan's technological future."
@@ -63,13 +69,15 @@ export default function Jobs() {
           <AnimateOnScroll>
             <div className="grid sm:grid-cols-3 gap-5 mb-12">
               {[
-                { icon: '🔬', title: 'Research Roles', desc: 'Research Associates, Post-docs, and Lab Managers.' },
-                { icon: '💻', title: 'Engineering Roles', desc: 'Software, Network, and Embedded Systems Engineers.' },
-                { icon: '🎓', title: 'Academic Roles', desc: 'Instructors and trainers for professional development.' },
+                { Icon: FiCpu,      title: 'Research Roles',     desc: 'Research Associates, Post-docs, and Lab Managers.' },
+                { Icon: FiCode,     title: 'Engineering Roles',  desc: 'Software, Network, and Embedded Systems Engineers.' },
+                { Icon: FiBookOpen, title: 'Academic Roles',     desc: 'Instructors and trainers for professional development.' },
               ].map(item => (
                 <div key={item.title} className="card p-5 text-center group">
-                  <span className="text-3xl mb-3 block group-hover:animate-float">{item.icon}</span>
-                  <h4 className="font-heading font-bold text-navy text-sm mb-1.5">{item.title}</h4>
+                  <div className="w-12 h-12 rounded-full bg-primary-50 group-hover:bg-primary-600 flex items-center justify-center mx-auto mb-3 transition-colors duration-300">
+                    <item.Icon size={22} className="text-primary-600 group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h4 className="font-bold text-slate-800 text-sm mb-1.5">{item.title}</h4>
                   <p className="text-slate-500 text-xs">{item.desc}</p>
                 </div>
               ))}
@@ -95,7 +103,7 @@ export default function Jobs() {
             {visible.map((job, i) => <JobCard key={job.title} job={job} index={i} />)}
             {visible.length === 0 && (
               <div className="text-center py-12 text-slate-400">
-                <p className="text-4xl mb-3">📋</p>
+                <FiSearch size={40} className="mx-auto mb-3 text-slate-300" />
                 <p>No positions found for this department.</p>
               </div>
             )}

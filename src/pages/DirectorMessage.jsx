@@ -1,10 +1,17 @@
 import PageHero from '../components/PageHero';
 import AnimateOnScroll from '../components/AnimateOnScroll';
 import { Link } from 'react-router-dom';
+import { FiMail, FiPhone, FiMapPin, FiUser } from 'react-icons/fi';
+import SEO from '../components/SEO';
 
 export default function DirectorMessage() {
   return (
     <div>
+      <SEO
+        title="Director's Message"
+        description="Read the Director's message from Prof. Dr. Hafiz Shahzad Asif about KICS vision, mission and Pakistan's technological future."
+        breadcrumbs={[{ label: 'About', url: '/about' }, { label: "Director's Message", url: '/director-message' }]}
+      />
       <PageHero
         title="Director's Message"
         subtitle="A vision for research excellence, innovation, and Pakistan's technological future."
@@ -17,16 +24,16 @@ export default function DirectorMessage() {
             {/* Profile card */}
             <AnimateOnScroll animation="reveal-left">
               <div className="card p-6 text-center sticky top-28">
-                <div className="w-28 h-28 rounded-full bg-hero-gradient mx-auto mb-4 flex items-center justify-center text-4xl shadow-lg">
-                  👨‍💼
+                <div className="w-28 h-28 rounded-full bg-primary-100 mx-auto mb-4 flex items-center justify-center shadow-lg">
+                  <FiUser size={48} className="text-primary-600" />
                 </div>
                 <h3 className="font-heading font-bold text-navy text-lg">Prof. Dr. Hafiz Muhammad Shahzad Asif</h3>
                 <p className="text-gold text-sm font-medium mt-1">Director, KICS</p>
                 <p className="text-slate-400 text-xs mt-1">UET Lahore, Pakistan</p>
-                <div className="mt-4 pt-4 border-t border-slate-100 space-y-2 text-xs text-slate-500 text-left">
-                  <p>📧 director@kics.edu.pk</p>
-                  <p>📞 +92 42 99029450</p>
-                  <p>🏛️ KICS, UET G.T. Road, Lahore</p>
+                <div className="mt-4 pt-4 border-t border-slate-100 space-y-2 text-xs text-slate-600 text-left">
+                  <p className="flex items-center gap-2"><FiMail size={12} className="text-primary-600 flex-shrink-0" /> director@kics.edu.pk</p>
+                  <p className="flex items-center gap-2"><FiPhone size={12} className="text-primary-600 flex-shrink-0" /> +92 42 99029450</p>
+                  <p className="flex items-center gap-2"><FiMapPin size={12} className="text-primary-600 flex-shrink-0" /> KICS, UET G.T. Road, Lahore</p>
                 </div>
               </div>
             </AnimateOnScroll>

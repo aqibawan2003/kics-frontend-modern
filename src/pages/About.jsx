@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
 import AnimateOnScroll from '../components/AnimateOnScroll';
+import SEO from '../components/SEO';
 
 const timeline = [
   { year: '2002', event: 'KICS established at UET Lahore under HEC funding.' },
@@ -17,6 +18,11 @@ const timeline = [
 export default function About() {
   return (
     <div>
+      <SEO
+        title="About KICS"
+        description="Learn about KICS — the Al-Khwarizmi Institute of Computer Science at UET Lahore, established in 2002. Our history, vision, mission and milestones."
+        breadcrumbs={[{ label: 'About KICS', url: '/about' }]}
+      />
       <PageHero
         title="About KICS"
         subtitle="Advancing knowledge through applied research, innovation and collaboration since 2002."
@@ -72,8 +78,7 @@ export default function About() {
           <div className="grid lg:grid-cols-3 gap-8">
             <AnimateOnScroll>
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300">
-                <div className="text-5xl mb-5">📜</div>
-                <h3 className="text-yellow-400 font-heading font-bold text-2xl mb-4">Our Namesake</h3>
+                <h3 className="text-white font-bold text-2xl mb-4">Our Namesake</h3>
                 <p className="text-white/90 text-base leading-relaxed">
                   Muhammad ibn Musa Al-Khwarizmi (780–850 AD) was a Muslim scholar who revolutionized
                   mathematics. He developed foundational concepts in algebra and trigonometry, and
@@ -84,8 +89,7 @@ export default function About() {
             </AnimateOnScroll>
             <AnimateOnScroll delay={100}>
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300">
-                <div className="text-5xl mb-5">🔭</div>
-                <h3 className="text-yellow-400 font-heading font-bold text-2xl mb-4">Our Vision</h3>
+                <h3 className="text-white font-bold text-2xl mb-4">Our Vision</h3>
                 <p className="text-white/90 text-base leading-relaxed">
                   To drive Pakistan toward a knowledge-based economy by developing world-class research in algorithms,
                   software engineering, and digital control systems. KICS aims to be recognized as a premier research
@@ -96,8 +100,7 @@ export default function About() {
             </AnimateOnScroll>
             <AnimateOnScroll delay={200}>
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300">
-                <div className="text-5xl mb-5">🎯</div>
-                <h3 className="text-yellow-400 font-heading font-bold text-2xl mb-4">Our Mission</h3>
+                <h3 className="text-white font-bold text-2xl mb-4">Our Mission</h3>
                 <p className="text-white/90 text-base leading-relaxed">
                   To conduct result-oriented research and development activities using ICT for national socio-economic
                   advancement. We bridge the gap between academia and industry while fostering innovation in Computer

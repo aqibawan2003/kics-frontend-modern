@@ -1,23 +1,27 @@
-import { useState, useEffect, useCallback } from 'react';
+import { memo } from 'react';
 import { Link } from 'react-router-dom';
-import { FiChevronLeft, FiChevronRight, FiBell, FiArrowRight, FiCalendar, FiBookOpen, FiAward, FiGlobe, FiUsers } from 'react-icons/fi';
+import {
+  FiBell, FiArrowRight, FiCalendar, FiBookOpen, FiAward, FiGlobe, FiUsers,
+  FiCpu, FiZap, FiGitBranch, FiMonitor,
+} from 'react-icons/fi';
 import AnimateOnScroll from '../components/AnimateOnScroll';
 import useCounter from '../hooks/useCounter';
+import SEO from '../components/SEO';
+import Hero from '../components/Hero';
 import {
-  heroSlides, announcements, stats, researchAreas,
-  newsItems, collaborators
+  announcements, researchAreas, newsItems, collaborators,
 } from '../data/siteData';
 
-/* ── Animated counter ────────────────────────────────────── */
+/* ── Stats ────────────────────────────────────────────────── */
 const kicsStats = [
   { Icon: FiCalendar, value: 22,   suffix: '+',  label: 'Years of Excellence' },
   { Icon: FiBookOpen, value: 500,  suffix: '+',  label: 'Research Publications' },
-  { Icon: FiAward,    value: 25,   suffix: '+',  label: 'Labs & Centers',       center: true },
+  { Icon: FiAward,    value: 25,   suffix: '+',  label: 'Labs & Centers',  center: true },
   { Icon: FiGlobe,    value: 50,   suffix: '+',  label: 'Industry Partners' },
   { Icon: FiUsers,    value: 1000, suffix: '+',  label: 'Professionals Trained' },
 ];
 
-function StatItem({ Icon, value, suffix, label, center, index }) {
+const StatItem = memo(function StatItem({ Icon, value, suffix, label, center, index }) {
   const { count, ref } = useCounter(value);
   return (
     <div
@@ -30,110 +34,23 @@ function StatItem({ Icon, value, suffix, label, center, index }) {
       ].join(' ')}
       style={{ transitionDelay: `${index * 80}ms` }}
     >
-      {/* Circular icon badge */}
-      <div className="w-20 h-20 rounded-full bg-navy/10 group-hover:bg-navy flex items-center justify-center mb-5 transition-all duration-300 shadow-sm group-hover:shadow-gold">
-        <Icon size={30} className="text-navy group-hover:text-white transition-colors duration-300" />
+      <div className="w-16 h-16 rounded-full bg-primary-50 group-hover:bg-primary-600 flex items-center justify-center mb-4 transition-all duration-300">
+        <Icon size={26} className="text-primary-600 group-hover:text-white transition-colors duration-300" />
       </div>
-      {/* Animated number */}
-      <span className="text-4xl font-heading font-bold text-navy tabular-nums">
+      <span className="text-4xl font-bold text-slate-900 tabular-nums">
         {count.toLocaleString()}{suffix}
       </span>
-      {/* Label */}
       <span className="text-slate-500 text-sm font-medium mt-2 leading-tight">{label}</span>
     </div>
   );
-}
-
-/* ── Hero ────────────────────────────────────────────────── */
-function Hero() {
-  const [idx, setIdx] = useState(0);
-  const [fading, setFading] = useState(false);
-
-  const go = useCallback((next) => {
-    setFading(true);
-    setTimeout(() => { setIdx(next); setFading(false); }, 400);
-  }, []);
-  const next = useCallback(() => go((idx + 1) % heroSlides.length), [idx, go]);
-  const prev = useCallback(() => go((idx - 1 + heroSlides.length) % heroSlides.length), [idx, go]);
-
-  useEffect(() => {
-    const t = setInterval(next, 6000);
-    return () => clearInterval(t);
-  }, [next]);
-
-  const slide = heroSlides[idx];
-
-  return (
-    <section className="relative h-screen min-h-[620px] max-h-[900px] overflow-hidden bg-navy-dark">
-      {/* Background images */}
-      {heroSlides.map((s, i) => (
-        <div key={i} className={`absolute inset-0 transition-opacity duration-700 ${i === idx ? 'opacity-100' : 'opacity-0'}`}>
-          <img src={s.image} alt={s.title} className="w-full h-full object-cover scale-105 transition-transform duration-[8000ms]"
-            style={{ transform: i === idx ? 'scale(1)' : 'scale(1.05)' }}
-            onError={e => { e.target.src = 'https://via.placeholder.com/1920x900/0b1f4b/ffffff?text=KICS'; }} />
-        </div>
-      ))}
-
-      {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-r from-navy-dark/90 via-navy/70 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/50 via-transparent to-transparent" />
-
-      {/* Dot pattern */}
-      <div className="absolute inset-0 bg-dot-pattern opacity-30" />
-
-      {/* Content */}
-      <div className="absolute inset-0 flex items-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full">
-          <div className={`max-w-2xl transition-all duration-500 ${fading ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}>
-            <span className="badge mb-5 inline-block">{slide.badge}</span>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-5">
-              {slide.title}
-            </h1>
-            <p className="text-white/70 text-base sm:text-lg md:text-xl mb-8 leading-relaxed">
-              {slide.subtitle}
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Link to="/about" className="btn-primary">Discover KICS <FiArrowRight /></Link>
-              <Link to="/research-areas" className="btn-outline">Our Research</Link>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Arrows */}
-      {[
-        { action: prev, label: 'Previous', Icon: FiChevronLeft, pos: 'left-4' },
-        { action: next, label: 'Next',     Icon: FiChevronRight, pos: 'right-4' },
-      ].map(({ action, label, Icon, pos }) => (
-        <button key={label} onClick={action} aria-label={label}
-          className={`absolute ${pos} top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full glass border border-white/20 text-white flex items-center justify-center hover:bg-gold transition-all duration-200 hover:scale-110`}>
-          <Icon size={20} />
-        </button>
-      ))}
-
-      {/* Dots */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 items-center">
-        {heroSlides.map((_, i) => (
-          <button key={i} onClick={() => go(i)} aria-label={`Slide ${i+1}`}
-            className={`transition-all duration-300 rounded-full ${i === idx ? 'w-8 h-2.5 bg-gold' : 'w-2.5 h-2.5 bg-white/40 hover:bg-white/70'}`} />
-        ))}
-      </div>
-
-      {/* Scroll hint */}
-      <div className="absolute bottom-8 right-8 hidden md:flex flex-col items-center gap-2 text-white/40">
-        <span className="text-[10px] tracking-[0.25em] rotate-90 mb-4">SCROLL</span>
-        <div className="w-px h-14 bg-gradient-to-b from-white/40 to-transparent" />
-      </div>
-    </section>
-  );
-}
+});
 
 /* ── Announcements ───────────────────────────────────────── */
-function Announcements() {
+const Announcements = memo(function Announcements() {
   const doubled = [...announcements, ...announcements];
   return (
-    <div className="bg-navy border-b-2 border-gold flex items-stretch overflow-hidden">
-      <div className="flex-shrink-0 flex items-center gap-2 bg-gold px-4 py-2.5 z-10">
+    <div className="bg-primary-900 border-b-2 border-primary-400 flex items-stretch overflow-hidden">
+      <div className="flex-shrink-0 flex items-center gap-2 bg-primary-600 px-4 py-2.5 z-10">
         <FiBell size={14} className="animate-pulse text-white" />
         <span className="text-white text-xs font-bold uppercase tracking-widest whitespace-nowrap">Latest</span>
       </div>
@@ -141,17 +58,17 @@ function Announcements() {
         <div className="marquee-inner flex animate-marquee whitespace-nowrap py-2.5">
           {doubled.map((item, i) => (
             <span key={i} className="inline-flex items-center text-white/85 text-sm mx-10">
-              <span className="text-gold mr-2.5 text-xs">◆</span>{item}
+              <span className="text-primary-300 mr-2.5 text-xs">&#9670;</span>{item}
             </span>
           ))}
         </div>
       </div>
     </div>
   );
-}
+});
 
-/* ── Stats bar ───────────────────────────────────────────── */
-function StatsBar() {
+/* ── Stats Bar ───────────────────────────────────────────── */
+const StatsBar = memo(function StatsBar() {
   return (
     <section className="py-16 bg-slate-50 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -162,7 +79,6 @@ function StatsBar() {
             <div className="divider-center mt-3" />
           </div>
         </AnimateOnScroll>
-        {/* Card row — center item elevated like IU stats section */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 items-center">
           {kicsStats.map((item, i) => (
             <StatItem key={item.label} {...item} index={i} />
@@ -171,10 +87,17 @@ function StatsBar() {
       </div>
     </section>
   );
-}
+});
 
-/* ── About strip ─────────────────────────────────────────── */
-function AboutStrip() {
+/* ── About Strip ─────────────────────────────────────────── */
+const aboutItems = [
+  { Icon: FiCpu,        label: 'Applied Research',      desc: 'Real-world impact through collaborative, industry-aligned R&D.' },
+  { Icon: FiZap,        label: 'Technology Transfer',   desc: 'Commercializing innovations through our Technology Incubation Center.' },
+  { Icon: FiGitBranch,  label: 'Human Capital',         desc: 'Training the next generation of technologists via professional programs.' },
+  { Icon: FiGlobe,      label: 'Global Collaboration',  desc: 'Partnerships with IEEE, Huawei, MIT, HEC, and government bodies.' },
+];
+
+const AboutStrip = memo(function AboutStrip() {
   return (
     <section className="py-20 bg-white" id="about">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -196,7 +119,7 @@ function AboutStrip() {
             </p>
             <div className="flex flex-wrap gap-3">
               <Link to="/about" className="btn-navy">Learn More</Link>
-              <Link to="/director-message" className="inline-flex items-center gap-2 text-navy font-semibold text-sm hover:text-gold transition-colors">
+              <Link to="/director-message" className="inline-flex items-center gap-2 text-slate-700 font-semibold text-sm hover:text-primary-600 transition-colors">
                 Director's Message <FiArrowRight size={14} />
               </Link>
             </div>
@@ -204,15 +127,12 @@ function AboutStrip() {
 
           <AnimateOnScroll animation="reveal-right">
             <div className="grid grid-cols-2 gap-4">
-              {[
-                { label: 'Applied Research', icon: '🔬', desc: 'Real-world impact through collaborative, industry-aligned R&D.' },
-                { label: 'Technology Transfer', icon: '🚀', desc: 'Commercializing innovations through our Technology Incubation Center.' },
-                { label: 'Human Capital', icon: '🎓', desc: 'Training the next generation of technologists via professional programs.' },
-                { label: 'Global Collaboration', icon: '🌐', desc: 'Partnerships with IEEE, Huawei, MIT, HEC, and government bodies.' },
-              ].map((item, i) => (
-                <div key={i} className="card p-5 group">
-                  <span className="text-3xl mb-3 block group-hover:animate-float">{item.icon}</span>
-                  <h4 className="font-heading font-bold text-navy text-sm mb-1.5">{item.label}</h4>
+              {aboutItems.map((item) => (
+                <div key={item.label} className="card p-5 group">
+                  <div className="w-10 h-10 rounded-lg bg-primary-50 group-hover:bg-primary-600 flex items-center justify-center mb-3 transition-colors duration-300">
+                    <item.Icon size={20} className="text-primary-600 group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h4 className="font-bold text-slate-800 text-sm mb-1.5">{item.label}</h4>
                   <p className="text-slate-500 text-xs leading-relaxed">{item.desc}</p>
                 </div>
               ))}
@@ -222,10 +142,10 @@ function AboutStrip() {
       </div>
     </section>
   );
-}
+});
 
-/* ── Research ────────────────────────────────────────────── */
-function ResearchSection() {
+/* ── Research Section ────────────────────────────────────── */
+const ResearchSection = memo(function ResearchSection() {
   return (
     <section className="py-20 bg-slate-50" id="research">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -240,22 +160,27 @@ function ResearchSection() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {researchAreas.map((area, i) => (
             <AnimateOnScroll key={area.title} animation="reveal" delay={i * 80}>
-              <div className="card group h-full flex flex-col">
-                <div className="relative h-44 overflow-hidden">
-                  <img src={area.image} alt={area.title}
+              <article className="card group h-full flex flex-col">
+                <div className="relative h-44 overflow-hidden" style={{ aspectRatio: '16/9' }}>
+                  <img
+                    src={area.image}
+                    alt={area.title}
+                    width="400"
+                    height="220"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    onError={e => { e.target.src = `https://via.placeholder.com/400x250/0b1f4b/ffffff?text=${encodeURIComponent(area.title)}`; }} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy/70 to-transparent" />
-                  <span className="absolute top-3 right-3 text-2xl">{area.icon}</span>
+                    loading="lazy"
+                    onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=220&fit=crop'; }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
                 </div>
                 <div className="p-5 flex flex-col flex-1">
-                  <h3 className="font-heading font-bold text-navy text-base mb-2 group-hover:text-gold transition-colors">{area.title}</h3>
+                  <h3 className="font-bold text-slate-800 text-base mb-2 group-hover:text-primary-600 transition-colors">{area.title}</h3>
                   <p className="text-slate-500 text-sm leading-relaxed flex-1">{area.desc}</p>
-                  <Link to="/research-areas" className="inline-flex items-center gap-1 mt-4 text-navy text-sm font-semibold hover:text-gold transition-colors group/link">
+                  <Link to="/research-areas" className="inline-flex items-center gap-1 mt-4 text-primary-600 text-sm font-semibold hover:text-primary-700 transition-colors group/link">
                     Explore <FiArrowRight size={13} className="transition-transform group-hover/link:translate-x-1" />
                   </Link>
                 </div>
-              </div>
+              </article>
             </AnimateOnScroll>
           ))}
         </div>
@@ -268,19 +193,19 @@ function ResearchSection() {
       </div>
     </section>
   );
-}
+});
 
-/* ── Director quote ──────────────────────────────────────── */
-function DirectorQuote() {
+/* ── Director Quote ──────────────────────────────────────── */
+const DirectorQuote = memo(function DirectorQuote() {
   return (
-    <section className="py-20 bg-slate-50 overflow-hidden">
+    <section className="py-20 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-14 items-center">
           <AnimateOnScroll animation="reveal-left">
             <span className="eyebrow">Leadership</span>
             <h2 className="section-title mb-4">Director's Message</h2>
             <div className="divider" />
-            <blockquote className="border-l-4 border-primary-600 pl-6 leading-relaxed text-lg mb-6 bg-white p-6 rounded-r-lg shadow-sm">
+            <blockquote className="border-l-4 border-primary-600 pl-6 leading-relaxed text-lg mb-6 bg-slate-50 p-6 rounded-r-lg">
               <span className="text-slate-900 font-bold text-xl block mb-3">
                 "KICS is on a fast track to become a premier research and advanced technology organization in Pakistan.
               </span>
@@ -299,9 +224,9 @@ function DirectorQuote() {
                 { title: 'Vision', text: 'To be a globally recognized center of excellence in computer science research and technology innovation, contributing to national development.' },
                 { title: 'Mission', text: 'To conduct high-impact applied research, develop cutting-edge technologies, and forge industry-academia partnerships that drive innovation.' },
                 { title: 'Values', text: 'Integrity, innovation, collaboration, and impact — creating an open culture of curiosity and a relentless pursuit of excellence.' },
-              ].map(item => (
+              ].map((item) => (
                 <div key={item.title} className="bg-white rounded-xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                  <h4 className="text-primary-600 font-bold font-heading mb-2">{item.title}</h4>
+                  <h4 className="text-primary-600 font-bold mb-2">{item.title}</h4>
                   <p className="text-slate-600 text-sm leading-relaxed">{item.text}</p>
                 </div>
               ))}
@@ -311,14 +236,14 @@ function DirectorQuote() {
       </div>
     </section>
   );
-}
+});
 
-/* ── News ────────────────────────────────────────────────── */
-function NewsSection() {
+/* ── News Section ────────────────────────────────────────── */
+const NewsSection = memo(function NewsSection() {
   const featured = newsItems[0];
   const rest = newsItems.slice(1, 4);
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <AnimateOnScroll>
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
@@ -327,43 +252,53 @@ function NewsSection() {
               <h2 className="section-title">News &amp; Events</h2>
               <div className="divider mt-3" />
             </div>
-            <Link to="/news" className="inline-flex items-center gap-2 text-navy font-semibold text-sm hover:text-gold transition-colors">
+            <Link to="/news" className="inline-flex items-center gap-2 text-slate-700 font-semibold text-sm hover:text-primary-600 transition-colors">
               All News <FiArrowRight />
             </Link>
           </div>
         </AnimateOnScroll>
 
         <div className="grid lg:grid-cols-5 gap-6">
-          {/* Featured */}
           <AnimateOnScroll animation="reveal-left" className="lg:col-span-3">
             <Link to="/news" className="card group block h-full">
-              <div className="relative h-56 sm:h-64 overflow-hidden">
-                <img src={featured.image} alt={featured.title}
+              <div className="relative overflow-hidden" style={{ aspectRatio: '16/9' }}>
+                <img
+                  src={featured.image}
+                  alt={featured.title}
+                  width="800"
+                  height="450"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  onError={e => { e.target.src = 'https://via.placeholder.com/800x350/0b1f4b/ffffff?text=KICS+News'; }} />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/70 to-transparent" />
+                  loading="lazy"
+                  onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=800&h=450&fit=crop'; }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
                 <span className="absolute top-4 left-4 badge">{featured.category}</span>
               </div>
               <div className="p-6">
-                <span className="text-xs text-gold font-semibold">{featured.date}</span>
-                <h3 className="font-heading font-bold text-navy text-xl mt-1 mb-2 group-hover:text-gold transition-colors">{featured.title}</h3>
+                <span className="text-xs text-primary-600 font-semibold">{featured.date}</span>
+                <h3 className="font-bold text-slate-800 text-xl mt-1 mb-2 group-hover:text-primary-600 transition-colors">{featured.title}</h3>
                 <p className="text-slate-500 text-sm leading-relaxed">{featured.excerpt}</p>
               </div>
             </Link>
           </AnimateOnScroll>
 
-          {/* List */}
           <AnimateOnScroll animation="reveal-right" className="lg:col-span-2 flex flex-col gap-4">
             {rest.map((item, i) => (
               <Link to="/news" key={i} className="card group flex gap-4 p-4 items-start">
                 <div className="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
-                  <img src={item.image} alt={item.title}
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    width="80"
+                    height="80"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    onError={e => { e.target.src = 'https://via.placeholder.com/80x80/0b1f4b/ffffff?text=K'; }} />
+                    loading="lazy"
+                    onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=80&h=80&fit=crop'; }}
+                  />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <span className="text-xs text-gold font-semibold">{item.date}</span>
-                  <h4 className="font-heading font-bold text-navy text-sm mt-0.5 leading-snug group-hover:text-gold transition-colors line-clamp-2">{item.title}</h4>
+                  <span className="text-xs text-primary-600 font-semibold">{item.date}</span>
+                  <h4 className="font-bold text-slate-800 text-sm mt-0.5 leading-snug group-hover:text-primary-600 transition-colors line-clamp-2">{item.title}</h4>
                   <p className="text-slate-400 text-xs mt-1 line-clamp-2">{item.excerpt}</p>
                 </div>
               </Link>
@@ -373,31 +308,39 @@ function NewsSection() {
       </div>
     </section>
   );
-}
+});
 
 /* ── Collaborators ───────────────────────────────────────── */
-function CollabSection() {
+const CollabSection = memo(function CollabSection() {
   return (
-    <section className="py-16 bg-slate-50">
+    <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <AnimateOnScroll>
           <div className="text-center mb-10">
-            <span className="eyebrow">Partners & Allies</span>
+            <span className="eyebrow">Partners &amp; Allies</span>
             <h2 className="section-title">Our Collaborations</h2>
             <div className="divider-center mt-3" />
           </div>
         </AnimateOnScroll>
         <AnimateOnScroll animation="reveal-scale">
           <div className="flex flex-wrap justify-center gap-4">
-            {collaborators.map(c => (
-              <div key={c.name}
-                className="bg-white rounded-xl px-6 py-4 flex items-center justify-center shadow-card border border-slate-100 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 min-w-[120px] group">
+            {collaborators.map((c) => (
+              <div
+                key={c.name}
+                className="bg-white rounded-xl px-6 py-4 flex items-center justify-center shadow-card border border-slate-100 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 min-w-[120px] group"
+              >
                 {c.logo ? (
-                  <img src={c.logo} alt={c.name}
+                  <img
+                    src={c.logo}
+                    alt={c.name}
+                    width="90"
+                    height="36"
                     className="max-h-9 max-w-[90px] object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
-                    onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='block'; }} />
+                    loading="lazy"
+                    onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }}
+                  />
                 ) : null}
-                <span className={`text-navy font-bold text-sm ${c.logo ? 'hidden' : ''}`}>{c.name}</span>
+                <span className={`text-slate-700 font-bold text-sm ${c.logo ? 'hidden' : ''}`}>{c.name}</span>
               </div>
             ))}
           </div>
@@ -405,37 +348,47 @@ function CollabSection() {
       </div>
     </section>
   );
-}
+});
 
 /* ── CTA Banner ──────────────────────────────────────────── */
-function CTABanner() {
+const CTABanner = memo(function CTABanner() {
   return (
-    <section className="py-16 bg-hero-gradient relative overflow-hidden">
-      <div className="absolute inset-0 bg-dot-pattern opacity-40" />
-      <div className="absolute -top-20 -right-20 w-80 h-80 bg-gold/10 rounded-full blur-3xl" />
+    <section className="py-16 bg-primary-900 relative overflow-hidden">
+      <div className="absolute inset-0 bg-dot-pattern opacity-20 pointer-events-none" />
+      <div className="absolute -top-20 -right-20 w-80 h-80 bg-primary-600/20 rounded-full blur-3xl pointer-events-none" />
       <div className="relative max-w-3xl mx-auto px-4 sm:px-6 text-center">
         <AnimateOnScroll animation="reveal-scale">
-          <span className="eyebrow">Join KICS</span>
-          <h2 className="section-title-white text-3xl md:text-4xl mb-4">
+          <span className="eyebrow text-primary-300">Join KICS</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to Innovate Together?
           </h2>
-          <p className="text-white/65 mb-8 text-base sm:text-lg">
-            Whether you're a researcher, student, or industry partner — KICS offers the environment
+          <p className="text-white/75 mb-8 text-base sm:text-lg">
+            Whether you are a researcher, student, or industry partner — KICS offers the environment
             and resources to turn bold ideas into impactful technology.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/contact" className="btn-primary">Get in Touch</Link>
-            <Link to="/jobs" className="btn-outline">View Open Positions</Link>
+            <Link
+              to="/jobs"
+              className="inline-flex items-center gap-2 border-2 border-white/60 text-white font-semibold px-6 py-3 rounded-lg text-sm transition-all duration-300 hover:bg-white/10 hover:border-white"
+            >
+              View Open Positions
+            </Link>
           </div>
         </AnimateOnScroll>
       </div>
     </section>
   );
-}
+});
 
 export default function Home() {
   return (
     <>
+      <SEO
+        title="Home"
+        description="KICS — Al-Khwarizmi Institute of Computer Science at UET Lahore. Leading applied research in AI, cybersecurity, IoT, software engineering and more."
+        breadcrumbs={[]}
+      />
       <Hero />
       <Announcements />
       <StatsBar />

@@ -1,7 +1,26 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, memo } from 'react';
 import { heroSlides } from '../data/siteData';
 import { FiChevronLeft, FiChevronRight, FiArrowRight } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+
+const HeroSlide = memo(({ slide, isActive }) => (
+  <div
+    className={`absolute inset-0 transition-opacity duration-1000 ${isActive ? 'opacity-100' : 'opacity-0'}`}
+    aria-hidden={!isActive}
+  >
+    <img
+      src={slide.image}
+      alt={slide.title}
+      width="1920"
+      height="900"
+      className="w-full h-full object-cover"
+      style={{ transform: isActive ? 'scale(1)' : 'scale(1.04)', transition: 'transform 8s linear' }}
+      onError={(e) => {
+        e.target.src = 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920&h=900&fit=crop';
+      }}
+    />
+  </div>
+));
 
 export default function Hero() {
   const [current, setCurrent] = useState(0);
@@ -13,7 +32,7 @@ export default function Hero() {
     setTimeout(() => {
       setCurrent(index);
       setTransitioning(false);
-    }, 300);
+    }, 350);
   }, [transitioning]);
 
   const next = useCallback(() => goTo((current + 1) % heroSlides.length), [current, goTo]);
@@ -27,75 +46,57 @@ export default function Hero() {
   const slide = heroSlides[current];
 
   return (
-    <section className="relative h-screen min-h-[600px] max-h-[900px] w-full overflow-hidden bg-gradient-to-br from-slate-900 via-primary-900 to-primary-800" id="home">
-      {/* Animated Background Blobs */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 -left-20 w-96 h-96 bg-primary-500/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob" />
-        <div className="absolute top-40 -right-20 w-96 h-96 bg-cyan-500/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000" />
-        <div className="absolute -bottom-20 left-40 w-96 h-96 bg-purple-500/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000" />
-      </div>
-
-      {/* Slides */}
+    <section
+      className="relative overflow-hidden bg-primary-900"
+      style={{ height: 'clamp(500px, 85vh, 820px)' }}
+      id="home"
+      aria-label="Hero slideshow"
+    >
+      {/* Background images */}
       {heroSlides.map((s, i) => (
-        <div
-          key={i}
-          className={`absolute inset-0 transition-opacity duration-1000 ${i === current ? 'opacity-100' : 'opacity-0'}`}
-        >
-          <img
-            src={s.image}
-            alt={s.title}
-            className="w-full h-full object-cover scale-105 transition-transform duration-[10000ms]"
-            style={{ transform: i === current ? 'scale(1)' : 'scale(1.05)' }}
-            onError={e => { e.target.src = 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920&h=900&fit=crop'; }}
-          />
-          {/* Modern Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-primary-900/80 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
-        </div>
+        <HeroSlide key={i} slide={s} isActive={i === current} />
       ))}
 
-      {/* Decorative Grid Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] opacity-30" />
+      {/* Gradient overlays — dark enough to ensure text legibility */}
+      <div className="absolute inset-0 bg-gradient-to-r from-primary-950/90 via-primary-900/75 to-primary-800/40 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-primary-950/50 via-transparent to-transparent pointer-events-none" />
 
       {/* Content */}
       <div className="absolute inset-0 flex items-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full">
           <div
-            key={current}
-            className={`max-w-3xl transition-all duration-700 ${
-              transitioning ? 'opacity-0 translate-y-8' : 'opacity-100 translate-y-0'
+            className={`max-w-2xl transition-all duration-500 ${
+              transitioning ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
             }`}
           >
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 mb-6 text-white text-sm font-semibold shadow-xl">
-              <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" />
+            <div className="inline-flex items-center gap-2 bg-white/15 border border-white/25 rounded-full px-4 py-1.5 mb-5 text-white text-xs font-semibold uppercase tracking-wider">
+              <span className="w-1.5 h-1.5 bg-primary-300 rounded-full" />
               {slide.badge || 'Al-Khwarizmi Institute'}
             </div>
 
-            {/* Main Title with Gradient */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
-              <span className="bg-gradient-to-r from-white via-cyan-100 to-white bg-clip-text text-transparent animate-gradient drop-shadow-2xl">
-                {slide.title}
-              </span>
+            {/* Title */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-5 text-white drop-shadow-lg">
+              {slide.title}
             </h1>
 
             {/* Subtitle */}
-            <p className="text-white/90 text-lg sm:text-xl md:text-2xl mb-10 leading-relaxed drop-shadow-lg max-w-2xl">
+            <p className="text-white/85 text-base sm:text-lg md:text-xl mb-8 leading-relaxed max-w-xl drop-shadow">
               {slide.subtitle}
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-3">
               <Link
                 to="/about"
-                className="group inline-flex items-center gap-2 bg-gradient-to-r from-primary-600 to-cyan-600 hover:from-primary-700 hover:to-cyan-700 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 shadow-2xl hover:shadow-primary-600/50 hover:scale-105 hover:-translate-y-1"
+                className="inline-flex items-center gap-2 bg-white text-primary-900 font-bold px-6 py-3 rounded transition-all duration-200 hover:bg-primary-50 hover:-translate-y-0.5 shadow-lg text-sm"
               >
                 Discover KICS
-                <FiArrowRight className="transition-transform group-hover:translate-x-1" />
+                <FiArrowRight size={15} />
               </Link>
               <Link
                 to="/research-areas"
-                className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border-2 border-white/30 hover:bg-white/20 hover:border-white/50 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 shadow-xl hover:scale-105 hover:-translate-y-1"
+                className="inline-flex items-center gap-2 border-2 border-white/70 text-white font-bold px-6 py-3 rounded transition-all duration-200 hover:bg-white/15 hover:border-white text-sm"
               >
                 Our Research
               </Link>
@@ -104,62 +105,43 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Navigation Arrows - Glassmorphism */}
+      {/* Navigation Arrows */}
       <button
         onClick={prev}
-        className="absolute left-6 top-1/2 -translate-y-1/2 w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-md hover:bg-white/20 text-white flex items-center justify-center transition-all duration-300 hover:scale-110 border border-white/20 shadow-2xl group"
+        className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded bg-black/30 hover:bg-black/50 text-white flex items-center justify-center transition-colors border border-white/20"
         aria-label="Previous slide"
       >
-        <FiChevronLeft size={26} className="transition-transform group-hover:-translate-x-1" />
+        <FiChevronLeft size={22} />
       </button>
       <button
         onClick={next}
-        className="absolute right-6 top-1/2 -translate-y-1/2 w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-md hover:bg-white/20 text-white flex items-center justify-center transition-all duration-300 hover:scale-110 border border-white/20 shadow-2xl group"
+        className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded bg-black/30 hover:bg-black/50 text-white flex items-center justify-center transition-colors border border-white/20"
         aria-label="Next slide"
       >
-        <FiChevronRight size={26} className="transition-transform group-hover:translate-x-1" />
+        <FiChevronRight size={22} />
       </button>
 
-      {/* Modern Dot Indicators */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-3 items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-6 py-3 shadow-2xl">
+      {/* Dot Indicators */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 items-center" role="tablist" aria-label="Slide indicators">
         {heroSlides.map((_, i) => (
           <button
             key={i}
             onClick={() => goTo(i)}
-            aria-label={`Slide ${i + 1}`}
-            className="group relative"
-          >
-            <div
-              className={`transition-all duration-300 rounded-full ${
-                i === current
-                  ? 'w-12 h-3 bg-gradient-to-r from-primary-400 to-cyan-400'
-                  : 'w-3 h-3 bg-white/40 group-hover:bg-white/70 group-hover:scale-125'
-              }`}
-            />
-          </button>
-        ))}
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-12 right-10 hidden md:flex flex-col items-center gap-3 text-white/60">
-        <span className="text-[10px] tracking-[0.3em] font-bold rotate-90 mb-4">SCROLL</span>
-        <div className="w-px h-16 bg-gradient-to-b from-white/60 via-white/30 to-transparent animate-pulse" />
-      </div>
-
-      {/* Floating Particles Effect */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-white/20 rounded-full animate-float"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${3 + Math.random() * 4}s`,
-            }}
+            aria-label={`Go to slide ${i + 1}`}
+            role="tab"
+            aria-selected={i === current}
+            className={`transition-all duration-300 rounded-full ${
+              i === current
+                ? 'w-8 h-2.5 bg-white'
+                : 'w-2.5 h-2.5 bg-white/40 hover:bg-white/70'
+            }`}
           />
         ))}
+      </div>
+
+      {/* Slide counter */}
+      <div className="absolute bottom-6 right-6 text-white/60 text-xs font-mono hidden sm:block">
+        {String(current + 1).padStart(2, '0')} / {String(heroSlides.length).padStart(2, '0')}
       </div>
     </section>
   );

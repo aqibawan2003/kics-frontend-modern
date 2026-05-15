@@ -91,10 +91,10 @@ export const announcements = [
 
 /* ── Stats ──────────────────────────────────────────────────── */
 export const stats = [
-  { value: 22, suffix: '+', label: 'Years of Excellence', icon: '🏛️' },
-  { value: 25, suffix: '+', label: 'Research Labs & Centers', icon: '🔬' },
-  { value: 500, suffix: '+', label: 'Research Publications', icon: '📄' },
-  { value: 50, suffix: '+', label: 'Industry Partners', icon: '🤝' },
+  { value: 22, suffix: '+', label: 'Years of Excellence' },
+  { value: 25, suffix: '+', label: 'Research Labs & Centers' },
+  { value: 500, suffix: '+', label: 'Research Publications' },
+  { value: 50, suffix: '+', label: 'Industry Partners' },
 ];
 
 /* ── Research labs ──────────────────────────────────────────── */
@@ -102,7 +102,7 @@ export const researchCategories = [
   {
     category: 'Communication Technologies',
     color: 'from-blue-600 to-blue-800',
-    icon: '📡',
+    icon: 'comm',
     labs: [
       { name: 'High Performance Computing & Networking Lab (HPCNL)', short: 'HPCNL' },
       { name: 'Wireless System Research Lab (WSRL)', short: 'WSRL' },
@@ -114,7 +114,7 @@ export const researchCategories = [
   {
     category: 'Artificial Intelligence',
     color: 'from-purple-600 to-purple-900',
-    icon: '🤖',
+    icon: 'ai',
     labs: [
       { name: 'Computer Vision & Machine Learning Lab (CVML)', short: 'CVML' },
       { name: 'Data Science Research Lab (DSRL)', short: 'DSRL' },
@@ -128,7 +128,7 @@ export const researchCategories = [
   {
     category: 'Software Systems',
     color: 'from-green-600 to-green-800',
-    icon: '💻',
+    icon: 'sw',
     labs: [
       { name: 'Software Systems Research Lab (SSRL)', short: 'SSRL' },
       { name: 'Mobile Game Development Lab (MGDL)', short: 'MGDL' },
@@ -138,7 +138,7 @@ export const researchCategories = [
   {
     category: 'Power & Energy Systems',
     color: 'from-yellow-600 to-orange-700',
-    icon: '⚡',
+    icon: 'power',
     labs: [
       { name: 'Power Research System Lab (PSRL)', short: 'PSRL' },
       { name: 'Alternate Energy Research and Innovation Lab (AERIL)', short: 'AERIL' },
@@ -148,7 +148,7 @@ export const researchCategories = [
   {
     category: 'Industrial Automation',
     color: 'from-red-600 to-red-800',
-    icon: '⚙️',
+    icon: 'auto',
     labs: [
       { name: 'Industrial Automation & Control Lab (IACL)', short: 'IACL' },
       { name: 'Motion Control Research Lab (MCRL)', short: 'MCRL' },
@@ -158,7 +158,7 @@ export const researchCategories = [
   {
     category: 'Centers & Incubation',
     color: 'from-teal-600 to-teal-800',
-    icon: '🚀',
+    icon: 'centers',
     labs: [
       { name: 'Technology Incubation Center (TIC)', short: 'TIC' },
       { name: 'School of Media Studies (SMS)', short: 'SMS' },
@@ -172,37 +172,31 @@ export const researchAreas = [
     title: 'AI & Machine Learning',
     image: 'https://kics.edu.pk/web/wp-content/uploads/2021/02/research1-10.png',
     desc: 'Deep learning, computer vision, NLP, and intelligent autonomous systems for real-world applications.',
-    icon: '🤖',
   },
   {
     title: 'Cybersecurity & Networks',
     image: 'https://kics.edu.pk/web/wp-content/uploads/2021/02/research3-10.png',
     desc: 'Secure network frameworks, intrusion detection, cryptography, and next-gen wireless technologies.',
-    icon: '🔐',
   },
   {
     title: 'Smart Cities & IoT',
     image: 'https://kics.edu.pk/web/wp-content/uploads/2021/02/research5-5.png',
     desc: 'Connected devices, urban infrastructure intelligence, e-governance, and citizen-centric digital services.',
-    icon: '🏙️',
   },
   {
     title: 'Software Engineering',
     image: 'https://kics.edu.pk/web/wp-content/uploads/2021/01/research2-10.png',
     desc: 'Enterprise systems, ERP solutions, agile methodologies, and quality software development practices.',
-    icon: '💻',
   },
   {
     title: 'Data Science & Analytics',
     image: 'https://kics.edu.pk/web/wp-content/uploads/2021/01/research6-8.png',
     desc: 'Big data processing, predictive modeling, business intelligence, and data-driven decision support.',
-    icon: '📊',
   },
   {
     title: 'Embedded Systems & Robotics',
     image: 'https://kics.edu.pk/web/wp-content/uploads/2021/01/research4-8.png',
     desc: 'Hardware-software co-design, autonomous robotics platforms, and industrial automation solutions.',
-    icon: '🦾',
   },
 ];
 
@@ -485,37 +479,37 @@ export const sampleJobs = [
 export const services = [
   {
     title: 'Application Software Development',
-    icon: '💻',
+    icon: 'dev',
     description: 'Custom enterprise and web application development tailored to your business needs, built with modern technologies and best practices.',
     features: ['Custom Web Applications', 'Mobile App Development', 'API Integration', 'Cloud Deployment'],
   },
   {
     title: 'ERP Solutions',
-    icon: '🏢',
+    icon: 'erp',
     description: 'Comprehensive Enterprise Resource Planning (ERP) solutions including Campus Management, Hospital Management, and HR systems.',
     features: ['Campus Solution 360', 'HR Management System', 'Financial Management', 'Inventory Systems'],
   },
   {
     title: 'AI & Data Analytics',
-    icon: '🤖',
+    icon: 'ai',
     description: 'Intelligent data analytics, machine learning pipelines, and AI-powered automation solutions for business and government.',
     features: ['Predictive Analytics', 'Computer Vision', 'NLP Solutions', 'Business Intelligence'],
   },
   {
     title: 'Cybersecurity Services',
-    icon: '🔐',
+    icon: 'cyber',
     description: 'Comprehensive cybersecurity audits, vulnerability assessments, and secure system design for organizations.',
     features: ['Security Audits', 'Penetration Testing', 'SIEM Solutions', 'Security Training'],
   },
   {
     title: 'IoT & Embedded Systems',
-    icon: '📡',
+    icon: 'iot',
     description: 'Design and deployment of IoT networks, smart sensors, and embedded computing systems for industrial use.',
     features: ['IoT Architecture', 'Sensor Networks', 'Industrial Automation', 'Smart City Solutions'],
   },
   {
     title: 'Professional Training',
-    icon: '🎓',
+    icon: 'training',
     description: 'Short courses and professional certification programs in AI, cybersecurity, data science, software engineering, and more.',
     features: ['AI & ML Training', 'Data Science', 'Cybersecurity', 'Software Development'],
   },

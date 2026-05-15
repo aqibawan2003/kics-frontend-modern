@@ -1,12 +1,18 @@
 import PageHero from '../components/PageHero';
 import AnimateOnScroll from '../components/AnimateOnScroll';
+import SEO from '../components/SEO';
 import { services, clients } from '../data/siteData';
 import { Link } from 'react-router-dom';
-import { FiCheck } from 'react-icons/fi';
+import { FiCheck, FiAward, FiCpu, FiUsers, FiDollarSign } from 'react-icons/fi';
 
 export default function Services() {
   return (
     <div>
+      <SEO
+        title="Services"
+        description="KICS offers enterprise software development, ERP solutions, AI services, cybersecurity, IoT systems, and professional training programs in Pakistan."
+        breadcrumbs={[{ label: 'Services', url: '/services' }]}
+      />
       <PageHero
         title="Services"
         subtitle="KICS offers world-class technology solutions, ERP systems, AI services, and professional training."
@@ -27,8 +33,10 @@ export default function Services() {
             {services.map((svc, i) => (
               <AnimateOnScroll key={svc.title} delay={i * 70}>
                 <div className="card p-6 group h-full flex flex-col">
-                  <span className="text-4xl mb-4 block group-hover:animate-float">{svc.icon}</span>
-                  <h3 className="font-heading font-bold text-navy text-lg mb-2 group-hover:text-gold transition-colors">{svc.title}</h3>
+                  <div className="w-12 h-12 rounded-lg bg-primary-50 group-hover:bg-primary-600 flex items-center justify-center mb-4 transition-colors duration-300">
+                    <FiCpu size={22} className="text-primary-600 group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h3 className="font-bold text-slate-800 text-lg mb-2 group-hover:text-primary-600 transition-colors">{svc.title}</h3>
                   <p className="text-slate-500 text-sm leading-relaxed mb-5 flex-1">{svc.description}</p>
                   <ul className="space-y-2">
                     {svc.features.map(f => (
@@ -74,13 +82,15 @@ export default function Services() {
               <div className="card p-6">
                 <h4 className="font-heading font-bold text-navy text-lg mb-4">Why Choose KICS Services?</h4>
                 {[
-                  { icon: '🏛️', title: 'Academic Credibility', desc: 'Backed by UET Lahore, one of Pakistan\'s top engineering universities.' },
-                  { icon: '🔬', title: 'Research-Driven', desc: 'Solutions built on cutting-edge research with continuous innovation.' },
-                  { icon: '🤝', title: 'Long-term Partnership', desc: 'We provide full lifecycle support from deployment to maintenance.' },
-                  { icon: '💰', title: 'Cost Effective', desc: 'Competitive pricing with world-class quality and local expertise.' },
+                  { Icon: FiAward,    title: 'Academic Credibility',  desc: "Backed by UET Lahore, one of Pakistan's top engineering universities." },
+                  { Icon: FiCpu,      title: 'Research-Driven',       desc: 'Solutions built on cutting-edge research with continuous innovation.' },
+                  { Icon: FiUsers,    title: 'Long-term Partnership',  desc: 'We provide full lifecycle support from deployment to maintenance.' },
+                  { Icon: FiDollarSign, title: 'Cost Effective',      desc: 'Competitive pricing with world-class quality and local expertise.' },
                 ].map(item => (
                   <div key={item.title} className="flex gap-3 mb-4 last:mb-0">
-                    <span className="text-xl flex-shrink-0">{item.icon}</span>
+                    <div className="w-8 h-8 rounded-lg bg-primary-50 flex items-center justify-center flex-shrink-0">
+                      <item.Icon size={16} className="text-primary-600" />
+                    </div>
                     <div>
                       <p className="font-semibold text-navy text-sm">{item.title}</p>
                       <p className="text-slate-500 text-xs mt-0.5">{item.desc}</p>

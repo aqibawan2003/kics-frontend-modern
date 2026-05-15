@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import PageHero from '../components/PageHero';
 import AnimateOnScroll from '../components/AnimateOnScroll';
+import SEO from '../components/SEO';
 import { contactInfo } from '../data/siteData';
 import { FiPhone, FiMail, FiMapPin, FiSend } from 'react-icons/fi';
 import { FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
@@ -18,6 +19,11 @@ export default function Contact() {
 
   return (
     <div>
+      <SEO
+        title="Contact Us"
+        description="Contact KICS UET Lahore for research collaboration, technology services, professional training, or general inquiries. Phone, email and address."
+        breadcrumbs={[{ label: 'Contact', url: '/contact' }]}
+      />
       <PageHero
         title="Contact Us"
         subtitle="Reach out to our team for research collaboration, services, training, or general inquiries."
@@ -70,7 +76,7 @@ export default function Contact() {
                         <p className="text-gold text-xs font-semibold">{c.role}</p>
                         <p className="text-white text-sm font-medium">{c.name}</p>
                         <p className="text-white/55 text-xs">{c.title}</p>
-                        <p className="text-white/55 text-xs mt-0.5">📞 {c.phone}{c.cell ? ` | ${c.cell}` : ''}</p>
+                        <p className="text-white/55 text-xs mt-0.5 flex items-center gap-1"><FiPhone size={10} /> {c.phone}{c.cell ? ` | ${c.cell}` : ''}</p>
                       </div>
                     ))}
                   </div>

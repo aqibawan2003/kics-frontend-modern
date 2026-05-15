@@ -73,7 +73,7 @@
 
   /* ── Page hero ───────────────────────────── */
   .page-hero {
-    @apply relative bg-gradient-to-br from-primary-50 to-white pt-32 pb-20 overflow-hidden;
+    @apply relative bg-gradient-to-br from-primary-900 to-primary-800 pt-32 pb-20 overflow-hidden;
   }
 }
 

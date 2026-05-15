@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import PageHero from '../components/PageHero';
 import AnimateOnScroll from '../components/AnimateOnScroll';
+import SEO from '../components/SEO';
 import { newsItems } from '../data/siteData';
 import { FiCalendar, FiArrowRight } from 'react-icons/fi';
 
@@ -18,6 +19,11 @@ export default function News() {
 
   return (
     <div>
+      <SEO
+        title="News & Events"
+        description="Latest news, achievements, partnerships, and events from KICS UET Lahore. Research breakthroughs, appointments, and upcoming conferences."
+        breadcrumbs={[{ label: 'News & Events', url: '/news' }]}
+      />
       <PageHero
         title="News & Events"
         subtitle="Stay up to date with the latest achievements, partnerships, and events at KICS."

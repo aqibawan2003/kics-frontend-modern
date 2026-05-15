@@ -1,5 +1,6 @@
 import PageHero from '../components/PageHero';
 import AnimateOnScroll from '../components/AnimateOnScroll';
+import SEO from '../components/SEO';
 import { conferences } from '../data/siteData';
 import { FiExternalLink, FiCalendar, FiMapPin } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
@@ -7,6 +8,11 @@ import { Link } from 'react-router-dom';
 export default function Conferences() {
   return (
     <div>
+      <SEO
+        title="Conferences"
+        description="KICS organizes ICOSST and other IEEE conferences on open-source systems, AI, cybersecurity, and more. Past and upcoming events at UET Lahore."
+        breadcrumbs={[{ label: 'Events' }, { label: 'Conferences', url: '/conferences' }]}
+      />
       <PageHero
         title="Conferences"
         subtitle="KICS hosts and co-organizes international conferences to advance open science and technology."

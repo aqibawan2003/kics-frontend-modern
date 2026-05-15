@@ -1,8 +1,9 @@
+import { useState } from 'react';
 import PageHero from '../components/PageHero';
 import AnimateOnScroll from '../components/AnimateOnScroll';
+import SEO from '../components/SEO';
 import { workshops } from '../data/siteData';
-import { FiCalendar, FiTag } from 'react-icons/fi';
-import { useState } from 'react';
+import { FiCalendar, FiTag, FiMic, FiCpu, FiUsers } from 'react-icons/fi';
 
 const types = ['All', 'Summit', 'Workshop', 'Conference'];
 
@@ -12,6 +13,11 @@ export default function Workshops() {
 
   return (
     <div>
+      <SEO
+        title="Workshops & Seminars"
+        description="KICS workshops, seminars, and summits on AI, data science, cybersecurity, Android development, and more. Events at UET Lahore."
+        breadcrumbs={[{ label: 'Events' }, { label: 'Workshops', url: '/workshops' }]}
+      />
       <PageHero
         title="Workshops & Seminars"
         subtitle="Hands-on training, expert seminars, and professional development events at KICS."
@@ -80,12 +86,14 @@ export default function Workshops() {
             </p>
             <div className="grid sm:grid-cols-3 gap-4 text-left mt-8">
               {[
-                { icon: '🎙️', title: 'Guest Lectures', desc: 'Renowned academics and industry leaders share their expertise.' },
-                { icon: '🔬', title: 'Research Talks', desc: 'KICS researchers present their latest findings and work-in-progress.' },
-                { icon: '🤝', title: 'Panel Discussions', desc: 'Multi-stakeholder discussions on critical technology policy issues.' },
+                { Icon: FiMic,   title: 'Guest Lectures',    desc: 'Renowned academics and industry leaders share their expertise.' },
+                { Icon: FiCpu,  title: 'Research Talks',    desc: 'KICS researchers present their latest findings and work-in-progress.' },
+                { Icon: FiUsers, title: 'Panel Discussions', desc: 'Multi-stakeholder discussions on critical technology policy issues.' },
               ].map(item => (
-                <div key={item.title} className="card-dark rounded-xl p-5 border border-white/12">
-                  <span className="text-2xl mb-3 block">{item.icon}</span>
+                <div key={item.title} className="card-dark rounded-xl p-5 border border-white/10">
+                  <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center mb-3">
+                    <item.Icon size={18} className="text-white" />
+                  </div>
                   <h4 className="text-white font-bold text-sm mb-1.5">{item.title}</h4>
                   <p className="text-white/60 text-xs leading-relaxed">{item.desc}</p>
                 </div>

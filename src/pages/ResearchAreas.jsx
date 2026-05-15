@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import PageHero from '../components/PageHero';
 import AnimateOnScroll from '../components/AnimateOnScroll';
+import SEO from '../components/SEO';
 import { researchCategories, researchAreas, collaborators } from '../data/siteData';
 
 export default function ResearchAreas() {
@@ -8,6 +9,11 @@ export default function ResearchAreas() {
 
   return (
     <div>
+      <SEO
+        title="Research Areas"
+        description="Explore KICS's 25+ specialized labs in AI, cybersecurity, IoT, software systems, power engineering, and industrial automation at UET Lahore."
+        breadcrumbs={[{ label: 'Research', url: '/research-areas' }, { label: 'Research Areas', url: '/research-areas' }]}
+      />
       <PageHero
         title="Research Areas"
         subtitle="Discover our 25+ specialized labs and centers driving innovation across five technology domains."
@@ -33,7 +39,6 @@ export default function ResearchAreas() {
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       onError={e => { e.target.src = `https://via.placeholder.com/400x200/0b1f4b/c8972a?text=${encodeURIComponent(area.title)}`; }} />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy/70 to-transparent" />
-                    <span className="absolute top-3 right-3 text-2xl">{area.icon}</span>
                   </div>
                   <div className="p-5 flex-1 flex flex-col">
                     <h3 className="font-heading font-bold text-navy text-base mb-2 group-hover:text-gold transition-colors">{area.title}</h3>
@@ -66,7 +71,7 @@ export default function ResearchAreas() {
                     ? 'bg-navy text-white shadow-card'
                     : 'bg-white text-slate-600 hover:bg-navy/8 border border-slate-200'
                 }`}>
-                <span>{cat.icon}</span> {cat.category}
+                {cat.category}
               </button>
             ))}
           </div>
@@ -76,8 +81,7 @@ export default function ResearchAreas() {
             <div key={ci} className={activeTab === ci ? 'block' : 'hidden'}>
               <div className={`bg-gradient-to-r ${cat.color} rounded-2xl p-6 mb-6 text-white`}>
                 <div className="flex items-center gap-3 mb-2">
-                  <span className="text-3xl">{cat.icon}</span>
-                  <h3 className="font-heading font-bold text-xl">{cat.category}</h3>
+                  <h3 className="font-bold text-xl text-white">{cat.category}</h3>
                 </div>
                 <p className="text-white/70 text-sm">{cat.labs.length} specialized labs in this domain</p>
               </div>
