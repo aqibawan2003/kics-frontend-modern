@@ -35,48 +35,48 @@ export default function Contact() {
           <div className="grid lg:grid-cols-5 gap-10">
             {/* Info panel */}
             <AnimateOnScroll animation="reveal-left" className="lg:col-span-2">
-              <div className="bg-hero-gradient rounded-2xl p-7 text-white h-full bg-dot-pattern">
-                <span className="eyebrow">Get in Touch</span>
-                <h2 className="text-2xl font-heading font-bold mb-5 text-white">Contact Information</h2>
+              <div className="bg-primary-900 rounded-2xl p-7 h-full bg-dot-pattern">
+                <span className="text-primary-300 font-semibold uppercase tracking-[0.2em] text-xs mb-3 block">Get in Touch</span>
+                <h2 className="text-2xl font-heading font-bold mb-5 text-primary-50">Contact Information</h2>
                 <div className="space-y-5 mb-8">
                   <a href={`tel:${contactInfo.phone}`} className="flex items-start gap-4 group">
-                    <div className="w-10 h-10 rounded-xl bg-white/10 group-hover:bg-gold flex items-center justify-center flex-shrink-0 transition-colors">
+                    <div className="w-10 h-10 rounded-xl bg-primary-700 group-hover:bg-primary-500 flex items-center justify-center flex-shrink-0 transition-colors text-primary-100">
                       <FiPhone size={16} />
                     </div>
                     <div>
-                      <p className="text-white/50 text-xs mb-0.5">Phone</p>
-                      <p className="text-white text-sm font-medium">{contactInfo.phone}</p>
+                      <p className="text-primary-300 text-xs mb-0.5">Phone</p>
+                      <p className="text-primary-50 text-sm font-medium">{contactInfo.phone}</p>
                     </div>
                   </a>
                   <a href={`mailto:${contactInfo.email}`} className="flex items-start gap-4 group">
-                    <div className="w-10 h-10 rounded-xl bg-white/10 group-hover:bg-gold flex items-center justify-center flex-shrink-0 transition-colors">
+                    <div className="w-10 h-10 rounded-xl bg-primary-700 group-hover:bg-primary-500 flex items-center justify-center flex-shrink-0 transition-colors text-primary-100">
                       <FiMail size={16} />
                     </div>
                     <div>
-                      <p className="text-white/50 text-xs mb-0.5">Email</p>
-                      <p className="text-white text-sm font-medium">{contactInfo.email}</p>
+                      <p className="text-primary-300 text-xs mb-0.5">Email</p>
+                      <p className="text-primary-50 text-sm font-medium">{contactInfo.email}</p>
                     </div>
                   </a>
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
+                    <div className="w-10 h-10 rounded-xl bg-primary-700 flex items-center justify-center flex-shrink-0 text-primary-100">
                       <FiMapPin size={16} />
                     </div>
                     <div>
-                      <p className="text-white/50 text-xs mb-0.5">Address</p>
-                      <p className="text-white text-sm leading-relaxed">{contactInfo.address}</p>
+                      <p className="text-primary-300 text-xs mb-0.5">Address</p>
+                      <p className="text-primary-50 text-sm leading-relaxed">{contactInfo.address}</p>
                     </div>
                   </div>
                 </div>
 
-                <div className="border-t border-white/10 pt-6 mb-6">
-                  <p className="text-white/50 text-xs mb-3 uppercase tracking-wider">Department Contacts</p>
+                <div className="border-t border-primary-700 pt-6 mb-6">
+                  <p className="text-primary-300 text-xs mb-3 uppercase tracking-wider">Department Contacts</p>
                   <div className="space-y-3">
                     {contactInfo.contacts.map((c) => (
-                      <div key={c.name} className="bg-white/8 rounded-lg p-3">
-                        <p className="text-gold text-xs font-semibold">{c.role}</p>
-                        <p className="text-white text-sm font-medium">{c.name}</p>
-                        <p className="text-white/55 text-xs">{c.title}</p>
-                        <p className="text-white/55 text-xs mt-0.5 flex items-center gap-1"><FiPhone size={10} /> {c.phone}{c.cell ? ` | ${c.cell}` : ''}</p>
+                      <div key={c.name} className="bg-primary-800 rounded-lg p-3">
+                        <p className="text-primary-400 text-xs font-semibold">{c.role}</p>
+                        <p className="text-primary-50 text-sm font-medium">{c.name}</p>
+                        <p className="text-primary-200 text-xs">{c.title}</p>
+                        <p className="text-primary-200 text-xs mt-0.5 flex items-center gap-1"><FiPhone size={10} /> {c.phone}{c.cell ? ` | ${c.cell}` : ''}</p>
                       </div>
                     ))}
                   </div>
@@ -89,7 +89,7 @@ export default function Contact() {
                     { Icon: FaLinkedinIn,href: contactInfo.socials.linkedin },
                   ].map(({ Icon, href }, i) => (
                     <a key={i} href={href} target="_blank" rel="noreferrer"
-                      className="w-9 h-9 rounded-full bg-white/10 hover:bg-gold flex items-center justify-center transition-all duration-200">
+                      className="w-9 h-9 rounded-full bg-primary-700 hover:bg-primary-500 text-primary-100 flex items-center justify-center transition-all duration-200">
                       <Icon size={14} />
                     </a>
                   ))}
