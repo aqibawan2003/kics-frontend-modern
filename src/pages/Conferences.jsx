@@ -61,7 +61,7 @@ export default function Conferences() {
               {conferences.map((conf, i) => (
                 <AnimateOnScroll key={i} delay={i * 60}>
                   <div className="card p-6 flex flex-col sm:flex-row sm:items-center gap-5 group">
-                    <div className="w-14 h-14 rounded-xl bg-primary-700 flex items-center justify-center text-white font-heading font-bold text-xs text-center leading-tight flex-shrink-0 group-hover:shadow-gold transition-shadow">
+                    <div className="w-14 h-14 rounded-xl bg-primary-700 flex items-center justify-center text-white font-heading font-bold text-xs text-center leading-tight flex-shrink-0 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-shadow">
                       ICOSST
                     </div>
                     <div className="flex-1">

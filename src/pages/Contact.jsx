@@ -118,7 +118,7 @@ export default function Contact() {
                       <label htmlFor={field.id} className="block text-sm font-semibold text-slate-700 mb-1.5">{field.label}</label>
                       <input id={field.id} type={field.type} placeholder={field.placeholder} required
                         value={form[field.id]} onChange={e => setForm({ ...form, [field.id]: e.target.value })}
-                        className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-colors" />
+                        className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-600 transition-colors" />
                     </div>
                   ))}
                 </div>
@@ -126,13 +126,13 @@ export default function Contact() {
                   <label htmlFor="subject" className="block text-sm font-semibold text-slate-700 mb-1.5">Subject</label>
                   <input id="subject" type="text" placeholder="How can we help?" required
                     value={form.subject} onChange={e => setForm({ ...form, subject: e.target.value })}
-                    className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-colors" />
+                    className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-600 transition-colors" />
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-sm font-semibold text-slate-700 mb-1.5">Message</label>
                   <textarea id="message" rows={5} placeholder="Tell us about your inquiry…" required
                     value={form.message} onChange={e => setForm({ ...form, message: e.target.value })}
-                    className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-colors resize-none" />
+                    className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-600 transition-colors resize-none" />
                 </div>
                 <button type="submit" className="btn-primary w-full sm:w-auto justify-center">
                   <FiSend size={15} /> Send Message

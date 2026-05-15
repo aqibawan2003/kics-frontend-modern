@@ -61,7 +61,7 @@ export default function About() {
                   alt="KICS Institute"
                   className="w-full h-80 object-cover"
                   onError={e => { e.target.src='https://placehold.co/600x320/4a1209/fae3de?text=KICS+UET+Lahore'; }} />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary-900/60 to-transparent" />
                 <div className="absolute bottom-5 left-5 right-5">
                   <p className="text-white font-heading font-bold text-lg">KICS, UET Lahore</p>
                   <p className="text-white/70 text-sm">Est. 2002 — G.T. Road, Lahore</p>
@@ -123,7 +123,7 @@ export default function About() {
             </div>
           </AnimateOnScroll>
           <div className="relative">
-            <div className="absolute left-6 sm:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-navy via-gold to-navy opacity-30" />
+            <div className="absolute left-6 sm:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary-600 via-cyan-500 to-primary-600 opacity-30" />
             {timeline.map((item, i) => (
               <AnimateOnScroll key={i} animation={i % 2 === 0 ? 'reveal-left' : 'reveal-right'} delay={i * 60}>
                 <div className={`relative flex items-start gap-6 mb-8 ${i % 2 === 0 ? 'sm:flex-row' : 'sm:flex-row-reverse'}`}>
@@ -133,7 +133,7 @@ export default function About() {
                       <p className="text-slate-600 text-sm mt-1">{item.event}</p>
                     </div>
                   </div>
-                  <div className="absolute left-4 sm:left-1/2 sm:-translate-x-1/2 w-4 h-4 rounded-full bg-cyan-500 border-2 border-white shadow-gold flex-shrink-0 mt-1" />
+                  <div className="absolute left-4 sm:left-1/2 sm:-translate-x-1/2 w-4 h-4 rounded-full bg-cyan-500 border-2 border-white shadow-lg shadow-cyan-500/50 flex-shrink-0 mt-1" />
                   <div className="hidden sm:block flex-1" />
                 </div>
               </AnimateOnScroll>
