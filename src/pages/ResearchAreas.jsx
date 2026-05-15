@@ -137,13 +137,13 @@ export default function ResearchAreas() {
       </section>
 
       {/* Publications placeholder */}
-      <section className="py-16 bg-hero-gradient bg-dot-pattern" id="projects">
+      <section className="py-16 bg-primary-900 bg-dot-pattern" id="projects">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <AnimateOnScroll animation="reveal-scale">
-            <span className="eyebrow">Academic Output</span>
+            <span className="text-primary-300 font-semibold uppercase tracking-[0.2em] text-xs mb-3 block">Academic Output</span>
             <h2 className="section-title-white mb-4">Publications &amp; Projects</h2>
             <div className="divider-center" />
-            <p className="text-white/65 mb-8 max-w-xl mx-auto">
+            <p className="text-primary-100 mb-8 max-w-xl mx-auto">
               KICS researchers have authored 500+ publications in top-tier IEEE, ACM, and Elsevier
               journals and conferences. Explore our full publication record on the official KICS portal.
             </p>
