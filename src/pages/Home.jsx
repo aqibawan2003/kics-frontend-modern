@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   FiBell, FiArrowRight, FiCalendar, FiBookOpen, FiAward, FiGlobe, FiUsers,
   FiCpu, FiZap, FiGitBranch, FiMonitor, FiMapPin, FiTrendingUp, FiTarget,
+  FiPhone, FiMail, FiClock, FiNavigation,
 } from 'react-icons/fi';
 import AnimateOnScroll from '../components/AnimateOnScroll';
 import useCounter from '../hooks/useCounter';
@@ -694,6 +695,216 @@ const FeaturedProjects = memo(function FeaturedProjects() {
   );
 });
 
+/* ── Campus Life Gallery ──────────────────────────────────── */
+const CampusGallery = memo(function CampusGallery() {
+  const photos = [
+    {
+      url: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=600&fit=crop',
+      title: 'Research Labs',
+      description: 'State-of-the-art facilities'
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=600&fit=crop',
+      title: 'Collaborative Spaces',
+      description: 'Modern workspaces'
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=800&h=600&fit=crop',
+      title: 'Tech Events',
+      description: 'Regular workshops'
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&h=600&fit=crop',
+      title: 'Student Projects',
+      description: 'Innovation showcase'
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=600&fit=crop',
+      title: 'Team Collaboration',
+      description: 'Group work sessions'
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&h=600&fit=crop',
+      title: 'Conference Rooms',
+      description: 'ICOSST & seminars'
+    },
+  ];
+
+  return (
+    <section className="py-16 sm:py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <AnimateOnScroll>
+          <div className="text-center mb-12">
+            <span className="eyebrow">Campus Life</span>
+            <h2 className="section-title">Experience KICS</h2>
+            <div className="divider-center mt-3" />
+            <p className="text-slate-600 text-sm max-w-2xl mx-auto mt-4">
+              Explore our world-class facilities, vibrant research environment, and collaborative spaces.
+            </p>
+          </div>
+        </AnimateOnScroll>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6">
+          {photos.map((photo, i) => (
+            <AnimateOnScroll key={i} delay={i * 60}>
+              <div className="relative group overflow-hidden rounded-xl aspect-[4/3] cursor-pointer shadow-md hover:shadow-2xl transition-all">
+                <img
+                  src={photo.url}
+                  alt={photo.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  loading="lazy"
+                  onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=600&fit=crop'; }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary-900/90 via-primary-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                    <h4 className="font-bold text-sm mb-1">{photo.title}</h4>
+                    <p className="text-xs text-white/90">{photo.description}</p>
+                  </div>
+                </div>
+              </div>
+            </AnimateOnScroll>
+          ))}
+        </div>
+        <AnimateOnScroll>
+          <div className="text-center mt-10">
+            <Link to="/about" className="btn-primary">
+              Explore More <FiArrowRight size={14} className="ml-1" />
+            </Link>
+          </div>
+        </AnimateOnScroll>
+      </div>
+    </section>
+  );
+});
+
+/* ── Interactive Map & Contact ────────────────────────────── */
+const MapSection = memo(function MapSection() {
+  return (
+    <section className="py-16 sm:py-20 bg-slate-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <AnimateOnScroll>
+          <div className="text-center mb-12">
+            <span className="eyebrow">Visit Us</span>
+            <h2 className="section-title">Find KICS</h2>
+            <div className="divider-center mt-3" />
+          </div>
+        </AnimateOnScroll>
+
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+          {/* Contact Info */}
+          <AnimateOnScroll animation="reveal-left">
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-xl font-bold text-slate-900 mb-6">Get in Touch</h3>
+
+                {/* Address */}
+                <div className="card p-6 mb-4 hover:shadow-lg transition-all group">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-600 to-primary-700 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <FiMapPin size={20} className="text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-slate-900 mb-1">Address</h4>
+                      <p className="text-slate-600 text-sm leading-relaxed">
+                        Al-Khwarizmi Institute of Computer Science (KICS)<br />
+                        University of Engineering & Technology<br />
+                        G.T. Road, Lahore, Punjab<br />
+                        Pakistan
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Phone */}
+                <div className="card p-6 mb-4 hover:shadow-lg transition-all group">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-600 to-cyan-700 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <FiPhone size={20} className="text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-slate-900 mb-1">Phone</h4>
+                      <a href="tel:+924299029450" className="text-primary-600 hover:text-primary-700 font-semibold transition-colors">
+                        +92 42 99029450
+                      </a>
+                      <p className="text-slate-500 text-xs mt-1">Mon - Fri, 9:00 AM - 5:00 PM</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Email */}
+                <div className="card p-6 hover:shadow-lg transition-all group">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600 to-purple-700 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <FiMail size={20} className="text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-slate-900 mb-1">Email</h4>
+                      <a href="mailto:info@kics.edu.pk" className="text-primary-600 hover:text-primary-700 font-semibold transition-colors">
+                        info@kics.edu.pk
+                      </a>
+                      <p className="text-slate-500 text-xs mt-1">We'll respond within 24 hours</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Quick Links */}
+              <div className="bg-primary-50 rounded-2xl p-6 border border-primary-100">
+                <h4 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
+                  <FiNavigation size={16} className="text-primary-600" />
+                  Quick Actions
+                </h4>
+                <div className="grid grid-cols-2 gap-3">
+                  <Link to="/contact" className="btn-outline text-xs justify-center">
+                    Contact Form
+                  </Link>
+                  <Link to="/jobs" className="btn-outline text-xs justify-center">
+                    Career Portal
+                  </Link>
+                  <Link to="/e-rozgaar" className="btn-outline text-xs justify-center">
+                    Apply Now
+                  </Link>
+                  <Link to="/conferences" className="btn-outline text-xs justify-center">
+                    Events
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </AnimateOnScroll>
+
+          {/* Google Map */}
+          <AnimateOnScroll animation="reveal-right">
+            <div className="relative">
+              <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-white" style={{ height: '500px' }}>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3398.8528753749445!2d74.35353831511826!3d31.578933981326868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39191b5e9e8f48ed%3A0x5e8f8e8f8e8f8e8f!2sUniversity%20of%20Engineering%20and%20Technology%2C%20Lahore!5e0!3m2!1sen!2s!4v1234567890"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="KICS Location Map"
+                />
+              </div>
+
+              {/* Floating badge on map */}
+              <div className="absolute top-4 left-4 bg-white rounded-xl shadow-lg px-4 py-3 flex items-center gap-3 border border-primary-100">
+                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary-600 to-cyan-600 flex items-center justify-center">
+                  <FiMapPin size={18} className="text-white" />
+                </div>
+                <div>
+                  <p className="font-bold text-slate-900 text-sm">KICS, UET Lahore</p>
+                  <p className="text-slate-500 text-xs">Punjab, Pakistan</p>
+                </div>
+              </div>
+            </div>
+          </AnimateOnScroll>
+        </div>
+      </div>
+    </section>
+  );
+});
+
 /* ── CTA Banner — Waseda-style: dark green with pattern ──── */
 const CTABanner = memo(function CTABanner() {
   return (
@@ -750,7 +961,9 @@ export default function Home() {
       <UpcomingEvents />
       <DirectorQuote />
       <NewsSection />
+      <CampusGallery />
       <CollabSection />
+      <MapSection />
       <CTABanner />
     </>
   );
