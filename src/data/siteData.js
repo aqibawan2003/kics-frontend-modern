@@ -101,7 +101,7 @@ export const stats = [
 export const researchCategories = [
   {
     category: 'Communication Technologies',
-    color: 'from-blue-600 to-blue-800',
+    color: 'from-primary-600 to-primary-800',
     icon: 'comm',
     labs: [
       { name: 'High Performance Computing & Networking Lab (HPCNL)', short: 'HPCNL' },
@@ -113,7 +113,7 @@ export const researchCategories = [
   },
   {
     category: 'Artificial Intelligence',
-    color: 'from-purple-600 to-purple-900',
+    color: 'from-primary-700 to-primary-900',
     icon: 'ai',
     labs: [
       { name: 'Computer Vision & Machine Learning Lab (CVML)', short: 'CVML' },
@@ -127,7 +127,7 @@ export const researchCategories = [
   },
   {
     category: 'Software Systems',
-    color: 'from-green-600 to-green-800',
+    color: 'from-primary-500 to-primary-700',
     icon: 'sw',
     labs: [
       { name: 'Software Systems Research Lab (SSRL)', short: 'SSRL' },
@@ -137,7 +137,7 @@ export const researchCategories = [
   },
   {
     category: 'Power & Energy Systems',
-    color: 'from-yellow-600 to-orange-700',
+    color: 'from-primary-400 to-primary-600',
     icon: 'power',
     labs: [
       { name: 'Power Research System Lab (PSRL)', short: 'PSRL' },
@@ -147,7 +147,7 @@ export const researchCategories = [
   },
   {
     category: 'Industrial Automation',
-    color: 'from-red-600 to-red-800',
+    color: 'from-primary-600 to-primary-800',
     icon: 'auto',
     labs: [
       { name: 'Industrial Automation & Control Lab (IACL)', short: 'IACL' },
@@ -157,7 +157,7 @@ export const researchCategories = [
   },
   {
     category: 'Centers & Incubation',
-    color: 'from-teal-600 to-teal-800',
+    color: 'from-primary-700 to-primary-900',
     icon: 'centers',
     labs: [
       { name: 'Technology Incubation Center (TIC)', short: 'TIC' },

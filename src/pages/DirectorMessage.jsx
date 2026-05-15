@@ -76,7 +76,7 @@ export default function DirectorMessage() {
                 </p>
               </div>
 
-              <div className="mt-8 p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border-l-4 border-blue-600">
+              <div className="mt-8 p-6 bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl border-l-4 border-primary-600">
                 <p className="text-slate-700 font-medium italic text-lg">
                   "We strive to gather capable and competent researchers at one platform and provide them with
                   favorable and motivational environment for creating innovative technologies."

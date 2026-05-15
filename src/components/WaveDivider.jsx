@@ -3,8 +3,8 @@
 export default function WaveDivider({ color = 'white', flip = false }) {
   const colors = {
     white: '#ffffff',
-    blue: '#0066cc',
-    'light-blue': '#5B9BD5',
+    brown: '#a83828',
+    'light-brown': '#c94f3a',
   };
 
   const fillColor = colors[color] || colors.white;
