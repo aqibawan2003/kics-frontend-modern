@@ -1,3 +1,14 @@
+/* ── Logo imports ────────────────────────────────────────────── */
+import huaweiLogo    from '../assets/images/collaborations/huawei.png';
+import mitLogo       from '../assets/images/collaborations/mit.png';
+import punjabLogo    from '../assets/images/collaborations/punjab.png';
+import hecLogo       from '../assets/images/collaborations/hec.png';
+import uetLogo       from '../assets/images/collaborations/uet.png';
+import igniteLogo    from '../assets/images/collaborations/ignite.png';
+import ieeeLogo      from '../assets/images/collaborations/ieee.jpg';
+import rescue1122Logo from '../assets/images/collaborations/rescue1122.png';
+import sportsBoardLogo from '../assets/images/collaborations/sports-board.jpg';
+
 /* ── Navigation ─────────────────────────────────────────────── */
 export const navLinks = [
   { label: 'Home', to: '/' },
@@ -524,14 +535,15 @@ export const clients = [
 
 /* ── Collaborators ──────────────────────────────────────────── */
 export const collaborators = [
-  { name: 'IEEE',       logo: 'https://upload.wikimedia.org/wikipedia/commons/2/21/IEEE_logo.svg' },
-  { name: 'Huawei',     logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Huawei_Logo.svg/320px-Huawei_Logo.svg.png' },
-  { name: 'MIT',        logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/MIT_logo.svg/320px-MIT_logo.svg.png' },
-  { name: 'UET Lahore', logo: null },
-  { name: 'HEC',        logo: null },
-  { name: 'IGNITE',     logo: null },
-  { name: 'Rescue 1122',logo: null },
-  { name: 'Punjab Govt',logo: null },
+  { name: 'IEEE',         logo: ieeeLogo,       url: 'https://www.ieee.org' },
+  { name: 'Huawei',       logo: huaweiLogo,     url: 'https://www.huawei.com' },
+  { name: 'MIT',          logo: mitLogo,        url: 'https://www.mit.edu' },
+  { name: 'UET Lahore',   logo: uetLogo,        url: 'https://www.uet.edu.pk' },
+  { name: 'HEC Pakistan', logo: hecLogo,        url: 'https://www.hec.gov.pk' },
+  { name: 'IGNITE',       logo: igniteLogo,     url: 'https://ignite.org.pk' },
+  { name: 'Rescue 1122',  logo: rescue1122Logo, url: 'https://www.rescue.gov.pk' },
+  { name: 'Punjab Govt',  logo: punjabLogo,     url: 'https://punjab.gov.pk' },
+  { name: 'Sports Board', logo: sportsBoardLogo,url: 'https://sportsboard.punjab.gov.pk' },
 ];
 
 /* ── Contact ─────────────────────────────────────────────────── */

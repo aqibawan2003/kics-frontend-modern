@@ -123,13 +123,22 @@ export default function ResearchAreas() {
           <AnimateOnScroll animation="reveal-scale">
             <div className="flex flex-wrap justify-center gap-4">
               {collaborators.map(c => (
-                <div key={c.name} className="bg-white rounded-xl px-6 py-4 shadow-card border border-slate-100 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 flex items-center justify-center min-w-[120px] group">
-                  {c.logo
-                    ? <img src={c.logo} alt={c.name} className="max-h-10 max-w-[90px] object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
-                        onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='block'; }} />
-                    : null}
-                  <span className={`text-navy font-bold text-sm ${c.logo ? 'hidden' : ''}`}>{c.name}</span>
-                </div>
+                <a
+                  key={c.name}
+                  href={c.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  title={c.name}
+                  className="bg-white rounded-xl px-6 py-4 shadow-card border border-primary-100 hover:shadow-card-hover hover:-translate-y-1 hover:border-primary-300 transition-all duration-300 flex flex-col items-center justify-center min-w-[120px] group cursor-pointer"
+                >
+                  <img
+                    src={c.logo}
+                    alt={c.name}
+                    className="max-h-10 max-w-[90px] object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                    onError={e => { e.target.style.display='none'; }}
+                  />
+                  <span className="text-slate-500 text-xs mt-2 font-medium group-hover:text-primary-600 transition-colors">{c.name}</span>
+                </a>
               ))}
             </div>
           </AnimateOnScroll>

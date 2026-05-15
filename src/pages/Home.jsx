@@ -334,23 +334,25 @@ const CollabSection = memo(function CollabSection() {
         <AnimateOnScroll animation="reveal-scale">
           <div className="flex flex-wrap justify-center gap-4">
             {collaborators.map((c) => (
-              <div
+              <a
                 key={c.name}
-                className="bg-white rounded-xl px-6 py-4 flex items-center justify-center shadow-card border border-primary-100 hover:shadow-card-hover hover:-translate-y-1 hover:border-primary-300 transition-all duration-300 min-w-[120px] group"
+                href={c.url}
+                target="_blank"
+                rel="noreferrer"
+                title={c.name}
+                className="bg-white rounded-xl px-6 py-4 flex flex-col items-center justify-center shadow-card border border-primary-100 hover:shadow-card-hover hover:-translate-y-1 hover:border-primary-300 transition-all duration-300 min-w-[120px] group cursor-pointer"
               >
-                {c.logo ? (
-                  <img
-                    src={c.logo}
-                    alt={c.name}
-                    width="90"
-                    height="36"
-                    className="max-h-9 max-w-[90px] object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
-                    loading="lazy"
-                    onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }}
-                  />
-                ) : null}
-                <span className={`text-slate-700 font-bold text-sm ${c.logo ? 'hidden' : ''}`}>{c.name}</span>
-              </div>
+                <img
+                  src={c.logo}
+                  alt={c.name}
+                  width="90"
+                  height="36"
+                  className="max-h-9 max-w-[90px] object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                  loading="lazy"
+                  onError={(e) => { e.target.style.display = 'none'; }}
+                />
+                <span className="text-slate-500 text-xs mt-2 font-medium group-hover:text-primary-600 transition-colors">{c.name}</span>
+              </a>
             ))}
           </div>
         </AnimateOnScroll>
