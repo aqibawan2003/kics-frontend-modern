@@ -61,13 +61,14 @@ export default function Footer() {
                 <div>
                   <p className="font-bold text-lg leading-none uppercase">KICS</p>
                   <p className="text-white/80 text-xs mt-1 uppercase">
-                    Zhejiang University
+                    UET Lahore
                   </p>
                 </div>
               </Link>
               <p className="text-white/90 text-sm leading-relaxed mb-6 max-w-sm">
                 Al-Khwarizmi Institute of Computer Science<br />
-                866 Yuhangtang Rd, Hangzhou 310058, P.R. China
+                University of Engineering & Technology<br />
+                G.T. Road, Lahore - 54890, Pakistan
               </p>
               <div className="space-y-3 mb-6">
                 <a
