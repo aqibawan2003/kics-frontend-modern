@@ -49,7 +49,7 @@ export default function Staff() {
                 {departments.map(d => (
                   <button key={d} onClick={() => setFilter(d)}
                     className={`px-4 py-2 rounded-lg text-xs font-semibold transition-all duration-200 ${
-                      filter === d ? 'bg-navy text-white shadow-card' : 'bg-slate-100 text-slate-600 hover:bg-navy/10'
+                      filter === d ? 'bg-primary-600 text-white shadow-card' : 'bg-slate-100 text-slate-600 hover:bg-primary-600/10'
                     }`}>
                     {d}
                   </button>
@@ -66,12 +66,12 @@ export default function Staff() {
                   <div className="w-20 h-20 rounded-full bg-primary-700 mx-auto mb-4 flex items-center justify-center text-3xl shadow-md group-hover:scale-110 transition-transform duration-300">
                     👤
                   </div>
-                  <h3 className="font-heading font-bold text-navy text-sm mb-0.5 group-hover:text-gold transition-colors">{person.name}</h3>
-                  <p className="text-gold text-xs font-semibold">{person.title}</p>
-                  <span className="badge-navy mt-2 mb-3 mx-auto">{person.dept}</span>
+                  <h3 className="font-heading font-bold text-primary-800 text-sm mb-0.5 group-hover:text-cyan-500 transition-colors">{person.name}</h3>
+                  <p className="text-cyan-500 text-xs font-semibold">{person.title}</p>
+                  <span className="badge-primary mt-2 mb-3 mx-auto">{person.dept}</span>
                   <p className="text-slate-500 text-xs leading-relaxed flex-1">{person.bio}</p>
                   <a href={`mailto:${person.email}`}
-                    className="mt-4 inline-flex items-center justify-center gap-1.5 text-navy text-xs font-medium hover:text-gold transition-colors">
+                    className="mt-4 inline-flex items-center justify-center gap-1.5 text-primary-800 text-xs font-medium hover:text-cyan-500 transition-colors">
                     <FiMail size={12} /> {person.email}
                   </a>
                 </div>
@@ -91,7 +91,7 @@ export default function Staff() {
             <p className="text-center text-slate-400 text-sm mt-10">
               Showing {visible.length} of {staffMembers.length} staff members. For the complete directory visit{' '}
               <a href="https://www.kics.edu.pk/people/all_staff" target="_blank" rel="noreferrer"
-                className="text-navy hover:text-gold transition-colors underline">
+                className="text-primary-800 hover:text-cyan-500 transition-colors underline">
                 kics.edu.pk/people/all_staff
               </a>
             </p>

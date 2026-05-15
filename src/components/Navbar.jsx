@@ -12,7 +12,7 @@ const Dropdown = ({ items, onClose }) => (
       backdropFilter: 'blur(20px)',
       WebkitBackdropFilter: 'blur(20px)',
       border: '1px solid rgba(255,120,80,0.18)',
-      boxShadow: '0 12px 40px rgba(0,0,0,0.12), 0 2px 8px rgba(201,79,58,0.08)',
+      boxShadow: '0 12px 40px rgba(0,0,0,0.12), 0 2px 8px rgba(37,99,235,0.08)',
     }}
   >
     {items.map((item) => (
@@ -21,7 +21,7 @@ const Dropdown = ({ items, onClose }) => (
         to={item.to}
         onClick={onClose}
         className={({ isActive }) =>
-          `block px-5 py-3 text-sm border-b border-orange-50 last:border-0 transition-all duration-150 ${
+          `block px-5 py-3 text-sm border-b border-blue-50 last:border-0 transition-all duration-150 ${
             isActive
               ? 'text-primary-600 bg-primary-50/80 font-semibold'
               : 'text-slate-700 hover:text-primary-600 hover:bg-primary-50/60'
@@ -79,7 +79,7 @@ export default function Navbar() {
         backdropFilter: 'blur(28px)',
         WebkitBackdropFilter: 'blur(28px)',
         border: '1px solid rgba(255,120,80,0.22)',
-        boxShadow: '0 12px 40px rgba(0,0,0,0.12), 0 2px 12px rgba(201,79,58,0.10)',
+        boxShadow: '0 12px 40px rgba(0,0,0,0.12), 0 2px 12px rgba(37,99,235,0.10)',
       }
     : {
         background: 'rgba(255,255,255,0.60)',
@@ -125,8 +125,8 @@ export default function Navbar() {
                   className="w-9 h-9 rounded-xl flex items-center justify-center overflow-hidden"
                   style={{
                     background: 'rgba(255,255,255,0.8)',
-                    border: '1px solid rgba(201,79,58,0.2)',
-                    boxShadow: '0 2px 8px rgba(201,79,58,0.12)',
+                    border: '1px solid rgba(37,99,235,0.2)',
+                    boxShadow: '0 2px 8px rgba(37,99,235,0.12)',
                   }}
                 >
                   <img
@@ -163,7 +163,7 @@ export default function Navbar() {
                           }`}
                           style={
                             openMenu === item.label
-                              ? { boxShadow: '0 0 0 1px rgba(201,79,58,0.2), 0 0 12px rgba(201,79,58,0.15)' }
+                              ? { boxShadow: '0 0 0 1px rgba(37,99,235,0.2), 0 0 12px rgba(37,99,235,0.15)' }
                               : {}
                           }
                           aria-haspopup="true"
@@ -191,7 +191,7 @@ export default function Navbar() {
                         }
                         style={({ isActive }) =>
                           isActive
-                            ? { boxShadow: '0 0 0 1px rgba(201,79,58,0.2), 0 0 12px rgba(201,79,58,0.18)' }
+                            ? { boxShadow: '0 0 0 1px rgba(37,99,235,0.2), 0 0 12px rgba(37,99,235,0.18)' }
                             : {}
                         }
                       >
@@ -209,7 +209,7 @@ export default function Navbar() {
                   className="hidden md:flex w-8 h-8 rounded-lg items-center justify-center text-slate-600 hover:text-primary-600 transition-all duration-200"
                   style={{
                     background: 'rgba(255,255,255,0.7)',
-                    border: '1px solid rgba(201,79,58,0.15)',
+                    border: '1px solid rgba(37,99,235,0.15)',
                   }}
                   aria-label="Search"
                 >
@@ -223,8 +223,8 @@ export default function Navbar() {
                   rel="noreferrer"
                   className="hidden md:flex items-center text-white text-xs font-bold px-4 py-2 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg whitespace-nowrap"
                   style={{
-                    background: 'linear-gradient(135deg, #8a2818, #c94f3a, #d97706)',
-                    boxShadow: '0 4px 14px rgba(201,79,58,0.35)',
+                    background: 'linear-gradient(135deg, #1d4ed8, #2563eb, #06b6d4)',
+                    boxShadow: '0 4px 14px rgba(37,99,235,0.35)',
                   }}
                 >
                   Apply Now
@@ -236,7 +236,7 @@ export default function Navbar() {
                   className="lg:hidden w-9 h-9 rounded-xl flex items-center justify-center text-slate-700 hover:text-primary-600 transition-all duration-200"
                   style={{
                     background: 'rgba(255,255,255,0.7)',
-                    border: '1px solid rgba(201,79,58,0.15)',
+                    border: '1px solid rgba(37,99,235,0.15)',
                   }}
                   aria-label={mobileOpen ? 'Close navigation' : 'Open navigation'}
                 >
@@ -274,22 +274,22 @@ export default function Navbar() {
             backdropFilter: 'blur(28px)',
             WebkitBackdropFilter: 'blur(28px)',
             borderLeft: '1px solid rgba(255,255,255,0.35)',
-            boxShadow: '-8px 0 40px rgba(0,0,0,0.12), -2px 0 12px rgba(201,79,58,0.06)',
+            boxShadow: '-8px 0 40px rgba(0,0,0,0.12), -2px 0 12px rgba(37,99,235,0.06)',
           }}
         >
           {/* Decorative glow blobs inside sidebar */}
-          <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full pointer-events-none" style={{ background: 'rgba(201,79,58,0.08)', filter: 'blur(32px)' }} />
-          <div className="absolute bottom-20 -left-10 w-32 h-32 rounded-full pointer-events-none" style={{ background: 'rgba(217,119,6,0.07)', filter: 'blur(28px)' }} />
+          <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full pointer-events-none" style={{ background: 'rgba(37,99,235,0.08)', filter: 'blur(32px)' }} />
+          <div className="absolute bottom-20 -left-10 w-32 h-32 rounded-full pointer-events-none" style={{ background: 'rgba(6,182,212,0.07)', filter: 'blur(28px)' }} />
 
           {/* ── Header ── */}
           <div
             className="relative flex items-center justify-between px-5 py-4 flex-shrink-0"
-            style={{ borderBottom: '1px solid rgba(201,79,58,0.10)' }}
+            style={{ borderBottom: '1px solid rgba(37,99,235,0.10)' }}
           >
             <Link to="/" className="flex items-center gap-2.5" onClick={() => setMobileOpen(false)}>
               <div
                 className="w-9 h-9 rounded-xl flex items-center justify-center overflow-hidden"
-                style={{ background: 'rgba(255,255,255,0.9)', border: '1px solid rgba(201,79,58,0.18)', boxShadow: '0 2px 8px rgba(201,79,58,0.12)' }}
+                style={{ background: 'rgba(255,255,255,0.9)', border: '1px solid rgba(37,99,235,0.18)', boxShadow: '0 2px 8px rgba(37,99,235,0.12)' }}
               >
                 <img
                   src="https://kics.edu.pk/web/wp-content/uploads/2018/02/unnamed.png"
@@ -307,7 +307,7 @@ export default function Navbar() {
             <button
               onClick={() => setMobileOpen(false)}
               className="w-8 h-8 rounded-xl flex items-center justify-center text-slate-600 hover:text-primary-600 transition-all duration-200"
-              style={{ background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(201,79,58,0.15)' }}
+              style={{ background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(37,99,235,0.15)' }}
               aria-label="Close navigation"
             >
               <FiX size={16} />
@@ -329,7 +329,7 @@ export default function Navbar() {
                       }`}
                       style={
                         expandedMobile === item.label
-                          ? { background: 'rgba(201,79,58,0.08)', borderLeft: '3px solid #c94f3a' }
+                          ? { background: 'rgba(37,99,235,0.08)', borderLeft: '3px solid #2563eb' }
                           : { background: 'transparent', borderLeft: '3px solid transparent' }
                       }
                     >
@@ -355,7 +355,7 @@ export default function Navbar() {
                             }
                             style={({ isActive }) =>
                               isActive
-                                ? { background: 'rgba(201,79,58,0.08)', borderLeft: '2px solid #c94f3a' }
+                                ? { background: 'rgba(37,99,235,0.08)', borderLeft: '2px solid #2563eb' }
                                 : { background: 'rgba(255,255,255,0.4)', borderLeft: '2px solid transparent' }
                             }
                           >
@@ -376,7 +376,7 @@ export default function Navbar() {
                     }
                     style={({ isActive }) =>
                       isActive
-                        ? { background: 'rgba(201,79,58,0.08)', borderLeft: '3px solid #c94f3a' }
+                        ? { background: 'rgba(37,99,235,0.08)', borderLeft: '3px solid #2563eb' }
                         : { background: 'transparent', borderLeft: '3px solid transparent' }
                     }
                   >
@@ -390,12 +390,12 @@ export default function Navbar() {
           {/* ── Bottom CTA + contact ── */}
           <div
             className="px-4 pb-6 pt-4 flex-shrink-0 space-y-3"
-            style={{ borderTop: '1px solid rgba(201,79,58,0.10)' }}
+            style={{ borderTop: '1px solid rgba(37,99,235,0.10)' }}
           >
             {/* Search bar */}
             <div
               className="flex items-center gap-2 px-3 py-2.5 rounded-xl"
-              style={{ background: 'rgba(255,255,255,0.6)', border: '1px solid rgba(201,79,58,0.12)' }}
+              style={{ background: 'rgba(255,255,255,0.6)', border: '1px solid rgba(37,99,235,0.12)' }}
             >
               <FiSearch size={14} className="text-slate-400 flex-shrink-0" />
               <span className="text-slate-400 text-sm">Search KICS...</span>
@@ -408,8 +408,8 @@ export default function Navbar() {
               rel="noreferrer"
               className="flex items-center justify-center text-white text-sm font-bold py-3 rounded-xl w-full hover:scale-[1.02] transition-all duration-300"
               style={{
-                background: 'linear-gradient(135deg, #8a2818, #c94f3a, #d97706)',
-                boxShadow: '0 6px 20px rgba(201,79,58,0.38)',
+                background: 'linear-gradient(135deg, #1d4ed8, #2563eb, #06b6d4)',
+                boxShadow: '0 6px 20px rgba(37,99,235,0.38)',
               }}
             >
               Apply Now

@@ -60,7 +60,7 @@ export default function Publications() {
               <ul className="space-y-2">
                 {journals.map(j => (
                   <li key={j} className="flex items-center gap-2 text-slate-600 text-sm py-2 border-b border-slate-100 last:border-0">
-                    <span className="text-gold">◆</span> {j}
+                    <span className="text-cyan-500">◆</span> {j}
                   </li>
                 ))}
               </ul>
@@ -80,7 +80,7 @@ export default function Publications() {
                       <item.Icon size={18} className="text-primary-600 group-hover:text-white transition-colors duration-300" />
                     </div>
                     <div className="flex-1">
-                      <h4 className="font-semibold text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                      <h4 className="font-semibold text-primary-800 group-hover:text-cyan-500 transition-colors flex items-center gap-1.5">
                         {item.name} <FiExternalLink size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                       </h4>
                       <p className="text-slate-500 text-xs mt-0.5">{item.desc}</p>

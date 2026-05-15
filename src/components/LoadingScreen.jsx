@@ -23,14 +23,14 @@ export default function LoadingScreen() {
   if (!isLoading) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] bg-navy-dark flex items-center justify-center">
+    <div className="fixed inset-0 z-[100] bg-primary-900 flex items-center justify-center">
       {/* Background pattern */}
       <div className="absolute inset-0 bg-dot-pattern opacity-20" />
 
       {/* Animated circles */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/10 rounded-full blur-3xl animate-pulse-glow" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-navy/20 rounded-full blur-3xl animate-float" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse-glow" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl animate-float" />
       </div>
 
       {/* Content */}
@@ -59,7 +59,7 @@ export default function LoadingScreen() {
         <div className="w-72 mx-auto animate-slideInUp" style={{ animationDelay: '0.2s' }}>
           <div className="h-1 bg-white/10 rounded-full overflow-hidden mb-2">
             <div
-              className="h-full bg-gradient-to-r from-gold via-gold-light to-gold transition-all duration-300 ease-out"
+              className="h-full bg-gradient-to-r from-cyan-500 via-cyan-400 to-blue-500 transition-all duration-300 ease-out"
               style={{ width: `${Math.min(progress, 100)}%` }}
             />
           </div>
@@ -73,7 +73,7 @@ export default function LoadingScreen() {
           {[0, 1, 2].map((i) => (
             <div
               key={i}
-              className="w-2 h-2 rounded-full bg-gold animate-bounce-gentle"
+              className="w-2 h-2 rounded-full bg-cyan-400 animate-bounce-gentle"
               style={{ animationDelay: `${i * 0.15}s` }}
             />
           ))}

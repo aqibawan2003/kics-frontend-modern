@@ -15,11 +15,11 @@ import {
 /* ── Stats ────────────────────────────────────────────────── */
 const kicsStats = [
   { Icon: FiCalendar, value: 22,   suffix: '+', label: 'Years of Excellence',     color: 'from-primary-700 to-primary-500' },
-  { Icon: FiBookOpen, value: 500,  suffix: '+', label: 'Research Publications',   color: 'from-amber-700 to-amber-500' },
+  { Icon: FiBookOpen, value: 500,  suffix: '+', label: 'Research Publications',   color: 'from-cyan-700 to-cyan-500' },
   { Icon: FiAward,    value: 25,   suffix: '+', label: 'Specialized Labs',         color: 'from-primary-800 to-primary-600' },
-  { Icon: FiGlobe,    value: 50,   suffix: '+', label: 'Industry Partners',        color: 'from-amber-600 to-amber-400' },
+  { Icon: FiGlobe,    value: 50,   suffix: '+', label: 'Industry Partners',        color: 'from-cyan-600 to-cyan-400' },
   { Icon: FiUsers,    value: 1000, suffix: '+', label: 'Professionals Trained',    color: 'from-primary-600 to-primary-400' },
-  { Icon: FiMonitor,  value: 17,   suffix: '+', label: 'ICOSST Editions',          color: 'from-amber-800 to-amber-600' },
+  { Icon: FiMonitor,  value: 17,   suffix: '+', label: 'ICOSST Editions',          color: 'from-cyan-800 to-cyan-600' },
 ];
 
 const StatItem = memo(function StatItem({ Icon, value, suffix, label, color, index }) {
@@ -75,7 +75,7 @@ const StatsBar = memo(function StatsBar() {
       {/* Background decoration */}
       <div className="absolute inset-0 bg-dot-pattern opacity-30 pointer-events-none" />
       <div className="absolute -top-20 -left-20 w-72 h-72 bg-primary-700/30 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-20 -right-20 w-72 h-72 bg-amber-800/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-20 -right-20 w-72 h-72 bg-cyan-800/20 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
@@ -83,7 +83,7 @@ const StatsBar = memo(function StatsBar() {
           <div className="text-center mb-12">
             <span className="text-primary-300 font-semibold uppercase tracking-[0.2em] text-xs mb-3 block">By The Numbers</span>
             <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-3">KICS at a Glance</h2>
-            <div className="w-14 h-1 bg-gradient-to-r from-primary-400 to-amber-400 rounded-full mx-auto" />
+            <div className="w-14 h-1 bg-gradient-to-r from-primary-400 to-cyan-400 rounded-full mx-auto" />
             <p className="text-primary-200 mt-4 text-sm max-w-xl mx-auto">
               Two decades of applied research, innovation, and technology excellence at UET Lahore.
             </p>
@@ -102,11 +102,11 @@ const StatsBar = memo(function StatsBar() {
         {/* Bottom divider line with text */}
         <AnimateOnScroll animation="reveal" delay={300}>
           <div className="mt-12 pt-8 border-t border-primary-700/60 flex flex-wrap items-center justify-center gap-6 text-xs text-primary-300">
-            <span className="flex items-center gap-2"><FiAward size={12} className="text-amber-400" /> IEEE Technical Collaborator</span>
+            <span className="flex items-center gap-2"><FiAward size={12} className="text-cyan-400" /> IEEE Technical Collaborator</span>
             <span className="w-px h-4 bg-primary-600 hidden sm:block" />
-            <span className="flex items-center gap-2"><FiGlobe size={12} className="text-amber-400" /> 20+ Countries Represented</span>
+            <span className="flex items-center gap-2"><FiGlobe size={12} className="text-cyan-400" /> 20+ Countries Represented</span>
             <span className="w-px h-4 bg-primary-600 hidden sm:block" />
-            <span className="flex items-center gap-2"><FiBookOpen size={12} className="text-amber-400" /> Indexed in IEEE Xplore &amp; ACM DL</span>
+            <span className="flex items-center gap-2"><FiBookOpen size={12} className="text-cyan-400" /> Indexed in IEEE Xplore &amp; ACM DL</span>
           </div>
         </AnimateOnScroll>
       </div>

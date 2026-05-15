@@ -92,7 +92,7 @@ export default function ICOSST() {
           <AnimateOnScroll animation="reveal-scale">
             <div className="flex flex-wrap justify-center gap-3">
               {topics.map(t => (
-                <span key={t} className="bg-white border border-slate-200 text-slate-700 rounded-full px-4 py-2 text-sm font-medium shadow-sm hover:border-gold hover:text-navy transition-colors cursor-default">
+                <span key={t} className="bg-white border border-slate-200 text-slate-700 rounded-full px-4 py-2 text-sm font-medium shadow-sm hover:border-gold hover:text-primary-800 transition-colors cursor-default">
                   {t}
                 </span>
               ))}
@@ -116,16 +116,16 @@ export default function ICOSST() {
               <AnimateOnScroll key={i} delay={i * 80}>
                 <div className="card p-6 group text-center">
                   <div className="w-16 h-16 rounded-full bg-primary-700 mx-auto mb-4 flex items-center justify-center">
-                    <FiAward size={24} className="text-gold" />
+                    <FiAward size={24} className="text-cyan-500" />
                   </div>
-                  <h3 className="font-heading font-bold text-navy text-xl mb-1">{ed.num} ICOSST</h3>
-                  <p className="text-gold font-semibold text-sm mb-3">{ed.year}</p>
+                  <h3 className="font-heading font-bold text-primary-800 text-xl mb-1">{ed.num} ICOSST</h3>
+                  <p className="text-cyan-500 font-semibold text-sm mb-3">{ed.year}</p>
                   <div className="space-y-1.5 text-slate-500 text-xs mb-5">
                     <p className="flex items-center justify-center gap-1.5"><FiCalendar size={11} /> {ed.date}</p>
                     <p className="flex items-center justify-center gap-1.5"><FiMapPin size={11} /> {ed.location}</p>
                   </div>
                   <a href={ed.url} target="_blank" rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 text-navy text-sm font-semibold hover:text-gold transition-colors">
+                    className="inline-flex items-center gap-1.5 text-primary-800 text-sm font-semibold hover:text-cyan-500 transition-colors">
                     View Proceedings <FiExternalLink size={12} />
                   </a>
                 </div>

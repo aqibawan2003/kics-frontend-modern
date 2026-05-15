@@ -38,7 +38,7 @@ export default function News() {
               {categories.map(c => (
                 <button key={c} onClick={() => setFilter(c)}
                   className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
-                    filter === c ? 'bg-navy text-white shadow-card' : 'bg-slate-100 text-slate-600 hover:bg-navy/10'
+                    filter === c ? 'bg-primary-600 text-white shadow-card' : 'bg-slate-100 text-slate-600 hover:bg-primary-600/10'
                   }`}>
                   {c}
                 </button>
@@ -58,12 +58,12 @@ export default function News() {
                     <span className="absolute top-3 left-3 badge">{item.category}</span>
                   </div>
                   <div className="p-5 flex flex-col flex-1">
-                    <span className="text-xs text-gold font-semibold flex items-center gap-1.5 mb-2">
+                    <span className="text-xs text-cyan-500 font-semibold flex items-center gap-1.5 mb-2">
                       <FiCalendar size={10} /> {item.date}
                     </span>
-                    <h3 className="font-heading font-bold text-navy mb-2 group-hover:text-gold transition-colors leading-snug">{item.title}</h3>
+                    <h3 className="font-heading font-bold text-primary-800 mb-2 group-hover:text-cyan-500 transition-colors leading-snug">{item.title}</h3>
                     <p className="text-slate-500 text-sm leading-relaxed flex-1">{item.excerpt}</p>
-                    <button className="mt-4 inline-flex items-center gap-1.5 text-navy text-sm font-semibold hover:text-gold transition-colors group/link">
+                    <button className="mt-4 inline-flex items-center gap-1.5 text-primary-800 text-sm font-semibold hover:text-cyan-500 transition-colors group/link">
                       Read More <FiArrowRight size={13} className="transition-transform group-hover/link:translate-x-1" />
                     </button>
                   </div>
@@ -93,12 +93,12 @@ export default function News() {
               <AnimateOnScroll key={nl.issue} delay={i * 80}>
                 <div className="card p-5 group">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="badge-navy">{nl.issue}</span>
+                    <span className="badge-primary">{nl.issue}</span>
                     <span className="text-xs text-slate-400">{nl.date}</span>
                   </div>
-                  <h4 className="font-heading font-bold text-navy mb-2 group-hover:text-gold transition-colors">{nl.title}</h4>
+                  <h4 className="font-heading font-bold text-primary-800 mb-2 group-hover:text-cyan-500 transition-colors">{nl.title}</h4>
                   <p className="text-slate-500 text-sm">{nl.desc}</p>
-                  <button className="mt-4 text-navy text-sm font-semibold hover:text-gold transition-colors flex items-center gap-1.5">
+                  <button className="mt-4 text-primary-800 text-sm font-semibold hover:text-cyan-500 transition-colors flex items-center gap-1.5">
                     📥 Download PDF
                   </button>
                 </div>

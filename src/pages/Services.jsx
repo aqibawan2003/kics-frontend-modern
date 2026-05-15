@@ -41,7 +41,7 @@ export default function Services() {
                   <ul className="space-y-2">
                     {svc.features.map(f => (
                       <li key={f} className="flex items-center gap-2 text-slate-600 text-sm">
-                        <FiCheck size={14} className="text-gold flex-shrink-0" /> {f}
+                        <FiCheck size={14} className="text-cyan-500 flex-shrink-0" /> {f}
                       </li>
                     ))}
                   </ul>
@@ -69,7 +69,7 @@ export default function Services() {
                 {['Student Information System', 'Human Resources & Payroll', 'Financial Management',
                   'Library Management System', 'Examination & Results', 'Online Admission Portal'].map(f => (
                   <li key={f} className="flex items-center gap-3 text-primary-100 text-sm">
-                    <span className="w-5 h-5 rounded-full bg-gold flex items-center justify-center flex-shrink-0">
+                    <span className="w-5 h-5 rounded-full bg-cyan-500 flex items-center justify-center flex-shrink-0">
                       <FiCheck size={11} className="text-white" />
                     </span>
                     {f}
@@ -80,7 +80,7 @@ export default function Services() {
             </AnimateOnScroll>
             <AnimateOnScroll animation="reveal-right">
               <div className="card p-6">
-                <h4 className="font-heading font-bold text-navy text-lg mb-4">Why Choose KICS Services?</h4>
+                <h4 className="font-heading font-bold text-primary-800 text-lg mb-4">Why Choose KICS Services?</h4>
                 {[
                   { Icon: FiAward,    title: 'Academic Credibility',  desc: "Backed by UET Lahore, one of Pakistan's top engineering universities." },
                   { Icon: FiCpu,      title: 'Research-Driven',       desc: 'Solutions built on cutting-edge research with continuous innovation.' },
@@ -92,7 +92,7 @@ export default function Services() {
                       <item.Icon size={16} className="text-primary-600" />
                     </div>
                     <div>
-                      <p className="font-semibold text-navy text-sm">{item.title}</p>
+                      <p className="font-semibold text-primary-800 text-sm">{item.title}</p>
                       <p className="text-slate-500 text-xs mt-0.5">{item.desc}</p>
                     </div>
                   </div>
@@ -125,7 +125,7 @@ export default function Services() {
           </AnimateOnScroll>
           <AnimateOnScroll>
             <div className="text-center mt-10">
-              <Link to="/contact" className="btn-navy">Become a Client</Link>
+              <Link to="/contact" className="btn-primary">Become a Client</Link>
             </div>
           </AnimateOnScroll>
         </div>

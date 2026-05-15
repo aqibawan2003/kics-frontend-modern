@@ -41,7 +41,7 @@ export default function ResearchAreas() {
                     <div className="absolute inset-0 bg-gradient-to-t from-navy/70 to-transparent" />
                   </div>
                   <div className="p-5 flex-1 flex flex-col">
-                    <h3 className="font-heading font-bold text-navy text-base mb-2 group-hover:text-gold transition-colors">{area.title}</h3>
+                    <h3 className="font-heading font-bold text-primary-800 text-base mb-2 group-hover:text-cyan-500 transition-colors">{area.title}</h3>
                     <p className="text-slate-500 text-sm leading-relaxed flex-1">{area.desc}</p>
                   </div>
                 </div>
@@ -68,8 +68,8 @@ export default function ResearchAreas() {
               <button key={i} onClick={() => setActiveTab(i)}
                 className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
                   activeTab === i
-                    ? 'bg-navy text-white shadow-card'
-                    : 'bg-white text-slate-600 hover:bg-navy/8 border border-slate-200'
+                    ? 'bg-primary-600 text-white shadow-card'
+                    : 'bg-white text-slate-600 hover:bg-primary-600/8 border border-slate-200'
                 }`}>
                 {cat.category}
               </button>
@@ -94,7 +94,7 @@ export default function ResearchAreas() {
                           {lab.short}
                         </div>
                         <div>
-                          <h4 className="font-semibold text-navy text-sm group-hover:text-gold transition-colors leading-snug">{lab.name}</h4>
+                          <h4 className="font-semibold text-primary-800 text-sm group-hover:text-cyan-500 transition-colors leading-snug">{lab.name}</h4>
                         </div>
                       </div>
                     </div>

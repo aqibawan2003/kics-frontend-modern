@@ -129,11 +129,11 @@ export default function About() {
                 <div className={`relative flex items-start gap-6 mb-8 ${i % 2 === 0 ? 'sm:flex-row' : 'sm:flex-row-reverse'}`}>
                   <div className={`flex-1 ${i % 2 === 0 ? 'sm:text-right sm:pr-8' : 'sm:pl-8'} pl-12 sm:pl-0`}>
                     <div className="card p-4 inline-block text-left">
-                      <span className="text-gold font-bold text-sm">{item.year}</span>
+                      <span className="text-cyan-500 font-bold text-sm">{item.year}</span>
                       <p className="text-slate-600 text-sm mt-1">{item.event}</p>
                     </div>
                   </div>
-                  <div className="absolute left-4 sm:left-1/2 sm:-translate-x-1/2 w-4 h-4 rounded-full bg-gold border-2 border-white shadow-gold flex-shrink-0 mt-1" />
+                  <div className="absolute left-4 sm:left-1/2 sm:-translate-x-1/2 w-4 h-4 rounded-full bg-cyan-500 border-2 border-white shadow-gold flex-shrink-0 mt-1" />
                   <div className="hidden sm:block flex-1" />
                 </div>
               </AnimateOnScroll>
@@ -149,9 +149,9 @@ export default function About() {
             <h2 className="section-title mb-4">Explore More</h2>
             <p className="text-slate-500 mb-8">Learn about our research, team, and opportunities.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/staff" className="btn-navy">Meet Our Staff</Link>
-              <Link to="/director-message" className="btn-navy">Director's Message</Link>
-              <Link to="/research-areas" className="btn-navy">Research Labs</Link>
+              <Link to="/staff" className="btn-primary">Meet Our Staff</Link>
+              <Link to="/director-message" className="btn-primary">Director's Message</Link>
+              <Link to="/research-areas" className="btn-primary">Research Labs</Link>
             </div>
           </AnimateOnScroll>
         </div>

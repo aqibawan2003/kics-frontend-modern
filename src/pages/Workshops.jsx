@@ -32,7 +32,7 @@ export default function Workshops() {
               {types.map(t => (
                 <button key={t} onClick={() => setFilter(t)}
                   className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
-                    filter === t ? 'bg-navy text-white shadow-card' : 'bg-slate-100 text-slate-600 hover:bg-navy/10'
+                    filter === t ? 'bg-primary-600 text-white shadow-card' : 'bg-slate-100 text-slate-600 hover:bg-primary-600/10'
                   }`}>
                   {t}
                 </button>
@@ -57,12 +57,12 @@ export default function Workshops() {
                       <span className="badge">{ws.type}</span>
                       {ws.status === 'upcoming' && <span className="badge bg-green-100 text-green-700">Upcoming</span>}
                     </div>
-                    <h3 className="font-heading font-bold text-navy mb-2 group-hover:text-gold transition-colors">{ws.title}</h3>
+                    <h3 className="font-heading font-bold text-primary-800 mb-2 group-hover:text-cyan-500 transition-colors">{ws.title}</h3>
                     <div className="flex items-center gap-1.5 text-slate-400 text-xs mb-3">
                       <FiCalendar size={11} /> {ws.date}
                     </div>
                     <p className="text-slate-500 text-sm leading-relaxed flex-1">{ws.description}</p>
-                    <button className="mt-4 inline-flex items-center gap-1.5 text-navy text-sm font-semibold hover:text-gold transition-colors">
+                    <button className="mt-4 inline-flex items-center gap-1.5 text-primary-800 text-sm font-semibold hover:text-cyan-500 transition-colors">
                       <FiTag size={13} /> Learn More →
                     </button>
                   </div>

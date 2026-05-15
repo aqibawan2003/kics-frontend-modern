@@ -46,7 +46,7 @@ export default function Conferences() {
                   <img src="https://kics.edu.pk/web/wp-content/uploads/2024/12/banner-1.jpg"
                     alt="ICOSST" className="w-full h-full object-cover"
                     onError={e => { e.target.src='https://placehold.co/600x400/4a1209/fae3de?text=ICOSST'; }} />
-                  <div className="absolute inset-0 bg-navy/30" />
+                  <div className="absolute inset-0 bg-primary-600/30" />
                 </div>
               </div>
             </div>
@@ -65,7 +65,7 @@ export default function Conferences() {
                       ICOSST
                     </div>
                     <div className="flex-1">
-                      <h4 className="font-heading font-bold text-navy group-hover:text-gold transition-colors">{conf.full}</h4>
+                      <h4 className="font-heading font-bold text-primary-800 group-hover:text-cyan-500 transition-colors">{conf.full}</h4>
                       <div className="flex flex-wrap gap-4 mt-2 text-sm text-slate-500">
                         <span className="flex items-center gap-1.5"><FiCalendar size={13} /> {conf.date}</span>
                         <span className="flex items-center gap-1.5"><FiMapPin size={13} /> {conf.location}</span>
@@ -77,7 +77,7 @@ export default function Conferences() {
                       </span>
                       {conf.url !== '#' && (
                         <a href={conf.url} target="_blank" rel="noreferrer"
-                          className="w-9 h-9 rounded-lg bg-navy text-white flex items-center justify-center hover:bg-gold transition-colors">
+                          className="w-9 h-9 rounded-lg bg-primary-600 text-white flex items-center justify-center hover:bg-cyan-500 transition-colors">
                           <FiExternalLink size={14} />
                         </a>
                       )}
@@ -100,7 +100,7 @@ export default function Conferences() {
               ICOSST welcomes original research papers on open-source systems, AI applications,
               cybersecurity, cloud, networks, and related technology domains.
             </p>
-            <a href="http://icosst.kics.edu.pk" target="_blank" rel="noreferrer" className="btn-navy">
+            <a href="http://icosst.kics.edu.pk" target="_blank" rel="noreferrer" className="btn-primary">
               Visit Conference Portal
             </a>
           </AnimateOnScroll>

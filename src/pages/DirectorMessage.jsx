@@ -27,8 +27,8 @@ export default function DirectorMessage() {
                 <div className="w-28 h-28 rounded-full bg-primary-100 mx-auto mb-4 flex items-center justify-center shadow-lg">
                   <FiUser size={48} className="text-primary-600" />
                 </div>
-                <h3 className="font-heading font-bold text-navy text-lg">Prof. Dr. Hafiz Muhammad Shahzad Asif</h3>
-                <p className="text-gold text-sm font-medium mt-1">Director, KICS</p>
+                <h3 className="font-heading font-bold text-primary-800 text-lg">Prof. Dr. Hafiz Muhammad Shahzad Asif</h3>
+                <p className="text-cyan-500 text-sm font-medium mt-1">Director, KICS</p>
                 <p className="text-slate-400 text-xs mt-1">UET Lahore, Pakistan</p>
                 <div className="mt-4 pt-4 border-t border-slate-100 space-y-2 text-xs text-slate-600 text-left">
                   <p className="flex items-center gap-2"><FiMail size={12} className="text-primary-600 flex-shrink-0" /> director@kics.edu.pk</p>
@@ -81,13 +81,13 @@ export default function DirectorMessage() {
                   "We strive to gather capable and competent researchers at one platform and provide them with
                   favorable and motivational environment for creating innovative technologies."
                 </p>
-                <p className="text-navy font-bold mt-3 text-base">— Prof. Dr. Hafiz Muhammad Shahzad Asif</p>
+                <p className="text-primary-800 font-bold mt-3 text-base">— Prof. Dr. Hafiz Muhammad Shahzad Asif</p>
                 <p className="text-slate-500 text-sm">Director, KICS — UET Lahore</p>
               </div>
 
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link to="/staff" className="btn-navy">Meet Our Team</Link>
-                <Link to="/about" className="btn-navy">About KICS</Link>
+                <Link to="/staff" className="btn-primary">Meet Our Team</Link>
+                <Link to="/about" className="btn-primary">About KICS</Link>
               </div>
             </AnimateOnScroll>
           </div>

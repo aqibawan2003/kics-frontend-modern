@@ -41,19 +41,19 @@ export default function Hero() {
       className="relative overflow-hidden"
       style={{ minHeight: 'clamp(520px, 78vh, 720px)' }}
     >
-      {/* ── Rich warm background ── */}
-      <div className="absolute inset-0 bg-gradient-to-br from-amber-50 via-orange-50/60 to-primary-50" />
+      {/* ── Tech blue background ── */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-cyan-50/60 to-primary-50" />
 
       {/* ── Decorative blobs ── */}
       <div className="absolute -top-20 -left-20 w-80 h-80 bg-primary-200/35 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-16 right-1/3 w-72 h-72 bg-amber-200/35 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-16 right-1/3 w-72 h-72 bg-cyan-200/35 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-1/3 right-0 w-64 h-64 bg-primary-100/40 rounded-full blur-3xl pointer-events-none" />
 
       {/* ── Floating geometric shapes ── */}
       <div className="absolute top-10 left-[42%] w-14 h-14 border-2 border-primary-200/70 rounded-2xl rotate-12 pointer-events-none" />
-      <div className="absolute bottom-14 left-[36%] w-8 h-8 bg-amber-300/50 rounded-lg rotate-45 pointer-events-none" />
+      <div className="absolute bottom-14 left-[36%] w-8 h-8 bg-cyan-300/50 rounded-lg rotate-45 pointer-events-none" />
       <div className="absolute top-16 right-[14%] w-5 h-5 bg-primary-400/50 rounded-full pointer-events-none" />
-      <div className="absolute bottom-20 right-[28%] w-10 h-10 border-2 border-amber-300/60 rounded-full pointer-events-none" />
+      <div className="absolute bottom-20 right-[28%] w-10 h-10 border-2 border-cyan-300/60 rounded-full pointer-events-none" />
       <div className="absolute top-1/2 left-[30%] w-3 h-3 bg-primary-300/60 rounded-full pointer-events-none" />
 
       {/* ── Main content ── */}
@@ -94,7 +94,7 @@ export default function Hero() {
                     <br />
                     <span
                       className="bg-clip-text text-transparent"
-                      style={{ backgroundImage: 'linear-gradient(135deg, #8a2818, #c94f3a, #d97706)' }}
+                      style={{ backgroundImage: 'linear-gradient(135deg, #1d4ed8, #2563eb, #06b6d4)' }}
                     >
                       {words.slice(mid).join(' ')}
                     </span>
@@ -117,7 +117,7 @@ export default function Hero() {
               <Link
                 to="/about"
                 className="group inline-flex items-center gap-2 text-white font-bold px-7 py-3.5 rounded-full shadow-primary hover:shadow-lg hover:-translate-y-1 transition-all duration-300 text-sm"
-                style={{ background: 'linear-gradient(135deg, #8a2818, #c94f3a)' }}
+                style={{ background: 'linear-gradient(135deg, #1d4ed8, #2563eb)' }}
               >
                 Discover KICS
                 <FiArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-200" />
@@ -158,17 +158,17 @@ export default function Hero() {
             <div className="relative w-full max-w-[480px]">
 
               {/* Rotated decorative frame layers */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary-300/50 to-amber-300/40 rounded-3xl rotate-3 scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary-300/50 to-cyan-300/40 rounded-3xl rotate-3 scale-105" />
               <div className="absolute inset-0 bg-white/60 rounded-3xl -rotate-1 scale-[1.02]" />
 
               {/* Outer glow */}
-              <div className="absolute -inset-5 bg-gradient-to-br from-primary-300/30 via-amber-200/20 to-primary-200/30 rounded-[2rem] blur-2xl pointer-events-none" />
+              <div className="absolute -inset-5 bg-gradient-to-br from-primary-300/30 via-cyan-200/20 to-primary-200/30 rounded-[2rem] blur-2xl pointer-events-none" />
 
               {/* Floating badge — top-left */}
               <div className="absolute -top-6 -left-6 z-20 bg-white rounded-2xl shadow-lg px-3.5 py-2.5 flex items-center gap-2.5 border border-primary-100 animate-bounce-gentle">
                 <div
                   className="w-9 h-9 rounded-xl flex items-center justify-center shadow-sm"
-                  style={{ background: 'linear-gradient(135deg, #8a2818, #c94f3a)' }}
+                  style={{ background: 'linear-gradient(135deg, #1d4ed8, #2563eb)' }}
                 >
                   <FiAward size={15} className="text-white" />
                 </div>
@@ -180,22 +180,22 @@ export default function Hero() {
 
               {/* Floating badge — bottom-right */}
               <div
-                className="absolute -bottom-6 -right-6 z-20 bg-white rounded-2xl shadow-lg px-3.5 py-2.5 flex items-center gap-2.5 border border-amber-100 animate-bounce-gentle"
+                className="absolute -bottom-6 -right-6 z-20 bg-white rounded-2xl shadow-lg px-3.5 py-2.5 flex items-center gap-2.5 border border-cyan-100 animate-bounce-gentle"
                 style={{ animationDelay: '1s' }}
               >
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center shadow-sm">
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-500 to-cyan-700 flex items-center justify-center shadow-sm">
                   <FiBookOpen size={15} className="text-white" />
                 </div>
                 <div>
                   <p className="text-slate-900 font-extrabold text-xs leading-none">500+ Papers</p>
-                  <p className="text-amber-600 text-[10px] mt-0.5 font-semibold">IEEE · ACM · Elsevier</p>
+                  <p className="text-cyan-600 text-[10px] mt-0.5 font-semibold">IEEE · ACM · Elsevier</p>
                 </div>
               </div>
 
               {/* Side pill badge — right edge */}
               <div
                 className="absolute top-1/2 -right-5 -translate-y-1/2 z-20 rounded-xl px-2.5 py-3 shadow-lg hidden lg:flex flex-col items-center gap-1"
-                style={{ background: 'linear-gradient(180deg, #4a1209, #8a2818)' }}
+                style={{ background: 'linear-gradient(180deg, #0B2447, #1d4ed8)' }}
               >
                 <FiUsers size={13} className="text-primary-300" />
                 <p className="text-white font-extrabold text-sm leading-none">1000+</p>

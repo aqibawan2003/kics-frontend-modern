@@ -15,11 +15,11 @@ function JobCard({ job, index }) {
             <FiBriefcase size={20} className="text-white" />
           </div>
           <div className="flex-1 min-w-0">
-            <h3 className="font-heading font-bold text-navy group-hover:text-gold transition-colors">{job.title}</h3>
+            <h3 className="font-heading font-bold text-primary-800 group-hover:text-cyan-500 transition-colors">{job.title}</h3>
             <div className="flex flex-wrap gap-3 mt-1.5 text-xs text-slate-500">
-              <span className="badge-navy">{job.dept}</span>
+              <span className="badge-primary">{job.dept}</span>
               <span className="flex items-center gap-1"><FiClock size={10} /> {job.type}</span>
-              <span className="text-gold font-semibold">{job.deadline}</span>
+              <span className="text-cyan-500 font-semibold">{job.deadline}</span>
             </div>
           </div>
           <div className="flex-shrink-0 ml-2 text-slate-400">
@@ -29,16 +29,16 @@ function JobCard({ job, index }) {
         {open && (
           <div className="px-6 pb-6 border-t border-slate-100 pt-5 animate-fadeIn">
             <p className="text-slate-600 text-sm leading-relaxed mb-4">{job.description}</p>
-            <h4 className="font-semibold text-navy text-sm mb-2">Requirements:</h4>
+            <h4 className="font-semibold text-primary-800 text-sm mb-2">Requirements:</h4>
             <ul className="space-y-1">
               {job.requirements.map((req, i) => (
                 <li key={i} className="flex items-start gap-2 text-slate-500 text-sm">
-                  <span className="text-gold mt-0.5 flex-shrink-0">✓</span> {req}
+                  <span className="text-cyan-500 mt-0.5 flex-shrink-0">✓</span> {req}
                 </li>
               ))}
             </ul>
             <a href="mailto:info@kics.edu.pk?subject=Job Application"
-              className="btn-navy mt-5 inline-flex">Apply Now</a>
+              className="btn-primary mt-5 inline-flex">Apply Now</a>
           </div>
         )}
       </div>
@@ -90,7 +90,7 @@ export default function Jobs() {
               {departments.slice(0, 10).map(d => (
                 <button key={d} onClick={() => setDept(d)}
                   className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 ${
-                    dept === d ? 'bg-navy text-white' : 'bg-slate-100 text-slate-600 hover:bg-navy/10'
+                    dept === d ? 'bg-primary-600 text-white' : 'bg-slate-100 text-slate-600 hover:bg-primary-600/10'
                   }`}>
                   {d}
                 </button>
@@ -115,7 +115,7 @@ export default function Jobs() {
               <p className="text-slate-600 text-sm">
                 For all current openings and dynamic listings, visit the official KICS Jobs portal at{' '}
                 <a href="https://kics.edu.pk/web/jobs/" target="_blank" rel="noreferrer"
-                  className="text-navy font-semibold hover:text-gold transition-colors underline">
+                  className="text-primary-800 font-semibold hover:text-cyan-500 transition-colors underline">
                   kics.edu.pk/web/jobs/
                 </a>
               </p>
