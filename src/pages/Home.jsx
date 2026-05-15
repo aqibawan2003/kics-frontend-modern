@@ -336,23 +336,23 @@ const ResearchSection = memo(function ResearchSection() {
 /* ── Director Quote ──────────────────────────────────────── */
 const DirectorQuote = memo(function DirectorQuote() {
   return (
-    <section className="relative py-20 bg-gradient-to-br from-slate-100 via-white to-slate-100 overflow-hidden">
+    <section className="relative py-12 sm:py-16 md:py-20 bg-gradient-to-br from-slate-100 via-white to-slate-100 overflow-hidden">
       {/* Decorative circles */}
       <div className="absolute top-10 right-10 w-48 h-48 bg-primary-200/30 rounded-full blur-3xl" />
       <div className="absolute bottom-10 left-10 w-64 h-64 bg-cyan-200/20 rounded-full blur-3xl" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid lg:grid-cols-2 gap-14 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-14 items-center">
           <AnimateOnScroll animation="reveal-left">
             <span className="eyebrow">Leadership</span>
             <h2 className="section-title mb-4">Director's Message</h2>
             <div className="divider" />
-            <blockquote className="relative border-l-8 border-primary-600 pl-6 leading-relaxed text-lg mb-6 bg-gradient-to-r from-primary-50 to-transparent p-6 rounded-r-xl shadow-lg">
-              <div className="absolute -left-3 top-6 w-6 h-6 bg-primary-600 rounded-full" />
-              <span className="text-slate-900 font-bold text-xl block mb-3">
+            <blockquote className="relative border-l-4 sm:border-l-8 border-primary-600 pl-4 sm:pl-6 leading-relaxed text-sm sm:text-base md:text-lg mb-6 bg-gradient-to-r from-primary-50 to-transparent p-4 sm:p-6 rounded-r-xl shadow-lg">
+              <div className="absolute -left-2 sm:-left-3 top-4 sm:top-6 w-4 h-4 sm:w-6 sm:h-6 bg-primary-600 rounded-full" />
+              <span className="text-slate-900 font-bold text-base sm:text-lg md:text-xl block mb-2 sm:mb-3">
                 "KICS is on a fast track to become a premier research and advanced technology organization in Pakistan.
               </span>
-              <span className="text-slate-600 text-base italic">
+              <span className="text-slate-600 text-sm sm:text-base italic">
                 Today, KICS is recognized as one of the leading computer science research centers in the country."
               </span>
             </blockquote>
@@ -497,7 +497,7 @@ const CollabSection = memo(function CollabSection() {
           </div>
         </AnimateOnScroll>
         <AnimateOnScroll animation="reveal-scale">
-          <div className="flex flex-wrap justify-center gap-6">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
             {collaborators.map((c) => (
               <a
                 key={c.name}
@@ -505,7 +505,7 @@ const CollabSection = memo(function CollabSection() {
                 target="_blank"
                 rel="noreferrer"
                 title={c.name}
-                className="group relative bg-white/10 backdrop-blur-md rounded-2xl px-8 py-6 flex flex-col items-center justify-center border-2 border-white/20 hover:border-cyan-400/50 hover:bg-white/20 transition-all duration-300 min-w-[140px] cursor-pointer"
+                className="group relative bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl px-6 py-4 sm:px-8 sm:py-6 flex flex-col items-center justify-center border-2 border-white/20 hover:border-cyan-400/50 hover:bg-white/20 transition-all duration-300 min-w-[110px] sm:min-w-[140px] cursor-pointer"
               >
                 {/* Glow effect on hover */}
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-primary-500/20 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity" />
@@ -969,7 +969,7 @@ const MapSection = memo(function MapSection() {
                     </div>
                     <div>
                       <h4 className="font-bold text-slate-900 mb-2">Phone</h4>
-                      <a href="tel:+924299029450" className="text-primary-600 hover:text-primary-700 font-bold text-lg transition-colors">
+                      <a href="tel:+924299029450" className="text-primary-600 hover:text-primary-700 font-bold text-sm sm:text-base md:text-lg transition-colors">
                         +92 42 99029450
                       </a>
                       <p className="text-slate-500 text-xs mt-1">Mon - Fri, 9:00 AM - 5:00 PM</p>
@@ -986,7 +986,7 @@ const MapSection = memo(function MapSection() {
                     </div>
                     <div>
                       <h4 className="font-bold text-slate-900 mb-2">Email</h4>
-                      <a href="mailto:info@kics.edu.pk" className="text-primary-600 hover:text-primary-700 font-bold text-lg transition-colors">
+                      <a href="mailto:info@kics.edu.pk" className="text-primary-600 hover:text-primary-700 font-bold text-sm sm:text-base md:text-lg transition-colors">
                         info@kics.edu.pk
                       </a>
                       <p className="text-slate-500 text-xs mt-1">We'll respond within 24 hours</p>
@@ -1022,7 +1022,7 @@ const MapSection = memo(function MapSection() {
           {/* Google Map */}
           <AnimateOnScroll animation="reveal-right">
             <div className="relative">
-              <div className="rounded-2xl overflow-hidden shadow-2xl border-8 border-white ring-4 ring-primary-100" style={{ height: '500px' }}>
+              <div className="rounded-2xl overflow-hidden shadow-2xl border-4 sm:border-6 md:border-8 border-white ring-2 sm:ring-4 ring-primary-100 h-64 sm:h-80 md:h-96 lg:h-[500px]">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3398.8528753749445!2d74.35353831511826!3d31.578933981326868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39191b5e9e8f48ed%3A0x5e8f8e8f8e8f8e8f!2sUniversity%20of%20Engineering%20and%20Technology%2C%20Lahore!5e0!3m2!1sen!2s!4v1234567890"
                   width="100%"
@@ -1036,13 +1036,13 @@ const MapSection = memo(function MapSection() {
               </div>
 
               {/* Floating badge on map */}
-              <div className="absolute top-6 left-6 bg-white rounded-2xl shadow-2xl px-5 py-4 flex items-center gap-3 border-2 border-primary-200 backdrop-blur-sm">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-600 to-cyan-600 flex items-center justify-center shadow-lg animate-pulse-slow">
-                  <FiMapPin size={20} className="text-white" />
+              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 md:top-6 md:left-6 bg-white rounded-xl sm:rounded-2xl shadow-2xl px-3 py-2 sm:px-4 sm:py-3 md:px-5 md:py-4 flex items-center gap-2 sm:gap-3 border-2 border-primary-200 backdrop-blur-sm">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-primary-600 to-cyan-600 flex items-center justify-center shadow-lg animate-pulse-slow flex-shrink-0">
+                  <FiMapPin size={16} className="text-white sm:w-5 sm:h-5" />
                 </div>
-                <div>
-                  <p className="font-bold text-slate-900 text-base">KICS, UET Lahore</p>
-                  <p className="text-slate-500 text-xs">Punjab, Pakistan</p>
+                <div className="min-w-0">
+                  <p className="font-bold text-slate-900 text-xs sm:text-sm md:text-base truncate">KICS, UET Lahore</p>
+                  <p className="text-slate-500 text-[10px] sm:text-xs">Punjab, Pakistan</p>
                 </div>
               </div>
             </div>
@@ -1056,7 +1056,7 @@ const MapSection = memo(function MapSection() {
 /* ── CTA Banner — WOW Section with premium effects ──── */
 const CTABanner = memo(function CTABanner() {
   return (
-    <section className="relative py-24 bg-gradient-to-br from-[#0a1628] via-primary-900 to-[#071224] overflow-hidden">
+    <section className="relative py-16 sm:py-20 md:py-24 bg-gradient-to-br from-[#0a1628] via-primary-900 to-[#071224] overflow-hidden">
       {/* Animated gradient orbs */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-r from-cyan-500/30 to-primary-500/30 rounded-full blur-3xl animate-blob" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-r from-primary-500/30 to-purple-500/30 rounded-full blur-3xl animate-blob animation-delay-2000" />
@@ -1082,50 +1082,50 @@ const CTABanner = memo(function CTABanner() {
           </div>
 
           {/* Main heading with gradient */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold mb-4 sm:mb-6 leading-tight px-2">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-200 to-primary-200 animate-gradient">
               Ready to Innovate Together?
             </span>
           </h2>
 
           {/* Description */}
-          <p className="text-white/80 mb-10 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+          <p className="text-white/80 mb-8 sm:mb-10 text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed px-2">
             Whether you are a researcher, student, or industry partner — KICS offers the environment
             and resources to turn <span className="text-cyan-400 font-semibold">bold ideas</span> into <span className="text-cyan-400 font-semibold">impactful technology</span>.
           </p>
 
           {/* CTA Buttons with glow effects */}
-          <div className="flex flex-wrap justify-center gap-5 mb-12">
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 md:gap-5 mb-10 sm:mb-12 px-4">
             <Link
               to="/contact"
-              className="group relative inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-primary-600 text-white font-bold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-cyan-500/50 text-base"
+              className="group relative inline-flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 to-primary-600 text-white font-bold px-6 py-3 sm:px-7 sm:py-3.5 md:px-8 md:py-4 rounded-full transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-cyan-500/50 text-sm sm:text-base"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-primary-500 rounded-full opacity-0 group-hover:opacity-100 blur-xl transition-opacity" />
               <span className="relative">Get in Touch</span>
-              <FiArrowRight className="relative group-hover:translate-x-1 transition-transform" />
+              <FiArrowRight className="relative group-hover:translate-x-1 transition-transform" size={16} />
             </Link>
             <Link
               to="/jobs"
-              className="group relative inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border-2 border-white/30 text-white font-bold px-8 py-4 rounded-full text-base transition-all duration-300 hover:bg-white/20 hover:border-white hover:scale-105 shadow-xl"
+              className="group relative inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-md border-2 border-white/30 text-white font-bold px-6 py-3 sm:px-7 sm:py-3.5 md:px-8 md:py-4 rounded-full text-sm sm:text-base transition-all duration-300 hover:bg-white/20 hover:border-white hover:scale-105 shadow-xl"
             >
               <span>View Open Positions</span>
-              <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
+              <FiArrowRight className="group-hover:translate-x-1 transition-transform" size={16} />
             </Link>
           </div>
 
           {/* Stats row */}
-          <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto pt-10 border-t border-white/10">
+          <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-2xl mx-auto pt-8 sm:pt-10 border-t border-white/10">
             {[
               { icon: FiUsers, value: '1000+', label: 'Professionals Trained' },
               { icon: FiAward, value: '500+', label: 'Research Papers' },
               { icon: FiGlobe, value: '50+', label: 'Global Partners' },
             ].map((stat, i) => (
               <div key={i} className="group">
-                <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-br from-cyan-500/20 to-primary-500/20 border border-white/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <stat.icon size={20} className="text-cyan-400" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 sm:mb-3 rounded-lg sm:rounded-xl bg-gradient-to-br from-cyan-500/20 to-primary-500/20 border border-white/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <stat.icon size={16} className="text-cyan-400 sm:w-5 sm:h-5" />
                 </div>
-                <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
-                <div className="text-white/60 text-xs uppercase tracking-wider">{stat.label}</div>
+                <div className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-0.5 sm:mb-1">{stat.value}</div>
+                <div className="text-white/60 text-[10px] sm:text-xs uppercase tracking-wider leading-tight">{stat.label}</div>
               </div>
             ))}
           </div>
