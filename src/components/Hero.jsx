@@ -41,7 +41,7 @@ export default function Hero() {
     <section
       id="home"
       className="relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-amber-50"
-      style={{ minHeight: 'clamp(580px, 90vh, 880px)' }}
+      style={{ minHeight: 'clamp(480px, 75vh, 680px)' }}
     >
       {/* ── Decorative blobs ── */}
       <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary-200/40 rounded-full blur-3xl pointer-events-none" />
@@ -51,7 +51,7 @@ export default function Hero() {
       {/* ── Grid dots pattern ── */}
       <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 h-full flex items-center py-16 sm:py-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 h-full flex items-center py-10 sm:py-14">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
 
           {/* ════════════════════════════════
@@ -179,7 +179,7 @@ export default function Hero() {
                     alt={slide.title}
                     width="600"
                     height="420"
-                    className="w-full h-[300px] sm:h-[380px] object-cover"
+                    className="w-full h-[240px] sm:h-[300px] object-cover"
                     onError={e => {
                       e.target.src = 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&h=420&fit=crop';
                     }}
