@@ -188,7 +188,7 @@
   position: absolute;
   inset: -2px;
   border-radius: inherit;
-  background: linear-gradient(45deg, #3b82f6, #06b6d4, #3b82f6);
+  background: linear-gradient(45deg, #c94f3a, #a83828, #c94f3a);
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: -1;
@@ -263,7 +263,7 @@
 
 /* ── Gradient Text ──────────────────────────── */
 .text-gradient {
-  background: linear-gradient(135deg, #3b82f6, #06b6d4, #3b82f6);
+  background: linear-gradient(135deg, #c94f3a, #a83828, #c94f3a);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -374,7 +374,7 @@
 
 /* ── Gradient text ──────────────────────────── */
 .text-gradient {
-  background: linear-gradient(135deg, #569579, #3d7a62);
+  background: linear-gradient(135deg, #c94f3a, #a83828);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -382,13 +382,13 @@
 
 /* ── Decorative background grid ──────────────── */
 .bg-dot-pattern {
-  background-image: radial-gradient(rgba(86,149,121,0.15) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(201,79,58,0.12) 1px, transparent 1px);
   background-size: 28px 28px;
 }
 .bg-grid-pattern {
   background-image:
-    linear-gradient(rgba(86,149,121,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(86,149,121,0.06) 1px, transparent 1px);
+    linear-gradient(rgba(201,79,58,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,79,58,0.06) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
@@ -439,11 +439,11 @@
 @keyframes pulse-glow {
   0%, 100% {
     opacity: 1;
-    box-shadow: 0 0 20px rgba(59,130,246, 0.4);
+    box-shadow: 0 0 20px rgba(201,79,58, 0.4);
   }
   50% {
     opacity: 0.85;
-    box-shadow: 0 0 40px rgba(59,130,246, 0.6);
+    box-shadow: 0 0 40px rgba(201,79,58, 0.6);
   }
 }
 
@@ -512,7 +512,7 @@
 }
 .hover-lift:hover {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(59,130,246, 0.12);
+  box-shadow: 0 20px 40px rgba(201,79,58, 0.12);
 }
 
 /* ── Image zoom effect ──────────────────────── */
@@ -574,7 +574,7 @@
   transition: all 0.3s ease;
 }
 .glow-on-hover:hover {
-  box-shadow: 0 0 30px rgba(59,130,246, 0.4);
+  box-shadow: 0 0 30px rgba(201,79,58, 0.4);
 }
 
 /* ── Stagger children animation ──────────────────────── */

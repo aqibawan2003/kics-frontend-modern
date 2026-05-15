@@ -4,24 +4,24 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Waseda-inspired green palette
+        // Warm brownish-red / terracotta palette
         primary: {
-          50:  '#eff5f2',   // Light green bg
-          100: '#dfeae3',   // Neutral light green
-          200: '#c0d9ca',
-          300: '#8fbfa8',
-          400: '#6aa688',
-          500: '#569579',   // Main Waseda green
-          600: '#3d7a62',   // Medium green
-          700: '#2d6050',
-          800: '#1e4a3c',
-          900: '#004314',   // Dark green
-          950: '#002a0d',   // Deepest green
+          50:  '#fdf2f0',   // Very light warm blush
+          100: '#fae3de',   // Light peach
+          200: '#f5c4bb',   // Soft terracotta tint
+          300: '#eca090',   // Light terracotta
+          400: '#e07060',   // Warm red-brown
+          500: '#c94f3a',   // Main terracotta red-brown
+          600: '#a83828',   // Deep warm red
+          700: '#8a2818',   // Rich brown-red
+          800: '#6e1e14',   // Dark brown-red
+          900: '#4a1209',   // Very dark brown
+          950: '#2d0a05',   // Deepest brown
         },
         accent: {
-          400: '#6aa688',
-          500: '#569579',
-          600: '#3d7a62',
+          400: '#e07060',
+          500: '#c94f3a',
+          600: '#a83828',
         },
         slate: {
           50:  '#f8fafc',
@@ -35,23 +35,23 @@ export default {
           800: '#1e293b',
           900: '#0f172a',
         },
-        // Legacy support — updated to green
-        navy: { DEFAULT: '#004314', light: '#3d7a62', dark: '#002a0d' },
-        gold: { DEFAULT: '#569579', light: '#6aa688', dark: '#3d7a62' },
+        // Legacy support — updated to brown-red
+        navy: { DEFAULT: '#4a1209', light: '#a83828', dark: '#2d0a05' },
+        gold: { DEFAULT: '#c94f3a', light: '#e07060', dark: '#a83828' },
       },
       fontFamily: {
         sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif'],
         heading: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif'],
       },
       backgroundImage: {
-        'hero-gradient': 'linear-gradient(135deg, rgba(0,67,20,0.85) 0%, rgba(30,74,60,0.85) 100%)',
-        'primary-gradient': 'linear-gradient(135deg, #569579, #3d7a62)',
-        'card-gradient': 'linear-gradient(145deg, #ffffff, #f8fafc)',
+        'hero-gradient':    'linear-gradient(135deg, rgba(74,18,9,0.9) 0%, rgba(110,30,20,0.85) 100%)',
+        'primary-gradient': 'linear-gradient(135deg, #c94f3a, #a83828)',
+        'card-gradient':    'linear-gradient(145deg, #ffffff, #fdf2f0)',
       },
       boxShadow: {
-        'card':       '0 4px 24px rgba(86,149,121,0.08)',
-        'card-hover': '0 12px 40px rgba(86,149,121,0.15)',
-        'primary':    '0 4px 20px rgba(86,149,121,0.25)',
+        'card':       '0 4px 24px rgba(201,79,58,0.08)',
+        'card-hover': '0 12px 40px rgba(201,79,58,0.16)',
+        'primary':    '0 4px 20px rgba(201,79,58,0.28)',
         'nav':        '0 2px 8px rgba(0,0,0,0.08)',
       },
       animation: {
@@ -84,14 +84,14 @@ export default {
         scaleIn:      { from: { opacity: 0, transform: 'scale(0.85)' }, to: { opacity: 1, transform: 'scale(1)' } },
         float:        { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
         'pulse-glow': {
-          '0%,100%': { opacity: 1, boxShadow: '0 0 20px rgba(86,149,121,0.4)' },
-          '50%':      { opacity: 0.85, boxShadow: '0 0 40px rgba(86,149,121,0.6)' },
+          '0%,100%': { opacity: 1, boxShadow: '0 0 20px rgba(201,79,58,0.4)' },
+          '50%':      { opacity: 0.85, boxShadow: '0 0 40px rgba(201,79,58,0.6)' },
         },
-        pulse2:            { '0%,100%': { opacity: 1 }, '50%': { opacity: 0.5 } },
-        shimmer:           { '0%': { backgroundPosition: '-200% 0' }, '100%': { backgroundPosition: '200% 0' } },
-        'rotate-slow':     { from: { transform: 'rotate(0deg)' }, to: { transform: 'rotate(360deg)' } },
-        'bounce-gentle':   { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-8px)' } },
-        'gradient-shift':  {
+        pulse2:           { '0%,100%': { opacity: 1 }, '50%': { opacity: 0.5 } },
+        shimmer:          { '0%': { backgroundPosition: '-200% 0' }, '100%': { backgroundPosition: '200% 0' } },
+        'rotate-slow':    { from: { transform: 'rotate(0deg)' }, to: { transform: 'rotate(360deg)' } },
+        'bounce-gentle':  { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-8px)' } },
+        'gradient-shift': {
           '0%':   { backgroundPosition: '0% 50%' },
           '50%':  { backgroundPosition: '100% 50%' },
           '100%': { backgroundPosition: '0% 50%' },
