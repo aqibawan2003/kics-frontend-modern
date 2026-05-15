@@ -39,7 +39,7 @@ export default function Hero() {
     <section
       id="home"
       className="relative overflow-hidden"
-      style={{ minHeight: 'clamp(480px, 75vh, 720px)' }}
+      style={{ minHeight: 'clamp(380px, 65vh, 680px)' }}
     >
       {/* ── Tech blue background ── */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-cyan-50/60 to-primary-50" />
@@ -58,7 +58,7 @@ export default function Hero() {
 
       {/* ── Main content ── */}
       <div
-        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 flex items-center py-12 sm:py-16"
+        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 flex items-center py-8 sm:py-12 md:py-16"
         style={{ minHeight: 'inherit' }}
       >
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center w-full">
@@ -81,7 +81,7 @@ export default function Hero() {
 
             {/* Heading with gradient on second line */}
             <h1
-              className={`font-extrabold leading-[1.1] text-slate-900 mb-5 transition-all duration-500 text-4xl sm:text-5xl lg:text-[3.2rem] ${
+              className={`font-extrabold leading-[1.1] text-slate-900 mb-4 sm:mb-5 transition-all duration-500 text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] ${
                 animating ? 'opacity-0 translate-y-3' : 'opacity-100 translate-y-0'
               }`}
             >
@@ -105,7 +105,7 @@ export default function Hero() {
 
             {/* Subtitle */}
             <p
-              className={`text-slate-600 text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8 transition-all duration-500 delay-75 ${
+              className={`text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 mb-6 sm:mb-8 transition-all duration-500 delay-75 ${
                 animating ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'
               }`}
             >
@@ -113,7 +113,7 @@ export default function Hero() {
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-3 justify-center lg:justify-start mb-10">
+            <div className="flex flex-wrap gap-2.5 sm:gap-3 justify-center lg:justify-start mb-6 sm:mb-8 md:mb-10">
               <Link
                 to="/about"
                 className="group inline-flex items-center gap-2 text-white font-bold px-6 sm:px-7 py-3 sm:py-3.5 rounded-full shadow-primary hover:shadow-lg hover:-translate-y-1 transition-all duration-300 text-sm"
@@ -203,14 +203,14 @@ export default function Hero() {
               </div>
 
               {/* Main image — floating */}
-              <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-white animate-float">
+              <div className="relative z-10 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-2 sm:border-4 border-white animate-float">
                 <div className={`transition-opacity duration-500 ${animating ? 'opacity-0' : 'opacity-100'}`}>
                   <img
                     src={slide.image}
                     alt={slide.title}
                     width="600"
                     height="400"
-                    className="w-full h-[260px] sm:h-[320px] object-cover"
+                    className="w-full h-[220px] sm:h-[280px] md:h-[320px] object-cover"
                     onError={e => {
                       e.target.src = 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&h=400&fit=crop';
                     }}

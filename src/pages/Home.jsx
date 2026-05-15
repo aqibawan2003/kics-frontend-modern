@@ -31,15 +31,15 @@ const StatItem = memo(function StatItem({ Icon, value, suffix, label, color, ind
       style={{ animationDelay: `${index * 100}ms` }}
     >
       {/* Icon circle */}
-      <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${color} flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 group-hover:shadow-xl transition-all duration-300`}>
-        <Icon size={24} className="text-white" />
+      <div className={`w-11 h-11 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br ${color} flex items-center justify-center mb-2.5 sm:mb-3 md:mb-4 shadow-lg group-hover:scale-110 group-hover:shadow-xl transition-all duration-300`}>
+        <Icon size={18} className="text-white sm:w-5 sm:h-5 md:w-6 md:h-6" />
       </div>
       {/* Number */}
-      <span className="text-4xl sm:text-5xl font-extrabold text-white tabular-nums leading-none">
+      <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white tabular-nums leading-none">
         {count.toLocaleString()}{suffix}
       </span>
       {/* Label */}
-      <span className="text-primary-200 text-sm font-medium mt-2 leading-snug max-w-[120px]">
+      <span className="text-primary-200 text-xs sm:text-sm font-medium mt-1.5 sm:mt-2 leading-snug max-w-[100px] sm:max-w-[120px]">
         {label}
       </span>
     </div>
@@ -71,7 +71,7 @@ const Announcements = memo(function Announcements() {
 /* ── Stats Bar ───────────────────────────────────────────── */
 const StatsBar = memo(function StatsBar() {
   return (
-    <section className="relative overflow-hidden py-16 bg-primary-900">
+    <section className="relative overflow-hidden py-10 sm:py-12 md:py-16 bg-primary-900">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-dot-pattern opacity-30 pointer-events-none" />
       <div className="absolute -top-20 -left-20 w-72 h-72 bg-primary-700/30 rounded-full blur-3xl pointer-events-none" />
@@ -80,9 +80,9 @@ const StatsBar = memo(function StatsBar() {
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <AnimateOnScroll animation="reveal">
-          <div className="text-center mb-12">
-            <span className="text-primary-300 font-semibold uppercase tracking-[0.2em] text-xs mb-3 block">By The Numbers</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-3">KICS at a Glance</h2>
+          <div className="text-center mb-8 sm:mb-10 md:mb-12">
+            <span className="text-primary-300 font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[10px] sm:text-xs mb-2 sm:mb-3 block">By The Numbers</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-2 sm:mb-3">KICS at a Glance</h2>
             <div className="w-14 h-1 bg-gradient-to-r from-primary-400 to-cyan-400 rounded-full mx-auto" />
             <p className="text-primary-200 mt-4 text-sm max-w-xl mx-auto">
               Two decades of applied research, innovation, and technology excellence at UET Lahore.
