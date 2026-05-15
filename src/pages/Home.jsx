@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { Link } from 'react-router-dom';
 import {
   FiBell, FiArrowRight, FiCalendar, FiBookOpen, FiAward, FiGlobe, FiUsers,
-  FiCpu, FiZap, FiGitBranch, FiMonitor,
+  FiCpu, FiZap, FiGitBranch, FiMonitor, FiMapPin, FiTrendingUp, FiTarget,
 } from 'react-icons/fi';
 import AnimateOnScroll from '../components/AnimateOnScroll';
 import useCounter from '../hooks/useCounter';
@@ -109,6 +109,90 @@ const StatsBar = memo(function StatsBar() {
             <span className="flex items-center gap-2"><FiBookOpen size={12} className="text-cyan-400" /> Indexed in IEEE Xplore &amp; ACM DL</span>
           </div>
         </AnimateOnScroll>
+      </div>
+    </section>
+  );
+});
+
+/* ── Video Section ────────────────────────────────────────── */
+const VideoSection = memo(function VideoSection() {
+  return (
+    <section className="py-16 sm:py-20 bg-gradient-to-br from-slate-50 via-white to-primary-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <AnimateOnScroll>
+          <div className="text-center mb-10">
+            <span className="eyebrow">Discover KICS</span>
+            <h2 className="section-title">Innovation in Action</h2>
+            <div className="divider-center mt-3" />
+            <p className="text-slate-600 text-sm max-w-2xl mx-auto mt-4">
+              Watch our journey of transforming ideas into impactful technology through cutting-edge research and industry collaboration.
+            </p>
+          </div>
+        </AnimateOnScroll>
+        <AnimateOnScroll animation="reveal-scale">
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-video max-w-5xl mx-auto border-4 border-white">
+            {/* Placeholder for actual video - replace with your YouTube video ID */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary-900 to-cyan-900 flex items-center justify-center">
+              <div className="text-center">
+                <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mx-auto mb-4 hover:scale-110 transition-transform cursor-pointer">
+                  <div className="w-0 h-0 border-t-8 border-t-transparent border-l-12 border-l-white border-b-8 border-b-transparent ml-1" />
+                </div>
+                <p className="text-white font-semibold">KICS Overview Video</p>
+                <p className="text-white/70 text-sm mt-1">Coming Soon</p>
+              </div>
+            </div>
+            {/* Uncomment and add your video ID when ready:
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+              title="KICS Overview"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+            */}
+          </div>
+        </AnimateOnScroll>
+      </div>
+    </section>
+  );
+});
+
+/* ── Achievement Badges ───────────────────────────────────── */
+const AchievementBadges = memo(function AchievementBadges() {
+  const achievements = [
+    { icon: '🏆', title: 'IEEE Gold Award', desc: 'Best Research Paper 2024', color: 'from-yellow-500 to-orange-500' },
+    { icon: '🎖️', title: 'HEC Recognition', desc: 'Category X University', color: 'from-blue-500 to-cyan-500' },
+    { icon: '⭐', title: 'NVC Winner 2026', desc: '$20K Prize', color: 'from-purple-500 to-pink-500' },
+    { icon: '🌟', title: 'Top 10 Institute', desc: 'CS in Pakistan', color: 'from-green-500 to-teal-500' },
+  ];
+
+  return (
+    <section className="py-16 bg-gradient-to-r from-primary-900 via-primary-800 to-cyan-900 relative overflow-hidden">
+      <div className="absolute inset-0 bg-dot-pattern opacity-10" />
+      <div className="absolute -top-20 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
+      <div className="absolute -bottom-20 right-1/4 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl" />
+
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
+        <AnimateOnScroll>
+          <div className="text-center mb-10">
+            <span className="text-primary-300 font-semibold uppercase tracking-[0.2em] text-xs mb-3 block">Recognition</span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">Awards & Achievements</h2>
+            <div className="w-14 h-1 bg-gradient-to-r from-primary-400 to-cyan-400 rounded-full mx-auto mt-3" />
+          </div>
+        </AnimateOnScroll>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+          {achievements.map((item, i) => (
+            <AnimateOnScroll key={i} delay={i * 80}>
+              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 sm:p-6 text-center border border-white/20 hover:bg-white/20 transition-all hover:scale-105 cursor-default group">
+                <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg group-hover:scale-110 transition-transform`}>
+                  <span className="text-3xl sm:text-4xl">{item.icon}</span>
+                </div>
+                <h4 className="text-white font-bold text-xs sm:text-sm mb-1">{item.title}</h4>
+                <p className="text-white/70 text-[10px] sm:text-xs">{item.desc}</p>
+              </div>
+            </AnimateOnScroll>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -377,6 +461,239 @@ const CollabSection = memo(function CollabSection() {
   );
 });
 
+/* ── Upcoming Events ──────────────────────────────────────── */
+const UpcomingEvents = memo(function UpcomingEvents() {
+  const events = [
+    {
+      date: { month: 'Jun', day: '15' },
+      title: 'AI & Machine Learning Summit 2026',
+      location: 'Main Auditorium, KICS',
+      category: 'Conference',
+      color: 'from-blue-600 to-cyan-500',
+      spots: '200 seats'
+    },
+    {
+      date: { month: 'Jul', day: '05' },
+      title: 'ICOSST 2026 - Call for Papers',
+      location: 'Hybrid: Virtual + Physical',
+      category: 'Conference',
+      color: 'from-purple-600 to-pink-500',
+      spots: 'Open now'
+    },
+    {
+      date: { month: 'Jul', day: '20' },
+      title: 'IoT Security Workshop',
+      location: 'Lab 3, KICS',
+      category: 'Workshop',
+      color: 'from-green-600 to-teal-500',
+      spots: '50 seats'
+    },
+  ];
+
+  return (
+    <section className="py-16 sm:py-20 bg-slate-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <AnimateOnScroll>
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+            <div>
+              <span className="eyebrow">Don't Miss Out</span>
+              <h2 className="section-title">Upcoming Events</h2>
+              <div className="divider mt-3" />
+            </div>
+            <Link to="/conferences" className="inline-flex items-center gap-2 text-primary-600 font-semibold text-sm hover:text-primary-700 transition-colors">
+              All Events <FiArrowRight />
+            </Link>
+          </div>
+        </AnimateOnScroll>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {events.map((event, i) => (
+            <AnimateOnScroll key={i} delay={i * 80}>
+              <div className="card group overflow-hidden hover:shadow-2xl transition-all">
+                <div className={`h-1.5 bg-gradient-to-r ${event.color}`} />
+                <div className="p-6">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className={`w-16 h-16 sm:w-18 sm:h-18 rounded-2xl bg-gradient-to-br ${event.color} text-white flex flex-col items-center justify-center shadow-lg flex-shrink-0 group-hover:scale-110 transition-transform`}>
+                      <span className="text-[10px] font-semibold uppercase">{event.date.month}</span>
+                      <span className="text-2xl font-bold leading-none">{event.date.day}</span>
+                    </div>
+                    <div className="flex-1">
+                      <span className="badge text-[10px]">{event.category}</span>
+                      <h3 className="font-bold text-slate-900 text-sm mt-2 leading-snug group-hover:text-primary-600 transition-colors">{event.title}</h3>
+                    </div>
+                  </div>
+                  <div className="space-y-2 mb-4">
+                    <p className="text-slate-600 text-xs flex items-center gap-2">
+                      <FiMapPin size={12} className="text-primary-600" /> {event.location}
+                    </p>
+                    <p className="text-slate-600 text-xs flex items-center gap-2">
+                      <FiUsers size={12} className="text-primary-600" /> {event.spots}
+                    </p>
+                  </div>
+                  <Link to="/conferences" className="btn-primary w-full text-xs justify-center">
+                    Learn More <FiArrowRight size={12} />
+                  </Link>
+                </div>
+              </div>
+            </AnimateOnScroll>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+});
+
+/* ── Success Stories / Testimonials ───────────────────────── */
+const TestimonialsSection = memo(function TestimonialsSection() {
+  const testimonials = [
+    {
+      name: 'Dr. Ali Hassan',
+      role: 'Research Associate, MIT Media Lab',
+      image: 'https://randomuser.me/api/portraits/men/32.jpg',
+      text: 'KICS gave me the foundation to pursue AI research at MIT. The hands-on lab experience and mentorship were invaluable.',
+      rating: 5,
+    },
+    {
+      name: 'Sara Ahmed',
+      role: 'Software Engineer, Google',
+      image: 'https://randomuser.me/api/portraits/women/44.jpg',
+      text: 'The practical exposure to real-world projects at KICS prepared me for my career at Google. Forever grateful!',
+      rating: 5,
+    },
+    {
+      name: 'Muhammad Usman',
+      role: 'Founder, TechStartup (YC S23)',
+      image: 'https://randomuser.me/api/portraits/men/52.jpg',
+      text: 'KICS\'s incubation center helped me turn my idea into a successful startup. The support was phenomenal.',
+      rating: 5,
+    },
+  ];
+
+  return (
+    <section className="py-16 sm:py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <AnimateOnScroll>
+          <div className="text-center mb-12">
+            <span className="eyebrow">Success Stories</span>
+            <h2 className="section-title">What Our Alumni Say</h2>
+            <div className="divider-center mt-3" />
+            <p className="text-slate-600 text-sm max-w-2xl mx-auto mt-4">
+              Hear from KICS graduates making waves in academia, industry, and entrepreneurship worldwide.
+            </p>
+          </div>
+        </AnimateOnScroll>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {testimonials.map((t, i) => (
+            <AnimateOnScroll key={i} delay={i * 100}>
+              <div className="card p-6 text-center hover:shadow-2xl transition-all group">
+                {/* Rating stars */}
+                <div className="flex justify-center gap-1 mb-4">
+                  {[...Array(t.rating)].map((_, idx) => (
+                    <span key={idx} className="text-yellow-400 text-lg">★</span>
+                  ))}
+                </div>
+
+                {/* Quote */}
+                <p className="text-slate-600 italic mb-6 text-sm leading-relaxed">
+                  "{t.text}"
+                </p>
+
+                {/* Profile */}
+                <div className="flex flex-col items-center">
+                  <img
+                    src={t.image}
+                    alt={t.name}
+                    className="w-16 h-16 rounded-full mb-3 border-4 border-primary-100 group-hover:border-primary-300 transition-colors object-cover"
+                    onError={(e) => { e.target.src = 'https://ui-avatars.com/api/?name=' + t.name; }}
+                  />
+                  <h4 className="font-bold text-slate-900 text-sm">{t.name}</h4>
+                  <p className="text-primary-600 text-xs font-semibold mt-1">{t.role}</p>
+                </div>
+              </div>
+            </AnimateOnScroll>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+});
+
+/* ── Featured Projects ────────────────────────────────────── */
+const FeaturedProjects = memo(function FeaturedProjects() {
+  const projects = [
+    {
+      title: 'AquaTech - Smart Water Management',
+      category: 'IoT & Sustainability',
+      image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&h=400&fit=crop',
+      award: 'NVC 2026 Winner',
+      description: 'IoT-based water quality monitoring system with real-time analytics.',
+    },
+    {
+      title: 'CyberGuard AI',
+      category: 'Cybersecurity',
+      image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop',
+      award: 'Best Innovation',
+      description: 'ML-powered threat detection system for enterprise networks.',
+    },
+    {
+      title: 'EduConnect Platform',
+      category: 'EdTech',
+      image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=600&h=400&fit=crop',
+      award: 'Social Impact',
+      description: 'Connecting rural students with quality online education resources.',
+    },
+  ];
+
+  return (
+    <section className="py-16 sm:py-20 bg-gradient-to-br from-primary-50 to-cyan-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <AnimateOnScroll>
+          <div className="text-center mb-12">
+            <span className="eyebrow">Innovation Hub</span>
+            <h2 className="section-title">Featured Student Projects</h2>
+            <div className="divider-center mt-3" />
+            <p className="text-slate-600 text-sm max-w-2xl mx-auto mt-4">
+              Showcasing groundbreaking innovations from KICS labs and incubation center.
+            </p>
+          </div>
+        </AnimateOnScroll>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {projects.map((project, i) => (
+            <AnimateOnScroll key={i} delay={i * 80}>
+              <div className="card group overflow-hidden hover:shadow-2xl transition-all">
+                <div className="relative h-56 overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    loading="lazy"
+                    onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&h=400&fit=crop'; }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary-900/80 to-transparent" />
+                  <div className="absolute top-4 left-4">
+                    <span className="badge bg-green-500 text-white text-[10px] border-none">
+                      <FiAward size={10} className="inline mr-1" /> {project.award}
+                    </span>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <span className="text-xs text-primary-600 font-bold uppercase tracking-wide">{project.category}</span>
+                  <h3 className="font-bold text-slate-900 text-base mt-2 mb-2 group-hover:text-primary-600 transition-colors leading-snug">{project.title}</h3>
+                  <p className="text-slate-600 text-sm mb-4 leading-relaxed">{project.description}</p>
+                  <div className="flex items-center gap-2 text-primary-600 text-xs font-semibold group-hover:text-primary-700 transition-colors cursor-pointer">
+                    <FiTarget size={12} />
+                    <span>View Details</span>
+                    <FiArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </div>
+            </AnimateOnScroll>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+});
+
 /* ── CTA Banner — Waseda-style: dark green with pattern ──── */
 const CTABanner = memo(function CTABanner() {
   return (
@@ -423,9 +740,14 @@ export default function Home() {
       />
       <Hero />
       <Announcements />
+      <VideoSection />
       <StatsBar />
+      <AchievementBadges />
       <AboutStrip />
       <ResearchSection />
+      <FeaturedProjects />
+      <TestimonialsSection />
+      <UpcomingEvents />
       <DirectorQuote />
       <NewsSection />
       <CollabSection />
