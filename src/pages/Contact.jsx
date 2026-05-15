@@ -3,8 +3,8 @@ import PageHero from '../components/PageHero';
 import AnimateOnScroll from '../components/AnimateOnScroll';
 import SEO from '../components/SEO';
 import { contactInfo } from '../data/siteData';
-import { FiPhone, FiMail, FiMapPin, FiSend } from 'react-icons/fi';
-import { FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
+import { FiPhone, FiMail, FiMapPin, FiSend, FiPrinter } from 'react-icons/fi';
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaYoutube } from 'react-icons/fa';
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
@@ -59,6 +59,15 @@ export default function Contact() {
                   </a>
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-xl bg-primary-700 flex items-center justify-center flex-shrink-0 text-primary-100">
+                      <FiPrinter size={16} />
+                    </div>
+                    <div>
+                      <p className="text-primary-300 text-xs mb-0.5">Fax</p>
+                      <p className="text-primary-50 text-sm font-medium">{contactInfo.fax}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-primary-700 flex items-center justify-center flex-shrink-0 text-primary-100">
                       <FiMapPin size={16} />
                     </div>
                     <div>
@@ -84,12 +93,14 @@ export default function Contact() {
 
                 <div className="flex gap-3">
                   {[
-                    { Icon: FaFacebookF, href: contactInfo.socials.facebook },
-                    { Icon: FaTwitter,   href: contactInfo.socials.twitter },
-                    { Icon: FaLinkedinIn,href: contactInfo.socials.linkedin },
-                  ].map(({ Icon, href }, i) => (
+                    { Icon: FaFacebookF, href: contactInfo.socials.facebook, color: 'hover:bg-blue-600' },
+                    { Icon: FaTwitter, href: contactInfo.socials.twitter, color: 'hover:bg-sky-500' },
+                    { Icon: FaLinkedinIn, href: contactInfo.socials.linkedin, color: 'hover:bg-blue-700' },
+                    { Icon: FaInstagram, href: contactInfo.socials.instagram, color: 'hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-500' },
+                    { Icon: FaYoutube, href: contactInfo.socials.youtube, color: 'hover:bg-red-600' },
+                  ].map(({ Icon, href, color }, i) => (
                     <a key={i} href={href} target="_blank" rel="noreferrer"
-                      className="w-9 h-9 rounded-full bg-primary-700 hover:bg-primary-500 text-primary-100 flex items-center justify-center transition-all duration-200">
+                      className={`w-9 h-9 rounded-full bg-primary-700 ${color} text-primary-100 flex items-center justify-center transition-all duration-200`}>
                       <Icon size={14} />
                     </a>
                   ))}
