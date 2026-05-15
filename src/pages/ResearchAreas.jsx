@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
 import AnimateOnScroll from '../components/AnimateOnScroll';
 import SEO from '../components/SEO';
@@ -154,12 +155,11 @@ export default function ResearchAreas() {
             <div className="divider-center" />
             <p className="text-primary-100 mb-8 max-w-xl mx-auto">
               KICS researchers have authored 500+ publications in top-tier IEEE, ACM, and Elsevier
-              journals and conferences. Explore our full publication record on the official KICS portal.
+              journals and conferences. Explore our comprehensive publication database.
             </p>
-            <a href="https://kics.edu.pk/web/research-technology/publications/" target="_blank" rel="noreferrer"
-              className="btn-primary">
-              View Publications →
-            </a>
+            <Link to="/publications" className="btn-primary">
+              View All Publications →
+            </Link>
           </AnimateOnScroll>
         </div>
       </section>

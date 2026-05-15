@@ -109,15 +109,18 @@ export default function Jobs() {
             )}
           </div>
 
-          {/* Note */}
+          {/* Application info */}
           <AnimateOnScroll>
-            <div className="mt-10 p-5 bg-slate-50 rounded-xl border border-slate-200 text-center">
-              <p className="text-slate-600 text-sm">
-                For all current openings and dynamic listings, visit the official KICS Jobs portal at{' '}
-                <a href="https://kics.edu.pk/web/jobs/" target="_blank" rel="noreferrer"
-                  className="text-primary-800 font-semibold hover:text-cyan-500 transition-colors underline">
-                  kics.edu.pk/web/jobs/
+            <div className="mt-10 p-6 bg-primary-50 rounded-xl border border-primary-200">
+              <h3 className="text-primary-900 font-bold text-lg mb-3">How to Apply</h3>
+              <p className="text-slate-700 text-sm mb-4">
+                Interested candidates should send their CV, cover letter, and relevant documents to{' '}
+                <a href="mailto:hr@kics.edu.pk" className="text-primary-700 font-semibold hover:text-cyan-600 underline">
+                  hr@kics.edu.pk
                 </a>
+              </p>
+              <p className="text-slate-600 text-sm">
+                Please mention the position title in the email subject line. Only shortlisted candidates will be contacted for interviews.
               </p>
             </div>
           </AnimateOnScroll>

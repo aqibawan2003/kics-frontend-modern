@@ -118,8 +118,6 @@ export default function Footer() {
                     { Icon: FaFacebookF, href: 'https://facebook.com/kics.official' },
                     { Icon: FaTwitter, href: 'https://twitter.com/KICSUETLAHORE' },
                     { Icon: FaLinkedinIn, href: 'https://linkedin.com/company/kics' },
-                    { Icon: FaInstagram, href: '#' },
-                    { Icon: FaYoutube, href: '#' },
                   ].map(({ Icon, href }, i) => (
                     <a
                       key={i}

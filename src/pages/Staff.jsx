@@ -87,15 +87,21 @@ export default function Staff() {
             </div>
           )}
 
-          <AnimateOnScroll>
-            <p className="text-center text-slate-400 text-sm mt-10">
-              Showing {visible.length} of {staffMembers.length} staff members. For the complete directory visit{' '}
-              <a href="https://www.kics.edu.pk/people/all_staff" target="_blank" rel="noreferrer"
-                className="text-primary-800 hover:text-cyan-500 transition-colors underline">
-                kics.edu.pk/people/all_staff
-              </a>
-            </p>
-          </AnimateOnScroll>
+          {visible.length > 0 && (
+            <AnimateOnScroll>
+              <div className="text-center mt-12 p-6 bg-slate-50 rounded-xl">
+                <p className="text-slate-600 text-sm mb-3">
+                  Showing {visible.length} of {staffMembers.length} staff members
+                </p>
+                <p className="text-slate-500 text-xs">
+                  For inquiries about specific staff members or departments, contact{' '}
+                  <a href="mailto:hr@kics.edu.pk" className="text-primary-700 font-semibold hover:text-cyan-600 underline">
+                    hr@kics.edu.pk
+                  </a>
+                </p>
+              </div>
+            </AnimateOnScroll>
+          )}
         </div>
       </section>
     </div>
