@@ -1,13 +1,4 @@
 /* ── Logo imports ────────────────────────────────────────────── */
-import huaweiLogo    from '../assets/images/collaborations/huawei.png';
-import mitLogo       from '../assets/images/collaborations/mit.png';
-import punjabLogo    from '../assets/images/collaborations/punjab.png';
-import hecLogo       from '../assets/images/collaborations/hec.png';
-import uetLogo       from '../assets/images/collaborations/uet.png';
-import igniteLogo    from '../assets/images/collaborations/ignite.png';
-import ieeeLogo      from '../assets/images/collaborations/ieee.jpg';
-import rescue1122Logo from '../assets/images/collaborations/rescue1122.png';
-import sportsBoardLogo from '../assets/images/collaborations/sports-board.jpg';
 
 /* ── Navigation ─────────────────────────────────────────────── */
 export const navLinks = [
@@ -535,15 +526,51 @@ export const clients = [
 
 /* ── Collaborators ──────────────────────────────────────────── */
 export const collaborators = [
-  { name: 'IEEE',         logo: ieeeLogo,       url: 'https://www.ieee.org' },
-  { name: 'Huawei',       logo: huaweiLogo,     url: 'https://www.huawei.com' },
-  { name: 'MIT',          logo: mitLogo,        url: 'https://www.mit.edu' },
-  { name: 'UET Lahore',   logo: uetLogo,        url: 'https://www.uet.edu.pk' },
-  { name: 'HEC Pakistan', logo: hecLogo,        url: 'https://www.hec.gov.pk' },
-  { name: 'IGNITE',       logo: igniteLogo,     url: 'https://ignite.org.pk' },
-  { name: 'Rescue 1122',  logo: rescue1122Logo, url: 'https://www.rescue.gov.pk' },
-  { name: 'Punjab Govt',  logo: punjabLogo,     url: 'https://punjab.gov.pk' },
-  { name: 'Sports Board', logo: sportsBoardLogo,url: 'https://sportsboard.punjab.gov.pk' },
+  {
+    name: 'IEEE',
+    logo: 'https://logo.clearbit.com/ieee.org',
+    url:  'https://www.ieee.org',
+  },
+  {
+    name: 'Huawei',
+    logo: 'https://logo.clearbit.com/huawei.com',
+    url:  'https://www.huawei.com',
+  },
+  {
+    name: 'MIT',
+    logo: 'https://logo.clearbit.com/mit.edu',
+    url:  'https://www.mit.edu',
+  },
+  {
+    name: 'UET Lahore',
+    logo: 'https://upload.wikimedia.org/wikipedia/en/4/44/University_of_Engineering_and_Technology_Lahore_logo.png',
+    url:  'https://www.uet.edu.pk',
+  },
+  {
+    name: 'HEC Pakistan',
+    logo: 'https://www.hec.gov.pk/_layouts/15/hec/images/logo.png',
+    url:  'https://www.hec.gov.pk',
+  },
+  {
+    name: 'IGNITE',
+    logo: 'https://ignite.org.pk/wp-content/uploads/2020/05/logo.png',
+    url:  'https://ignite.org.pk',
+  },
+  {
+    name: 'Rescue 1122',
+    logo: 'https://upload.wikimedia.org/wikipedia/en/5/5d/Rescue_1122_logo.png',
+    url:  'https://www.rescue.gov.pk',
+  },
+  {
+    name: 'Punjab Govt',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/3/32/Government_of_the_Punjab_logo.png',
+    url:  'https://punjab.gov.pk',
+  },
+  {
+    name: 'Sports Board Punjab',
+    logo: 'https://sportsboard.punjab.gov.pk/system/files/logo.png',
+    url:  'https://sportsboard.punjab.gov.pk',
+  },
 ];
 
 /* ── Contact ─────────────────────────────────────────────────── */
