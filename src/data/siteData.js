@@ -584,6 +584,8 @@ export const contactInfo = {
     facebook:  'https://facebook.com/kics.official',
     twitter:   'https://twitter.com/KICSUETLAHORE',
     linkedin:  'https://linkedin.com/company/kics',
+    instagram: 'https://instagram.com/kics.official',
+    youtube:   'https://youtube.com/@KICSUETLahore',
   },
   contacts: [
     { role: 'Administrative & HR Queries', name: 'Muhammad Ali', title: 'Senior HR Officer', phone: 'Ext. 850', cell: null },
