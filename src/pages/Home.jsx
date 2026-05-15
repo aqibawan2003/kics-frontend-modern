@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   FiBell, FiArrowRight, FiCalendar, FiBookOpen, FiAward, FiGlobe, FiUsers,
   FiCpu, FiZap, FiGitBranch, FiMonitor, FiMapPin, FiTrendingUp, FiTarget,
-  FiPhone, FiMail, FiClock, FiNavigation,
+  FiPhone, FiMail, FiNavigation,
 } from 'react-icons/fi';
 import AnimateOnScroll from '../components/AnimateOnScroll';
 import useCounter from '../hooks/useCounter';
@@ -136,7 +136,7 @@ const VideoSection = memo(function VideoSection() {
             <div className="absolute inset-0 bg-gradient-to-br from-primary-900 to-cyan-900 flex items-center justify-center">
               <div className="text-center">
                 <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mx-auto mb-4 hover:scale-110 transition-transform cursor-pointer">
-                  <div className="w-0 h-0 border-t-8 border-t-transparent border-l-12 border-l-white border-b-8 border-b-transparent ml-1" />
+                  <div className="w-0 h-0 border-t-[8px] border-t-transparent border-l-[16px] border-l-white border-b-[8px] border-b-transparent ml-1" />
                 </div>
                 <p className="text-white font-semibold">KICS Overview Video</p>
                 <p className="text-white/70 text-sm mt-1">Coming Soon</p>
@@ -513,7 +513,7 @@ const UpcomingEvents = memo(function UpcomingEvents() {
                 <div className={`h-1.5 bg-gradient-to-r ${event.color}`} />
                 <div className="p-6">
                   <div className="flex items-start gap-4 mb-4">
-                    <div className={`w-16 h-16 sm:w-18 sm:h-18 rounded-2xl bg-gradient-to-br ${event.color} text-white flex flex-col items-center justify-center shadow-lg flex-shrink-0 group-hover:scale-110 transition-transform`}>
+                    <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br ${event.color} text-white flex flex-col items-center justify-center shadow-lg flex-shrink-0 group-hover:scale-110 transition-transform`}>
                       <span className="text-[10px] font-semibold uppercase">{event.date.month}</span>
                       <span className="text-2xl font-bold leading-none">{event.date.day}</span>
                     </div>
