@@ -227,21 +227,21 @@ const aboutItems = [
 
 const AboutStrip = memo(function AboutStrip() {
   return (
-    <section className="relative py-24 bg-gradient-to-b from-white via-slate-50 to-white" id="about">
+    <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-b from-white via-slate-50 to-white" id="about">
       {/* Diagonal accent */}
-      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-r from-primary-500/5 to-cyan-500/5 transform -skew-y-2 origin-top-left" />
+      <div className="absolute top-0 left-0 w-full h-20 sm:h-24 md:h-32 bg-gradient-to-r from-primary-500/5 to-cyan-500/5 transform -skew-y-2 origin-top-left" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid lg:grid-cols-2 gap-14 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-14 items-center">
           <AnimateOnScroll animation="reveal-left">
             <span className="eyebrow">Who We Are</span>
             <h2 className="section-title mb-4">Al-Khwarizmi Institute of Computer Science</h2>
             <div className="divider" />
-            <p className="text-slate-600 leading-relaxed mb-4">
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-4">
               Named after the legendary 9th-century mathematician Muhammad ibn Musa Al-Khwarizmi — whose
               work laid the foundations of algebra and algorithmic thinking — KICS was established in 2002
               at the University of Engineering &amp; Technology (UET) Lahore.
             </p>
-            <p className="text-slate-600 leading-relaxed mb-8">
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8">
               KICS serves as a premier applied research institution, bridging academia and industry through
               high-impact research, technology transfer, and professional development. With over 25 specialized
               labs and centers, KICS drives Pakistan's digital transformation across AI, cybersecurity,
@@ -256,14 +256,14 @@ const AboutStrip = memo(function AboutStrip() {
           </AnimateOnScroll>
 
           <AnimateOnScroll animation="reveal-right">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               {aboutItems.map((item) => (
-                <div key={item.label} className="card p-5 group">
-                  <div className="w-10 h-10 rounded-lg bg-primary-50 group-hover:bg-primary-600 flex items-center justify-center mb-3 transition-colors duration-300">
-                    <item.Icon size={20} className="text-primary-600 group-hover:text-white transition-colors duration-300" />
+                <div key={item.label} className="card p-4 sm:p-5 group">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-primary-50 group-hover:bg-primary-600 flex items-center justify-center mb-2 sm:mb-3 transition-colors duration-300">
+                    <item.Icon size={18} className="text-primary-600 group-hover:text-white transition-colors duration-300 sm:w-5 sm:h-5" />
                   </div>
-                  <h4 className="font-bold text-slate-800 text-sm mb-1.5">{item.label}</h4>
-                  <p className="text-slate-500 text-xs leading-relaxed">{item.desc}</p>
+                  <h4 className="font-bold text-slate-800 text-xs sm:text-sm mb-1 sm:mb-1.5 leading-snug">{item.label}</h4>
+                  <p className="text-slate-500 text-[10px] sm:text-xs leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -277,10 +277,10 @@ const AboutStrip = memo(function AboutStrip() {
 /* ── Research Section ────────────────────────────────────── */
 const ResearchSection = memo(function ResearchSection() {
   return (
-    <section className="relative py-20 bg-gradient-to-br from-primary-50 via-cyan-50/30 to-primary-50" id="research">
+    <section className="relative py-12 sm:py-16 md:py-20 bg-gradient-to-br from-primary-50 via-cyan-50/30 to-primary-50" id="research">
       {/* Curved divider top */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
-        <svg className="relative block w-full h-16" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <svg className="relative block w-full h-10 sm:h-12 md:h-16" viewBox="0 0 1200 120" preserveAspectRatio="none">
           <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="#ffffff"></path>
           <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="#ffffff"></path>
           <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="#ffffff"></path>
@@ -288,18 +288,18 @@ const ResearchSection = memo(function ResearchSection() {
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <AnimateOnScroll>
-          <div className="text-center mb-12">
+          <div className="text-center mb-8 sm:mb-10 md:mb-12">
             <span className="eyebrow">What We Do</span>
             <h2 className="section-title mb-3">Our Research Areas</h2>
             <div className="divider-center" />
           </div>
         </AnimateOnScroll>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
           {researchAreas.map((area, i) => (
             <AnimateOnScroll key={area.title} animation="reveal" delay={i * 80}>
               <article className="card group h-full flex flex-col">
-                <div className="relative h-44 overflow-hidden" style={{ aspectRatio: '16/9' }}>
+                <div className="relative h-36 sm:h-40 md:h-44 overflow-hidden" style={{ aspectRatio: '16/9' }}>
                   <img
                     src={area.image}
                     alt={area.title}
@@ -311,11 +311,11 @@ const ResearchSection = memo(function ResearchSection() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary-950/60 to-transparent" />
                 </div>
-                <div className="p-5 flex flex-col flex-1">
-                  <h3 className="font-bold text-slate-800 text-base mb-2 group-hover:text-primary-600 transition-colors">{area.title}</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed flex-1">{area.desc}</p>
-                  <Link to="/research-areas" className="inline-flex items-center gap-1 mt-4 text-primary-600 text-sm font-semibold hover:text-primary-700 transition-colors group/link">
-                    Explore <FiArrowRight size={13} className="transition-transform group-hover/link:translate-x-1" />
+                <div className="p-4 sm:p-5 flex flex-col flex-1">
+                  <h3 className="font-bold text-slate-800 text-sm sm:text-base mb-2 group-hover:text-primary-600 transition-colors leading-snug">{area.title}</h3>
+                  <p className="text-slate-500 text-xs sm:text-sm leading-relaxed flex-1">{area.desc}</p>
+                  <Link to="/research-areas" className="inline-flex items-center gap-1 mt-3 sm:mt-4 text-primary-600 text-xs sm:text-sm font-semibold hover:text-primary-700 transition-colors group/link">
+                    Explore <FiArrowRight size={12} className="transition-transform group-hover/link:translate-x-1 sm:w-[13px] sm:h-[13px]" />
                   </Link>
                 </div>
               </article>
@@ -324,7 +324,7 @@ const ResearchSection = memo(function ResearchSection() {
         </div>
 
         <AnimateOnScroll>
-          <div className="text-center mt-10">
+          <div className="text-center mt-8 sm:mt-10">
             <Link to="/research-areas" className="btn-primary">View All Labs &amp; Centers</Link>
           </div>
         </AnimateOnScroll>
@@ -393,13 +393,13 @@ const NewsSection = memo(function NewsSection() {
   const featured = newsItems[0];
   const rest = newsItems.slice(1, 4);
   return (
-    <section className="relative py-20 bg-gradient-to-b from-cyan-50 via-primary-50 to-white overflow-hidden">
+    <section className="relative py-12 sm:py-16 md:py-20 bg-gradient-to-b from-cyan-50 via-primary-50 to-white overflow-hidden">
       {/* Diagonal accent top */}
-      <div className="absolute top-0 right-0 w-full h-40 bg-gradient-to-l from-cyan-100/50 to-transparent transform skew-y-3 origin-top-right" />
+      <div className="absolute top-0 right-0 w-full h-24 sm:h-32 md:h-40 bg-gradient-to-l from-cyan-100/50 to-transparent transform skew-y-3 origin-top-right" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         <AnimateOnScroll>
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-10 gap-4">
             <div>
               <span className="eyebrow">Latest Updates</span>
               <h2 className="section-title">News &amp; Events</h2>
@@ -411,12 +411,12 @@ const NewsSection = memo(function NewsSection() {
           </div>
         </AnimateOnScroll>
 
-        <div className="grid lg:grid-cols-5 gap-6">
+        <div className="grid lg:grid-cols-5 gap-4 sm:gap-5 md:gap-6">
           <AnimateOnScroll animation="reveal-left" className="lg:col-span-3">
-            <Link to="/news" className="group block h-full relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all hover:-translate-y-2">
+            <Link to="/news" className="group block h-full relative overflow-hidden rounded-xl sm:rounded-2xl shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1 sm:hover:-translate-y-2">
               {/* Glowing effect on hover */}
               <div className="absolute inset-0 bg-gradient-to-r from-primary-500/20 to-cyan-500/20 opacity-0 group-hover:opacity-100 blur-xl transition-opacity" />
-              <div className="relative bg-white rounded-2xl overflow-hidden">
+              <div className="relative bg-white rounded-xl sm:rounded-2xl overflow-hidden">
                 <div className="relative overflow-hidden" style={{ aspectRatio: '16/9' }}>
                   <img
                     src={featured.image}
@@ -428,23 +428,23 @@ const NewsSection = memo(function NewsSection() {
                     onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=800&h=450&fit=crop'; }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary-950/70 to-transparent" />
-                  <span className="absolute top-4 left-4 bg-gradient-to-r from-primary-600 to-cyan-600 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg">{featured.category}</span>
+                  <span className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-gradient-to-r from-primary-600 to-cyan-600 text-white text-[10px] sm:text-xs font-bold px-3 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-lg">{featured.category}</span>
                 </div>
-                <div className="p-6">
-                  <span className="text-xs text-primary-600 font-semibold flex items-center gap-1">
-                    <FiCalendar size={11} /> {featured.date}
+                <div className="p-4 sm:p-5 md:p-6">
+                  <span className="text-[10px] sm:text-xs text-primary-600 font-semibold flex items-center gap-1">
+                    <FiCalendar size={10} className="sm:w-[11px] sm:h-[11px]" /> {featured.date}
                   </span>
-                  <h3 className="font-bold text-slate-800 text-xl mt-1 mb-2 group-hover:text-primary-600 transition-colors">{featured.title}</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">{featured.excerpt}</p>
+                  <h3 className="font-bold text-slate-800 text-base sm:text-lg md:text-xl mt-1 mb-2 group-hover:text-primary-600 transition-colors leading-snug">{featured.title}</h3>
+                  <p className="text-slate-500 text-xs sm:text-sm leading-relaxed">{featured.excerpt}</p>
                 </div>
               </div>
             </Link>
           </AnimateOnScroll>
 
-          <AnimateOnScroll animation="reveal-right" className="lg:col-span-2 flex flex-col gap-4">
+          <AnimateOnScroll animation="reveal-right" className="lg:col-span-2 flex flex-col gap-3 sm:gap-4">
             {rest.map((item, i) => (
-              <Link to="/news" key={i} className="group bg-white/80 backdrop-blur-sm rounded-xl flex gap-4 p-4 items-start border-2 border-transparent hover:border-primary-200 hover:bg-white shadow-md hover:shadow-xl transition-all hover:-translate-y-1">
-                <div className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 ring-2 ring-primary-100 group-hover:ring-primary-300 transition-all">
+              <Link to="/news" key={i} className="group bg-white/80 backdrop-blur-sm rounded-lg sm:rounded-xl flex gap-3 sm:gap-4 p-3 sm:p-4 items-start border-2 border-transparent hover:border-primary-200 hover:bg-white shadow-md hover:shadow-xl transition-all hover:-translate-y-1">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg sm:rounded-xl overflow-hidden flex-shrink-0 ring-2 ring-primary-100 group-hover:ring-primary-300 transition-all">
                   <img
                     src={item.image}
                     alt={item.title}
