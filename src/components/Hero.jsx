@@ -39,7 +39,7 @@ export default function Hero() {
     <section
       id="home"
       className="relative overflow-hidden"
-      style={{ minHeight: 'clamp(520px, 78vh, 720px)' }}
+      style={{ minHeight: 'clamp(480px, 75vh, 720px)' }}
     >
       {/* ── Tech blue background ── */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-cyan-50/60 to-primary-50" />
@@ -116,7 +116,7 @@ export default function Hero() {
             <div className="flex flex-wrap gap-3 justify-center lg:justify-start mb-10">
               <Link
                 to="/about"
-                className="group inline-flex items-center gap-2 text-white font-bold px-7 py-3.5 rounded-full shadow-primary hover:shadow-lg hover:-translate-y-1 transition-all duration-300 text-sm"
+                className="group inline-flex items-center gap-2 text-white font-bold px-6 sm:px-7 py-3 sm:py-3.5 rounded-full shadow-primary hover:shadow-lg hover:-translate-y-1 transition-all duration-300 text-sm"
                 style={{ background: 'linear-gradient(135deg, #1d4ed8, #2563eb)' }}
               >
                 Discover KICS
@@ -124,7 +124,7 @@ export default function Hero() {
               </Link>
               <Link
                 to="/research-areas"
-                className="inline-flex items-center gap-2 bg-white hover:bg-primary-50 text-primary-800 font-semibold px-7 py-3.5 rounded-full border-2 border-primary-200 hover:border-primary-500 hover:text-primary-700 hover:-translate-y-1 transition-all duration-300 shadow-sm text-sm"
+                className="inline-flex items-center gap-2 bg-white hover:bg-primary-50 text-primary-800 font-semibold px-6 sm:px-7 py-3 sm:py-3.5 rounded-full border-2 border-primary-200 hover:border-primary-500 hover:text-primary-700 hover:-translate-y-1 transition-all duration-300 shadow-sm text-sm"
               >
                 Our Research
               </Link>
@@ -165,7 +165,7 @@ export default function Hero() {
               <div className="absolute -inset-5 bg-gradient-to-br from-primary-300/30 via-cyan-200/20 to-primary-200/30 rounded-[2rem] blur-2xl pointer-events-none" />
 
               {/* Floating badge — top-left */}
-              <div className="absolute -top-6 -left-6 z-20 bg-white rounded-2xl shadow-lg px-3.5 py-2.5 flex items-center gap-2.5 border border-primary-100 animate-bounce-gentle">
+              <div className="absolute -top-4 sm:-top-6 -left-3 sm:-left-6 z-20 bg-white rounded-xl sm:rounded-2xl shadow-lg px-2.5 sm:px-3.5 py-2 sm:py-2.5 flex items-center gap-2 sm:gap-2.5 border border-primary-100 animate-bounce-gentle hidden xs:flex">
                 <div
                   className="w-9 h-9 rounded-xl flex items-center justify-center shadow-sm"
                   style={{ background: 'linear-gradient(135deg, #1d4ed8, #2563eb)' }}
@@ -180,7 +180,7 @@ export default function Hero() {
 
               {/* Floating badge — bottom-right */}
               <div
-                className="absolute -bottom-6 -right-6 z-20 bg-white rounded-2xl shadow-lg px-3.5 py-2.5 flex items-center gap-2.5 border border-cyan-100 animate-bounce-gentle"
+                className="absolute -bottom-4 sm:-bottom-6 -right-3 sm:-right-6 z-20 bg-white rounded-xl sm:rounded-2xl shadow-lg px-2.5 sm:px-3.5 py-2 sm:py-2.5 flex items-center gap-2 sm:gap-2.5 border border-cyan-100 animate-bounce-gentle hidden xs:flex"
                 style={{ animationDelay: '1s' }}
               >
                 <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-500 to-cyan-700 flex items-center justify-center shadow-sm">
