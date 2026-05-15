@@ -23,7 +23,7 @@ const HeroSlide = memo(({ slide, isActive }) => (
 ));
 
 export default function Hero() {
-  const [current, setCurrent] = useState(0);
+  const [current, setCurrent]           = useState(0);
   const [transitioning, setTransitioning] = useState(false);
 
   const goTo = useCallback((index) => {
@@ -47,8 +47,8 @@ export default function Hero() {
 
   return (
     <section
-      className="relative overflow-hidden bg-primary-900"
-      style={{ height: 'clamp(500px, 85vh, 820px)' }}
+      className="relative overflow-hidden bg-primary-950"
+      style={{ height: 'clamp(520px, 88vh, 860px)' }}
       id="home"
       aria-label="Hero slideshow"
     >
@@ -57,11 +57,11 @@ export default function Hero() {
         <HeroSlide key={i} slide={s} isActive={i === current} />
       ))}
 
-      {/* Gradient overlays — dark enough to ensure text legibility */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary-950/90 via-primary-900/75 to-primary-800/40 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-t from-primary-950/50 via-transparent to-transparent pointer-events-none" />
+      {/* Waseda-style gradient: strong left-side dark overlay for text legibility */}
+      <div className="absolute inset-0 bg-gradient-to-r from-primary-950/92 via-primary-900/70 to-primary-800/30 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-primary-950/60 via-transparent to-transparent pointer-events-none" />
 
-      {/* Content */}
+      {/* Content — left-aligned, clean Waseda style */}
       <div className="absolute inset-0 flex items-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full">
           <div
@@ -69,10 +69,12 @@ export default function Hero() {
               transitioning ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
             }`}
           >
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-white/15 border border-white/25 rounded-full px-4 py-1.5 mb-5 text-white text-xs font-semibold uppercase tracking-wider">
-              <span className="w-1.5 h-1.5 bg-primary-300 rounded-full" />
-              {slide.badge || 'Al-Khwarizmi Institute'}
+            {/* Category label — Waseda uses a thin coloured top-bar on text blocks */}
+            <div className="flex items-center gap-3 mb-5">
+              <span className="block w-8 h-0.5 bg-primary-400" />
+              <span className="text-primary-300 text-xs font-bold uppercase tracking-[0.2em]">
+                {slide.badge || 'Al-Khwarizmi Institute'}
+              </span>
             </div>
 
             {/* Title */}
@@ -81,22 +83,21 @@ export default function Hero() {
             </h1>
 
             {/* Subtitle */}
-            <p className="text-white/85 text-base sm:text-lg md:text-xl mb-8 leading-relaxed max-w-xl drop-shadow">
+            <p className="text-white/80 text-base sm:text-lg mb-8 leading-relaxed max-w-xl">
               {slide.subtitle}
             </p>
 
-            {/* CTA Buttons */}
+            {/* CTA Buttons — Waseda uses rounded pill buttons */}
             <div className="flex flex-wrap gap-3">
               <Link
                 to="/about"
-                className="inline-flex items-center gap-2 bg-white text-primary-900 font-bold px-6 py-3 rounded transition-all duration-200 hover:bg-primary-50 hover:-translate-y-0.5 shadow-lg text-sm"
+                className="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-400 text-white font-semibold px-7 py-3 rounded-full transition-all duration-200 shadow-lg text-sm"
               >
-                Discover KICS
-                <FiArrowRight size={15} />
+                Discover KICS <FiArrowRight size={15} />
               </Link>
               <Link
                 to="/research-areas"
-                className="inline-flex items-center gap-2 border-2 border-white/70 text-white font-bold px-6 py-3 rounded transition-all duration-200 hover:bg-white/15 hover:border-white text-sm"
+                className="inline-flex items-center gap-2 border-2 border-white/60 text-white font-semibold px-7 py-3 rounded-full transition-all duration-200 hover:bg-white/15 hover:border-white text-sm"
               >
                 Our Research
               </Link>
@@ -108,40 +109,43 @@ export default function Hero() {
       {/* Navigation Arrows */}
       <button
         onClick={prev}
-        className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded bg-black/30 hover:bg-black/50 text-white flex items-center justify-center transition-colors border border-white/20"
+        className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/30 hover:bg-primary-600/80 text-white flex items-center justify-center transition-colors border border-white/20"
         aria-label="Previous slide"
       >
         <FiChevronLeft size={22} />
       </button>
       <button
         onClick={next}
-        className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded bg-black/30 hover:bg-black/50 text-white flex items-center justify-center transition-colors border border-white/20"
+        className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/30 hover:bg-primary-600/80 text-white flex items-center justify-center transition-colors border border-white/20"
         aria-label="Next slide"
       >
         <FiChevronRight size={22} />
       </button>
 
-      {/* Dot Indicators */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 items-center" role="tablist" aria-label="Slide indicators">
-        {heroSlides.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => goTo(i)}
-            aria-label={`Go to slide ${i + 1}`}
-            role="tab"
-            aria-selected={i === current}
-            className={`transition-all duration-300 rounded-full ${
-              i === current
-                ? 'w-8 h-2.5 bg-white'
-                : 'w-2.5 h-2.5 bg-white/40 hover:bg-white/70'
-            }`}
-          />
-        ))}
-      </div>
+      {/* Bottom bar — slide counter + dots, Waseda style */}
+      <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between px-6 sm:px-10 py-4">
+        {/* Dot Indicators */}
+        <div className="flex gap-2 items-center" role="tablist" aria-label="Slide indicators">
+          {heroSlides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => goTo(i)}
+              aria-label={`Go to slide ${i + 1}`}
+              role="tab"
+              aria-selected={i === current}
+              className={`transition-all duration-300 rounded-full ${
+                i === current
+                  ? 'w-8 h-2 bg-primary-400'
+                  : 'w-2 h-2 bg-white/40 hover:bg-white/70'
+              }`}
+            />
+          ))}
+        </div>
 
-      {/* Slide counter */}
-      <div className="absolute bottom-6 right-6 text-white/60 text-xs font-mono hidden sm:block">
-        {String(current + 1).padStart(2, '0')} / {String(heroSlides.length).padStart(2, '0')}
+        {/* Slide counter */}
+        <div className="text-white/60 text-xs font-mono hidden sm:block">
+          {String(current + 1).padStart(2, '0')} / {String(heroSlides.length).padStart(2, '0')}
+        </div>
       </div>
     </section>
   );

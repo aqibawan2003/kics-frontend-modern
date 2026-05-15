@@ -29,27 +29,36 @@ const StatItem = memo(function StatItem({ Icon, value, suffix, label, center, in
       className={[
         'reveal-scale flex flex-col items-center text-center px-5 py-8 rounded-2xl transition-all duration-300 cursor-default group',
         center
-          ? 'bg-white shadow-2xl -translate-y-5 border border-slate-100 z-10 relative'
-          : 'bg-white shadow-card border border-slate-100 hover:shadow-xl hover:-translate-y-3',
+          ? 'bg-primary-600 shadow-2xl -translate-y-5 z-10 relative'
+          : 'bg-white shadow-card border border-primary-100 hover:shadow-xl hover:-translate-y-3',
       ].join(' ')}
       style={{ transitionDelay: `${index * 80}ms` }}
     >
-      <div className="w-16 h-16 rounded-full bg-primary-50 group-hover:bg-primary-600 flex items-center justify-center mb-4 transition-all duration-300">
-        <Icon size={26} className="text-primary-600 group-hover:text-white transition-colors duration-300" />
+      <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-4 transition-all duration-300 ${
+        center
+          ? 'bg-white/20 group-hover:bg-white/30'
+          : 'bg-primary-50 group-hover:bg-primary-600'
+      }`}>
+        <Icon size={26} className={center
+          ? 'text-white'
+          : 'text-primary-600 group-hover:text-white transition-colors duration-300'
+        } />
       </div>
-      <span className="text-4xl font-bold text-slate-900 tabular-nums">
+      <span className={`text-4xl font-bold tabular-nums ${center ? 'text-white' : 'text-slate-900'}`}>
         {count.toLocaleString()}{suffix}
       </span>
-      <span className="text-slate-500 text-sm font-medium mt-2 leading-tight">{label}</span>
+      <span className={`text-sm font-medium mt-2 leading-tight ${center ? 'text-white/80' : 'text-slate-500'}`}>
+        {label}
+      </span>
     </div>
   );
 });
 
-/* ── Announcements ───────────────────────────────────────── */
+/* ── Announcements Ticker ─────────────────────────────────── */
 const Announcements = memo(function Announcements() {
   const doubled = [...announcements, ...announcements];
   return (
-    <div className="bg-primary-900 border-b-2 border-primary-400 flex items-stretch overflow-hidden">
+    <div className="bg-primary-900 border-b-2 border-primary-600 flex items-stretch overflow-hidden">
       <div className="flex-shrink-0 flex items-center gap-2 bg-primary-600 px-4 py-2.5 z-10">
         <FiBell size={14} className="animate-pulse text-white" />
         <span className="text-white text-xs font-bold uppercase tracking-widest whitespace-nowrap">Latest</span>
@@ -70,7 +79,7 @@ const Announcements = memo(function Announcements() {
 /* ── Stats Bar ───────────────────────────────────────────── */
 const StatsBar = memo(function StatsBar() {
   return (
-    <section className="py-16 bg-slate-50 overflow-hidden">
+    <section className="py-16 bg-primary-50 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <AnimateOnScroll animation="reveal-scale">
           <div className="text-center mb-10">
@@ -91,10 +100,10 @@ const StatsBar = memo(function StatsBar() {
 
 /* ── About Strip ─────────────────────────────────────────── */
 const aboutItems = [
-  { Icon: FiCpu,        label: 'Applied Research',      desc: 'Real-world impact through collaborative, industry-aligned R&D.' },
-  { Icon: FiZap,        label: 'Technology Transfer',   desc: 'Commercializing innovations through our Technology Incubation Center.' },
-  { Icon: FiGitBranch,  label: 'Human Capital',         desc: 'Training the next generation of technologists via professional programs.' },
-  { Icon: FiGlobe,      label: 'Global Collaboration',  desc: 'Partnerships with IEEE, Huawei, MIT, HEC, and government bodies.' },
+  { Icon: FiCpu,       label: 'Applied Research',     desc: 'Real-world impact through collaborative, industry-aligned R&D.' },
+  { Icon: FiZap,       label: 'Technology Transfer',  desc: 'Commercializing innovations through our Technology Incubation Center.' },
+  { Icon: FiGitBranch, label: 'Human Capital',        desc: 'Training the next generation of technologists via professional programs.' },
+  { Icon: FiGlobe,     label: 'Global Collaboration', desc: 'Partnerships with IEEE, Huawei, MIT, HEC, and government bodies.' },
 ];
 
 const AboutStrip = memo(function AboutStrip() {
@@ -118,7 +127,7 @@ const AboutStrip = memo(function AboutStrip() {
               smart cities, embedded systems, and enterprise software.
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link to="/about" className="btn-navy">Learn More</Link>
+              <Link to="/about" className="btn-primary">Learn More</Link>
               <Link to="/director-message" className="inline-flex items-center gap-2 text-slate-700 font-semibold text-sm hover:text-primary-600 transition-colors">
                 Director's Message <FiArrowRight size={14} />
               </Link>
@@ -147,7 +156,7 @@ const AboutStrip = memo(function AboutStrip() {
 /* ── Research Section ────────────────────────────────────── */
 const ResearchSection = memo(function ResearchSection() {
   return (
-    <section className="py-20 bg-slate-50" id="research">
+    <section className="py-20 bg-primary-50" id="research">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <AnimateOnScroll>
           <div className="text-center mb-12">
@@ -171,7 +180,7 @@ const ResearchSection = memo(function ResearchSection() {
                     loading="lazy"
                     onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=220&fit=crop'; }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary-950/60 to-transparent" />
                 </div>
                 <div className="p-5 flex flex-col flex-1">
                   <h3 className="font-bold text-slate-800 text-base mb-2 group-hover:text-primary-600 transition-colors">{area.title}</h3>
@@ -187,7 +196,7 @@ const ResearchSection = memo(function ResearchSection() {
 
         <AnimateOnScroll>
           <div className="text-center mt-10">
-            <Link to="/research-areas" className="btn-navy">View All Labs &amp; Centers</Link>
+            <Link to="/research-areas" className="btn-primary">View All Labs &amp; Centers</Link>
           </div>
         </AnimateOnScroll>
       </div>
@@ -205,7 +214,7 @@ const DirectorQuote = memo(function DirectorQuote() {
             <span className="eyebrow">Leadership</span>
             <h2 className="section-title mb-4">Director's Message</h2>
             <div className="divider" />
-            <blockquote className="border-l-4 border-primary-600 pl-6 leading-relaxed text-lg mb-6 bg-slate-50 p-6 rounded-r-lg">
+            <blockquote className="border-l-4 border-primary-500 pl-6 leading-relaxed text-lg mb-6 bg-primary-50 p-6 rounded-r-xl">
               <span className="text-slate-900 font-bold text-xl block mb-3">
                 "KICS is on a fast track to become a premier research and advanced technology organization in Pakistan.
               </span>
@@ -225,7 +234,7 @@ const DirectorQuote = memo(function DirectorQuote() {
                 { title: 'Mission', text: 'To conduct high-impact applied research, develop cutting-edge technologies, and forge industry-academia partnerships that drive innovation.' },
                 { title: 'Values', text: 'Integrity, innovation, collaboration, and impact — creating an open culture of curiosity and a relentless pursuit of excellence.' },
               ].map((item) => (
-                <div key={item.title} className="bg-white rounded-xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                <div key={item.title} className="bg-white rounded-xl p-5 border border-primary-100 shadow-card hover:shadow-card-hover transition-shadow">
                   <h4 className="text-primary-600 font-bold mb-2">{item.title}</h4>
                   <p className="text-slate-600 text-sm leading-relaxed">{item.text}</p>
                 </div>
@@ -243,7 +252,7 @@ const NewsSection = memo(function NewsSection() {
   const featured = newsItems[0];
   const rest = newsItems.slice(1, 4);
   return (
-    <section className="py-20 bg-slate-50">
+    <section className="py-20 bg-primary-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <AnimateOnScroll>
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
@@ -252,7 +261,7 @@ const NewsSection = memo(function NewsSection() {
               <h2 className="section-title">News &amp; Events</h2>
               <div className="divider mt-3" />
             </div>
-            <Link to="/news" className="inline-flex items-center gap-2 text-slate-700 font-semibold text-sm hover:text-primary-600 transition-colors">
+            <Link to="/news" className="inline-flex items-center gap-2 text-primary-600 font-semibold text-sm hover:text-primary-700 transition-colors">
               All News <FiArrowRight />
             </Link>
           </div>
@@ -271,7 +280,7 @@ const NewsSection = memo(function NewsSection() {
                   loading="lazy"
                   onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=800&h=450&fit=crop'; }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary-950/60 to-transparent" />
                 <span className="absolute top-4 left-4 badge">{featured.category}</span>
               </div>
               <div className="p-6">
@@ -327,7 +336,7 @@ const CollabSection = memo(function CollabSection() {
             {collaborators.map((c) => (
               <div
                 key={c.name}
-                className="bg-white rounded-xl px-6 py-4 flex items-center justify-center shadow-card border border-slate-100 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 min-w-[120px] group"
+                className="bg-white rounded-xl px-6 py-4 flex items-center justify-center shadow-card border border-primary-100 hover:shadow-card-hover hover:-translate-y-1 hover:border-primary-300 transition-all duration-300 min-w-[120px] group"
               >
                 {c.logo ? (
                   <img
@@ -350,7 +359,7 @@ const CollabSection = memo(function CollabSection() {
   );
 });
 
-/* ── CTA Banner ──────────────────────────────────────────── */
+/* ── CTA Banner — Waseda-style: dark green with pattern ──── */
 const CTABanner = memo(function CTABanner() {
   return (
     <section className="py-16 bg-primary-900 relative overflow-hidden">
@@ -358,7 +367,7 @@ const CTABanner = memo(function CTABanner() {
       <div className="absolute -top-20 -right-20 w-80 h-80 bg-primary-600/20 rounded-full blur-3xl pointer-events-none" />
       <div className="relative max-w-3xl mx-auto px-4 sm:px-6 text-center">
         <AnimateOnScroll animation="reveal-scale">
-          <span className="eyebrow text-primary-300">Join KICS</span>
+          <span className="text-primary-300 font-semibold uppercase tracking-[0.2em] text-xs mb-3 block">Join KICS</span>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to Innovate Together?
           </h2>
@@ -367,10 +376,15 @@ const CTABanner = memo(function CTABanner() {
             and resources to turn bold ideas into impactful technology.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/contact" className="btn-primary">Get in Touch</Link>
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-400 text-white font-semibold px-7 py-3 rounded-full transition-all duration-200 shadow-lg text-sm"
+            >
+              Get in Touch
+            </Link>
             <Link
               to="/jobs"
-              className="inline-flex items-center gap-2 border-2 border-white/60 text-white font-semibold px-6 py-3 rounded-lg text-sm transition-all duration-300 hover:bg-white/10 hover:border-white"
+              className="inline-flex items-center gap-2 border-2 border-white/60 text-white font-semibold px-7 py-3 rounded-full text-sm transition-all duration-200 hover:bg-white/10 hover:border-white"
             >
               View Open Positions
             </Link>

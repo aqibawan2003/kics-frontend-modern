@@ -374,7 +374,7 @@
 
 /* ── Gradient text ──────────────────────────── */
 .text-gradient {
-  background: linear-gradient(135deg, #2563eb, #60a5fa);
+  background: linear-gradient(135deg, #569579, #3d7a62);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -382,13 +382,13 @@
 
 /* ── Decorative background grid ──────────────── */
 .bg-dot-pattern {
-  background-image: radial-gradient(rgba(59,130,246,0.1) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(86,149,121,0.15) 1px, transparent 1px);
   background-size: 28px 28px;
 }
 .bg-grid-pattern {
   background-image:
-    linear-gradient(rgba(59,130,246,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(59,130,246,0.05) 1px, transparent 1px);
+    linear-gradient(rgba(86,149,121,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(86,149,121,0.06) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
