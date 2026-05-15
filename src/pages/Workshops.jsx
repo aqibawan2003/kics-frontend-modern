@@ -74,10 +74,10 @@ export default function Workshops() {
       </section>
 
       {/* Seminars */}
-      <section className="py-16 bg-hero-gradient bg-dot-pattern" id="seminars">
+      <section className="py-16 bg-primary-900 bg-dot-pattern" id="seminars">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <AnimateOnScroll animation="reveal-scale">
-            <span className="eyebrow">Knowledge Exchange</span>
+            <span className="text-primary-300 font-semibold uppercase tracking-[0.2em] text-xs mb-3 block">Knowledge Exchange</span>
             <h2 className="section-title-white mb-4">Seminars &amp; Guest Talks</h2>
             <div className="divider-center" />
             <p className="text-white/65 mb-8 max-w-xl mx-auto">
