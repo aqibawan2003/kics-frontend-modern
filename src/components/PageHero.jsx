@@ -4,7 +4,7 @@ import { FiChevronRight, FiHome } from 'react-icons/fi';
 
 const PageHero = memo(function PageHero({ title, subtitle, breadcrumbs = [] }) {
   return (
-    <div className="page-hero">
+    <div className="relative pt-32 pb-20 overflow-hidden bg-primary-900">
       <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none" />
 
