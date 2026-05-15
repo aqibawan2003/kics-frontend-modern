@@ -40,24 +40,24 @@ export default function Workshops() {
             </div>
           </AnimateOnScroll>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 lg:gap-6">
             {visible.map((ws, i) => (
               <AnimateOnScroll key={i} delay={i * 60}>
                 <div className="card group h-full flex flex-col">
                   {ws.image && (
-                    <div className="relative h-44 overflow-hidden">
+                    <div className="relative h-40 sm:h-44 overflow-hidden">
                       <img src={ws.image} alt={ws.title}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         onError={e => { e.target.parentElement.style.display='none'; }} />
                       <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent" />
                     </div>
                   )}
-                  <div className="p-6 flex flex-col flex-1">
+                  <div className="p-4 sm:p-5 lg:p-6 flex flex-col flex-1">
                     <div className="flex flex-wrap gap-2 mb-3">
                       <span className="badge">{ws.type}</span>
                       {ws.status === 'upcoming' && <span className="badge bg-green-100 text-green-700">Upcoming</span>}
                     </div>
-                    <h3 className="font-heading font-bold text-primary-800 mb-2 group-hover:text-cyan-500 transition-colors">{ws.title}</h3>
+                    <h3 className="font-heading font-bold text-primary-800 text-sm sm:text-base mb-2 group-hover:text-cyan-500 transition-colors">{ws.title}</h3>
                     <div className="flex items-center gap-1.5 text-slate-400 text-xs mb-3">
                       <FiCalendar size={11} /> {ws.date}
                     </div>
@@ -84,13 +84,13 @@ export default function Workshops() {
               KICS regularly hosts expert seminars, guest lectures, and panel discussions featuring
               leading researchers and industry practitioners from Pakistan and around the world.
             </p>
-            <div className="grid sm:grid-cols-3 gap-4 text-left mt-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left mt-6 sm:mt-8">
               {[
                 { Icon: FiMic,   title: 'Guest Lectures',    desc: 'Renowned academics and industry leaders share their expertise.' },
                 { Icon: FiCpu,  title: 'Research Talks',    desc: 'KICS researchers present their latest findings and work-in-progress.' },
                 { Icon: FiUsers, title: 'Panel Discussions', desc: 'Multi-stakeholder discussions on critical technology policy issues.' },
               ].map(item => (
-                <div key={item.title} className="card-dark rounded-xl p-5 border border-white/10">
+                <div key={item.title} className="card-dark rounded-xl p-4 sm:p-5 border border-white/10">
                   <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center mb-3">
                     <item.Icon size={18} className="text-white" />
                   </div>

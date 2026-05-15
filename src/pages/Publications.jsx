@@ -38,22 +38,22 @@ export default function Publications() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <AnimateOnScroll>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-14">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-12 sm:mb-14">
               {pubStats.map((s, i) => (
-                <div key={s.label} className="card p-6 text-center group" style={{ animationDelay: `${i*80}ms` }}>
-                  <div className="w-12 h-12 rounded-full bg-primary-50 group-hover:bg-primary-600 flex items-center justify-center mx-auto mb-3 transition-colors duration-300">
-                    <s.Icon size={22} className="text-primary-600 group-hover:text-white transition-colors duration-300" />
+                <div key={s.label} className="card p-5 sm:p-6 text-center group" style={{ animationDelay: `${i*80}ms` }}>
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary-50 group-hover:bg-primary-600 flex items-center justify-center mx-auto mb-3 transition-colors duration-300">
+                    <s.Icon size={20} className="text-primary-600 group-hover:text-white transition-colors duration-300 sm:w-[22px] sm:h-[22px]" />
                   </div>
-                  <p className="text-3xl font-bold text-slate-900">{s.value}</p>
-                  <p className="text-slate-500 text-sm mt-1">{s.label}</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-slate-900">{s.value}</p>
+                  <p className="text-slate-500 text-xs sm:text-sm mt-1">{s.label}</p>
                 </div>
               ))}
             </div>
           </AnimateOnScroll>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             <AnimateOnScroll animation="reveal-left">
-              <h3 className="section-title text-2xl mb-6">Publication Venues</h3>
+              <h3 className="section-title text-xl sm:text-2xl mb-4 sm:mb-6">Publication Venues</h3>
               <p className="text-slate-600 text-sm leading-relaxed mb-5">
                 KICS researchers regularly publish in leading international venues. Our work appears in:
               </p>
@@ -66,7 +66,7 @@ export default function Publications() {
               </ul>
             </AnimateOnScroll>
             <AnimateOnScroll animation="reveal-right">
-              <h3 className="section-title text-2xl mb-6">Access Our Research</h3>
+              <h3 className="section-title text-xl sm:text-2xl mb-4 sm:mb-6">Access Our Research</h3>
               <div className="space-y-4">
                 {[
                   { name: 'IEEE Xplore',       desc: 'Browse KICS papers published in IEEE journals and conference proceedings.', url: 'https://ieeexplore.ieee.org',                                Icon: FiBook },

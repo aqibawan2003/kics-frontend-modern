@@ -53,9 +53,9 @@ export default function ERozgaar() {
       </section>
 
       {/* About Program */}
-      <section className="py-16 bg-white">
+      <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <AnimateOnScroll animation="reveal-left">
               <span className="eyebrow">About the Program</span>
               <h2 className="section-title mb-4">e-Rozgar Center at UET Lahore</h2>
@@ -70,18 +70,18 @@ export default function ERozgaar() {
                 digital marketing, graphic design, and technical development — empowering them to earn online
                 and build sustainable careers.
               </p>
-              <div className="grid grid-cols-3 gap-4 mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-6">
                 {[
                   { icon: FiClock, label: '3 Months', desc: 'Duration' },
                   { icon: FiUsers, label: 'Free', desc: 'No Fee' },
                   { icon: FiAward, label: 'Certificate', desc: 'PITB Certified' },
                 ].map((item, i) => (
                   <div key={i} className="text-center">
-                    <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center mx-auto mb-2">
-                      <item.icon className="text-primary-600" size={20} />
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary-50 flex items-center justify-center mx-auto mb-2">
+                      <item.icon className="text-primary-600" size={18} />
                     </div>
-                    <p className="text-slate-900 font-bold text-sm">{item.label}</p>
-                    <p className="text-slate-500 text-xs">{item.desc}</p>
+                    <p className="text-slate-900 font-bold text-xs sm:text-sm">{item.label}</p>
+                    <p className="text-slate-500 text-[10px] sm:text-xs">{item.desc}</p>
                   </div>
                 ))}
               </div>
@@ -110,22 +110,22 @@ export default function ERozgaar() {
       </section>
 
       {/* Courses */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-12 sm:py-16 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <AnimateOnScroll>
-            <div className="text-center mb-12">
+            <div className="text-center mb-8 sm:mb-10 lg:mb-12">
               <span className="eyebrow">Training Tracks</span>
               <h2 className="section-title">Available Courses</h2>
               <div className="divider-center mt-3" />
             </div>
           </AnimateOnScroll>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
             {courses.map((course, i) => (
               <AnimateOnScroll key={i} delay={i * 60}>
-                <div className="card p-6 text-center group">
-                  <div className="text-4xl mb-3">{course.icon}</div>
-                  <h3 className="font-bold text-slate-900 mb-2">{course.name}</h3>
-                  <p className="text-slate-600 text-sm">{course.description}</p>
+                <div className="card p-5 sm:p-6 text-center group">
+                  <div className="text-3xl sm:text-4xl mb-3">{course.icon}</div>
+                  <h3 className="font-bold text-slate-900 text-sm sm:text-base mb-2">{course.name}</h3>
+                  <p className="text-slate-600 text-xs sm:text-sm">{course.description}</p>
                 </div>
               </AnimateOnScroll>
             ))}
@@ -134,7 +134,7 @@ export default function ERozgaar() {
       </section>
 
       {/* Eligibility */}
-      <section className="py-16 bg-white">
+      <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <AnimateOnScroll>
             <div className="text-center mb-12">
@@ -144,7 +144,7 @@ export default function ERozgaar() {
             </div>
           </AnimateOnScroll>
           <AnimateOnScroll>
-            <div className="bg-primary-50 rounded-2xl p-8 border border-primary-100">
+            <div className="bg-primary-50 rounded-xl sm:rounded-2xl p-5 sm:p-6 lg:p-8 border border-primary-100">
               <div className="space-y-4">
                 {eligibility.map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
@@ -165,25 +165,25 @@ export default function ERozgaar() {
       </section>
 
       {/* Application Process */}
-      <section className="py-16 bg-primary-900 bg-dot-pattern">
+      <section className="py-12 sm:py-16 bg-primary-900 bg-dot-pattern">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <AnimateOnScroll>
-            <div className="text-center mb-12">
+            <div className="text-center mb-8 sm:mb-10 lg:mb-12">
               <span className="text-primary-300 font-semibold uppercase tracking-[0.2em] text-xs mb-3 block">
                 How to Apply
               </span>
-              <h2 className="text-3xl font-heading font-bold text-white">Application Process</h2>
+              <h2 className="text-2xl sm:text-3xl font-heading font-bold text-white">Application Process</h2>
             </div>
           </AnimateOnScroll>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
             {processSteps.map((item, i) => (
               <AnimateOnScroll key={i} delay={i * 80}>
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
-                  <div className="w-12 h-12 rounded-full bg-cyan-500 text-white font-bold text-xl flex items-center justify-center mb-4">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-5 sm:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-cyan-500 text-white font-bold text-lg sm:text-xl flex items-center justify-center mb-3 sm:mb-4">
                     {item.step}
                   </div>
-                  <h3 className="text-white font-bold text-lg mb-2">{item.title}</h3>
-                  <p className="text-white/80 text-sm">{item.desc}</p>
+                  <h3 className="text-white font-bold text-base sm:text-lg mb-2">{item.title}</h3>
+                  <p className="text-white/80 text-xs sm:text-sm">{item.desc}</p>
                 </div>
               </AnimateOnScroll>
             ))}
@@ -192,11 +192,11 @@ export default function ERozgaar() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-br from-primary-600 to-primary-800">
+      <section className="py-12 sm:py-16 bg-gradient-to-br from-primary-600 to-primary-800">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <AnimateOnScroll>
-            <h2 className="text-3xl font-heading font-bold text-white mb-4">Ready to Start Your Digital Career?</h2>
-            <p className="text-white/90 text-lg mb-8">
+            <h2 className="text-2xl sm:text-3xl font-heading font-bold text-white mb-3 sm:mb-4">Ready to Start Your Digital Career?</h2>
+            <p className="text-white/90 text-base sm:text-lg mb-6 sm:mb-8">
               Apply now for free technical training and join thousands of successful freelancers from Punjab.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -59,11 +59,11 @@ export default function Staff() {
           </AnimateOnScroll>
 
           {/* Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
             {visible.map((person, i) => (
               <AnimateOnScroll key={person.name} delay={i * 50}>
-                <div className="card p-5 group text-center h-full flex flex-col">
-                  <div className="w-20 h-20 rounded-full bg-primary-700 mx-auto mb-4 flex items-center justify-center text-3xl shadow-md group-hover:scale-110 transition-transform duration-300">
+                <div className="card p-4 sm:p-5 group text-center h-full flex flex-col">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-primary-700 mx-auto mb-3 sm:mb-4 flex items-center justify-center text-2xl sm:text-3xl shadow-md group-hover:scale-110 transition-transform duration-300">
                     👤
                   </div>
                   <h3 className="font-heading font-bold text-primary-800 text-sm mb-0.5 group-hover:text-cyan-500 transition-colors">{person.name}</h3>

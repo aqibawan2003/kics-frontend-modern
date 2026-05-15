@@ -22,27 +22,27 @@ export default function ResearchAreas() {
       />
 
       {/* Featured areas */}
-      <section className="py-16 bg-white">
+      <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <AnimateOnScroll>
-            <div className="text-center mb-12">
+            <div className="text-center mb-8 sm:mb-10 lg:mb-12">
               <span className="eyebrow">Focus Areas</span>
               <h2 className="section-title">Technology Domains</h2>
               <div className="divider-center mt-3" />
             </div>
           </AnimateOnScroll>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
             {researchAreas.map((area, i) => (
               <AnimateOnScroll key={area.title} delay={i * 70}>
                 <div className="card group h-full flex flex-col">
-                  <div className="relative h-44 overflow-hidden">
+                  <div className="relative h-40 sm:h-44 overflow-hidden">
                     <img src={area.image} alt={area.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       onError={e => { e.target.src = `https://placehold.co/400x200/4a1209/fae3de?text=${encodeURIComponent(area.title)}`; }} />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy/70 to-transparent" />
                   </div>
-                  <div className="p-5 flex-1 flex flex-col">
-                    <h3 className="font-heading font-bold text-primary-800 text-base mb-2 group-hover:text-cyan-500 transition-colors">{area.title}</h3>
+                  <div className="p-4 sm:p-5 flex-1 flex flex-col">
+                    <h3 className="font-heading font-bold text-primary-800 text-sm sm:text-base mb-2 group-hover:text-cyan-500 transition-colors">{area.title}</h3>
                     <p className="text-slate-500 text-sm leading-relaxed flex-1">{area.desc}</p>
                   </div>
                 </div>
@@ -53,7 +53,7 @@ export default function ResearchAreas() {
       </section>
 
       {/* Labs by category */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-12 sm:py-16 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <AnimateOnScroll>
             <div className="text-center mb-10">
@@ -80,16 +80,16 @@ export default function ResearchAreas() {
           {/* Selected category */}
           {researchCategories.map((cat, ci) => (
             <div key={ci} className={activeTab === ci ? 'block' : 'hidden'}>
-              <div className={`bg-gradient-to-r ${cat.color} rounded-2xl p-6 mb-6 text-white`}>
+              <div className={`bg-gradient-to-r ${cat.color} rounded-xl sm:rounded-2xl p-4 sm:p-5 lg:p-6 mb-5 sm:mb-6 text-white`}>
                 <div className="flex items-center gap-3 mb-2">
-                  <h3 className="font-bold text-xl text-white">{cat.category}</h3>
+                  <h3 className="font-bold text-lg sm:text-xl text-white">{cat.category}</h3>
                 </div>
                 <p className="text-white/70 text-sm">{cat.labs.length} specialized labs in this domain</p>
               </div>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                 {cat.labs.map((lab, li) => (
                   <AnimateOnScroll key={li} delay={li * 60}>
-                    <div className="card p-5 group hover:border-gold border border-transparent transition-colors">
+                    <div className="card p-4 sm:p-5 group hover:border-gold border border-transparent transition-colors">
                       <div className="flex items-start gap-3">
                         <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${cat.color} flex items-center justify-center text-white font-bold text-xs flex-shrink-0`}>
                           {lab.short}

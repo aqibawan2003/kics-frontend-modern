@@ -67,18 +67,18 @@ export default function Jobs() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           {/* Intro cards */}
           <AnimateOnScroll>
-            <div className="grid sm:grid-cols-3 gap-5 mb-12">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 mb-10 sm:mb-12">
               {[
                 { Icon: FiCpu,      title: 'Research Roles',     desc: 'Research Associates, Post-docs, and Lab Managers.' },
                 { Icon: FiCode,     title: 'Engineering Roles',  desc: 'Software, Network, and Embedded Systems Engineers.' },
                 { Icon: FiBookOpen, title: 'Academic Roles',     desc: 'Instructors and trainers for professional development.' },
               ].map(item => (
-                <div key={item.title} className="card p-5 text-center group">
-                  <div className="w-12 h-12 rounded-full bg-primary-50 group-hover:bg-primary-600 flex items-center justify-center mx-auto mb-3 transition-colors duration-300">
-                    <item.Icon size={22} className="text-primary-600 group-hover:text-white transition-colors duration-300" />
+                <div key={item.title} className="card p-4 sm:p-5 text-center group">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary-50 group-hover:bg-primary-600 flex items-center justify-center mx-auto mb-2 sm:mb-3 transition-colors duration-300">
+                    <item.Icon size={20} className="text-primary-600 group-hover:text-white transition-colors duration-300 sm:w-[22px] sm:h-[22px]" />
                   </div>
-                  <h4 className="font-bold text-slate-800 text-sm mb-1.5">{item.title}</h4>
-                  <p className="text-slate-500 text-xs">{item.desc}</p>
+                  <h4 className="font-bold text-slate-800 text-xs sm:text-sm mb-1 sm:mb-1.5">{item.title}</h4>
+                  <p className="text-slate-500 text-[11px] sm:text-xs">{item.desc}</p>
                 </div>
               ))}
             </div>

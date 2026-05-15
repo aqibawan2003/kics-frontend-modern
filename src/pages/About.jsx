@@ -30,9 +30,9 @@ export default function About() {
       />
 
       {/* Intro */}
-      <section className="py-20 bg-white">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid lg:grid-cols-2 gap-14 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
             <AnimateOnScroll animation="reveal-left">
               <span className="eyebrow">Our Story</span>
               <h2 className="section-title mb-4">Al-Khwarizmi Institute of Computer Science</h2>
@@ -73,13 +73,13 @@ export default function About() {
       </section>
 
       {/* Namesake */}
-      <section className="py-16 bg-primary-900 bg-dot-pattern" id="vision">
+      <section className="py-12 sm:py-16 bg-primary-900 bg-dot-pattern" id="vision">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
             <AnimateOnScroll>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300">
-                <h3 className="text-white font-bold text-2xl mb-4">Our Namesake</h3>
-                <p className="text-white/90 text-base leading-relaxed">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-5 sm:p-6 lg:p-8 border border-white/20 hover:bg-white/15 transition-all duration-300">
+                <h3 className="text-white font-bold text-xl sm:text-2xl mb-3 sm:mb-4">Our Namesake</h3>
+                <p className="text-white/90 text-sm sm:text-base leading-relaxed">
                   Muhammad ibn Musa Al-Khwarizmi (780–850 AD) was a Muslim scholar who revolutionized
                   mathematics. He developed foundational concepts in algebra and trigonometry, and
                   the term "algorithm" itself derives from his name. KICS honors this legacy of
@@ -88,9 +88,9 @@ export default function About() {
               </div>
             </AnimateOnScroll>
             <AnimateOnScroll delay={100}>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300">
-                <h3 className="text-white font-bold text-2xl mb-4">Our Vision</h3>
-                <p className="text-white/90 text-base leading-relaxed">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-5 sm:p-6 lg:p-8 border border-white/20 hover:bg-white/15 transition-all duration-300">
+                <h3 className="text-white font-bold text-xl sm:text-2xl mb-3 sm:mb-4">Our Vision</h3>
+                <p className="text-white/90 text-sm sm:text-base leading-relaxed">
                   To drive Pakistan toward a knowledge-based economy by developing world-class research in algorithms,
                   software engineering, and digital control systems. KICS aims to be recognized as a premier research
                   and advanced technology organization, serving as a center of excellence for cutting-edge research,
@@ -99,9 +99,9 @@ export default function About() {
               </div>
             </AnimateOnScroll>
             <AnimateOnScroll delay={200}>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300">
-                <h3 className="text-white font-bold text-2xl mb-4">Our Mission</h3>
-                <p className="text-white/90 text-base leading-relaxed">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-5 sm:p-6 lg:p-8 border border-white/20 hover:bg-white/15 transition-all duration-300">
+                <h3 className="text-white font-bold text-xl sm:text-2xl mb-3 sm:mb-4">Our Mission</h3>
+                <p className="text-white/90 text-sm sm:text-base leading-relaxed">
                   To conduct result-oriented research and development activities using ICT for national socio-economic
                   advancement. We bridge the gap between academia and industry while fostering innovation in Computer
                   Sciences and Information Technology to advance science and technology throughout Pakistan.
@@ -113,7 +113,7 @@ export default function About() {
       </section>
 
       {/* Timeline */}
-      <section className="py-20 bg-white">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <AnimateOnScroll>
             <div className="text-center mb-12">

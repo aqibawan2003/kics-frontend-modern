@@ -46,22 +46,22 @@ export default function News() {
             </div>
           </AnimateOnScroll>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
             {visible.map((item, i) => (
               <AnimateOnScroll key={item.title} delay={i * 60}>
                 <div className="card group flex flex-col h-full">
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-44 sm:h-48 overflow-hidden">
                     <img src={item.image} alt={item.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       onError={e => { e.target.src='https://placehold.co/400x200/4a1209/fae3de?text=KICS+News'; }} />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent" />
                     <span className="absolute top-3 left-3 badge">{item.category}</span>
                   </div>
-                  <div className="p-5 flex flex-col flex-1">
-                    <span className="text-xs text-cyan-500 font-semibold flex items-center gap-1.5 mb-2">
+                  <div className="p-4 sm:p-5 flex flex-col flex-1">
+                    <span className="text-[10px] sm:text-xs text-cyan-500 font-semibold flex items-center gap-1.5 mb-2">
                       <FiCalendar size={10} /> {item.date}
                     </span>
-                    <h3 className="font-heading font-bold text-primary-800 mb-2 group-hover:text-cyan-500 transition-colors leading-snug">{item.title}</h3>
+                    <h3 className="font-heading font-bold text-primary-800 text-sm sm:text-base mb-2 group-hover:text-cyan-500 transition-colors leading-snug">{item.title}</h3>
                     <p className="text-slate-500 text-sm leading-relaxed flex-1">{item.excerpt}</p>
                     <button className="mt-4 inline-flex items-center gap-1.5 text-primary-800 text-sm font-semibold hover:text-cyan-500 transition-colors group/link">
                       Read More <FiArrowRight size={13} className="transition-transform group-hover/link:translate-x-1" />
@@ -88,7 +88,7 @@ export default function News() {
               </p>
             </div>
           </AnimateOnScroll>
-          <div className="grid md:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5">
             {newsletters.map((nl, i) => (
               <AnimateOnScroll key={nl.issue} delay={i * 80}>
                 <div className="card p-5 group">
