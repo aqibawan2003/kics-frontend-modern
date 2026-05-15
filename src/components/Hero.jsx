@@ -199,7 +199,7 @@ export default function Hero() {
               >
                 <FiUsers size={13} className="text-primary-300" />
                 <p className="text-white font-extrabold text-sm leading-none">1000+</p>
-                <p className="text-primary-300 text-[9px] font-semibold uppercase tracking-wide writing-mode-vertical">Trained</p>
+                <p className="text-primary-300 text-[9px] font-semibold uppercase tracking-wide" style={{ writingMode: 'vertical-rl' }}>Trained</p>
               </div>
 
               {/* Main image — floating */}

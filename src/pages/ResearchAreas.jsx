@@ -37,7 +37,7 @@ export default function ResearchAreas() {
                   <div className="relative h-44 overflow-hidden">
                     <img src={area.image} alt={area.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      onError={e => { e.target.src = `https://via.placeholder.com/400x200/0b1f4b/c8972a?text=${encodeURIComponent(area.title)}`; }} />
+                      onError={e => { e.target.src = `https://placehold.co/400x200/4a1209/fae3de?text=${encodeURIComponent(area.title)}`; }} />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy/70 to-transparent" />
                   </div>
                   <div className="p-5 flex-1 flex flex-col">

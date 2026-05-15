@@ -53,7 +53,7 @@ export default function News() {
                   <div className="relative h-48 overflow-hidden">
                     <img src={item.image} alt={item.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      onError={e => { e.target.src='https://via.placeholder.com/400x200/0b1f4b/c8972a?text=KICS+News'; }} />
+                      onError={e => { e.target.src='https://placehold.co/400x200/4a1209/fae3de?text=KICS+News'; }} />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent" />
                     <span className="absolute top-3 left-3 badge">{item.category}</span>
                   </div>

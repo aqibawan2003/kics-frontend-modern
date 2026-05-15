@@ -60,7 +60,7 @@ export default function About() {
                 <img src="https://kics.edu.pk/web/wp-content/uploads/2025/05/facebook_ad-1-1.jpg"
                   alt="KICS Institute"
                   className="w-full h-80 object-cover"
-                  onError={e => { e.target.src='https://via.placeholder.com/600x320/0b1f4b/ffffff?text=KICS+UET+Lahore'; }} />
+                  onError={e => { e.target.src='https://placehold.co/600x320/4a1209/fae3de?text=KICS+UET+Lahore'; }} />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent" />
                 <div className="absolute bottom-5 left-5 right-5">
                   <p className="text-white font-heading font-bold text-lg">KICS, UET Lahore</p>

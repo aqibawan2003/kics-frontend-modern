@@ -52,6 +52,7 @@ export default {
         'card':       '0 4px 24px rgba(201,79,58,0.08)',
         'card-hover': '0 12px 40px rgba(201,79,58,0.16)',
         'primary':    '0 4px 20px rgba(201,79,58,0.28)',
+        'gold':       '0 4px 16px rgba(201,79,58,0.40)',
         'nav':        '0 2px 8px rgba(0,0,0,0.08)',
       },
       animation: {

@@ -45,7 +45,7 @@ export default function Conferences() {
                 <div className="relative h-56 lg:h-auto">
                   <img src="https://kics.edu.pk/web/wp-content/uploads/2024/12/banner-1.jpg"
                     alt="ICOSST" className="w-full h-full object-cover"
-                    onError={e => { e.target.src='https://via.placeholder.com/600x400/1a3a6b/c8972a?text=ICOSST'; }} />
+                    onError={e => { e.target.src='https://placehold.co/600x400/4a1209/fae3de?text=ICOSST'; }} />
                   <div className="absolute inset-0 bg-navy/30" />
                 </div>
               </div>
@@ -61,7 +61,7 @@ export default function Conferences() {
               {conferences.map((conf, i) => (
                 <AnimateOnScroll key={i} delay={i * 60}>
                   <div className="card p-6 flex flex-col sm:flex-row sm:items-center gap-5 group">
-                    <div className="w-14 h-14 rounded-xl bg-hero-gradient flex items-center justify-center text-white font-heading font-bold text-xs text-center leading-tight flex-shrink-0 group-hover:shadow-gold transition-shadow">
+                    <div className="w-14 h-14 rounded-xl bg-primary-700 flex items-center justify-center text-white font-heading font-bold text-xs text-center leading-tight flex-shrink-0 group-hover:shadow-gold transition-shadow">
                       ICOSST
                     </div>
                     <div className="flex-1">
