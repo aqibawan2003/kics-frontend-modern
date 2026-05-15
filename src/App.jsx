@@ -19,6 +19,7 @@ const Jobs          = lazy(() => import('./pages/Jobs'));
 const Contact       = lazy(() => import('./pages/Contact'));
 const Services      = lazy(() => import('./pages/Services'));
 const News          = lazy(() => import('./pages/News'));
+const ERozgaar      = lazy(() => import('./pages/ERozgaar'));
 
 function PageSpinner() {
   return (
@@ -35,7 +36,7 @@ function NotFound() {
         <p className="text-7xl font-bold text-slate-200 mb-4">404</p>
         <h1 className="text-2xl font-bold text-slate-800 mb-3">Page Not Found</h1>
         <p className="text-slate-500 mb-6">The page you are looking for does not exist.</p>
-        <a href="/" className="btn-navy inline-flex">Go Home</a>
+        <a href="/" className="btn-primary inline-flex">Go Home</a>
       </div>
     </div>
   );
@@ -65,6 +66,7 @@ export default function App() {
               <Route path="/contact"           element={<Contact />} />
               <Route path="/services"          element={<Services />} />
               <Route path="/news"              element={<News />} />
+              <Route path="/e-rozgaar"         element={<ERozgaar />} />
               <Route path="*"                  element={<NotFound />} />
             </Routes>
           </Suspense>

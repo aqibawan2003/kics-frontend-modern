@@ -28,6 +28,7 @@ export const navLinks = [
     children: [
       { label: 'Solutions & ERP', to: '/services' },
       { label: 'Clients',         to: '/services#clients' },
+      { label: 'e-Rozgar Program', to: '/e-rozgaar' },
     ],
   },
   {
