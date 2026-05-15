@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { navLinks } from '../data/siteData';
 import { FiMenu, FiX, FiChevronDown, FiSearch, FiPhone, FiMail } from 'react-icons/fi';
+import SearchModal from './SearchModal';
 
 /* ── Glass dropdown ── */
 const Dropdown = ({ items, onClose }) => (
@@ -39,6 +40,7 @@ export default function Navbar() {
   const [openMenu, setOpenMenu]             = useState(null);
   const [expandedMobile, setExpandedMobile] = useState(null);
   const [scrolled, setScrolled]             = useState(false);
+  const [searchOpen, setSearchOpen]         = useState(false);
   const navRef     = useRef(null);
   const closeTimer = useRef(null);
   const { pathname } = useLocation();
@@ -206,7 +208,8 @@ export default function Navbar() {
               <div className="flex items-center gap-2">
                 {/* Glass search button */}
                 <button
-                  className="hidden md:flex w-8 h-8 rounded-lg items-center justify-center text-slate-600 hover:text-primary-600 transition-all duration-200"
+                  onClick={() => setSearchOpen(true)}
+                  className="hidden md:flex w-8 h-8 rounded-lg items-center justify-center text-slate-600 hover:text-primary-600 hover:scale-110 transition-all duration-200"
                   style={{
                     background: 'rgba(255,255,255,0.7)',
                     border: '1px solid rgba(37,99,235,0.15)',
@@ -392,14 +395,18 @@ export default function Navbar() {
             className="px-4 pb-6 pt-4 flex-shrink-0 space-y-3"
             style={{ borderTop: '1px solid rgba(37,99,235,0.10)' }}
           >
-            {/* Search bar */}
-            <div
-              className="flex items-center gap-2 px-3 py-2.5 rounded-xl"
+            {/* Search button */}
+            <button
+              onClick={() => {
+                setSearchOpen(true);
+                setMobileOpen(false);
+              }}
+              className="flex items-center gap-2 px-3 py-2.5 rounded-xl w-full hover:bg-white/40 transition-colors"
               style={{ background: 'rgba(255,255,255,0.6)', border: '1px solid rgba(37,99,235,0.12)' }}
             >
               <FiSearch size={14} className="text-slate-400 flex-shrink-0" />
               <span className="text-slate-400 text-sm">Search KICS...</span>
-            </div>
+            </button>
 
             {/* Apply Now */}
             <a
@@ -421,6 +428,9 @@ export default function Navbar() {
           </div>
         </div>
       </div>
+
+      {/* Search Modal */}
+      <SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
     </>
   );
 }
