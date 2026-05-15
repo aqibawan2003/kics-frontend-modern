@@ -73,7 +73,7 @@ export default function About() {
       </section>
 
       {/* Namesake */}
-      <section className="py-16 bg-hero-gradient bg-dot-pattern" id="vision">
+      <section className="py-16 bg-primary-900 bg-dot-pattern" id="vision">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-3 gap-8">
             <AnimateOnScroll>
