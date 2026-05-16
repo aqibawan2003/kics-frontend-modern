@@ -1112,7 +1112,7 @@ const MapSection = memo(function MapSection() {
 /* ── CTA Banner — WOW Section with premium effects ──── */
 const CTABanner = memo(function CTABanner() {
   return (
-    <section className="relative py-16 sm:py-20 md:py-24 bg-gradient-to-br from-[#0a1628] via-primary-900 to-[#071224] overflow-hidden">
+    <section className="relative py-16 sm:py-20 md:py-24 bg-gradient-to-br from-[#0B2447] via-primary-900 to-[#1e3a8a] overflow-hidden">
       {/* Animated gradient orbs */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-r from-cyan-500/30 to-primary-500/30 rounded-full blur-3xl animate-blob" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-r from-primary-500/30 to-purple-500/30 rounded-full blur-3xl animate-blob animation-delay-2000" />
