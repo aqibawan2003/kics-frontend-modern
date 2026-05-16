@@ -473,71 +473,89 @@ const NewsSection = memo(function NewsSection() {
 
 /* ── Collaborators ───────────────────────────────────────── */
 const CollabSection = memo(function CollabSection() {
+  // Triple the logos for seamless infinite loop
+  const tripleLogos = [...collaborators, ...collaborators, ...collaborators];
+
   return (
-    <section className="relative py-16 bg-gradient-to-br from-primary-900 via-[#0B1633] to-primary-900 overflow-hidden">
+    <section className="relative py-16 sm:py-20 bg-gradient-to-br from-[#081120] via-primary-900 to-[#071224] overflow-hidden">
       {/* Radial dot pattern */}
       <div className="absolute inset-0 opacity-5" style={{
         backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.15) 1.5px, transparent 1.5px)',
         backgroundSize: '40px 40px'
       }} />
 
-      {/* Animated blobs */}
+      {/* Animated glowing orbs */}
       <div className="absolute top-20 left-20 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl animate-blob" />
       <div className="absolute bottom-20 right-20 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl animate-blob animation-delay-2000" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
+        {/* Header */}
         <AnimateOnScroll>
-          <div className="text-center mb-10">
-            <span className="text-cyan-400 font-bold uppercase tracking-[0.3em] text-xs mb-3 block">Partners &amp; Allies</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-3">Trusted By Industry Leaders</h2>
+          <div className="text-center mb-10 sm:mb-12">
+            <span className="text-cyan-400 font-bold uppercase tracking-[0.3em] text-xs mb-3 block">Partners &amp; Collaborations</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-3">Proudly Collaborating With Leading Organizations</h2>
             <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 to-primary-400 rounded-full mx-auto" />
             <p className="text-primary-200 text-sm max-w-2xl mx-auto mt-6">
-              Collaborating with global tech giants and government institutions to drive Pakistan's digital future.
+              Working alongside global tech giants, academic institutions, and government bodies to drive innovation and technological advancement.
             </p>
           </div>
         </AnimateOnScroll>
-        <AnimateOnScroll animation="reveal-scale">
-          <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
-            {collaborators.map((c) => (
-              <a
-                key={c.name}
-                href={c.url}
-                target="_blank"
-                rel="noreferrer"
-                title={c.name}
-                className="group relative bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl px-6 py-4 sm:px-8 sm:py-6 flex flex-col items-center justify-center border-2 border-white/20 hover:border-cyan-400/50 hover:bg-white/20 transition-all duration-300 min-w-[110px] sm:min-w-[140px] cursor-pointer"
-              >
-                {/* Glow effect on hover */}
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-primary-500/20 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity" />
 
-                <div className="relative">
-                  <img
-                    src={c.logo}
-                    alt={c.name}
-                    width="90"
-                    height="36"
-                    className="max-h-10 max-w-[100px] object-contain brightness-0 invert opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
-                    loading="lazy"
-                    onError={(e) => { e.target.style.display = 'none'; }}
-                  />
-                  <span className="text-white/60 text-xs mt-3 font-medium group-hover:text-cyan-400 transition-colors block text-center">{c.name}</span>
-                </div>
-              </a>
-            ))}
+        {/* Infinite Marquee - Glass Cards */}
+        <div className="relative">
+          {/* Fade edges for seamless effect */}
+          <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-32 bg-gradient-to-r from-[#081120] to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-32 bg-gradient-to-l from-[#081120] to-transparent z-10 pointer-events-none" />
+
+          {/* Scrolling container */}
+          <div className="overflow-hidden">
+            <div className="flex animate-marquee-slow hover:pause-marquee gap-6 sm:gap-8 py-4">
+              {tripleLogos.map((collab, idx) => (
+                <a
+                  key={idx}
+                  href={collab.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  title={collab.name}
+                  className="group flex-shrink-0 relative bg-white/10 backdrop-blur-lg rounded-xl sm:rounded-2xl px-8 py-6 sm:px-10 sm:py-8 flex items-center justify-center border border-white/20 hover:border-cyan-400/60 hover:bg-white/20 transition-all duration-300 min-w-[140px] sm:min-w-[180px] cursor-pointer"
+                  style={{ animationPlayState: 'inherit' }}
+                >
+                  {/* Hover glow effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/30 to-primary-500/30 rounded-2xl opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-300" />
+
+                  {/* Logo */}
+                  <div className="relative flex flex-col items-center gap-3">
+                    <img
+                      src={collab.logo}
+                      alt={collab.name}
+                      className="h-12 sm:h-16 w-auto object-contain filter grayscale brightness-0 invert opacity-60 group-hover:opacity-100 group-hover:grayscale-0 group-hover:brightness-100 group-hover:invert-0 group-hover:scale-110 transition-all duration-300"
+                      loading="lazy"
+                      onError={(e) => { e.target.style.display = 'none'; }}
+                    />
+                    <span className="text-white/70 text-xs font-semibold group-hover:text-cyan-400 transition-colors text-center whitespace-nowrap">
+                      {collab.name}
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </div>
           </div>
-        </AnimateOnScroll>
+        </div>
 
         {/* Partnership stats */}
         <AnimateOnScroll delay={200}>
-          <div className="grid grid-cols-3 gap-6 max-w-3xl mx-auto mt-12 pt-10 border-t border-white/10">
+          <div className="grid grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto mt-12 sm:mt-16 pt-8 sm:pt-10 border-t border-white/10">
             {[
-              { value: '50+', label: 'Industry Partners' },
-              { value: '20+', label: 'Countries' },
-              { value: '100+', label: 'Joint Projects' },
+              { value: '50+', label: 'Industry Partners', icon: FiUsers },
+              { value: '20+', label: 'Countries', icon: FiGlobe },
+              { value: '100+', label: 'Joint Projects', icon: FiTarget },
             ].map((stat, i) => (
-              <div key={i} className="text-center">
-                <div className="text-3xl font-bold text-cyan-400 mb-1">{stat.value}</div>
-                <div className="text-white/60 text-xs uppercase tracking-wider">{stat.label}</div>
+              <div key={i} className="text-center group">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 sm:mb-3 rounded-xl bg-gradient-to-br from-cyan-500/20 to-primary-500/20 border border-white/20 flex items-center justify-center group-hover:scale-110 group-hover:border-cyan-400/50 transition-all duration-300">
+                  <stat.icon size={18} className="text-cyan-400 sm:w-5 sm:h-5" />
+                </div>
+                <div className="text-2xl sm:text-3xl font-bold text-cyan-400 mb-1">{stat.value}</div>
+                <div className="text-white/60 text-[10px] sm:text-xs uppercase tracking-wider">{stat.label}</div>
               </div>
             ))}
           </div>
