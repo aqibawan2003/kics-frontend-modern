@@ -51,7 +51,7 @@ const StatItem = memo(function StatItem({ Icon, value, suffix, label, color, ind
 const Announcements = memo(function Announcements() {
   const doubled = [...announcements, ...announcements];
   return (
-    <div className="bg-primary-900 border-b-2 border-primary-600 flex items-stretch overflow-hidden">
+    <div className="bg-[#0f1e3d] border-b-2 border-primary-600 flex items-stretch overflow-hidden">
       <div className="flex-shrink-0 flex items-center gap-2 bg-primary-600 px-4 py-2.5 z-10">
         <FiBell size={14} className="animate-pulse text-white" />
         <span className="text-white text-xs font-bold uppercase tracking-widest whitespace-nowrap">Latest</span>
@@ -72,7 +72,7 @@ const Announcements = memo(function Announcements() {
 /* ── Stats Bar ───────────────────────────────────────────── */
 const StatsBar = memo(function StatsBar() {
   return (
-    <section className="relative overflow-hidden py-10 sm:py-12 md:py-16 bg-primary-900">
+    <section className="relative overflow-hidden py-10 sm:py-12 md:py-16 bg-[#0f1e3d]">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-dot-pattern opacity-30 pointer-events-none" />
       <div className="absolute -top-20 -left-20 w-72 h-72 bg-primary-700/30 rounded-full blur-3xl pointer-events-none" />
@@ -178,7 +178,7 @@ const AchievementBadges = memo(function AchievementBadges() {
   ];
 
   return (
-    <section className="relative py-20 bg-gradient-to-br from-[#0B2447] via-primary-900 to-[#1e3a8a] overflow-hidden">
+    <section className="relative py-20 bg-[#0f1e3d] overflow-hidden">
       {/* Wave divider top */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
         <svg className="relative block w-full h-12" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -488,7 +488,7 @@ const CollabSection = memo(function CollabSection() {
   }, []);
 
   return (
-    <section className="relative py-16 sm:py-20 bg-gradient-to-br from-[#0B2447] via-primary-900 to-[#1e3a8a] overflow-hidden">
+    <section className="relative py-16 sm:py-20 bg-[#0f1e3d] overflow-hidden">
       {/* Radial dot pattern */}
       <div className="absolute inset-0 opacity-5" style={{
         backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.15) 1.5px, transparent 1.5px)',
@@ -634,7 +634,7 @@ const UpcomingEvents = memo(function UpcomingEvents() {
   ];
 
   return (
-    <section className="relative py-20 bg-gradient-to-br from-[#0B2447] via-primary-900 to-[#1e3a8a]">
+    <section className="relative py-20 bg-[#0f1e3d]">
       {/* Diagonal stripes pattern */}
       <div className="absolute inset-0 opacity-5" style={{
         backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.05) 10px, rgba(255,255,255,0.05) 20px)'
@@ -799,7 +799,7 @@ const FeaturedProjects = memo(function FeaturedProjects() {
   ];
 
   return (
-    <section className="relative py-20 sm:py-24 bg-gradient-to-br from-[#0B2447] via-primary-900 to-[#1e3a8a] overflow-hidden">
+    <section className="relative py-20 sm:py-24 bg-[#0f1e3d] overflow-hidden">
       {/* Glowing orbs */}
       <div className="absolute top-1/4 -left-20 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse-slow" />
       <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1.5s' }} />
@@ -964,7 +964,7 @@ const CampusGallery = memo(function CampusGallery() {
 /* ── Interactive Map & Contact ────────────────────────────── */
 const MapSection = memo(function MapSection() {
   return (
-    <section className="relative py-16 sm:py-20 bg-gradient-to-br from-[#0B2447] via-primary-900 to-[#1e3a8a] overflow-hidden">
+    <section className="relative py-16 sm:py-20 bg-[#0f1e3d] overflow-hidden">
       {/* Radial dot pattern */}
       <div className="absolute inset-0 opacity-5" style={{
         backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.15) 1.5px, transparent 1.5px)',
@@ -1112,7 +1112,7 @@ const MapSection = memo(function MapSection() {
 /* ── CTA Banner — WOW Section with premium effects ──── */
 const CTABanner = memo(function CTABanner() {
   return (
-    <section className="relative py-16 sm:py-20 md:py-24 bg-gradient-to-br from-[#0B2447] via-primary-900 to-[#1e3a8a] overflow-hidden">
+    <section className="relative py-16 sm:py-20 md:py-24 bg-[#0f1e3d] overflow-hidden">
       {/* Subtle animated background particles - matching footer style */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-20 left-[10%] w-2 h-2 bg-cyan-400 rounded-full animate-pulse" />

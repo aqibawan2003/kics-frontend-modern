@@ -48,8 +48,8 @@ export default function Footer() {
         {/* Animated Glowing Top Border */}
         <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary-600 via-cyan-400 to-primary-600 bg-[length:200%_100%] animate-gradient-x" />
 
-        {/* Dark Blue Gradient Background - Unified with other dark sections */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0B2447] via-primary-900 to-[#1e3a8a]" />
+        {/* Dark Navy Background - Solid color for consistency */}
+        <div className="absolute inset-0 bg-[#0f1e3d]" />
 
         {/* Subtle animated background particles */}
         <div className="absolute inset-0 opacity-30">
