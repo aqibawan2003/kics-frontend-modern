@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   FiBell, FiArrowRight, FiCalendar, FiBookOpen, FiAward, FiGlobe, FiUsers,
@@ -40,7 +40,7 @@ const StatItem = memo(function StatItem({ Icon, value, suffix, label, color, ind
         {count.toLocaleString()}{suffix}
       </span>
       {/* Label */}
-      <span className="text-primary-200 text-xs sm:text-sm font-medium mt-1.5 sm:mt-2 leading-snug max-w-[100px] sm:max-w-[120px]">
+      <span className="text-white/90 text-xs sm:text-sm font-medium mt-1.5 sm:mt-2 leading-snug max-w-[100px] sm:max-w-[120px]">
         {label}
       </span>
     </div>
@@ -85,7 +85,7 @@ const StatsBar = memo(function StatsBar() {
             <span className="text-primary-300 font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[10px] sm:text-xs mb-2 sm:mb-3 block">By The Numbers</span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-2 sm:mb-3">KICS at a Glance</h2>
             <div className="w-14 h-1 bg-gradient-to-r from-primary-400 to-cyan-400 rounded-full mx-auto" />
-            <p className="text-primary-200 mt-4 text-sm max-w-xl mx-auto">
+            <p className="text-white/90 mt-4 text-sm max-w-xl mx-auto">
               Two decades of applied research, innovation, and technology excellence at UET Lahore.
             </p>
           </div>
@@ -476,6 +476,17 @@ const CollabSection = memo(function CollabSection() {
   // Duplicate logos for seamless infinite loop (only need 2x for -50% translateX)
   const duplicatedLogos = [...collaborators, ...collaborators];
 
+  // FIX: Adjust marquee speed based on network connection
+  useEffect(() => {
+    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    if (connection && (connection.effectiveType === '3g' || connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g')) {
+      const marqueeTrack = document.querySelector('.marquee-track');
+      if (marqueeTrack) {
+        marqueeTrack.style.animationDuration = '40s'; // Slower on slow networks
+      }
+    }
+  }, []);
+
   return (
     <section className="relative py-16 sm:py-20 bg-gradient-to-br from-[#081120] via-primary-900 to-[#071224] overflow-hidden">
       {/* Radial dot pattern */}
@@ -495,7 +506,7 @@ const CollabSection = memo(function CollabSection() {
             <span className="text-cyan-400 font-bold uppercase tracking-[0.3em] text-xs mb-3 block">Partners &amp; Collaborations</span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-3">Proudly Collaborating With Leading Organizations</h2>
             <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 to-primary-400 rounded-full mx-auto" />
-            <p className="text-primary-200 text-sm max-w-2xl mx-auto mt-6">
+            <p className="text-white/90 text-sm max-w-2xl mx-auto mt-6">
               Working alongside global tech giants, academic institutions, and government bodies to drive innovation and technological advancement.
             </p>
           </div>
@@ -806,7 +817,7 @@ const FeaturedProjects = memo(function FeaturedProjects() {
               Featured Student Projects
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 via-primary-400 to-cyan-400 rounded-full mx-auto" />
-            <p className="text-primary-200 text-sm max-w-2xl mx-auto mt-6">
+            <p className="text-white/90 text-sm max-w-2xl mx-auto mt-6">
               Showcasing groundbreaking innovations from KICS labs and incubation center.
             </p>
           </div>

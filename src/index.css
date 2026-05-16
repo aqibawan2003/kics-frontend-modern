@@ -353,30 +353,8 @@
   animation: gradient-x 15s ease infinite;
 }
 
-/* ── Blob animation ─────────────────────────────── */
-@keyframes blob {
-  0%, 100% {
-    transform: translate(0px, 0px) scale(1);
-  }
-  33% {
-    transform: translate(30px, -50px) scale(1.1);
-  }
-  66% {
-    transform: translate(-20px, 20px) scale(0.9);
-  }
-}
-
-.animate-blob {
-  animation: blob 7s infinite;
-}
-
-.animation-delay-2000 {
-  animation-delay: 2s;
-}
-
-.animation-delay-4000 {
-  animation-delay: 4s;
-}
+/* ── Blob animation (duplicate removed) ─────────── */
+/* Animation already defined above at line 151 */
 
 /* ── Glassmorphism ──────────────────────────── */
 .glass {
@@ -623,6 +601,115 @@
 .text-reveal-delay-3 { animation-delay: 0.3s; }
 
 /* ═══════════════════════════════════════════════════════
+   ACCESSIBILITY - REDUCED MOTION (WCAG 2.1)
+   ═══════════════════════════════════════════════════════ */
+
+/* Respect user's motion preferences - Critical for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Disable resource-intensive animations */
+  .animate-blob,
+  .animate-float,
+  .animate-pulse-slow,
+  .animate-pulse-glow,
+  .animate-bounce-gentle,
+  .marquee-track {
+    animation: none !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   ACCESSIBILITY - FOCUS INDICATORS (WCAG 2.1 SC 2.4.7)
+   ═══════════════════════════════════════════════════════ */
+
+/* Remove default outline only when :focus-visible is supported */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Custom focus indicator for keyboard navigation */
+*:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+  border-radius: 4px;
+  transition: outline 0.2s ease;
+}
+
+/* Focus for buttons */
+button:focus-visible,
+.btn-primary:focus-visible,
+.btn-outline:focus-visible,
+.btn-navy:focus-visible {
+  outline: 3px solid #06b6d4;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px rgba(6, 182, 212, 0.15);
+}
+
+/* Focus for links */
+a:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+  text-decoration: underline;
+}
+
+/* Focus for interactive cards */
+.card:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 4px;
+  transform: translateY(-4px);
+}
+
+/* Focus for form inputs */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid #06b6d4;
+  outline-offset: 0;
+  border-color: #06b6d4;
+}
+
+/* Screen reader only class */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Show on focus for skip links */
+.sr-only:focus {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 9999;
+  width: auto;
+  height: auto;
+  padding: 1rem 1.5rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  background: #2563eb;
+  color: white;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+}
+
+/* ═══════════════════════════════════════════════════════
    COLLABORATION LOGOS - INFINITE MARQUEE
    ═══════════════════════════════════════════════════════ */
 
@@ -637,7 +724,7 @@
 }
 
 .marquee-track {
-  animation: marquee-scroll 25s linear infinite;
+  animation: marquee-scroll 30s linear infinite; /* Slower = less CPU */
   will-change: transform;
   width: max-content;
 }
@@ -647,10 +734,10 @@
   animation-play-state: paused;
 }
 
-/* Mobile - faster scroll */
+/* Mobile - slower to save battery */
 @media (max-width: 768px) {
   .marquee-track {
-    animation-duration: 20s;
+    animation-duration: 35s; /* Even slower on mobile */
   }
 }
 

@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import ScrollToTopBtn, { ScrollReset } from './components/ScrollToTop';
 import LoadingScreen from './components/LoadingScreen';
 import ScrollProgress from './components/ScrollProgress';
+import ErrorBoundary from './components/ErrorBoundary';
 
 const Home          = lazy(() => import('./pages/Home'));
 const About         = lazy(() => import('./pages/About'));
@@ -44,36 +45,38 @@ function NotFound() {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <LoadingScreen />
-      <ScrollProgress />
-      <ScrollReset />
-      <div className="flex flex-col min-h-screen overflow-x-hidden">
-        <Navbar />
-        <main className="flex-1">
-          <Suspense fallback={<PageSpinner />}>
-            <Routes>
-              <Route path="/"                  element={<Home />} />
-              <Route path="/about"             element={<About />} />
-              <Route path="/director-message"  element={<DirectorMessage />} />
-              <Route path="/staff"             element={<Staff />} />
-              <Route path="/research-areas"    element={<ResearchAreas />} />
-              <Route path="/publications"      element={<Publications />} />
-              <Route path="/conferences"       element={<Conferences />} />
-              <Route path="/workshops"         element={<Workshops />} />
-              <Route path="/icosst"            element={<ICOSST />} />
-              <Route path="/jobs"              element={<Jobs />} />
-              <Route path="/contact"           element={<Contact />} />
-              <Route path="/services"          element={<Services />} />
-              <Route path="/news"              element={<News />} />
-              <Route path="/e-rozgaar"         element={<ERozgaar />} />
-              <Route path="*"                  element={<NotFound />} />
-            </Routes>
-          </Suspense>
-        </main>
-        <Footer />
-        <ScrollToTopBtn />
-      </div>
-    </BrowserRouter>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <LoadingScreen />
+        <ScrollProgress />
+        <ScrollReset />
+        <div className="flex flex-col min-h-screen overflow-x-hidden">
+          <Navbar />
+          <main className="flex-1">
+            <Suspense fallback={<PageSpinner />}>
+              <Routes>
+                <Route path="/"                  element={<Home />} />
+                <Route path="/about"             element={<About />} />
+                <Route path="/director-message"  element={<DirectorMessage />} />
+                <Route path="/staff"             element={<Staff />} />
+                <Route path="/research-areas"    element={<ResearchAreas />} />
+                <Route path="/publications"      element={<Publications />} />
+                <Route path="/conferences"       element={<Conferences />} />
+                <Route path="/workshops"         element={<Workshops />} />
+                <Route path="/icosst"            element={<ICOSST />} />
+                <Route path="/jobs"              element={<Jobs />} />
+                <Route path="/contact"           element={<Contact />} />
+                <Route path="/services"          element={<Services />} />
+                <Route path="/news"              element={<News />} />
+                <Route path="/e-rozgaar"         element={<ERozgaar />} />
+                <Route path="*"                  element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </main>
+          <Footer />
+          <ScrollToTopBtn />
+        </div>
+      </BrowserRouter>
+    </ErrorBoundary>
   );
 }

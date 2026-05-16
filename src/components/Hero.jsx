@@ -14,6 +14,7 @@ export default function Hero() {
   const [current, setCurrent]     = useState(0);
   const [animating, setAnimating] = useState(false);
   const [visible, setVisible]     = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 100);
@@ -23,15 +24,34 @@ export default function Hero() {
   const goTo = useCallback((i) => {
     if (animating) return;
     setAnimating(true);
+    setImageLoaded(false); // Reset for new image
     setTimeout(() => { setCurrent(i); setAnimating(false); }, 450);
   }, [animating]);
 
-  const next = useCallback(() => goTo((current + 1) % heroSlides.length), [current, goTo]);
+  // FIX: Stable next function that doesn't recreate interval
+  const nextSlide = useCallback(() => {
+    setCurrent((prev) => (prev + 1) % heroSlides.length);
+  }, []);
+
+  // FIX: Add keyboard navigation for accessibility
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowLeft') {
+        setCurrent((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+      }
+      if (e.key === 'ArrowRight') {
+        nextSlide();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [nextSlide]);
 
   useEffect(() => {
-    const id = setInterval(next, 5500);
+    const id = setInterval(nextSlide, 5500);
     return () => clearInterval(id);
-  }, [next]);
+  }, [nextSlide]);
 
   const slide = heroSlides[current];
 
@@ -40,7 +60,14 @@ export default function Hero() {
       id="home"
       className="relative overflow-hidden"
       style={{ minHeight: 'clamp(380px, 65vh, 680px)' }}
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Hero slider showcasing KICS highlights"
     >
+      {/* ACCESSIBILITY: Screen reader announcement */}
+      <div className="sr-only" role="status" aria-live="polite" aria-atomic="true">
+        Slide {current + 1} of {heroSlides.length}: {slide.title}
+      </div>
       {/* ── Tech blue background ── */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-cyan-50/60 to-primary-50" />
 
@@ -204,15 +231,24 @@ export default function Hero() {
 
               {/* Main image — floating */}
               <div className="relative z-10 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-2 sm:border-4 border-white animate-float">
+                {/* Loading skeleton - shown until image loads */}
+                {!imageLoaded && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary-100 via-cyan-100 to-primary-100 animate-shimmer" />
+                )}
+
                 <div className={`transition-opacity duration-500 ${animating ? 'opacity-0' : 'opacity-100'}`}>
                   <img
                     src={slide.image}
                     alt={slide.title}
                     width="600"
                     height="400"
-                    className="w-full h-[220px] sm:h-[280px] md:h-[320px] object-cover"
+                    fetchPriority={current === 0 ? "high" : "low"}
+                    loading={current === 0 ? "eager" : "lazy"}
+                    className={`w-full h-[220px] sm:h-[280px] md:h-[320px] object-cover transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                    onLoad={() => setImageLoaded(true)}
                     onError={e => {
                       e.target.src = 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&h=400&fit=crop';
+                      setImageLoaded(true);
                     }}
                   />
                 </div>
@@ -221,12 +257,17 @@ export default function Hero() {
               </div>
 
               {/* Slide dot indicators */}
-              <div className="flex justify-center gap-2 mt-5">
+              <div
+                className="flex justify-center gap-2 mt-5"
+                role="group"
+                aria-label="Carousel navigation"
+              >
                 {heroSlides.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => goTo(i)}
                     aria-label={`Go to slide ${i + 1}`}
+                    aria-current={i === current ? 'true' : 'false'}
                     className={`transition-all duration-300 rounded-full ${
                       i === current
                         ? 'w-7 h-2.5 bg-primary-600'
