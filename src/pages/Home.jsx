@@ -1113,20 +1113,12 @@ const MapSection = memo(function MapSection() {
 const CTABanner = memo(function CTABanner() {
   return (
     <section className="relative py-16 sm:py-20 md:py-24 bg-gradient-to-br from-[#0B2447] via-primary-900 to-[#1e3a8a] overflow-hidden">
-      {/* Animated gradient orbs */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-r from-cyan-500/30 to-primary-500/30 rounded-full blur-3xl animate-blob" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-r from-primary-500/30 to-purple-500/30 rounded-full blur-3xl animate-blob animation-delay-2000" />
-      <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-gradient-to-r from-pink-500/20 to-cyan-500/20 rounded-full blur-3xl animate-blob animation-delay-4000" />
-
-      {/* Radial dot grid overlay */}
-      <div className="absolute inset-0 opacity-10" style={{
-        backgroundImage: 'radial-gradient(circle at center, rgba(6,182,212,0.3) 1px, transparent 1px)',
-        backgroundSize: '50px 50px'
-      }} />
-
-      {/* Diagonal light beams */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white via-transparent to-transparent transform rotate-12" />
+      {/* Subtle animated background particles - matching footer style */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-20 left-[10%] w-2 h-2 bg-cyan-400 rounded-full animate-pulse" />
+        <div className="absolute top-40 right-[15%] w-1.5 h-1.5 bg-primary-400 rounded-full animate-pulse animation-delay-2000" />
+        <div className="absolute bottom-32 left-[25%] w-1 h-1 bg-cyan-300 rounded-full animate-pulse animation-delay-4000" />
+        <div className="absolute bottom-20 right-[30%] w-2 h-2 bg-primary-300 rounded-full animate-pulse" />
       </div>
 
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
