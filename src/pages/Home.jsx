@@ -548,20 +548,42 @@ const CollabSection = memo(function CollabSection() {
           </div>
         </div>
 
-        {/* Partnership stats */}
+        {/* Partnership stats - Professional Cards */}
         <AnimateOnScroll delay={200}>
-          <div className="grid grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto mt-12 sm:mt-16 pt-8 sm:pt-10 border-t border-white/10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto mt-12 sm:mt-16 pt-8 sm:pt-10 border-t border-white/10">
             {[
               { value: '50+', label: 'Industry Partners', icon: FiUsers },
               { value: '20+', label: 'Countries', icon: FiGlobe },
               { value: '100+', label: 'Joint Projects', icon: FiTarget },
             ].map((stat, i) => (
-              <div key={i} className="text-center group">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 sm:mb-3 rounded-xl bg-gradient-to-br from-cyan-500/20 to-primary-500/20 border border-white/20 flex items-center justify-center group-hover:scale-110 group-hover:border-cyan-400/50 transition-all duration-300">
-                  <stat.icon size={18} className="text-cyan-400 sm:w-5 sm:h-5" />
+              <div
+                key={i}
+                className="group relative bg-white/10 backdrop-blur-lg rounded-2xl p-6 sm:p-8 border border-white/20 hover:border-cyan-400/60 hover:bg-white/15 transition-all duration-300 hover:-translate-y-2 shadow-lg hover:shadow-2xl"
+              >
+                {/* Hover glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-primary-500/20 rounded-2xl opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-300" />
+
+                <div className="relative text-center">
+                  {/* Icon */}
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-cyan-500/30 to-primary-500/30 border border-cyan-400/40 flex items-center justify-center group-hover:scale-110 group-hover:border-cyan-400/80 transition-all duration-300 shadow-lg">
+                    <stat.icon size={24} className="text-cyan-400 sm:w-7 sm:h-7" />
+                  </div>
+
+                  {/* Number */}
+                  <div className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-cyan-200 mb-2 leading-none">
+                    {stat.value}
+                  </div>
+
+                  {/* Label */}
+                  <div className="text-white/70 text-xs sm:text-sm font-semibold uppercase tracking-wider leading-tight">
+                    {stat.label}
+                  </div>
                 </div>
-                <div className="text-2xl sm:text-3xl font-bold text-cyan-400 mb-1">{stat.value}</div>
-                <div className="text-white/60 text-[10px] sm:text-xs uppercase tracking-wider">{stat.label}</div>
+
+                {/* Divider on desktop (not on last item) */}
+                {i < 2 && (
+                  <div className="hidden md:block absolute top-1/2 -right-3 w-px h-16 bg-gradient-to-b from-transparent via-white/20 to-transparent transform -translate-y-1/2" />
+                )}
               </div>
             ))}
           </div>
