@@ -178,7 +178,7 @@ const AchievementBadges = memo(function AchievementBadges() {
   ];
 
   return (
-    <section className="relative py-20 bg-gradient-to-br from-primary-900 via-[#0B1633] to-[#071224] overflow-hidden">
+    <section className="relative py-20 bg-gradient-to-br from-[#0B2447] via-primary-900 to-[#1e3a8a] overflow-hidden">
       {/* Wave divider top */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
         <svg className="relative block w-full h-12" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -488,7 +488,7 @@ const CollabSection = memo(function CollabSection() {
   }, []);
 
   return (
-    <section className="relative py-16 sm:py-20 bg-gradient-to-br from-[#081120] via-primary-900 to-[#071224] overflow-hidden">
+    <section className="relative py-16 sm:py-20 bg-gradient-to-br from-[#0B2447] via-primary-900 to-[#1e3a8a] overflow-hidden">
       {/* Radial dot pattern */}
       <div className="absolute inset-0 opacity-5" style={{
         backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.15) 1.5px, transparent 1.5px)',
@@ -634,7 +634,7 @@ const UpcomingEvents = memo(function UpcomingEvents() {
   ];
 
   return (
-    <section className="relative py-20 bg-gradient-to-br from-primary-900 via-primary-800 to-[#0B1633]">
+    <section className="relative py-20 bg-gradient-to-br from-[#0B2447] via-primary-900 to-[#1e3a8a]">
       {/* Diagonal stripes pattern */}
       <div className="absolute inset-0 opacity-5" style={{
         backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.05) 10px, rgba(255,255,255,0.05) 20px)'
@@ -799,7 +799,7 @@ const FeaturedProjects = memo(function FeaturedProjects() {
   ];
 
   return (
-    <section className="relative py-20 sm:py-24 bg-gradient-to-br from-[#0B1633] via-primary-900 to-[#071224] overflow-hidden">
+    <section className="relative py-20 sm:py-24 bg-gradient-to-br from-[#0B2447] via-primary-900 to-[#1e3a8a] overflow-hidden">
       {/* Glowing orbs */}
       <div className="absolute top-1/4 -left-20 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse-slow" />
       <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1.5s' }} />
