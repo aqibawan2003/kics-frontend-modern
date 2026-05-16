@@ -626,30 +626,32 @@
    COLLABORATION LOGOS - INFINITE MARQUEE
    ═══════════════════════════════════════════════════════ */
 
-/* Smooth infinite marquee scrolling - tripled logos for seamless loop */
-@keyframes marquee-slow {
+/* Smooth infinite marquee scrolling - duplicated logos for seamless loop */
+@keyframes marquee-scroll {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-33.333%); /* Move by 1/3 since we tripled the logos */
+    transform: translateX(-50%); /* Move by 50% since logos are duplicated */
   }
 }
 
-.animate-marquee-slow {
-  animation: marquee-slow 40s linear infinite;
+.marquee-track {
+  animation: marquee-scroll 25s linear infinite;
   will-change: transform;
+  width: max-content;
 }
 
-/* Pause animation on hover (parent container handles this) */
-.pause-marquee:hover .animate-marquee-slow,
-.animate-marquee-slow:hover {
+/* Pause animation on hover - smoother UX */
+.marquee-container:hover .marquee-track {
   animation-play-state: paused;
 }
 
-/* Individual logo hover should NOT pause entire marquee */
-.animate-marquee-slow > * {
-  animation-play-state: inherit;
+/* Mobile - faster scroll */
+@media (max-width: 768px) {
+  .marquee-track {
+    animation-duration: 20s;
+  }
 }
 
 /* ═══════════════════════════════════════════════════════

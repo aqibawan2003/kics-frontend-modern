@@ -473,8 +473,8 @@ const NewsSection = memo(function NewsSection() {
 
 /* ── Collaborators ───────────────────────────────────────── */
 const CollabSection = memo(function CollabSection() {
-  // Triple the logos for seamless infinite loop
-  const tripleLogos = [...collaborators, ...collaborators, ...collaborators];
+  // Duplicate logos for seamless infinite loop (only need 2x for -50% translateX)
+  const duplicatedLogos = [...collaborators, ...collaborators];
 
   return (
     <section className="relative py-16 sm:py-20 bg-gradient-to-br from-[#081120] via-primary-900 to-[#071224] overflow-hidden">
@@ -501,43 +501,49 @@ const CollabSection = memo(function CollabSection() {
           </div>
         </AnimateOnScroll>
 
-        {/* Infinite Marquee - Glass Cards */}
-        <div className="relative">
-          {/* Fade edges for seamless effect */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-32 bg-gradient-to-r from-[#081120] to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-32 bg-gradient-to-l from-[#081120] to-transparent z-10 pointer-events-none" />
+        {/* Infinite Marquee with CSS Mask for Fade */}
+        <div
+          className="marquee-container overflow-hidden relative"
+          style={{
+            maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)'
+          }}
+        >
+          <div className="marquee-track flex gap-6 sm:gap-8 items-center py-4">
+            {duplicatedLogos.map((collab, idx) => (
+              <a
+                key={idx}
+                href={collab.url}
+                target="_blank"
+                rel="noreferrer"
+                title={collab.name}
+                className="group flex-shrink-0 relative bg-white/10 backdrop-blur-lg rounded-xl sm:rounded-2xl px-6 py-5 sm:px-8 sm:py-6 flex items-center justify-center border border-white/20 hover:border-cyan-400/60 hover:bg-white/20 transition-all duration-300 min-w-[130px] sm:min-w-[160px] cursor-pointer"
+              >
+                {/* Hover glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/30 to-primary-500/30 rounded-2xl opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-300" />
 
-          {/* Scrolling container */}
-          <div className="overflow-hidden">
-            <div className="flex animate-marquee-slow hover:pause-marquee gap-6 sm:gap-8 py-4">
-              {tripleLogos.map((collab, idx) => (
-                <a
-                  key={idx}
-                  href={collab.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  title={collab.name}
-                  className="group flex-shrink-0 relative bg-white/10 backdrop-blur-lg rounded-xl sm:rounded-2xl px-8 py-6 sm:px-10 sm:py-8 flex items-center justify-center border border-white/20 hover:border-cyan-400/60 hover:bg-white/20 transition-all duration-300 min-w-[140px] sm:min-w-[180px] cursor-pointer"
-                  style={{ animationPlayState: 'inherit' }}
-                >
-                  {/* Hover glow effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/30 to-primary-500/30 rounded-2xl opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-300" />
+                {/* Logo */}
+                <div className="relative flex flex-col items-center gap-2.5">
+                  <img
+                    src={collab.logo}
+                    alt={collab.name}
+                    className="h-10 sm:h-14 w-auto object-contain filter grayscale brightness-0 invert opacity-60 group-hover:opacity-100 group-hover:grayscale-0 group-hover:brightness-100 group-hover:invert-0 group-hover:scale-110 transition-all duration-300"
+                    loading="lazy"
+                    onError={(e) => { e.target.style.display = 'none'; }}
+                  />
+                  <span className="text-white/70 text-[10px] sm:text-xs font-semibold group-hover:text-cyan-400 transition-colors text-center whitespace-nowrap">
+                    {collab.name}
+                  </span>
+                </div>
+              </a>
+            ))}
 
-                  {/* Logo */}
-                  <div className="relative flex flex-col items-center gap-3">
-                    <img
-                      src={collab.logo}
-                      alt={collab.name}
-                      className="h-12 sm:h-16 w-auto object-contain filter grayscale brightness-0 invert opacity-60 group-hover:opacity-100 group-hover:grayscale-0 group-hover:brightness-100 group-hover:invert-0 group-hover:scale-110 transition-all duration-300"
-                      loading="lazy"
-                      onError={(e) => { e.target.style.display = 'none'; }}
-                    />
-                    <span className="text-white/70 text-xs font-semibold group-hover:text-cyan-400 transition-colors text-center whitespace-nowrap">
-                      {collab.name}
-                    </span>
-                  </div>
-                </a>
-              ))}
+            {/* Partnership Badge - In Marquee */}
+            <div className="flex-shrink-0 bg-gradient-to-r from-cyan-500/20 to-primary-500/20 backdrop-blur-md border-2 border-cyan-400/40 rounded-full px-6 py-3 sm:px-8 sm:py-4 hover:border-cyan-400/60 hover:scale-105 transition-all duration-300 cursor-default">
+              <div className="flex items-center gap-2 whitespace-nowrap">
+                <FiAward className="text-cyan-400" size={18} />
+                <span className="text-white font-bold text-sm sm:text-base">50+ INDUSTRY PARTNERS</span>
+              </div>
             </div>
           </div>
         </div>
