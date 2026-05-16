@@ -964,24 +964,24 @@ const CampusGallery = memo(function CampusGallery() {
 /* ── Interactive Map & Contact ────────────────────────────── */
 const MapSection = memo(function MapSection() {
   return (
-    <section className="relative py-16 sm:py-20 bg-[#0f1e3d] overflow-hidden">
-      {/* Radial dot pattern */}
+    <section className="relative py-16 sm:py-20 bg-gradient-to-b from-slate-50 via-white to-slate-100 overflow-hidden">
+      {/* Decorative grid background */}
       <div className="absolute inset-0 opacity-5" style={{
-        backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.15) 1.5px, transparent 1.5px)',
-        backgroundSize: '40px 40px'
+        backgroundImage: 'linear-gradient(rgba(37,99,235,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235,0.1) 1px, transparent 1px)',
+        backgroundSize: '50px 50px'
       }} />
 
-      {/* Animated glowing orbs */}
-      <div className="absolute top-20 right-20 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl animate-blob" />
-      <div className="absolute bottom-20 left-20 w-80 h-80 bg-primary-500/10 rounded-full blur-3xl animate-blob" style={{ animationDelay: '2s' }} />
+      {/* Floating accent circles */}
+      <div className="absolute top-20 right-10 w-32 h-32 bg-primary-200/20 rounded-full blur-2xl" />
+      <div className="absolute bottom-20 left-10 w-40 h-40 bg-cyan-200/20 rounded-full blur-2xl" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         <AnimateOnScroll>
           <div className="text-center mb-12">
-            <span className="text-cyan-400 font-bold uppercase tracking-[0.3em] text-xs mb-3 block">Visit Us</span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-3">Find KICS</h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 to-primary-400 rounded-full mx-auto" />
-            <p className="text-white/90 text-sm max-w-2xl mx-auto mt-6">
+            <span className="eyebrow">Visit Us</span>
+            <h2 className="section-title">Find KICS</h2>
+            <div className="divider-center mt-3" />
+            <p className="text-slate-600 text-sm max-w-2xl mx-auto mt-4">
               Located at the heart of UET Lahore, one of Pakistan's leading engineering universities.
             </p>
           </div>
@@ -992,21 +992,21 @@ const MapSection = memo(function MapSection() {
           <AnimateOnScroll animation="reveal-left">
             <div className="space-y-6">
               <div>
-                <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                  <div className="w-1 h-8 bg-gradient-to-b from-cyan-400 to-primary-400 rounded-full" />
+                <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                  <div className="w-1 h-8 bg-gradient-to-b from-primary-600 to-cyan-600 rounded-full" />
                   Get in Touch
                 </h3>
 
                 {/* Address */}
-                <div className="group relative bg-white/10 backdrop-blur-lg rounded-2xl p-6 mb-4 border border-white/20 hover:border-cyan-400/60 hover:bg-white/20 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-1">
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-primary-500/10 rounded-2xl opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-300" />
+                <div className="group relative bg-white rounded-2xl p-6 mb-4 border-2 border-primary-100 hover:border-primary-300 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-1">
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-primary-50 to-transparent rounded-bl-full" />
                   <div className="relative flex items-start gap-4">
                     <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-600 to-primary-700 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg">
                       <FiMapPin size={22} className="text-white" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-white mb-2">Address</h4>
-                      <p className="text-white/80 text-sm leading-relaxed">
+                      <h4 className="font-bold text-slate-900 mb-2">Address</h4>
+                      <p className="text-slate-600 text-sm leading-relaxed">
                         Al-Khwarizmi Institute of Computer Science (KICS)<br />
                         University of Engineering & Technology<br />
                         G.T. Road, Lahore, Punjab<br />
@@ -1017,57 +1017,57 @@ const MapSection = memo(function MapSection() {
                 </div>
 
                 {/* Phone */}
-                <div className="group relative bg-white/10 backdrop-blur-lg rounded-2xl p-6 mb-4 border border-white/20 hover:border-cyan-400/60 hover:bg-white/20 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-1">
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-primary-500/10 rounded-2xl opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-300" />
+                <div className="group relative bg-white rounded-2xl p-6 mb-4 border-2 border-cyan-100 hover:border-cyan-300 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-1">
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-cyan-50 to-transparent rounded-bl-full" />
                   <div className="relative flex items-start gap-4">
                     <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-600 to-cyan-700 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg">
                       <FiPhone size={22} className="text-white" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-white mb-2">Phone</h4>
-                      <a href="tel:+924299029450" className="text-cyan-400 hover:text-cyan-300 font-bold text-sm sm:text-base md:text-lg transition-colors">
+                      <h4 className="font-bold text-slate-900 mb-2">Phone</h4>
+                      <a href="tel:+924299029450" className="text-primary-600 hover:text-primary-700 font-bold text-sm sm:text-base md:text-lg transition-colors">
                         +92 42 99029450
                       </a>
-                      <p className="text-white/70 text-xs mt-1">Mon - Fri, 9:00 AM - 5:00 PM</p>
+                      <p className="text-slate-500 text-xs mt-1">Mon - Fri, 9:00 AM - 5:00 PM</p>
                     </div>
                   </div>
                 </div>
 
                 {/* Email */}
-                <div className="group relative bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 hover:border-cyan-400/60 hover:bg-white/20 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-1">
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-primary-500/10 rounded-2xl opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-300" />
+                <div className="group relative bg-white rounded-2xl p-6 border-2 border-purple-100 hover:border-purple-300 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-1">
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-purple-50 to-transparent rounded-bl-full" />
                   <div className="relative flex items-start gap-4">
                     <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-600 to-purple-700 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg">
                       <FiMail size={22} className="text-white" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-white mb-2">Email</h4>
-                      <a href="mailto:info@kics.edu.pk" className="text-cyan-400 hover:text-cyan-300 font-bold text-sm sm:text-base md:text-lg transition-colors">
+                      <h4 className="font-bold text-slate-900 mb-2">Email</h4>
+                      <a href="mailto:info@kics.edu.pk" className="text-primary-600 hover:text-primary-700 font-bold text-sm sm:text-base md:text-lg transition-colors">
                         info@kics.edu.pk
                       </a>
-                      <p className="text-white/70 text-xs mt-1">We'll respond within 24 hours</p>
+                      <p className="text-slate-500 text-xs mt-1">We'll respond within 24 hours</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Quick Links */}
-              <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all shadow-lg">
-                <h4 className="font-bold text-white mb-4 flex items-center gap-2">
-                  <FiNavigation size={16} className="text-cyan-400" />
+              <div className="bg-gradient-to-br from-primary-50 to-cyan-50 rounded-2xl p-6 border-2 border-primary-100 shadow-lg">
+                <h4 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
+                  <FiNavigation size={16} className="text-primary-600" />
                   Quick Actions
                 </h4>
                 <div className="grid grid-cols-2 gap-3">
-                  <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-cyan-500 text-white font-semibold px-4 py-2.5 rounded-lg border border-white/20 hover:border-cyan-400 transition-all duration-300 text-xs">
+                  <Link to="/contact" className="btn-outline text-xs justify-center hover:bg-primary-600 hover:text-white hover:border-primary-600">
                     Contact Form
                   </Link>
-                  <Link to="/jobs" className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-cyan-500 text-white font-semibold px-4 py-2.5 rounded-lg border border-white/20 hover:border-cyan-400 transition-all duration-300 text-xs">
+                  <Link to="/jobs" className="btn-outline text-xs justify-center hover:bg-primary-600 hover:text-white hover:border-primary-600">
                     Career Portal
                   </Link>
-                  <Link to="/e-rozgaar" className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-cyan-500 text-white font-semibold px-4 py-2.5 rounded-lg border border-white/20 hover:border-cyan-400 transition-all duration-300 text-xs">
+                  <Link to="/e-rozgaar" className="btn-outline text-xs justify-center hover:bg-primary-600 hover:text-white hover:border-primary-600">
                     Apply Now
                   </Link>
-                  <Link to="/conferences" className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-cyan-500 text-white font-semibold px-4 py-2.5 rounded-lg border border-white/20 hover:border-cyan-400 transition-all duration-300 text-xs">
+                  <Link to="/conferences" className="btn-outline text-xs justify-center hover:bg-primary-600 hover:text-white hover:border-primary-600">
                     Events
                   </Link>
                 </div>
@@ -1092,13 +1092,13 @@ const MapSection = memo(function MapSection() {
               </div>
 
               {/* Floating badge on map */}
-              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 md:top-6 md:left-6 bg-primary-900/95 backdrop-blur-md rounded-xl sm:rounded-2xl shadow-2xl px-3 py-2 sm:px-4 sm:py-3 md:px-5 md:py-4 flex items-center gap-2 sm:gap-3 border-2 border-cyan-400/60">
+              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 md:top-6 md:left-6 bg-white rounded-xl sm:rounded-2xl shadow-2xl px-3 py-2 sm:px-4 sm:py-3 md:px-5 md:py-4 flex items-center gap-2 sm:gap-3 border-2 border-primary-200 backdrop-blur-sm">
                 <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-primary-600 to-cyan-600 flex items-center justify-center shadow-lg animate-pulse-slow flex-shrink-0">
                   <FiMapPin size={16} className="text-white sm:w-5 sm:h-5" />
                 </div>
                 <div className="min-w-0">
-                  <p className="font-bold text-white text-xs sm:text-sm md:text-base truncate">KICS, UET Lahore</p>
-                  <p className="text-cyan-400 text-[10px] sm:text-xs">Punjab, Pakistan</p>
+                  <p className="font-bold text-slate-900 text-xs sm:text-sm md:text-base truncate">KICS, UET Lahore</p>
+                  <p className="text-slate-500 text-[10px] sm:text-xs">Punjab, Pakistan</p>
                 </div>
               </div>
             </div>
