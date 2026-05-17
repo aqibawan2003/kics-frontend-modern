@@ -337,10 +337,11 @@ export default function Hero() {
                     onClick={() => goTo(i)}
                     aria-label={`Go to slide ${i + 1}`}
                     aria-current={i === current ? 'true' : 'false'}
-                    className={`transition-all duration-300 rounded-full ${
+                    style={{ padding: 0, border: 'none', background: 'none', display: 'block' }}
+                    className={`transition-all duration-300 rounded-full flex-shrink-0 ${
                       i === current
                         ? 'w-5 h-1.5 bg-amber-400'
-                        : 'w-1.5 h-1.5 bg-white/35 hover:bg-white/65'
+                        : 'w-1.5 h-1.5 bg-white/40 hover:bg-white/70'
                     }`}
                   />
                 ))}
