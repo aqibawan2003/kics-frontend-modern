@@ -15,12 +15,12 @@ import {
 
 /* ── Stats ────────────────────────────────────────────────── */
 const kicsStats = [
-  { Icon: FiCalendar, value: 22,   suffix: '+', label: 'Years of Excellence',     color: 'from-primary-700 to-primary-500' },
+  { Icon: FiCalendar, value: 22,   suffix: '+', label: 'Years of Excellence',     color: 'from-blue-600 to-blue-800' },
   { Icon: FiBookOpen, value: 500,  suffix: '+', label: 'Research Publications',   color: 'from-cyan-700 to-cyan-500' },
-  { Icon: FiAward,    value: 25,   suffix: '+', label: 'Specialized Labs',         color: 'from-primary-800 to-primary-600' },
-  { Icon: FiGlobe,    value: 50,   suffix: '+', label: 'Industry Partners',        color: 'from-cyan-600 to-cyan-400' },
-  { Icon: FiUsers,    value: 1000, suffix: '+', label: 'Professionals Trained',    color: 'from-primary-600 to-primary-400' },
-  { Icon: FiMonitor,  value: 17,   suffix: '+', label: 'ICOSST Editions',          color: 'from-cyan-800 to-cyan-600' },
+  { Icon: FiAward,    value: 25,   suffix: '+', label: 'Specialized Labs',         color: 'from-blue-800 to-blue-600' },
+  { Icon: FiGlobe,    value: 50,   suffix: '+', label: 'Industry Partners',        color: 'from-amber-600 to-amber-700' },
+  { Icon: FiUsers,    value: 1000, suffix: '+', label: 'Professionals Trained',    color: 'from-blue-600 to-blue-800' },
+  { Icon: FiMonitor,  value: 17,   suffix: '+', label: 'ICOSST Editions',          color: 'from-amber-600 to-amber-700' },
 ];
 
 const StatItem = memo(function StatItem({ Icon, value, suffix, label, color, index }) {
@@ -51,7 +51,7 @@ const StatItem = memo(function StatItem({ Icon, value, suffix, label, color, ind
 const Announcements = memo(function Announcements() {
   const doubled = [...announcements, ...announcements];
   return (
-    <div className="bg-[#0f1e3d] border-b-2 border-primary-600 flex items-stretch overflow-hidden">
+    <div className="bg-[#0B1833] border-b-2 border-primary-600 flex items-stretch overflow-hidden">
       <div className="flex-shrink-0 flex items-center gap-2 bg-primary-600 px-4 py-2.5 z-10">
         <FiBell size={14} className="animate-pulse text-white" />
         <span className="text-white text-xs font-bold uppercase tracking-widest whitespace-nowrap">Latest</span>
@@ -60,7 +60,7 @@ const Announcements = memo(function Announcements() {
         <div className="marquee-inner flex animate-marquee whitespace-nowrap py-2.5">
           {doubled.map((item, i) => (
             <span key={i} className="inline-flex items-center text-white/85 text-sm mx-10">
-              <span className="text-primary-300 mr-2.5 text-xs">&#9670;</span>{item}
+              <span className="text-blue-300 mr-2.5 text-xs">&#9670;</span>{item}
             </span>
           ))}
         </div>
@@ -72,7 +72,7 @@ const Announcements = memo(function Announcements() {
 /* ── Stats Bar ───────────────────────────────────────────── */
 const StatsBar = memo(function StatsBar() {
   return (
-    <section className="relative overflow-hidden py-10 sm:py-12 md:py-16 bg-[#0f1e3d]">
+    <section className="relative overflow-hidden py-10 sm:py-12 md:py-16 bg-gradient-to-r from-blue-800 to-blue-900">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-dot-pattern opacity-30 pointer-events-none" />
       <div className="absolute -top-20 -left-20 w-72 h-72 bg-primary-700/30 rounded-full blur-3xl pointer-events-none" />
@@ -82,7 +82,7 @@ const StatsBar = memo(function StatsBar() {
         {/* Header */}
         <AnimateOnScroll animation="reveal">
           <div className="text-center mb-8 sm:mb-10 md:mb-12">
-            <span className="text-primary-300 font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[10px] sm:text-xs mb-2 sm:mb-3 block">By The Numbers</span>
+            <span className="text-blue-200 font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[10px] sm:text-xs mb-2 sm:mb-3 block">By The Numbers</span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-2 sm:mb-3">KICS at a Glance</h2>
             <div className="w-14 h-1 bg-gradient-to-r from-primary-400 to-cyan-400 rounded-full mx-auto" />
             <p className="text-white/90 mt-4 text-sm max-w-xl mx-auto">
@@ -102,7 +102,7 @@ const StatsBar = memo(function StatsBar() {
 
         {/* Bottom divider line with text */}
         <AnimateOnScroll animation="reveal" delay={300}>
-          <div className="mt-12 pt-8 border-t border-primary-700/60 flex flex-wrap items-center justify-center gap-6 text-xs text-primary-300">
+          <div className="mt-12 pt-8 border-t border-blue-700/60 flex flex-wrap items-center justify-center gap-6 text-xs text-blue-200">
             <span className="flex items-center gap-2"><FiAward size={12} className="text-cyan-400" /> IEEE Technical Collaborator</span>
             <span className="w-px h-4 bg-primary-600 hidden sm:block" />
             <span className="flex items-center gap-2"><FiGlobe size={12} className="text-cyan-400" /> 20+ Countries Represented</span>
@@ -171,14 +171,14 @@ const VideoSection = memo(function VideoSection() {
 /* ── Achievement Badges ───────────────────────────────────── */
 const AchievementBadges = memo(function AchievementBadges() {
   const achievements = [
-    { icon: '🏆', title: 'IEEE Gold Award', desc: 'Best Research Paper 2024', color: 'from-yellow-500 to-orange-500' },
-    { icon: '🎖️', title: 'HEC Recognition', desc: 'Category X University', color: 'from-blue-500 to-cyan-500' },
-    { icon: '⭐', title: 'NVC Winner 2026', desc: '$20K Prize', color: 'from-purple-500 to-pink-500' },
-    { icon: '🌟', title: 'Top 10 Institute', desc: 'CS in Pakistan', color: 'from-green-500 to-teal-500' },
+    { icon: '🏆', title: 'IEEE Gold Award', desc: 'Best Research Paper 2024', color: 'from-amber-600 to-amber-700' },
+    { icon: '🎖️', title: 'HEC Recognition', desc: 'Category X University', color: 'from-blue-600 to-blue-800' },
+    { icon: '⭐', title: 'NVC Winner 2026', desc: '$20K Prize', color: 'from-blue-800 to-[#0B1833]' },
+    { icon: '🌟', title: 'Top 10 Institute', desc: 'CS in Pakistan', color: 'from-teal-600 to-teal-700' },
   ];
 
   return (
-    <section className="relative py-20 bg-[#0f1e3d] overflow-hidden">
+    <section className="relative py-20 bg-[#0B1833] overflow-hidden">
       {/* Wave divider top */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
         <svg className="relative block w-full h-12" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -188,13 +188,13 @@ const AchievementBadges = memo(function AchievementBadges() {
 
       {/* Animated background elements */}
       <div className="absolute inset-0 bg-dot-pattern opacity-5" />
-      <div className="absolute top-1/4 left-10 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl animate-pulse-slow" />
+      <div className="absolute top-1/4 left-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow" />
       <div className="absolute bottom-1/4 right-10 w-80 h-80 bg-primary-500/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }} />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
         <AnimateOnScroll>
           <div className="text-center mb-10">
-            <span className="text-primary-300 font-semibold uppercase tracking-[0.2em] text-xs mb-3 block">Recognition</span>
+            <span className="text-blue-300 font-semibold uppercase tracking-[0.2em] text-xs mb-3 block">Recognition</span>
             <h2 className="text-2xl sm:text-3xl font-bold text-white">Awards & Achievements</h2>
             <div className="w-14 h-1 bg-gradient-to-r from-primary-400 to-cyan-400 rounded-full mx-auto mt-3" />
           </div>
@@ -364,9 +364,9 @@ const DirectorQuote = memo(function DirectorQuote() {
           <AnimateOnScroll animation="reveal-right">
             <div className="space-y-4">
               {[
-                { title: 'Vision', text: 'To be a globally recognized center of excellence in computer science research and technology innovation, contributing to national development.', icon: FiTarget, color: 'from-blue-500 to-cyan-500' },
-                { title: 'Mission', text: 'To conduct high-impact applied research, develop cutting-edge technologies, and forge industry-academia partnerships that drive innovation.', icon: FiTrendingUp, color: 'from-purple-500 to-pink-500' },
-                { title: 'Values', text: 'Integrity, innovation, collaboration, and impact — creating an open culture of curiosity and a relentless pursuit of excellence.', icon: FiAward, color: 'from-green-500 to-teal-500' },
+                { title: 'Vision', text: 'To be a globally recognized center of excellence in computer science research and technology innovation, contributing to national development.', icon: FiTarget, color: 'from-blue-600 to-blue-800' },
+                { title: 'Mission', text: 'To conduct high-impact applied research, develop cutting-edge technologies, and forge industry-academia partnerships that drive innovation.', icon: FiTrendingUp, color: 'from-blue-800 to-[#0B1833]' },
+                { title: 'Values', text: 'Integrity, innovation, collaboration, and impact — creating an open culture of curiosity and a relentless pursuit of excellence.', icon: FiAward, color: 'from-teal-600 to-teal-700' },
               ].map((item) => (
                 <div key={item.title} className="group relative bg-white rounded-2xl p-6 border-2 border-primary-100 hover:border-primary-300 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                   <div className="flex items-start gap-4">
@@ -488,25 +488,19 @@ const CollabSection = memo(function CollabSection() {
   }, []);
 
   return (
-    <section className="relative py-16 sm:py-20 bg-[#0f1e3d] overflow-hidden">
-      {/* Radial dot pattern */}
-      <div className="absolute inset-0 opacity-5" style={{
-        backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.15) 1.5px, transparent 1.5px)',
-        backgroundSize: '40px 40px'
-      }} />
-
-      {/* Animated glowing orbs */}
-      <div className="absolute top-20 left-20 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl animate-blob" />
-      <div className="absolute bottom-20 right-20 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl animate-blob animation-delay-2000" />
+    <section className="relative py-16 sm:py-20 bg-slate-50 overflow-hidden">
+      {/* Light background decoration */}
+      <div className="absolute top-20 left-20 w-72 h-72 bg-blue-100/30 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-50/50 rounded-full blur-3xl" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <AnimateOnScroll>
           <div className="text-center mb-10 sm:mb-12">
-            <span className="text-cyan-400 font-bold uppercase tracking-[0.3em] text-xs mb-3 block">Partners &amp; Collaborations</span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-3">Proudly Collaborating With Leading Organizations</h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 to-primary-400 rounded-full mx-auto" />
-            <p className="text-white/90 text-sm max-w-2xl mx-auto mt-6">
+            <span className="text-slate-600 font-bold uppercase tracking-[0.3em] text-xs mb-3 block">Partners &amp; Collaborations</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mb-3">Proudly Collaborating With Leading Organizations</h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-blue-700 to-blue-800 rounded-full mx-auto" />
+            <p className="text-slate-600 text-sm max-w-2xl mx-auto mt-6">
               Working alongside global tech giants, academic institutions, and government bodies to drive innovation and technological advancement.
             </p>
           </div>
@@ -528,21 +522,18 @@ const CollabSection = memo(function CollabSection() {
                 target="_blank"
                 rel="noreferrer"
                 title={collab.name}
-                className="group flex-shrink-0 relative bg-white/10 backdrop-blur-lg rounded-xl sm:rounded-2xl px-6 py-5 sm:px-8 sm:py-6 flex items-center justify-center border border-white/20 hover:border-cyan-400/60 hover:bg-white/20 transition-all duration-300 min-w-[130px] sm:min-w-[160px] cursor-pointer"
+                className="group flex-shrink-0 relative bg-white rounded-xl sm:rounded-2xl px-6 py-5 sm:px-8 sm:py-6 flex items-center justify-center border border-slate-200 hover:border-blue-300 shadow-sm hover:shadow-md transition-all duration-300 min-w-[130px] sm:min-w-[160px] cursor-pointer"
               >
-                {/* Hover glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/30 to-primary-500/30 rounded-2xl opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-300" />
-
                 {/* Logo */}
                 <div className="relative flex flex-col items-center gap-2.5">
                   <img
                     src={collab.logo}
                     alt={collab.name}
-                    className="h-10 sm:h-14 w-auto object-contain filter grayscale brightness-0 invert opacity-60 group-hover:opacity-100 group-hover:grayscale-0 group-hover:brightness-100 group-hover:invert-0 group-hover:scale-110 transition-all duration-300"
+                    className="h-10 sm:h-14 w-auto object-contain filter grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
                     loading="lazy"
                     onError={(e) => { e.target.style.display = 'none'; }}
                   />
-                  <span className="text-white/70 text-[10px] sm:text-xs font-semibold group-hover:text-cyan-400 transition-colors text-center whitespace-nowrap">
+                  <span className="text-slate-500 text-[10px] sm:text-xs font-semibold group-hover:text-blue-700 transition-colors text-center whitespace-nowrap">
                     {collab.name}
                   </span>
                 </div>
@@ -550,9 +541,9 @@ const CollabSection = memo(function CollabSection() {
             ))}
 
             {/* Partnership Badge - In Marquee */}
-            <div className="flex-shrink-0 bg-gradient-to-r from-cyan-500/20 to-primary-500/20 backdrop-blur-md border-2 border-cyan-400/40 rounded-full px-6 py-3 sm:px-8 sm:py-4 hover:border-cyan-400/60 hover:scale-105 transition-all duration-300 cursor-default">
+            <div className="flex-shrink-0 bg-gradient-to-r from-blue-600 to-blue-800 border-2 border-blue-500 rounded-full px-6 py-3 sm:px-8 sm:py-4 hover:from-blue-700 hover:to-blue-900 hover:scale-105 transition-all duration-300 cursor-default">
               <div className="flex items-center gap-2 whitespace-nowrap">
-                <FiAward className="text-cyan-400" size={18} />
+                <FiAward className="text-white" size={18} />
                 <span className="text-white font-bold text-sm sm:text-base">50+ INDUSTRY PARTNERS</span>
               </div>
             </div>
@@ -561,7 +552,7 @@ const CollabSection = memo(function CollabSection() {
 
         {/* Partnership stats - Professional Cards */}
         <AnimateOnScroll delay={200}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto mt-12 sm:mt-16 pt-8 sm:pt-10 border-t border-white/10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto mt-12 sm:mt-16 pt-8 sm:pt-10 border-t border-slate-200">
             {[
               { value: '50+', label: 'Industry Partners', icon: FiUsers },
               { value: '20+', label: 'Countries', icon: FiGlobe },
@@ -569,31 +560,28 @@ const CollabSection = memo(function CollabSection() {
             ].map((stat, i) => (
               <div
                 key={i}
-                className="group relative bg-white/10 backdrop-blur-lg rounded-2xl p-6 sm:p-8 border border-white/20 hover:border-cyan-400/60 hover:bg-white/15 transition-all duration-300 hover:-translate-y-2 shadow-lg hover:shadow-2xl"
+                className="group relative bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 hover:border-blue-300 hover:bg-white transition-all duration-300 hover:-translate-y-2 shadow-md hover:shadow-xl"
               >
-                {/* Hover glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-primary-500/20 rounded-2xl opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-300" />
-
                 <div className="relative text-center">
                   {/* Icon */}
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-cyan-500/30 to-primary-500/30 border border-cyan-400/40 flex items-center justify-center group-hover:scale-110 group-hover:border-cyan-400/80 transition-all duration-300 shadow-lg">
-                    <stat.icon size={24} className="text-cyan-400 sm:w-7 sm:h-7" />
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-lg">
+                    <stat.icon size={24} className="text-white sm:w-7 sm:h-7" />
                   </div>
 
                   {/* Number */}
-                  <div className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-cyan-200 mb-2 leading-none">
+                  <div className="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-2 leading-none">
                     {stat.value}
                   </div>
 
                   {/* Label */}
-                  <div className="text-white/70 text-xs sm:text-sm font-semibold uppercase tracking-wider leading-tight">
+                  <div className="text-slate-600 text-xs sm:text-sm font-semibold uppercase tracking-wider leading-tight">
                     {stat.label}
                   </div>
                 </div>
 
                 {/* Divider on desktop (not on last item) */}
                 {i < 2 && (
-                  <div className="hidden md:block absolute top-1/2 -right-3 w-px h-16 bg-gradient-to-b from-transparent via-white/20 to-transparent transform -translate-y-1/2" />
+                  <div className="hidden md:block absolute top-1/2 -right-3 w-px h-16 bg-gradient-to-b from-transparent via-slate-200 to-transparent transform -translate-y-1/2" />
                 )}
               </div>
             ))}
@@ -612,7 +600,7 @@ const UpcomingEvents = memo(function UpcomingEvents() {
       title: 'AI & Machine Learning Summit 2026',
       location: 'Main Auditorium, KICS',
       category: 'Conference',
-      color: 'from-blue-600 to-cyan-500',
+      color: 'from-blue-700 to-blue-800',
       spots: '200 seats'
     },
     {
@@ -620,7 +608,7 @@ const UpcomingEvents = memo(function UpcomingEvents() {
       title: 'ICOSST 2026 - Call for Papers',
       location: 'Hybrid: Virtual + Physical',
       category: 'Conference',
-      color: 'from-purple-600 to-pink-500',
+      color: 'from-teal-600 to-teal-700',
       spots: 'Open now'
     },
     {
@@ -628,26 +616,23 @@ const UpcomingEvents = memo(function UpcomingEvents() {
       title: 'IoT Security Workshop',
       location: 'Lab 3, KICS',
       category: 'Workshop',
-      color: 'from-green-600 to-teal-500',
+      color: 'from-amber-600 to-amber-700',
       spots: '50 seats'
     },
   ];
 
   return (
-    <section className="relative py-20 bg-[#0f1e3d]">
-      {/* Diagonal stripes pattern */}
-      <div className="absolute inset-0 opacity-5" style={{
-        backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.05) 10px, rgba(255,255,255,0.05) 20px)'
-      }} />
+    <section className="relative py-20 bg-white">
+
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         <AnimateOnScroll>
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
             <div>
-              <span className="text-cyan-400 font-bold uppercase tracking-[0.3em] text-xs mb-3 block">Don't Miss Out</span>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-white leading-tight">Upcoming Events</h2>
-              <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 to-primary-400 rounded-full mt-3" />
+              <span className="text-blue-700 font-bold uppercase tracking-[0.3em] text-xs mb-3 block">Don't Miss Out</span>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 leading-tight">Upcoming Events</h2>
+              <div className="w-20 h-1 bg-gradient-to-r from-blue-700 to-blue-800 rounded-full mt-3" />
             </div>
-            <Link to="/conferences" className="inline-flex items-center gap-2 text-cyan-400 font-semibold text-sm hover:text-cyan-300 transition-colors">
+            <Link to="/conferences" className="inline-flex items-center gap-2 text-blue-700 font-semibold text-sm hover:text-blue-800 transition-colors">
               All Events <FiArrowRight />
             </Link>
           </div>
@@ -655,7 +640,7 @@ const UpcomingEvents = memo(function UpcomingEvents() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {events.map((event, i) => (
             <AnimateOnScroll key={i} delay={i * 80}>
-              <div className="relative group bg-white/95 backdrop-blur-sm rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-cyan-500/20 transition-all duration-300 hover:-translate-y-2">
+              <div className="relative group bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-slate-200 hover:border-blue-200">
                 <div className={`h-2 bg-gradient-to-r ${event.color}`} />
                 <div className="p-6">
                   <div className="flex items-start gap-4 mb-4">
@@ -741,7 +726,7 @@ const TestimonialsSection = memo(function TestimonialsSection() {
                 {/* Rating stars */}
                 <div className="flex gap-1 mb-5">
                   {[...Array(t.rating)].map((_, idx) => (
-                    <span key={idx} className="text-yellow-400 text-xl">★</span>
+                    <span key={idx} className="text-amber-500 text-xl">★</span>
                   ))}
                 </div>
 
@@ -799,25 +784,19 @@ const FeaturedProjects = memo(function FeaturedProjects() {
   ];
 
   return (
-    <section className="relative py-20 sm:py-24 bg-[#0f1e3d] overflow-hidden">
-      {/* Glowing orbs */}
-      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse-slow" />
-      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1.5s' }} />
-
-      {/* Dot pattern overlay */}
-      <div className="absolute inset-0 opacity-10" style={{
-        backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px)',
-        backgroundSize: '30px 30px'
-      }} />
+    <section className="relative py-20 sm:py-24 bg-slate-50 overflow-hidden">
+      {/* Light background decoration */}
+      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         <AnimateOnScroll>
           <div className="text-center mb-12">
-            <span className="text-cyan-400 font-bold uppercase tracking-[0.3em] text-xs mb-3 block">Innovation Hub</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-3 leading-tight">
+            <span className="text-blue-700 font-bold uppercase tracking-[0.3em] text-xs mb-3 block">Innovation Hub</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3 leading-tight">
               Featured Student Projects
             </h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 via-primary-400 to-cyan-400 rounded-full mx-auto" />
-            <p className="text-white/90 text-sm max-w-2xl mx-auto mt-6">
+            <div className="w-20 h-1 bg-gradient-to-r from-blue-700 to-blue-800 rounded-full mx-auto" />
+            <p className="text-slate-600 text-sm max-w-2xl mx-auto mt-6">
               Showcasing groundbreaking innovations from KICS labs and incubation center.
             </p>
           </div>
@@ -825,10 +804,8 @@ const FeaturedProjects = memo(function FeaturedProjects() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {projects.map((project, i) => (
             <AnimateOnScroll key={i} delay={i * 80}>
-              <div className="group relative overflow-hidden rounded-2xl hover:shadow-2xl hover:shadow-cyan-500/20 transition-all duration-500 hover:-translate-y-2">
-                {/* Glowing border effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/50 to-primary-500/50 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
-                <div className="relative">
+              <div className="group relative overflow-hidden rounded-2xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                <div className="relative bg-white rounded-2xl border border-slate-200 group-hover:border-blue-200 overflow-hidden">
                   <div className="relative h-56 overflow-hidden">
                     <img
                       src={project.image}
@@ -837,18 +814,18 @@ const FeaturedProjects = memo(function FeaturedProjects() {
                       loading="lazy"
                       onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&h=400&fit=crop'; }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#071224] via-primary-900/50 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B1833] via-primary-900/50 to-transparent" />
                     <div className="absolute top-4 left-4">
-                      <span className="bg-gradient-to-r from-green-500 to-emerald-600 text-white text-[10px] font-bold px-3 py-1.5 rounded-full border border-white/20 shadow-lg backdrop-blur-sm">
+                      <span className="bg-gradient-to-r from-amber-600 to-amber-700 text-white text-[10px] font-bold px-3 py-1.5 rounded-full border border-white/20 shadow-lg backdrop-blur-sm">
                         <FiAward size={10} className="inline mr-1" /> {project.award}
                       </span>
                     </div>
                   </div>
-                  <div className="relative bg-white/95 backdrop-blur-sm p-6">
-                    <span className="text-xs text-cyan-600 font-bold uppercase tracking-wider">{project.category}</span>
-                    <h3 className="font-bold text-slate-900 text-base mt-2 mb-2 group-hover:text-cyan-600 transition-colors leading-snug">{project.title}</h3>
+                  <div className="relative bg-white p-6">
+                    <span className="text-xs text-blue-700 font-bold uppercase tracking-wider">{project.category}</span>
+                    <h3 className="font-bold text-slate-900 text-base mt-2 mb-2 group-hover:text-blue-700 transition-colors leading-snug">{project.title}</h3>
                     <p className="text-slate-600 text-sm mb-4 leading-relaxed">{project.description}</p>
-                    <div className="flex items-center gap-2 text-cyan-600 text-xs font-semibold group-hover:text-cyan-700 transition-colors cursor-pointer">
+                    <div className="flex items-center gap-2 text-blue-700 text-xs font-semibold group-hover:text-blue-800 transition-colors cursor-pointer">
                       <FiTarget size={12} />
                       <span>View Details</span>
                       <FiArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
@@ -1034,10 +1011,10 @@ const MapSection = memo(function MapSection() {
                 </div>
 
                 {/* Email */}
-                <div className="group relative bg-white rounded-2xl p-6 border-2 border-purple-100 hover:border-purple-300 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-1">
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-purple-50 to-transparent rounded-bl-full" />
+                <div className="group relative bg-white rounded-2xl p-6 border-2 border-blue-100 hover:border-blue-300 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-1">
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-blue-50 to-transparent rounded-bl-full" />
                   <div className="relative flex items-start gap-4">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-600 to-purple-700 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg">
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg">
                       <FiMail size={22} className="text-white" />
                     </div>
                     <div>
@@ -1112,7 +1089,7 @@ const MapSection = memo(function MapSection() {
 /* ── CTA Banner — WOW Section with premium effects ──── */
 const CTABanner = memo(function CTABanner() {
   return (
-    <section className="relative py-16 sm:py-20 md:py-24 bg-[#0f1e3d] overflow-hidden">
+    <section className="relative py-16 sm:py-20 md:py-24 bg-[#0B1833] overflow-hidden">
       {/* Subtle animated background particles - matching footer style */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-20 left-[10%] w-2 h-2 bg-cyan-400 rounded-full animate-pulse" />
@@ -1131,7 +1108,7 @@ const CTABanner = memo(function CTABanner() {
 
           {/* Main heading with gradient */}
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold mb-4 sm:mb-6 leading-tight px-2">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-200 to-primary-200 animate-gradient">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-blue-200 animate-gradient">
               Ready to Innovate Together?
             </span>
           </h2>
@@ -1146,9 +1123,8 @@ const CTABanner = memo(function CTABanner() {
           <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 md:gap-5 mb-10 sm:mb-12 px-4">
             <Link
               to="/contact"
-              className="group relative inline-flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 to-primary-600 text-white font-bold px-6 py-3 sm:px-7 sm:py-3.5 md:px-8 md:py-4 rounded-full transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-cyan-500/50 text-sm sm:text-base"
+              className="group relative inline-flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-bold px-6 py-3 sm:px-7 sm:py-3.5 md:px-8 md:py-4 rounded-full transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-amber-500/30 text-sm sm:text-base"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-primary-500 rounded-full opacity-0 group-hover:opacity-100 blur-xl transition-opacity" />
               <span className="relative">Get in Touch</span>
               <FiArrowRight className="relative group-hover:translate-x-1 transition-transform" size={16} />
             </Link>
@@ -1217,3 +1193,4 @@ export default function Home() {
     </>
   );
 }
+
