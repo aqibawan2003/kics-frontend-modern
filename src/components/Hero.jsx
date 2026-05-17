@@ -202,14 +202,14 @@ export default function Hero() {
             {/* Typewriter tagline */}
             <div className="flex items-center gap-2 justify-center lg:justify-start mb-6 sm:mb-7">
               <span className="text-amber-400 text-sm font-semibold">&#9670;</span>
-              <span className="text-blue-100 text-sm font-medium min-w-[220px] inline-block">
+              <span className="text-blue-100 text-sm font-medium min-w-[160px] sm:min-w-[220px] inline-block">
                 {typedText}
                 <span className="inline-block w-0.5 h-4 bg-amber-400 ml-0.5 align-middle animate-pulse" />
               </span>
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-2.5 sm:gap-3 justify-center lg:justify-start mb-6 sm:mb-8 md:mb-10">
+            <div className="flex flex-wrap gap-2 sm:gap-3 justify-center lg:justify-start mb-5 sm:mb-8 md:mb-10">
               <Link
                 to="/about"
                 className="group inline-flex items-center gap-2 text-white font-bold px-6 sm:px-7 py-3 sm:py-3.5 rounded-full shadow-primary hover:shadow-lg hover:-translate-y-1 transition-all duration-300 text-sm"
@@ -227,7 +227,7 @@ export default function Hero() {
             </div>
 
             {/* Stats row with dividers */}
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-4 justify-center lg:justify-start">
+            <div className="flex flex-wrap items-center gap-x-3 sm:gap-x-5 gap-y-3 sm:gap-y-4 justify-center lg:justify-start">
               {stats.map(({ icon: Icon, value, label }, i) => (
                 <div key={label} className="flex items-center gap-2.5">
                   {i > 0 && <span className="hidden sm:block w-px h-8 bg-blue-600/50" />}
