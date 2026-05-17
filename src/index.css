@@ -600,6 +600,83 @@
 .text-reveal-delay-2 { animation-delay: 0.2s; }
 .text-reveal-delay-3 { animation-delay: 0.3s; }
 
+
+/* ── Spotlight card glow on hover ───────────────── */
+.card-glow {
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+.card-glow:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 0 0 1px rgba(59,130,246,0.2), 0 8px 30px rgba(59,130,246,0.18), 0 2px 8px rgba(0,0,0,0.08);
+}
+.card-glow-amber {
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+.card-glow-amber:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 0 0 1px rgba(245,158,11,0.25), 0 8px 30px rgba(245,158,11,0.2), 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* ── Gradient border card ───────────────────────── */
+.card-gradient-border {
+  position: relative;
+  background: white;
+  border-radius: 1rem;
+}
+.card-gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(135deg, #3B82F6, #F59E0B, #3B82F6);
+  background-size: 200% 200%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  animation: gradient-x 3s ease infinite;
+}
+.card-gradient-border:hover::before {
+  opacity: 1;
+}
+
+/* ── Glowing button pulse ───────────────────────── */
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+}
+.btn-glow::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #F59E0B, #3B82F6, #F59E0B);
+  background-size: 300% 300%;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s;
+  animation: gradient-x 2s ease infinite;
+  filter: blur(8px);
+}
+.btn-glow:hover::after {
+  opacity: 0.6;
+}
+
+/* ── Tilt 3D card effect ────────────────────────── */
+@keyframes tilt-in {
+  from { transform: perspective(800px) rotateX(0deg) rotateY(0deg); }
+}
+.card-tilt {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+}
+.card-tilt:hover {
+  transform: perspective(800px) rotateX(2deg) rotateY(-2deg) translateY(-4px);
+  box-shadow: 6px 10px 30px rgba(0,0,0,0.12);
+}
+
 /* ═══════════════════════════════════════════════════════
    ACCESSIBILITY - REDUCED MOTION (WCAG 2.1)
    ═══════════════════════════════════════════════════════ */
