@@ -297,7 +297,7 @@ const ResearchSection = memo(function ResearchSection() {
           </div>
         </AnimateOnScroll>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
           {researchAreas.map((area, i) => (
             <AnimateOnScroll key={area.title} animation="reveal" delay={i * 80}>
               <article className="card group h-full flex flex-col">
