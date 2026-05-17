@@ -384,7 +384,7 @@ const DirectorQuote = memo(function DirectorQuote() {
                 { title: 'Mission', text: 'To conduct high-impact applied research, develop cutting-edge technologies, and forge industry-academia partnerships that drive innovation.', icon: FiTrendingUp, color: 'from-blue-800 to-[#0B1833]' },
                 { title: 'Values', text: 'Integrity, innovation, collaboration, and impact — creating an open culture of curiosity and a relentless pursuit of excellence.', icon: FiAward, color: 'from-teal-600 to-teal-700' },
               ].map((item) => (
-                <div key={item.title} className="group relative bg-white rounded-2xl p-6 border-2 border-primary-100 hover:border-primary-300 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+                <div key={item.title} className="group relative bg-white rounded-2xl p-6 border-2 border-primary-100 hover:border-primary-300 shadow-lg hover:shadow-2xl transition-all duration-300 card-tilt">
                   <div className="flex items-start gap-4">
                     <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-md`}>
                       <item.icon size={20} className="text-white" />
@@ -459,7 +459,7 @@ const NewsSection = memo(function NewsSection() {
 
           <AnimateOnScroll animation="reveal-right" className="lg:col-span-2 flex flex-col gap-3 sm:gap-4">
             {rest.map((item, i) => (
-              <Link to="/news" key={i} className="group bg-white/80 backdrop-blur-sm rounded-lg sm:rounded-xl flex gap-3 sm:gap-4 p-3 sm:p-4 items-start border-2 border-transparent hover:border-primary-200 hover:bg-white shadow-md hover:shadow-xl transition-all hover:-translate-y-1">
+              <Link to="/news" key={i} className="group bg-white/80 backdrop-blur-sm rounded-lg sm:rounded-xl flex gap-3 sm:gap-4 p-3 sm:p-4 items-start border-2 border-transparent hover:border-primary-200 hover:bg-white shadow-md card-glow">
                 <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg sm:rounded-xl overflow-hidden flex-shrink-0 ring-2 ring-primary-100 group-hover:ring-primary-300 transition-all">
                   <img
                     src={item.image}
@@ -582,7 +582,7 @@ const CollabSection = memo(function CollabSection() {
             ].map((stat, i) => (
               <div
                 key={i}
-                className="group relative bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 hover:border-blue-300 hover:bg-white transition-all duration-300 hover:-translate-y-2 shadow-md hover:shadow-xl"
+                className="group relative bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 hover:border-blue-300 hover:bg-white transition-all duration-300 shadow-md card-glow"
               >
                 <div className="relative text-center">
                   {/* Icon */}
