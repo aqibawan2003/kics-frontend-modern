@@ -92,7 +92,7 @@ export default function ICOSST() {
           <AnimateOnScroll animation="reveal-scale">
             <div className="flex flex-wrap justify-center gap-3">
               {topics.map(t => (
-                <span key={t} className="bg-white border border-slate-200 text-slate-700 rounded-full px-4 py-2 text-sm font-medium shadow-sm hover:border-gold hover:text-primary-800 transition-colors cursor-default">
+                <span key={t} className="bg-white border border-slate-200 text-slate-700 rounded-full px-4 py-2 text-sm font-medium shadow-sm hover:border-amber-600 hover:text-primary-800 transition-colors cursor-default">
                   {t}
                 </span>
               ))}
