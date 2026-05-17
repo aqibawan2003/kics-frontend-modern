@@ -599,7 +599,7 @@ const CollabSection = memo(function CollabSection() {
                   alt={p.name}
                   loading="lazy"
                   draggable={false}
-                  className="h-9 sm:h-12 w-auto max-w-[90px] sm:max-w-[110px] object-contain filter brightness-0 invert opacity-60 group-hover:opacity-100 group-hover:brightness-100 group-hover:invert-0 group-hover:scale-110 transition-all duration-300"
+                  className="h-9 sm:h-12 w-auto max-w-[90px] sm:max-w-[110px] object-contain filter grayscale opacity-75 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
                   onError={(e) => { e.currentTarget.style.opacity = '0.2'; }}
                 />
                 <span className="text-blue-200/60 group-hover:text-white text-[10px] sm:text-xs font-semibold text-center leading-tight transition-colors duration-300 whitespace-nowrap">
@@ -614,7 +614,7 @@ const CollabSection = memo(function CollabSection() {
       {/* Stats */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 mt-12 sm:mt-16">
         <AnimateOnScroll delay={200}>
-          <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-lg mx-auto pt-8 border-t border-white/10">
+          <div className="grid gap-4 sm:gap-8 max-w-lg mx-auto pt-8 border-t border-white/10" style={{ gridTemplateColumns: 'repeat(3, minmax(0, 1fr))' }}>
             {[
               { value: '50+', label: 'Industry Partners', icon: FiUsers },
               { value: '20+', label: 'Countries', icon: FiGlobe },
