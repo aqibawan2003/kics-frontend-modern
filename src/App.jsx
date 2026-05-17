@@ -54,7 +54,7 @@ export default function App() {
         <ScrollReset />
         <div className="flex flex-col min-h-screen overflow-x-hidden">
           <Navbar />
-          <main className="flex-1">
+          <main className="flex-1 pt-[68px] lg:pt-[100px]">
             <Suspense fallback={<PageSpinner />}>
               <Routes>
                 <Route path="/"                  element={<Home />} />
