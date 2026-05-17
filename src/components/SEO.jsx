@@ -35,6 +35,7 @@ export default function SEO({
   image = DEFAULT_IMAGE,
   type = 'website',
   breadcrumbs = [],
+  path = '',
 }) {
   const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} — Al-Khwarizmi Institute of Computer Science`;
 
@@ -58,7 +59,7 @@ export default function SEO({
     <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      <link rel="canonical" href={BASE_URL} />
+      <link rel="canonical" href={`${BASE_URL}${path || (typeof window !== 'undefined' ? window.location.pathname : '')}`} />
 
       {/* Open Graph */}
       <meta property="og:type" content={type} />
