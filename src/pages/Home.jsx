@@ -233,9 +233,11 @@ const AboutStrip = memo(function AboutStrip() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-14 items-center">
           <AnimateOnScroll animation="reveal-left">
-            <span className="eyebrow">Who We Are</span>
-            <h2 className="section-title mb-4">Al-Khwarizmi Institute of Computer Science</h2>
-            <div className="divider" />
+            <div className="text-center lg:text-left">
+              <span className="eyebrow">Who We Are</span>
+              <h2 className="section-title mb-4">Al-Khwarizmi Institute of Computer Science</h2>
+              <div className="divider mx-auto lg:mx-0" />
+            </div>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-4">
               Named after the legendary 9th-century mathematician Muhammad ibn Musa Al-Khwarizmi — whose
               work laid the foundations of algebra and algorithmic thinking — KICS was established in 2002
@@ -247,7 +249,7 @@ const AboutStrip = memo(function AboutStrip() {
               labs and centers, KICS drives Pakistan's digital transformation across AI, cybersecurity,
               smart cities, embedded systems, and enterprise software.
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
               <Link to="/about" className="btn-primary">Learn More</Link>
               <Link to="/director-message" className="inline-flex items-center gap-2 text-slate-700 font-semibold text-sm hover:text-primary-600 transition-colors">
                 Director's Message <FiArrowRight size={14} />
@@ -350,9 +352,11 @@ const DirectorQuote = memo(function DirectorQuote() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-14 items-center">
           <AnimateOnScroll animation="reveal-left">
-            <span className="eyebrow">Leadership</span>
-            <h2 className="section-title mb-4">Director's Message</h2>
-            <div className="divider" />
+            <div className="text-center lg:text-left">
+              <span className="eyebrow">Leadership</span>
+              <h2 className="section-title mb-4">Director's Message</h2>
+              <div className="divider mx-auto lg:mx-0" />
+            </div>
             <blockquote className="relative border-l-4 sm:border-l-8 border-primary-600 pl-4 sm:pl-6 leading-relaxed text-sm sm:text-base md:text-lg mb-6 bg-gradient-to-r from-primary-50 to-transparent p-4 sm:p-6 rounded-r-xl shadow-lg">
               <div className="absolute -left-2 sm:-left-3 top-4 sm:top-6 w-4 h-4 sm:w-6 sm:h-6 bg-primary-600 rounded-full" />
               <span className="text-slate-900 font-bold text-base sm:text-lg md:text-xl block mb-2 sm:mb-3">
@@ -364,7 +368,9 @@ const DirectorQuote = memo(function DirectorQuote() {
             </blockquote>
             <p className="text-slate-900 font-bold">Prof. Dr. Hafiz Shahzad Asif</p>
             <p className="text-primary-600 text-sm">Director, KICS — UET Lahore</p>
-            <Link to="/director-message" className="btn-primary mt-6">Read Full Message</Link>
+            <div className="flex justify-center lg:justify-start mt-6">
+              <Link to="/director-message" className="btn-primary">Read Full Message</Link>
+            </div>
           </AnimateOnScroll>
 
           <AnimateOnScroll animation="reveal-right">
