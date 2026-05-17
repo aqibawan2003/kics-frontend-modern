@@ -141,26 +141,30 @@ const VideoSection = memo(function VideoSection() {
           </div>
         </AnimateOnScroll>
         <AnimateOnScroll animation="reveal-scale">
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-video max-w-5xl mx-auto border-4 border-white">
-            {/* Placeholder for actual video - replace with your YouTube video ID */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#0B1833] to-blue-900 flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mx-auto mb-4 hover:scale-110 transition-transform cursor-pointer">
-                  <div className="w-0 h-0 border-t-[8px] border-t-transparent border-l-[16px] border-l-white border-b-[8px] border-b-transparent ml-1" />
-                </div>
-                <p className="text-white font-semibold">KICS Overview Video</p>
-                <p className="text-white/70 text-sm mt-1">Coming Soon</p>
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl max-w-5xl mx-auto border-4 border-white bg-gradient-to-br from-[#0B1833] to-blue-900">
+            <div className="flex flex-col items-center justify-center py-16 px-6 text-center">
+              <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mx-auto mb-6">
+                <div className="w-0 h-0 border-t-[8px] border-t-transparent border-l-[16px] border-l-white border-b-[8px] border-b-transparent ml-1" />
               </div>
+              <p className="text-white text-xl font-bold mb-2">Watch KICS in Action</p>
+              <p className="text-white/70 text-sm mb-6 max-w-md">
+                Explore our research highlights, student projects, and institute overview on our official YouTube channel.
+              </p>
+              <a
+                href="https://www.youtube.com/@kicsuet"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-full transition-colors"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+                  <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                </svg>
+                Visit KICS YouTube Channel
+              </a>
+              <p className="text-white/40 text-xs mt-4">
+                Source: <a href="https://www.youtube.com/@kicsuet" target="_blank" rel="noopener noreferrer" className="underline hover:text-white/70">youtube.com/@kicsuet</a>
+              </p>
             </div>
-            {/* Uncomment and add your video ID when ready:
-            <iframe
-              className="w-full h-full"
-              src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
-              title="KICS Overview"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-            */}
           </div>
         </AnimateOnScroll>
       </div>
