@@ -1,4 +1,4 @@
-import { memo, useEffect } from 'react';
+import { memo, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import {
   FiBell, FiArrowRight, FiCalendar, FiBookOpen, FiAward, FiGlobe, FiUsers,
@@ -10,7 +10,7 @@ import useCounter from '../hooks/useCounter';
 import SEO from '../components/SEO';
 import Hero from '../components/Hero';
 import {
-  announcements, researchAreas, newsItems, collaborators,
+  announcements, researchAreas, newsItems,
 } from '../data/siteData';
 
 /* ── Stats ────────────────────────────────────────────────── */
@@ -494,117 +494,138 @@ const NewsSection = memo(function NewsSection() {
 });
 
 /* ── Collaborators ───────────────────────────────────────── */
-const CollabSection = memo(function CollabSection() {
-  // Duplicate logos for seamless infinite loop (only need 2x for -50% translateX)
-  const duplicatedLogos = [...collaborators, ...collaborators];
+const partners = [
+  { name: 'IEEE',         logo: '/logos/ieee.png',         link: 'https://ieee.org' },
+  { name: 'Huawei',       logo: '/logos/huawei.svg',       link: 'https://huawei.com' },
+  { name: 'MIT',          logo: '/logos/mit.svg',          link: 'https://mit.edu' },
+  { name: 'UET Lahore',   logo: '/logos/uet-lahore.png',   link: 'https://uet.edu.pk' },
+  { name: 'HEC Pakistan', logo: '/logos/hec.png',          link: 'https://hec.gov.pk' },
+  { name: 'IGNITE',       logo: '/logos/ignite.gif',       link: 'https://ignite.org.pk' },
+  { name: 'Rescue 1122',  logo: '/logos/rescue-1122.png',  link: 'https://rescue.gov.pk' },
+  { name: 'Punjab Govt',  logo: '/logos/punjab-govt.svg',  link: 'https://punjab.gov.pk' },
+  { name: 'Sports Board', logo: '/logos/sports-board.png', link: 'https://sportsboard.punjab.gov.pk' },
+];
 
-  // FIX: Adjust marquee speed based on network connection
+const CollabSection = memo(function CollabSection() {
+  const containerRef = useRef(null);
+  const isInteracting = useRef(false);
+  const dragRef = useRef({ active: false, startX: 0, scrollLeft: 0 });
+  const rafRef = useRef(null);
+  const SPEED = 0.7;
+  const looped = [...partners, ...partners, ...partners];
+
   useEffect(() => {
-    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-    if (connection && (connection.effectiveType === '3g' || connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g')) {
-      const marqueeTrack = document.querySelector('.marquee-track');
-      if (marqueeTrack) {
-        marqueeTrack.style.animationDuration = '40s'; // Slower on slow networks
+    const el = containerRef.current;
+    if (!el) return;
+    const tick = () => {
+      if (!isInteracting.current) {
+        el.scrollLeft += SPEED;
+        if (el.scrollLeft >= el.scrollWidth / 3) {
+          el.scrollLeft -= el.scrollWidth / 3;
+        }
       }
-    }
+      rafRef.current = requestAnimationFrame(tick);
+    };
+    rafRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafRef.current);
   }, []);
 
+  const startDrag = (x) => {
+    const el = containerRef.current;
+    isInteracting.current = true;
+    dragRef.current = { active: true, startX: x, scrollLeft: el.scrollLeft };
+  };
+  const moveDrag = (x) => {
+    if (!dragRef.current.active) return;
+    containerRef.current.scrollLeft = dragRef.current.scrollLeft - (x - dragRef.current.startX) * 1.4;
+  };
+  const endDrag = () => {
+    dragRef.current.active = false;
+    setTimeout(() => { isInteracting.current = false; }, 600);
+  };
+
   return (
-    <section className="relative py-16 sm:py-20 bg-slate-50 overflow-hidden">
-      {/* Light background decoration */}
-      <div className="absolute top-20 left-20 w-72 h-72 bg-blue-100/30 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-50/50 rounded-full blur-3xl" />
+    <section className="relative py-14 sm:py-20 bg-gradient-to-b from-[#0B1833] via-blue-950 to-[#0B1833] overflow-hidden">
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Header */}
         <AnimateOnScroll>
-          <div className="text-center mb-10 sm:mb-12">
-            <span className="text-slate-600 font-bold uppercase tracking-[0.3em] text-xs mb-3 block">Partners &amp; Collaborations</span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mb-3">Proudly Collaborating With Leading Organizations</h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-blue-700 to-blue-800 rounded-full mx-auto" />
-            <p className="text-slate-600 text-sm max-w-2xl mx-auto mt-6">
-              Working alongside global tech giants, academic institutions, and government bodies to drive innovation and technological advancement.
+          <div className="text-center mb-10 sm:mb-14">
+            <span className="eyebrow">Trusted By</span>
+            <h2 className="section-title text-white mb-3">Our Collaborators &amp; Partners</h2>
+            <div className="divider-center mt-3" />
+            <p className="text-blue-200/70 text-sm max-w-xl mx-auto mt-5">
+              Working alongside global tech leaders, academic institutions, and government bodies to drive innovation.
             </p>
           </div>
         </AnimateOnScroll>
+      </div>
 
-        {/* Infinite Marquee with CSS Mask for Fade */}
+      {/* Marquee — full width with fade edges */}
+      <div
+        className="relative"
+        style={{
+          maskImage: 'linear-gradient(to right, transparent, black 8%, black 92%, transparent)',
+          WebkitMaskImage: 'linear-gradient(to right, transparent, black 8%, black 92%, transparent)',
+        }}
+      >
         <div
-          className="marquee-container overflow-hidden relative"
-          style={{
-            maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
-            WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)'
-          }}
+          ref={containerRef}
+          className="overflow-x-auto select-none cursor-grab active:cursor-grabbing"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}
+          onMouseDown={(e) => startDrag(e.pageX)}
+          onMouseMove={(e) => moveDrag(e.pageX)}
+          onMouseUp={endDrag}
+          onMouseLeave={endDrag}
+          onTouchStart={(e) => startDrag(e.touches[0].pageX)}
+          onTouchMove={(e) => { e.preventDefault(); moveDrag(e.touches[0].pageX); }}
+          onTouchEnd={endDrag}
+          onMouseEnter={() => { isInteracting.current = true; }}
         >
-          <div className="marquee-track flex gap-6 sm:gap-8 items-center py-4">
-            {duplicatedLogos.map((collab, idx) => (
+          <div className="flex gap-5 sm:gap-7 py-4 px-4 w-max">
+            {looped.map((p, i) => (
               <a
-                key={idx}
-                href={collab.url}
+                key={i}
+                href={p.link}
                 target="_blank"
-                rel="noreferrer"
-                title={collab.name}
-                className="group flex-shrink-0 relative bg-white rounded-xl sm:rounded-2xl px-6 py-5 sm:px-8 sm:py-6 flex items-center justify-center border border-slate-200 hover:border-blue-300 shadow-sm hover:shadow-md transition-all duration-300 min-w-[130px] sm:min-w-[160px] cursor-pointer"
+                rel="noopener noreferrer"
+                aria-label={`Visit ${p.name}`}
+                draggable={false}
+                className="group flex-shrink-0 flex flex-col items-center justify-center gap-3 bg-white/8 hover:bg-white/15 backdrop-blur-sm border border-white/10 hover:border-amber-400/40 rounded-2xl px-5 py-5 sm:px-7 sm:py-6 min-w-[110px] sm:min-w-[148px] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-900/50"
               >
-                {/* Logo */}
-                <div className="relative flex flex-col items-center gap-2.5">
-                  <img
-                    src={collab.logo}
-                    alt={collab.name}
-                    className="h-10 sm:h-14 w-auto object-contain filter grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
-                    loading="lazy"
-                    onError={(e) => { e.target.style.display = 'none'; }}
-                  />
-                  <span className="text-slate-500 text-[10px] sm:text-xs font-semibold group-hover:text-blue-700 transition-colors text-center whitespace-nowrap">
-                    {collab.name}
-                  </span>
-                </div>
+                <img
+                  src={p.logo}
+                  alt={p.name}
+                  loading="lazy"
+                  draggable={false}
+                  className="h-9 sm:h-12 w-auto max-w-[90px] sm:max-w-[110px] object-contain filter brightness-0 invert opacity-60 group-hover:opacity-100 group-hover:brightness-100 group-hover:invert-0 group-hover:scale-110 transition-all duration-300"
+                  onError={(e) => { e.currentTarget.style.opacity = '0.2'; }}
+                />
+                <span className="text-blue-200/60 group-hover:text-white text-[10px] sm:text-xs font-semibold text-center leading-tight transition-colors duration-300 whitespace-nowrap">
+                  {p.name}
+                </span>
               </a>
             ))}
-
-            {/* Partnership Badge - In Marquee */}
-            <div className="flex-shrink-0 bg-gradient-to-r from-blue-600 to-blue-800 border-2 border-blue-500 rounded-full px-6 py-3 sm:px-8 sm:py-4 hover:from-blue-700 hover:to-blue-900 hover:scale-105 transition-all duration-300 cursor-default">
-              <div className="flex items-center gap-2 whitespace-nowrap">
-                <FiAward className="text-white" size={18} />
-                <span className="text-white font-bold text-sm sm:text-base">50+ INDUSTRY PARTNERS</span>
-              </div>
-            </div>
           </div>
         </div>
+      </div>
 
-        {/* Partnership stats - Professional Cards */}
+      {/* Stats */}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 mt-12 sm:mt-16">
         <AnimateOnScroll delay={200}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto mt-12 sm:mt-16 pt-8 sm:pt-10 border-t border-slate-200">
+          <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-lg mx-auto pt-8 border-t border-white/10">
             {[
               { value: '50+', label: 'Industry Partners', icon: FiUsers },
               { value: '20+', label: 'Countries', icon: FiGlobe },
               { value: '100+', label: 'Joint Projects', icon: FiTarget },
             ].map((stat, i) => (
-              <div
-                key={i}
-                className="group relative bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 hover:border-blue-300 hover:bg-white transition-all duration-300 shadow-md card-glow"
-              >
-                <div className="relative text-center">
-                  {/* Icon */}
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-lg">
-                    <stat.icon size={24} className="text-white sm:w-7 sm:h-7" />
-                  </div>
-
-                  {/* Number */}
-                  <div className="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-2 leading-none">
-                    {stat.value}
-                  </div>
-
-                  {/* Label */}
-                  <div className="text-slate-600 text-xs sm:text-sm font-semibold uppercase tracking-wider leading-tight">
-                    {stat.label}
-                  </div>
+              <div key={i} className="text-center group">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 sm:mb-3 rounded-xl bg-white/10 group-hover:bg-amber-400/20 flex items-center justify-center transition-all duration-300">
+                  <stat.icon size={16} className="text-amber-400 sm:w-5 sm:h-5" />
                 </div>
-
-                {/* Divider on desktop (not on last item) */}
-                {i < 2 && (
-                  <div className="hidden md:block absolute top-1/2 -right-3 w-px h-16 bg-gradient-to-b from-transparent via-slate-200 to-transparent transform -translate-y-1/2" />
-                )}
+                <div className="text-xl sm:text-3xl font-extrabold text-white leading-none mb-1">{stat.value}</div>
+                <div className="text-blue-300/60 text-[9px] sm:text-xs uppercase tracking-wider">{stat.label}</div>
               </div>
             ))}
           </div>
