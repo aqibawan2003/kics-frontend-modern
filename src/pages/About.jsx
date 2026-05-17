@@ -34,9 +34,11 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
             <AnimateOnScroll animation="reveal-left">
-              <span className="eyebrow">Our Story</span>
-              <h2 className="section-title mb-4">Al-Khwarizmi Institute of Computer Science</h2>
-              <div className="divider" />
+              <div className="text-center lg:text-left">
+                <span className="eyebrow">Our Story</span>
+                <h2 className="section-title mb-4">Al-Khwarizmi Institute of Computer Science</h2>
+                <div className="divider mx-auto lg:mx-0" />
+              </div>
               <p className="text-slate-600 leading-relaxed mb-4">
                 The Al-Khwarizmi Institute of Computer Science (KICS) is a research and development
                 institution established in August 2002 at the University of Engineering &amp; Technology (UET)
