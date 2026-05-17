@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FiArrowRight, FiAward, FiBookOpen, FiCpu, FiUsers, FiStar } from 'react-icons/fi';
 import { heroSlides } from '../data/siteData';
@@ -52,6 +52,41 @@ export default function Hero() {
     const id = setInterval(nextSlide, 5500);
     return () => clearInterval(id);
   }, [nextSlide]);
+
+
+  // ── Typewriter effect ──────────────────────────────────────
+  const phrases = [
+    'Excellence in Research',
+    'Innovation in Technology',
+    'Leaders in AI & Engineering',
+    'Shaping Pakistan's Future',
+    'Where Ideas Become Impact',
+  ];
+  const [typedText, setTypedText]     = useState('');
+  const [phraseIdx, setPhraseIdx]     = useState(0);
+  const [isDeleting, setIsDeleting]   = useState(false);
+  const typeTimerRef = useRef(null);
+
+  useEffect(() => {
+    const fullPhrase = phrases[phraseIdx];
+    const speed = isDeleting ? 40 : 80;
+
+    typeTimerRef.current = setTimeout(() => {
+      if (!isDeleting) {
+        setTypedText(fullPhrase.slice(0, typedText.length + 1));
+        if (typedText.length + 1 === fullPhrase.length) {
+          setTimeout(() => setIsDeleting(true), 1800);
+        }
+      } else {
+        setTypedText(fullPhrase.slice(0, typedText.length - 1));
+        if (typedText.length - 1 === 0) {
+          setIsDeleting(false);
+          setPhraseIdx((i) => (i + 1) % phrases.length);
+        }
+      }
+    }, speed);
+    return () => clearTimeout(typeTimerRef.current);
+  }, [typedText, isDeleting, phraseIdx]);
 
   const slide = heroSlides[current];
 
@@ -138,6 +173,15 @@ export default function Hero() {
             >
               {slide.subtitle}
             </p>
+
+            {/* Typewriter tagline */}
+            <div className="flex items-center gap-2 justify-center lg:justify-start mb-6 sm:mb-7">
+              <span className="text-amber-400 text-sm font-semibold">&#9670;</span>
+              <span className="text-blue-100 text-sm font-medium min-w-[220px] inline-block">
+                {typedText}
+                <span className="inline-block w-0.5 h-4 bg-amber-400 ml-0.5 align-middle animate-pulse" />
+              </span>
+            </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-2.5 sm:gap-3 justify-center lg:justify-start mb-6 sm:mb-8 md:mb-10">
