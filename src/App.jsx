@@ -1,4 +1,5 @@
 import { lazy, Suspense } from 'react';
+import { HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -45,6 +46,7 @@ function NotFound() {
 
 export default function App() {
   return (
+    <HelmetProvider>
     <ErrorBoundary>
       <BrowserRouter>
         <LoadingScreen />
@@ -78,5 +80,6 @@ export default function App() {
         </div>
       </BrowserRouter>
     </ErrorBoundary>
+    </HelmetProvider>
   );
 }
