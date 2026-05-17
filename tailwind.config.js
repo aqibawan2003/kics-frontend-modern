@@ -44,8 +44,8 @@ export default {
           900: '#0f172a',
         },
         // Legacy support — updated to tech blue
-        navy: { DEFAULT: '#0B2447', light: '#1e40af', dark: '#1e3a8a' },
-        gold: { DEFAULT: '#06b6d4', light: '#22d3ee', dark: '#0891b2' },
+        navy: { DEFAULT: '#0B1833', 950: '#0B1833', light: '#1e40af', dark: '#1e3a8a' },
+        gold: { DEFAULT: '#B45309', light: '#D97706', tint: '#FEF3C7' },
       },
       fontFamily: {
         sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif'],
@@ -60,7 +60,7 @@ export default {
         'card':       '0 4px 24px rgba(37,99,235,0.08)',
         'card-hover': '0 12px 40px rgba(37,99,235,0.16)',
         'primary':    '0 4px 20px rgba(6,182,212,0.28)',
-        'gold':       '0 4px 16px rgba(6,182,212,0.40)',
+        'gold':       '0 4px 16px rgba(180,83,9,0.40)',
         'nav':        '0 2px 8px rgba(0,0,0,0.08)',
       },
       animation: {
