@@ -35,7 +35,7 @@ export default function Contact() {
           <div className="grid lg:grid-cols-5 gap-10">
             {/* Info panel */}
             <AnimateOnScroll animation="reveal-left" className="lg:col-span-2">
-              <div className="bg-primary-900 rounded-2xl p-7 h-full bg-dot-pattern">
+              <div className="bg-[#0B1833] rounded-2xl p-7 h-full bg-dot-pattern">
                 <span className="text-primary-300 font-semibold uppercase tracking-[0.2em] text-xs mb-3 block">Get in Touch</span>
                 <h2 className="text-2xl font-heading font-bold mb-5 text-primary-50">Contact Information</h2>
                 <div className="space-y-5 mb-8">
@@ -94,10 +94,10 @@ export default function Contact() {
                 <div className="flex gap-3">
                   {[
                     { Icon: FaFacebookF, href: contactInfo.socials.facebook, color: 'hover:bg-blue-600' },
-                    { Icon: FaTwitter, href: contactInfo.socials.twitter, color: 'hover:bg-sky-500' },
-                    { Icon: FaLinkedinIn, href: contactInfo.socials.linkedin, color: 'hover:bg-blue-700' },
-                    { Icon: FaInstagram, href: contactInfo.socials.instagram, color: 'hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-500' },
-                    { Icon: FaYoutube, href: contactInfo.socials.youtube, color: 'hover:bg-red-600' },
+                    { Icon: FaTwitter, href: contactInfo.socials.twitter, color: 'hover:bg-blue-600' },
+                    { Icon: FaLinkedinIn, href: contactInfo.socials.linkedin, color: 'hover:bg-blue-600' },
+                    { Icon: FaInstagram, href: contactInfo.socials.instagram, color: 'hover:bg-blue-600' },
+                    { Icon: FaYoutube, href: contactInfo.socials.youtube, color: 'hover:bg-blue-600' },
                   ].map(({ Icon, href, color }, i) => (
                     <a key={i} href={href} target="_blank" rel="noreferrer"
                       className={`w-9 h-9 rounded-full bg-primary-700 ${color} text-primary-100 flex items-center justify-center transition-all duration-200`}>
@@ -171,3 +171,4 @@ export default function Contact() {
     </div>
   );
 }
+
