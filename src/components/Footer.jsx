@@ -62,7 +62,7 @@ export default function Footer() {
         {/* Main Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-16 pb-8">
           {/* 4-Column Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8 lg:gap-10 mb-12">
 
             {/* Column 1: About / Logo */}
             <div className="lg:col-span-1">
