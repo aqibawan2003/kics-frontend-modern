@@ -1168,7 +1168,7 @@ const CTABanner = memo(function CTABanner() {
           </div>
 
           {/* Stats row */}
-          <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-2xl mx-auto pt-8 sm:pt-10 border-t border-white/10">
+          <div className="grid gap-4 sm:gap-6 md:gap-8 max-w-2xl mx-auto pt-8 sm:pt-10 border-t border-white/10" style={{ gridTemplateColumns: 'repeat(3, minmax(0, 1fr))' }}>
             {[
               { icon: FiUsers, value: '1000+', label: 'Professionals Trained' },
               { icon: FiAward, value: '500+', label: 'Research Papers' },
