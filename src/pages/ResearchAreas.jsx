@@ -4,7 +4,7 @@ import { FiWifi, FiCpu, FiCode, FiZap, FiSettings, FiTarget } from 'react-icons/
 import PageHero from '../components/PageHero';
 import AnimateOnScroll from '../components/AnimateOnScroll';
 import SEO from '../components/SEO';
-import { researchCategories, researchAreas, collaborators } from '../data/siteData';
+import { researchCategories, researchAreas } from '../data/siteData';
 
 const CATEGORY_ICONS = {
   wifi: FiWifi, cpu: FiCpu, code: FiCode,
@@ -132,37 +132,50 @@ export default function ResearchAreas() {
       </section>
 
       {/* Collaborations */}
-      <section className="py-16 bg-white" id="collaborations">
+      <section className="py-16 sm:py-20 bg-gradient-to-b from-[#0B1833] via-blue-950 to-[#0B1833]" id="collaborations">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <AnimateOnScroll>
-            <div className="text-center mb-10">
+            <div className="text-center mb-10 sm:mb-14">
               <span className="eyebrow">Global Reach</span>
-              <h2 className="section-title">Research Collaborations</h2>
+              <h2 className="section-title text-white mb-3">Research Collaborations</h2>
               <div className="divider-center mt-3" />
-              <p className="text-slate-500 max-w-2xl mx-auto text-sm mt-4">
+              <p className="text-blue-200/70 text-sm max-w-2xl mx-auto mt-4">
                 KICS maintains active research partnerships with leading national and international organizations,
                 enabling cutting-edge collaborative research and technology development.
               </p>
             </div>
           </AnimateOnScroll>
           <AnimateOnScroll animation="reveal-scale">
-            <div className="flex flex-wrap justify-center gap-4">
-              {collaborators.map(c => (
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-5">
+              {[
+                { name: 'IEEE',         logo: '/logos/ieee.png',         link: 'https://ieee.org' },
+                { name: 'Huawei',       logo: '/logos/huawei.svg',       link: 'https://huawei.com' },
+                { name: 'MIT',          logo: '/logos/mit.svg',          link: 'https://mit.edu' },
+                { name: 'UET Lahore',   logo: '/logos/uet-lahore.png',   link: 'https://uet.edu.pk' },
+                { name: 'HEC Pakistan', logo: '/logos/hec.png',          link: 'https://hec.gov.pk' },
+                { name: 'IGNITE',       logo: '/logos/ignite.gif',       link: 'https://ignite.org.pk' },
+                { name: 'Rescue 1122',  logo: '/logos/rescue-1122.png',  link: 'https://rescue.gov.pk' },
+                { name: 'Punjab Govt',  logo: '/logos/punjab-govt.svg',  link: 'https://punjab.gov.pk' },
+                { name: 'Sports Board', logo: '/logos/sports-board.png', link: 'https://sportsboard.punjab.gov.pk' },
+              ].map(c => (
                 <a
                   key={c.name}
-                  href={c.url}
+                  href={c.link}
                   target="_blank"
-                  rel="noreferrer"
-                  title={c.name}
-                  className="bg-white rounded-xl px-6 py-4 shadow-card border border-primary-100 hover:shadow-card-hover hover:-translate-y-1 hover:border-primary-300 transition-all duration-300 flex flex-col items-center justify-center min-w-[120px] group cursor-pointer"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit ${c.name}`}
+                  className="group bg-white/8 hover:bg-white/15 backdrop-blur-sm border border-white/10 hover:border-amber-400/40 rounded-2xl px-5 py-5 sm:px-7 sm:py-6 flex flex-col items-center justify-center min-w-[110px] sm:min-w-[140px] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-900/50 cursor-pointer"
                 >
                   <img
                     src={c.logo}
                     alt={c.name}
-                    className="max-h-10 max-w-[90px] object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
-                    onError={e => { e.target.style.display='none'; }}
+                    loading="lazy"
+                    className="h-10 sm:h-12 w-auto max-w-[90px] sm:max-w-[110px] object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+                    onError={e => { e.currentTarget.style.opacity = '0.2'; }}
                   />
-                  <span className="text-slate-500 text-xs mt-2 font-medium group-hover:text-primary-600 transition-colors">{c.name}</span>
+                  <span className="text-blue-200/60 group-hover:text-white text-xs mt-3 font-semibold text-center leading-tight transition-colors duration-300 whitespace-nowrap">
+                    {c.name}
+                  </span>
                 </a>
               ))}
             </div>
