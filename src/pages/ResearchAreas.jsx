@@ -13,7 +13,7 @@ export default function ResearchAreas() {
       <SEO
         title="Research Areas"
         description="Explore KICS's 25+ specialized labs in AI, cybersecurity, IoT, software systems, power engineering, and industrial automation at UET Lahore."
-        breadcrumbs={[{ label: 'Research', url: '/research-areas' }, { label: 'Research Areas', url: '/research-areas' }]}
+        breadcrumbs={[{ label: 'Home', url: '/' }, { label: 'Research Areas', url: '/research-areas' }]}
       />
       <PageHero
         title="Research Areas"
