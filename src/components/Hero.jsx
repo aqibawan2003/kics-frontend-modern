@@ -111,6 +111,31 @@ export default function Hero() {
       <div className="absolute -bottom-16 right-1/3 w-72 h-72 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-1/3 right-0 w-64 h-64 bg-blue-500/15 rounded-full blur-3xl pointer-events-none" />
 
+      {/* ── Animated particles ── */}
+      {[
+        { top: '15%', left: '8%',  size: 3, delay: '0s',   dur: '6s'  },
+        { top: '70%', left: '5%',  size: 5, delay: '1s',   dur: '8s'  },
+        { top: '35%', left: '18%', size: 2, delay: '2s',   dur: '7s'  },
+        { top: '80%', left: '22%', size: 4, delay: '0.5s', dur: '9s'  },
+        { top: '20%', left: '55%', size: 3, delay: '1.5s', dur: '7.5s'},
+        { top: '60%', left: '75%', size: 6, delay: '3s',   dur: '8s'  },
+        { top: '10%', left: '88%', size: 2, delay: '2.5s', dur: '6.5s'},
+        { top: '50%', left: '92%', size: 4, delay: '1s',   dur: '9.5s'},
+        { top: '85%', left: '60%', size: 3, delay: '0.8s', dur: '7s'  },
+        { top: '25%', left: '38%', size: 2, delay: '3.5s', dur: '8.5s'},
+      ].map((p, i) => (
+        <div
+          key={i}
+          className="absolute rounded-full pointer-events-none opacity-0"
+          style={{
+            top: p.top, left: p.left,
+            width: p.size, height: p.size,
+            background: i % 2 === 0 ? 'rgba(245,158,11,0.7)' : 'rgba(147,197,253,0.6)',
+            animation: `particle-float ${p.dur} ease-in-out ${p.delay} infinite`,
+          }}
+        />
+      ))}
+
       {/* ── Floating geometric shapes ── */}
       <div className="absolute top-10 left-[42%] w-14 h-14 border-2 border-blue-400/30 rounded-2xl rotate-12 pointer-events-none" />
       <div className="absolute bottom-14 left-[36%] w-8 h-8 bg-amber-400/20 rounded-lg rotate-45 pointer-events-none" />
