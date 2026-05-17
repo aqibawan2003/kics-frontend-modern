@@ -117,7 +117,7 @@ export default function Services() {
             <div className="flex flex-wrap justify-center gap-4">
               {clients.map(client => (
                 <div key={client}
-                  className="bg-slate-50 border border-slate-200 rounded-xl px-5 py-3 text-slate-700 font-medium text-sm hover:border-gold hover:bg-white hover:-translate-y-0.5 transition-all duration-200 shadow-sm">
+                  className="bg-slate-50 border border-slate-200 rounded-xl px-5 py-3 text-slate-700 font-medium text-sm hover:border-amber-600 hover:bg-white hover:-translate-y-0.5 transition-all duration-200 shadow-sm">
                   {client}
                 </div>
               ))}
