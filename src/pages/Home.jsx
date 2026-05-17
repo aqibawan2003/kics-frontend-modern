@@ -592,17 +592,17 @@ const CollabSection = memo(function CollabSection() {
                 rel="noopener noreferrer"
                 aria-label={`Visit ${p.name}`}
                 draggable={false}
-                className="group flex-shrink-0 flex flex-col items-center justify-center gap-3 bg-white/8 hover:bg-white/15 backdrop-blur-sm border border-white/10 hover:border-amber-400/40 rounded-2xl px-5 py-5 sm:px-7 sm:py-6 min-w-[110px] sm:min-w-[148px] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-900/50"
+                className="group flex-shrink-0 flex flex-col items-center justify-center gap-3 bg-white hover:bg-slate-50 border border-slate-200 hover:border-primary-300 rounded-2xl px-5 py-5 sm:px-7 sm:py-6 min-w-[110px] sm:min-w-[148px] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-800/30"
               >
                 <img
                   src={p.logo}
                   alt={p.name}
                   loading="lazy"
                   draggable={false}
-                  className="h-9 sm:h-12 w-auto max-w-[90px] sm:max-w-[110px] object-contain filter grayscale opacity-75 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+                  className="h-9 sm:h-12 w-auto max-w-[90px] sm:max-w-[110px] object-contain group-hover:scale-110 transition-transform duration-300"
                   onError={(e) => { e.currentTarget.style.opacity = '0.2'; }}
                 />
-                <span className="text-blue-200/60 group-hover:text-white text-[10px] sm:text-xs font-semibold text-center leading-tight transition-colors duration-300 whitespace-nowrap">
+                <span className="text-slate-500 group-hover:text-primary-600 text-[10px] sm:text-xs font-semibold text-center leading-tight transition-colors duration-300 whitespace-nowrap">
                   {p.name}
                 </span>
               </a>
