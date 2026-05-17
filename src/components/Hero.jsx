@@ -327,7 +327,7 @@ export default function Hero() {
 
               {/* Slide dot indicators */}
               <div
-                className="flex justify-center gap-2 mt-5"
+                className="flex justify-center items-center gap-1.5 mt-3"
                 role="group"
                 aria-label="Carousel navigation"
               >
@@ -339,8 +339,8 @@ export default function Hero() {
                     aria-current={i === current ? 'true' : 'false'}
                     className={`transition-all duration-300 rounded-full ${
                       i === current
-                        ? 'w-7 h-2.5 bg-amber-500'
-                        : 'w-2.5 h-2.5 bg-white/30 hover:bg-white/60'
+                        ? 'w-5 h-1.5 bg-amber-400'
+                        : 'w-1.5 h-1.5 bg-white/35 hover:bg-white/65'
                     }`}
                   />
                 ))}
