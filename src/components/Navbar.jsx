@@ -40,18 +40,13 @@ export default function Navbar() {
   const [openMenu, setOpenMenu]             = useState(null);
   const [expandedMobile, setExpandedMobile] = useState(null);
   const [scrolled, setScrolled]             = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [searchOpen, setSearchOpen]         = useState(false);
   const navRef     = useRef(null);
   const closeTimer = useRef(null);
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
-      const total = document.documentElement.scrollHeight - window.innerHeight;
-      setScrollProgress(total > 0 ? (window.scrollY / total) * 100 : 0);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -98,17 +93,6 @@ export default function Navbar() {
 
   return (
     <>
-      {/* SCROLL PROGRESS BAR */}
-      <div
-        className="fixed top-0 left-0 z-[9999] h-[3px] transition-all duration-100"
-        style={{
-          width: `${scrollProgress}%`,
-          background: 'linear-gradient(90deg, #F59E0B, #3B82F6, #F59E0B)',
-          backgroundSize: '200% 100%',
-          animation: 'gradient-x 2s ease infinite',
-          boxShadow: '0 0 8px rgba(245,158,11,0.6), 0 0 16px rgba(59,130,246,0.3)',
-        }}
-      />
       {/* TOP INFO BAR */}
       <div className="hidden lg:block bg-primary-900 text-white/80 text-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-8">
@@ -128,7 +112,7 @@ export default function Navbar() {
       </div>
 
       {/* ── FLOATING GLASS NAVBAR ── */}
-      <div className="sticky top-0 left-0 right-0 z-50 px-3 sm:px-4 pt-2 pb-1">
+      <div className="fixed top-0 left-0 right-0 w-full z-50 px-3 sm:px-4 pt-2 pb-1">
         <header
           ref={navRef}
           className="max-w-7xl mx-auto rounded-2xl transition-all duration-400"
