@@ -121,7 +121,7 @@ export default function Hero() {
                     <br />
                     <span
                       className="bg-clip-text text-transparent"
-                      style={{ backgroundImage: 'linear-gradient(135deg, #1d4ed8, #2563eb, #06b6d4)' }}
+                      style={{ backgroundImage: 'linear-gradient(135deg, #1d4ed8, #2563eb)' }}
                     >
                       {words.slice(mid).join(' ')}
                     </span>
@@ -284,3 +284,4 @@ export default function Hero() {
     </section>
   );
 }
+
