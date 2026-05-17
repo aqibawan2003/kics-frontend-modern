@@ -774,9 +774,8 @@ select:focus-visible {
     @apply py-10 px-4;
   }
 
-  /* Force single column on smallest screens */
+  /* Force single column on smallest screens (keep 3-col layouts like stats intact) */
   .grid-cols-2,
-  .grid-cols-3,
   .grid-cols-4,
   .sm\\:grid-cols-2,
   .sm\\:grid-cols-3 {
@@ -830,9 +829,8 @@ select:focus-visible {
     @apply flex-col;
   }
 
-  /* Single column grids */
+  /* Single column grids on mobile */
   .grid-cols-2,
-  .grid-cols-3,
   .grid-cols-4 {
     @apply grid-cols-1 gap-4;
   }
