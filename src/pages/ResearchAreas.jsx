@@ -1,9 +1,15 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FiWifi, FiCpu, FiCode, FiZap, FiSettings, FiTarget } from 'react-icons/fi';
 import PageHero from '../components/PageHero';
 import AnimateOnScroll from '../components/AnimateOnScroll';
 import SEO from '../components/SEO';
 import { researchCategories, researchAreas, collaborators } from '../data/siteData';
+
+const CATEGORY_ICONS = {
+  wifi: FiWifi, cpu: FiCpu, code: FiCode,
+  zap: FiZap, settings: FiSettings, target: FiTarget,
+};
 
 export default function ResearchAreas() {
   const [activeTab, setActiveTab] = useState(0);
@@ -38,7 +44,7 @@ export default function ResearchAreas() {
                   <div className="relative h-40 sm:h-44 overflow-hidden">
                     <img src={area.image} alt={area.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      onError={e => { e.target.src = `https://placehold.co/400x200/4a1209/fae3de?text=${encodeURIComponent(area.title)}`; }} />
+                      onError={e => { e.target.src = `https://placehold.co/400x200/1e40af/ffffff?text=${encodeURIComponent(area.title)}`; }} />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy/70 to-transparent" />
                   </div>
                   <div className="p-4 sm:p-5 flex-1 flex flex-col">
@@ -65,45 +71,63 @@ export default function ResearchAreas() {
 
           {/* Tab bar */}
           <div className="flex flex-wrap gap-2 justify-center mb-10">
-            {researchCategories.map((cat, i) => (
-              <button key={i} onClick={() => setActiveTab(i)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
-                  activeTab === i
-                    ? 'bg-primary-600 text-white shadow-card'
-                    : 'bg-white text-slate-600 hover:bg-primary-600/8 border border-slate-200'
-                }`}>
-                {cat.category}
-              </button>
-            ))}
+            {researchCategories.map((cat, i) => {
+              const Icon = CATEGORY_ICONS[cat.icon];
+              return (
+                <button key={i} onClick={() => setActiveTab(i)}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
+                    activeTab === i
+                      ? 'bg-primary-600 text-white shadow-card'
+                      : 'bg-white text-slate-600 hover:bg-primary-50 border border-slate-200'
+                  }`}>
+                  {Icon && <Icon size={13} />}
+                  {cat.category}
+                  <span className={`text-xs font-bold px-1.5 py-0.5 rounded-full ${
+                    activeTab === i ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-500'
+                  }`}>{cat.labs.length}</span>
+                </button>
+              );
+            })}
           </div>
 
-          {/* Selected category */}
-          {researchCategories.map((cat, ci) => (
-            <div key={ci} className={activeTab === ci ? 'block' : 'hidden'}>
-              <div className={`bg-gradient-to-r ${cat.color} rounded-xl sm:rounded-2xl p-4 sm:p-5 lg:p-6 mb-5 sm:mb-6 text-white`}>
-                <div className="flex items-center gap-3 mb-2">
-                  <h3 className="font-bold text-lg sm:text-xl text-white">{cat.category}</h3>
-                </div>
-                <p className="text-white/70 text-sm">{cat.labs.length} specialized labs in this domain</p>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-                {cat.labs.map((lab, li) => (
-                  <AnimateOnScroll key={li} delay={li * 60}>
-                    <div className="card p-4 sm:p-5 group hover:border-amber-600 border border-transparent transition-colors">
-                      <div className="flex items-start gap-3">
-                        <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${cat.color} flex items-center justify-center text-white font-bold text-xs flex-shrink-0`}>
-                          {lab.short}
+          {/* Active category — fade in on tab change */}
+          <div key={activeTab} className="animate-fadeIn">
+            {(() => {
+              const cat = researchCategories[activeTab];
+              const Icon = CATEGORY_ICONS[cat.icon];
+              return (
+                <>
+                  <div className={`bg-gradient-to-r ${cat.color} rounded-xl sm:rounded-2xl p-4 sm:p-5 lg:p-6 mb-5 sm:mb-6 text-white`}>
+                    <div className="flex items-center gap-3 mb-2">
+                      {Icon && (
+                        <div className="w-9 h-9 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <Icon size={18} />
                         </div>
-                        <div>
-                          <h4 className="font-semibold text-primary-800 text-sm group-hover:text-cyan-500 transition-colors leading-snug">{lab.name}</h4>
-                        </div>
-                      </div>
+                      )}
+                      <h3 className="font-bold text-lg sm:text-xl text-white">{cat.category}</h3>
                     </div>
-                  </AnimateOnScroll>
-                ))}
-              </div>
-            </div>
-          ))}
+                    <p className="text-white/70 text-sm">{cat.labs.length} specialized labs in this domain</p>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+                    {cat.labs.map((lab, li) => (
+                      <AnimateOnScroll key={li} delay={li * 60}>
+                        <div className="card p-4 sm:p-5 group hover:border-amber-600 border border-transparent transition-colors">
+                          <div className="flex items-start gap-3">
+                            <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${cat.color} flex items-center justify-center text-white font-bold text-xs flex-shrink-0`}>
+                              {lab.short}
+                            </div>
+                            <div>
+                              <h4 className="font-semibold text-primary-800 text-sm group-hover:text-cyan-500 transition-colors leading-snug">{lab.name}</h4>
+                            </div>
+                          </div>
+                        </div>
+                      </AnimateOnScroll>
+                    ))}
+                  </div>
+                </>
+              );
+            })()}
+          </div>
         </div>
       </section>
 
@@ -166,4 +190,3 @@ export default function ResearchAreas() {
     </div>
   );
 }
-
