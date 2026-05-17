@@ -59,7 +59,7 @@ export default function Hero() {
     'Excellence in Research',
     'Innovation in Technology',
     'Leaders in AI & Engineering',
-    'Shaping Pakistan's Future',
+    "Shaping Pakistan's Future",
     'Where Ideas Become Impact',
   ];
   const [typedText, setTypedText]     = useState('');
