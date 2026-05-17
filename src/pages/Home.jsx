@@ -92,7 +92,7 @@ const StatsBar = memo(function StatsBar() {
         </AnimateOnScroll>
 
         {/* Stats grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-5 lg:gap-8">
           {kicsStats.map((item, i) => (
             <AnimateOnScroll key={item.label} animation="reveal" delay={i * 80}>
               <StatItem {...item} index={i} />
@@ -142,11 +142,11 @@ const VideoSection = memo(function VideoSection() {
         </AnimateOnScroll>
         <AnimateOnScroll animation="reveal-scale">
           <div className="relative rounded-2xl overflow-hidden shadow-2xl max-w-5xl mx-auto border-4 border-white bg-gradient-to-br from-[#0B1833] to-blue-900">
-            <div className="flex flex-col items-center justify-center py-16 px-6 text-center">
-              <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mx-auto mb-6">
+            <div className="flex flex-col items-center justify-center py-8 sm:py-14 px-5 sm:px-6 text-center">
+              <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mx-auto mb-4 sm:mb-6">
                 <div className="w-0 h-0 border-t-[8px] border-t-transparent border-l-[16px] border-l-white border-b-[8px] border-b-transparent ml-1" />
               </div>
-              <p className="text-white text-xl font-bold mb-2">Watch KICS in Action</p>
+              <p className="text-white text-base sm:text-xl font-bold mb-2">Watch KICS in Action</p>
               <p className="text-white/70 text-sm mb-6 max-w-md">
                 Explore our research highlights, student projects, and institute overview on our official YouTube channel.
               </p>
