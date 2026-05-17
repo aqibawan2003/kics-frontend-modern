@@ -104,8 +104,8 @@ export const stats = [
 export const researchCategories = [
   {
     category: 'Communication Technologies',
-    color: 'from-primary-600 to-primary-800',
-    icon: 'comm',
+    color: 'from-blue-600 to-blue-800',
+    icon: 'wifi',
     labs: [
       { name: 'High Performance Computing & Networking Lab (HPCNL)', short: 'HPCNL' },
       { name: 'Wireless System Research Lab (WSRL)', short: 'WSRL' },
@@ -116,8 +116,8 @@ export const researchCategories = [
   },
   {
     category: 'Artificial Intelligence',
-    color: 'from-primary-700 to-primary-900',
-    icon: 'ai',
+    color: 'from-violet-600 to-purple-800',
+    icon: 'cpu',
     labs: [
       { name: 'Computer Vision & Machine Learning Lab (CVML)', short: 'CVML' },
       { name: 'Data Science Research Lab (DSRL)', short: 'DSRL' },
@@ -130,8 +130,8 @@ export const researchCategories = [
   },
   {
     category: 'Software Systems',
-    color: 'from-primary-500 to-primary-700',
-    icon: 'sw',
+    color: 'from-teal-600 to-teal-800',
+    icon: 'code',
     labs: [
       { name: 'Software Systems Research Lab (SSRL)', short: 'SSRL' },
       { name: 'Mobile Game Development Lab (MGDL)', short: 'MGDL' },
@@ -140,8 +140,8 @@ export const researchCategories = [
   },
   {
     category: 'Power & Energy Systems',
-    color: 'from-primary-400 to-primary-600',
-    icon: 'power',
+    color: 'from-amber-500 to-orange-700',
+    icon: 'zap',
     labs: [
       { name: 'Power Research System Lab (PSRL)', short: 'PSRL' },
       { name: 'Alternate Energy Research and Innovation Lab (AERIL)', short: 'AERIL' },
@@ -150,8 +150,8 @@ export const researchCategories = [
   },
   {
     category: 'Industrial Automation',
-    color: 'from-primary-600 to-primary-800',
-    icon: 'auto',
+    color: 'from-slate-600 to-slate-800',
+    icon: 'settings',
     labs: [
       { name: 'Industrial Automation & Control Lab (IACL)', short: 'IACL' },
       { name: 'Motion Control Research Lab (MCRL)', short: 'MCRL' },
@@ -160,8 +160,8 @@ export const researchCategories = [
   },
   {
     category: 'Centers & Incubation',
-    color: 'from-primary-700 to-primary-900',
-    icon: 'centers',
+    color: 'from-rose-500 to-pink-700',
+    icon: 'target',
     labs: [
       { name: 'Technology Incubation Center (TIC)', short: 'TIC' },
       { name: 'School of Media Studies (SMS)', short: 'SMS' },
