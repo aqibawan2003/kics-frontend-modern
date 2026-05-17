@@ -89,7 +89,7 @@ export default function ResearchAreas() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                 {cat.labs.map((lab, li) => (
                   <AnimateOnScroll key={li} delay={li * 60}>
-                    <div className="card p-4 sm:p-5 group hover:border-gold border border-transparent transition-colors">
+                    <div className="card p-4 sm:p-5 group hover:border-amber-600 border border-transparent transition-colors">
                       <div className="flex items-start gap-3">
                         <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${cat.color} flex items-center justify-center text-white font-bold text-xs flex-shrink-0`}>
                           {lab.short}
@@ -166,3 +166,4 @@ export default function ResearchAreas() {
     </div>
   );
 }
+
