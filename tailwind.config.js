@@ -64,7 +64,8 @@ export default {
         'nav':        '0 2px 8px rgba(0,0,0,0.08)',
       },
       animation: {
-        marquee:          'marquee 40s linear infinite',
+        marquee:          'marquee 30s linear infinite',
+        'marquee-slow':   'marquee 50s linear infinite',
         fadeUp:           'fadeUp 0.7s ease forwards',
         fadeIn:           'fadeIn 0.6s ease forwards',
         fadeInUp:         'fadeInUp 0.7s cubic-bezier(.16,1,.3,1)',
@@ -82,7 +83,7 @@ export default {
         'gradient-shift': 'gradient-shift 8s ease infinite',
       },
       keyframes: {
-        marquee:      { '0%': { transform: 'translateX(100%)' }, '100%': { transform: 'translateX(-100%)' } },
+        marquee:      { '0%': { transform: 'translateX(0%)' }, '100%': { transform: 'translateX(-50%)' } },
         fadeUp:       { from: { opacity: 0, transform: 'translateY(40px)' }, to: { opacity: 1, transform: 'translateY(0)' } },
         fadeIn:       { from: { opacity: 0 }, to: { opacity: 1 } },
         fadeInUp:     { from: { opacity: 0, transform: 'translateY(20px)' }, to: { opacity: 1, transform: 'translateY(0)' } },

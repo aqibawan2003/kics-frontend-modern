@@ -146,38 +146,51 @@ export default function ResearchAreas() {
             </div>
           </AnimateOnScroll>
           <AnimateOnScroll animation="reveal-scale">
-            <div className="flex flex-wrap justify-center gap-4 sm:gap-5">
-              {[
-                { name: 'IEEE',         logo: '/logos/ieee.png',         link: 'https://ieee.org' },
-                { name: 'Huawei',       logo: '/logos/huawei.svg',       link: 'https://huawei.com' },
-                { name: 'MIT',          logo: '/logos/mit.svg',          link: 'https://mit.edu' },
-                { name: 'UET Lahore',   logo: '/logos/uet-lahore.png',   link: 'https://uet.edu.pk' },
-                { name: 'HEC Pakistan', logo: '/logos/hec.png',          link: 'https://hec.gov.pk' },
-                { name: 'IGNITE',       logo: '/logos/ignite.gif',       link: 'https://ignite.org.pk' },
-                { name: 'Rescue 1122',  logo: '/logos/rescue-1122.png',  link: 'https://rescue.gov.pk' },
-                { name: 'Punjab Govt',  logo: '/logos/punjab-govt.svg',  link: 'https://punjab.gov.pk' },
-                { name: 'Sports Board', logo: '/logos/sports-board.png', link: 'https://sportsboard.punjab.gov.pk' },
-              ].map(c => (
-                <a
-                  key={c.name}
-                  href={c.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Visit ${c.name}`}
-                  className="group bg-white hover:bg-slate-50 border border-slate-200 hover:border-primary-300 rounded-2xl px-5 py-5 sm:px-7 sm:py-6 flex flex-col items-center justify-center min-w-[110px] sm:min-w-[140px] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-800/30 cursor-pointer"
-                >
-                  <img
-                    src={c.logo}
-                    alt={c.name}
-                    loading="lazy"
-                    className="h-10 sm:h-12 w-auto max-w-[90px] sm:max-w-[110px] object-contain group-hover:scale-110 transition-transform duration-300"
-                    onError={e => { e.currentTarget.style.opacity = '0.2'; }}
-                  />
-                  <span className="text-slate-500 group-hover:text-primary-600 text-xs mt-3 font-semibold text-center leading-tight transition-colors duration-300 whitespace-nowrap">
-                    {c.name}
-                  </span>
-                </a>
-              ))}
+            {/* Infinite Marquee */}
+            <div className="relative overflow-hidden marquee-container">
+              {/* Gradient fade edges */}
+              <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0B1833] to-transparent z-10 pointer-events-none" />
+              <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0B1833] to-transparent z-10 pointer-events-none" />
+
+              {/* Marquee track */}
+              <div className="flex marquee-track">
+                {/* Duplicate logos twice for seamless loop */}
+                {[...Array(2)].map((_, idx) => (
+                  <div key={idx} className="flex gap-4 sm:gap-5 flex-shrink-0 px-2 sm:px-3">
+                    {[
+                      { name: 'IEEE',         logo: '/logos/ieee.png',         link: 'https://ieee.org' },
+                      { name: 'Huawei',       logo: '/logos/huawei.svg',       link: 'https://huawei.com' },
+                      { name: 'MIT',          logo: '/logos/mit.svg',          link: 'https://mit.edu' },
+                      { name: 'UET Lahore',   logo: '/logos/uet-lahore.png',   link: 'https://uet.edu.pk' },
+                      { name: 'HEC Pakistan', logo: '/logos/hec.png',          link: 'https://hec.gov.pk' },
+                      { name: 'IGNITE',       logo: '/logos/ignite.gif',       link: 'https://ignite.org.pk' },
+                      { name: 'Rescue 1122',  logo: '/logos/rescue-1122.png',  link: 'https://rescue.gov.pk' },
+                      { name: 'Punjab Govt',  logo: '/logos/punjab-govt.svg',  link: 'https://punjab.gov.pk' },
+                      { name: 'Sports Board', logo: '/logos/sports-board.png', link: 'https://sportsboard.punjab.gov.pk' },
+                    ].map((c, i) => (
+                      <a
+                        key={`${idx}-${i}`}
+                        href={c.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Visit ${c.name}`}
+                        className="group bg-white hover:bg-slate-50 border border-slate-200 hover:border-primary-300 rounded-2xl px-5 py-5 sm:px-7 sm:py-6 flex flex-col items-center justify-center min-w-[110px] sm:min-w-[140px] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-800/30 cursor-pointer flex-shrink-0"
+                      >
+                        <img
+                          src={c.logo}
+                          alt={c.name}
+                          loading="lazy"
+                          className="h-10 sm:h-12 w-auto max-w-[90px] sm:max-w-[110px] object-contain group-hover:scale-110 transition-transform duration-300"
+                          onError={e => { e.currentTarget.style.opacity = '0.2'; }}
+                        />
+                        <span className="text-slate-500 group-hover:text-primary-600 text-xs mt-3 font-semibold text-center leading-tight transition-colors duration-300 whitespace-nowrap">
+                          {c.name}
+                        </span>
+                      </a>
+                    ))}
+                  </div>
+                ))}
+              </div>
             </div>
           </AnimateOnScroll>
         </div>
