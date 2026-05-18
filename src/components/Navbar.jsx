@@ -94,7 +94,7 @@ export default function Navbar() {
   return (
     <>
       {/* TOP INFO BAR */}
-      <div className="hidden lg:block bg-primary-900 text-white/80 text-xs">
+      <div className={`hidden lg:block bg-primary-900 text-white/80 text-xs fixed top-0 left-0 right-0 z-40 transition-transform duration-300 ${scrolled ? '-translate-y-full' : 'translate-y-0'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-8">
           <span className="font-medium tracking-wide">
             Al-Khwarizmi Institute of Computer Science — University of Engineering &amp; Technology, Lahore
@@ -112,7 +112,7 @@ export default function Navbar() {
       </div>
 
       {/* ── FLOATING GLASS NAVBAR ── */}
-      <div className="fixed top-0 left-0 right-0 w-full z-50 px-3 sm:px-4 pt-2 pb-1">
+      <div className={`fixed left-0 right-0 w-full z-50 px-3 sm:px-4 pb-1 transition-all duration-300 ${scrolled ? 'top-0 pt-2' : 'top-8 pt-2 lg:top-8'}`}>
         <header
           ref={navRef}
           className="max-w-7xl mx-auto rounded-2xl transition-all duration-400"
